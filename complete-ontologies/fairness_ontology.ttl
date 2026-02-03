@@ -1,0 +1,1373 @@
+@prefix : <http://fairness_ontology.com/>
+.
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+.
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#>
+.
+@prefix owl:   <http://www.w3.org/2002/07/owl#>
+.
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#>
+.
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#>
+.
+@prefix dc:    <http://purl.org/dc/elements/1.1/>
+.
+# @prefix dct:   <http://purl.org/dc/terms/>
+.
+# @prefix foaf:  <http://xmlns.com/foaf/0.1/>
+.
+# @prefix schema: <http://schema.org/>
+.
+# @prefix voaf:  <http://purl.org/vocommons/voaf#>
+.
+# @prefix vann:  <http://purl.org/vocab/vann/>
+.
+@prefix fmo: <https://purl.org/twc/fmo#>
+.
+@prefix resource: <http://semanticscience.org/resource/>
+.
+@prefix obo: <http://purl.obolibrary.org/obo/>
+.
+
+# --- Classes ---
+
+# --- External ---
+
+obo:IAO_0000030 a owl:Class ;
+    rdfs:label "information content entity"@en ;
+.
+
+resource:SIO_000006 a owl:Class ;
+    rdfs:label "process"@en ;
+.
+
+:hasAntonym a rdf:Property, owl:AnnotationProperty ;
+    rdfs:label "has antonym"@en ;
+    rdfs:comment "Relates a concept to its antonym, given as a string or URI."@en .
+
+# --- Bias ---
+
+fmo:bias a owl:Class ;
+    rdfs:subClassOf obo:IAO_0000030 , owl:Thing ;
+    dc:source "https://www.lexico.com/en/definition/bias"^^xsd:anyURI ;
+    rdfs:label "bias"@en ;
+    skos:definition "Predisposition in favor of or against one thing, person, or group compared with another, usually in a way considered to be unfair."@en ;
+.
+
+## --- Bias Lev. 1 ---
+
+:HistoricalBias a owl:Class ;
+    rdfs:subClassOf fmo:bias ;
+    dc:source "https://doi.org/10.1145/3457607"^^xsd:anyURI ;
+    rdfs:label "historical bias"@en ;
+    skos:definition "Historical bias is caused by already existing bias and socio-technical issues in the world, and can seep into from the data generation process even given a perfect sampling and feature selection."@en
+.
+
+:RepresentationBias a owl:Class ;
+    rdfs:subClassOf fmo:bias ;
+    dc:source "https://doi.org/10.1145/3457607"^^xsd:anyURI ;
+    rdfs:label "representation bias"@en ;
+    skos:definition "Representation bias arises from the use of a skewed or otherwise non-representative sample from a population during data collection process."@en
+.
+
+:IntersectionalBias a owl:Class ;
+    rdfs:subClassOf fmo:bias ;
+    dc:source "https://doi.org/10.1145/3468507.3468511"^^xsd:anyURI ;
+    rdfs:label "intersectional bias"@en ;
+    skos:definition "Intersectional bias is a type of bias that occurs due to the combination of multiple sensitive factors."@en
+.
+
+:AlgorithmicBias a owl:Class ;
+    rdfs:subClassOf fmo:bias ;
+    dc:source "https://doi.org/10.1145/3457607"^^xsd:anyURI ;
+    rdfs:label "algorithmic bias"@en ;
+    skos:definition "Algorithmic bias is when the bias is not present in the input data and is added purely by the algorithm."@en
+.
+
+:OmmittedVariableBias a owl:Class ;
+    rdfs:subClassOf fmo:bias ;
+    dc:source "https://doi.org/10.1145/3457607"^^xsd:anyURI ;
+    rdfs:label "omitted variable bias"@en ;
+    skos:definition "Omitted variable bias occurs when one or more important variables are left out of a model."@en
+.
+
+:MaskingBias a owl:Class ;
+    rdfs:subClassOf fmo:bias ;
+    dc:source "https://doi.org/10.1145/3468507.3468511"^^xsd:anyURI ;
+    rdfs:label "masking bias"@en ;
+    skos:definition "Masking is a form of intentional discrimination that allows decision makers with prejudicial views to mask their intentions, typically by exploiting how fairness notions are defined."@en
+.
+
+:SamplingBias a owl:Class ;
+    rdfs:subClassOf fmo:bias ;
+    dc:source "https://doi.org/10.1145/3457607"^^xsd:anyURI ;
+    rdfs:label "sampling bias"@en ;
+    skos:definition "Similarly to representation bias, sampling bias arises due to non-random sampling of subgroups"@en
+.
+
+## --- Bias Lev. 2 ---
+
+:LinguisticBias  a owl:Class ;
+    rdfs:subClassOf :AlgorithmicBias ;
+    rdfs:label "linguistic bias"@en ;
+    skos:definition "Linguistic bias is embedded in generative AI outputs, the manifestation of harm through demeaning or offensive language that reinforces discrimination."@en;
+.
+
+## --- Bias Individuals ---
+
+:Prejudice a :HistoricalBias ;
+    rdfs:label "prejudice"@en ;
+    skos:definition "Prejudice is a latent human or cultural construct and represents historical predispositions to discrimination."@en ;
+.
+
+:Stereotype a :RepresentationBias ;
+    rdfs:label "stereotype"@en ;
+    skos:definition "A simplified and generalized representation of a group (e.g., “women are nurses,” “men are engineers”) that operationalizes discrimination in communication, media, or data."@en ;
+.
+
+:Disparagement a :LinguisticBias, :RepresentationBias ;
+    rdfs:label "disparagement"@en ;
+    skos:definition "Disparagement is not merely bias in representation but bias in expression, it is the linguistic realization of stereotype."@en ;
+.
+
+# --- Notions ---
+
+fmo:fairness_notion a owl:Class ;
+    rdfs:subClassOf owl:Thing ;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty resource:SIO_000095 ;
+        owl:someValuesFrom fmo:Fair-ML_Paradigm
+    ] ;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty resource:SIO_000095 ;
+        owl:someValuesFrom fmo:worldview
+    ] ;
+    dc:source "https://doi.org/10.1145/3468507.3468511"^^xsd:anyURI ;
+    rdfs:label "fairness notion"@en ;
+    resource:hasSynonym "criterion"@en ;
+    resource:hasSynonym "fairness"@en ;
+    :hasAntonym "discrimination"@en ;
+    skos:definition "A formal definition of fairness that can be observed as a property of a predictive model, in relation to that model's treatment of different cohorts."@en ;
+.
+
+## --- Notions Lev. 1 ---
+
+:ProceduralFairnessNotion a owl:Class ;
+    rdfs:subClassOf fmo:fairness_notion ;
+    # owl:disjointWith :OutcomeFairnessNotion ;
+    # dc:source ""^^xsd:anyURI
+    rdfs:label "procedural fairness notion"@en ;
+    resource:hasSynonym "procedural fairness"@en ;
+    skos:definition "Procedural fairness is connected to the concept of fairness from administrative law, which is concerned with equality of treatment within the process that makes a decision."@en ;
+.
+
+:OutcomeFairnessNotion a owl:Class ;
+    rdfs:subClassOf fmo:fairness_notion ;
+    owl:disjointWith :ProceduralFairnessNotion ;
+    # dc:source ""^^xsd:anyURI
+    rdfs:label "outcome fairness notion"@en ;
+    resource:hasSynonym "outcome fairness"@en ;
+    skos:definition "Outcome fairness is concerned with the fairness of the results of the decision-making process."@en ;
+.
+### --- Notions Lev. 2 ---
+
+:IndividualFairnessNotion a owl:Class ;
+    rdfs:subClassOf :OutcomeFairnessNotion ;
+    owl:disjointWith :GroupFairnessNotion ;
+    dc:source "https://doi.org/10.1145/2090236.2090255"^^xsd:anyURI ;
+    rdfs:label "individual fairness notion"@en ;
+    resource:hasSynonym "individual fairness"@en ;
+    skos:definition "A family of fairness notions with the common objective to ensure that similar individuals are treated similarly by a model. Some notions in this group may be a relaxed version of &quot;strict&quot; individual fairness (i.e., they may treat similar indivduals differently under certain conditions)."@en ;
+.
+
+:GroupFairnessNotion a owl:Class;
+    rdfs:subClassOf :OutcomeFairnessNotion ;
+    owl:disjointWith :IndividualFairnessNotion ;
+    dc:source "https://doi.org/10.1145/3468507.3468511"^^xsd:anyURI ;
+    rdfs:label "group fairness notion"@en ;
+    resource:hasSynonym "group fairness"@en ;
+    skos:definition "A family of fairness notions with the common objective to ensure that groups who differ by their sensitive attributes are treated equally. (Note: Occasionally, \"group fairness\" is used to refer to statistical parity specifically, instead of the broader meaning as defined here)."@en ;
+.
+
+:CausalFairnessNotion a owl:Class ;
+    rdfs:subClassOf :OutcomeFairnessNotion ;
+    owl:disjointWith :ObservationalFairnessNotion ;
+    # dc:source ""^^xsd:anyURI
+    rdfs:label "causal fairness notion"@en ;
+    resource:hasSynonym "causal fairness"@en ;
+    skos:definition "A family of fairness notions focusing on the causal relations between variables."@en ;
+.
+
+:ObservationalFairnessNotion a owl:Class ;
+    rdfs:subClassOf :OutcomeFairnessNotion ;
+    owl:disjointWith :CausalFairnessNotion ;
+    # dc:source ""^^xsd:anyURI
+    rdfs:label "observational fairness notion"@en ;
+    resource:hasSynonym "observational fairness"@en ;
+    skos:definition "A family of fairness notions focusing on the joint distribution of observable factors."@en ;
+.
+
+#### --- Notions Lev. 3 ---
+# They all extend GroupFairnessNotion, shouldn't they extend either CasualFainessNotion or ObservationalFainessNotion?
+
+:IndependenceFairnessNotion a owl:Class ;
+    rdfs:subClassOf :GroupFairnessNotion ;
+    # owl:disjointWith :SeparationFairnessNotion ;
+    # owl:disjointWith :SufficiencyFairnessNotion ;
+    dc:source "https://doi.org/10.1145/3468507.3468511"^^xsd:anyURI ;
+    rdfs:label "independence fairness notion"@en ;
+    resource:hasSynonym "independence fairness"@en ;
+    skos:definition "The fairness property satisfied when the predicted outcome variable is independent from protected attributes."@en ;
+    fmo:probabilistic_definition "Ŷ ⊥ A"@en ;
+.
+
+:SeparationFairnessNotion a owl:Class ;
+    rdfs:subClassOf :GroupFairnessNotion ;
+    # owl:disjointWith :IndependenceFairnessNotion ;
+    # owl:disjointWith :SufficiencyFairnessNotion ;
+    dc:source "https://doi.org/10.1145/3468507.3468511"^^xsd:anyURI ;
+    rdfs:label "separation fairness notion"@en ;
+    resource:hasSynonym "separation fairness"@en ;
+    skos:definition "The fairness property satisfied when the predicted outcome variable is independent of protected attributes, conditionally on the actual outcome variable."@en ;
+    fmo:probabilistic_definition "Ŷ ⊥ A | Y"@en ;
+.
+
+:SufficiencyFairnessNotion a owl:Class ;
+    rdfs:subClassOf :GroupFairnessNotion ;
+    # owl:disjointWith :SeparationFairnessNotion ;
+    # owl:disjointWith :IndependenceFairnessNotion ;
+    dc:source "https://doi.org/10.1145/3468507.3468511"^^xsd:anyURI ;
+    rdfs:label "sufficiency fairness notion"@en ;
+    resource:hasSynonym "sufficiency fairness"@en ;
+    skos:definition "The fairness property satisfied when a target variable is independent of protected attributes, conditionally on the predicted outcome variable."@en ;
+    fmo:probabilistic_definition "Y ⊥ A | Ŷ"@en ;
+.
+
+# --- Metrics ---
+
+# :FairnessMetric a owl:Class ;
+#     rdfs:subClassOf fmo:evaluation_metric ;
+#     dc:source "https://doi.org/10.1145/3468507.3468511"^^xsd:anyURI ;
+#     rdfs:label "fairness metric"@en ;
+#     skos:definition "A measurement of some fairness notion in a machine-learning model or dataset, with regards to some specific cohort(s)."@en ;
+#
+.
+
+fmo:fairness_metric a owl:Class ;
+    rdfs:subClassOf fmo:evaluation_metric ;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty resource:SIO_000215 ;
+        owl:someValuesFrom fmo:fairness_notion
+    ] ;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty resource:SIO_000244 ;
+        owl:someValuesFrom fmo:statistical_metric
+    ] ;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty resource:SIO_000668 ;
+        owl:someValuesFrom fmo:dataset_cohort
+    ] ;
+    dc:source "https://doi.org/10.1145/3468507.3468511"^^xsd:anyURI ;
+    rdfs:label "fairness metric"@en ;
+    skos:definition "A measurement of some fairness notion in a machine-learning model or dataset, with regards to some specific cohort(s)."@en ;
+    fmo:tag "hide" ;
+.
+
+
+
+## --- Metrics Standard ML ---
+
+:ParityBasedFairnessMetric a owl:Class ;
+    rdfs:subClassOf fmo:fairness_metric ;
+    # dc:source ""^^xsd:anyURI ;
+    rdfs:label "parity-based fairness metric"@en ;
+    skos:definition "A measurement of any fairness notion, focusing on equalising the probability of a favourable outcome among groups."@en ;
+.
+
+:ConfusionMatrixBasedFairnessMetric a owl:Class ;
+    rdfs:subClassOf fmo:fairness_metric ;
+    # dc:source ""^^xsd:anyURI ;
+    rdfs:label "confusion matrix-based fairness metric"@en ;
+    skos:definition "A measurement of any fairness notion, focusing on the amount of
+correct/incorrect classifications inferred by the predictor."@en ;
+.
+
+:ScoreBasedFairnessMetric a owl:Class ;
+    rdfs:subClassOf fmo:fairness_metric ;
+    # dc:source ""^^xsd:anyURI ;
+    rdfs:label "score-based fairness metric"@en ;
+    skos:definition "A measurement of any fairness notion, directing attention to the value of the classification score."@en ;
+.
+
+:CalibrationBasedFairnessMetric a owl:Class ;
+    rdfs:subClassOf fmo:fairness_metric ;
+    # dc:source ""^^xsd:anyURI ;
+    rdfs:label "calibration-based fairness metric"@en ;
+    skos:definition "A measurement of any fairness notion, partially connected to the confusion matrix principles, these metrics are usually referred with the term  calibration-based, with the very aim of distinguishing their prevalent attention to the predictive values."@en ;
+.
+
+## --- Metrics LLMs ---
+
+### EmbeddingBasedFairnessMetric
+:EmbeddingBasedFairnessMetric a owl:Class ;
+    rdfs:subClassOf fmo:fairness_metric ;
+    rdfs:label "embedding-based fairness metric"@en ;
+    skos:definition "A fairness metric that evaluates bias or fairness using representations derived from word or sentence embeddings."@en
+.
+
+:WordEmbeddingFairnessMetric a owl:Class ;
+    rdfs:subClassOf :EmbeddingBasedFairnessMetric ;
+    rdfs:label "word embedding fairness metric"@en ;
+    skos:definition "A metric that leverages word vector representations to assess fairness or bias in language models or datasets."@en
+.
+:SentenceEmbeddingFairnessMetric a owl:Class ;
+    rdfs:subClassOf :EmbeddingBasedFairnessMetric ;
+    rdfs:label "sentence embedding fairness metric"@en ;
+    skos:definition "A metric using sentence-level embedding representations as the basis for evaluating model or data fairness."@en
+.
+
+### ProbabilityBasedFairnessMetric
+:ProbabilityBasedFairnessMetric a owl:Class ;
+    rdfs:subClassOf fmo:fairness_metric ;
+    rdfs:label "probability-based fairness metric"@en ;
+    skos:definition "A metric that considers the probability distributions of predicted outcomes to measure fairness."@en
+.
+:MaskedTokenFairnessMetric a owl:Class ;
+    rdfs:subClassOf :ProbabilityBasedFairnessMetric ;
+    rdfs:label "masked token fairness metric"@en ;
+    skos:definition "A fairness metric relying on the predicted probabilities for masked tokens in language models."@en
+.
+:PseudoLogLikelihoodFairnessMetric a owl:Class ;
+    rdfs:subClassOf :ProbabilityBasedFairnessMetric ;
+    rdfs:label "pseudo-log likelihood fairness metric"@en ;
+    skos:definition "A metric based on pseudo-log likelihoods, often used to evaluate the fairness of generation or prediction probabilities."@en
+.
+
+### GeneratedTextBasedFairnessMetric
+:GeneratedTextBasedFairnessMetric a owl:Class ;
+    rdfs:subClassOf fmo:fairness_metric ;
+    rdfs:label "generated text-based fairness metric"@en ;
+    skos:definition "A metric that measures fairness by analyzing or scoring generated text outputs."@en
+.
+:DistributionFairnessMetric a owl:Class ;
+    rdfs:subClassOf :GeneratedTextBasedFairnessMetric ;
+    rdfs:label "distribution fairness metric"@en ;
+    skos:definition "A metric that evaluates fairness by comparing the statistical distribution of generated outputs across groups."@en
+.
+:ClassifierFairnessMetric a owl:Class ;
+    rdfs:subClassOf :GeneratedTextBasedFairnessMetric ;
+    rdfs:label "classifier fairness metric"@en ;
+    skos:definition "A metric that employs a classifier on generated text to assess the presence of bias or fairness."@en
+.
+:LexiconFairnessMetric a owl:Class ;
+    rdfs:subClassOf :GeneratedTextBasedFairnessMetric ;
+    rdfs:label "lexicon fairness metric"@en ;
+    skos:definition "A metric that uses predefined lexicons to study fairness or bias in generated textual content."@en
+.
+
+## --- Social Principles ---
+
+:SocialPrinciple a owl:Class ;
+    # rdfs:subClassOf somethingFromExistingOntologies ;
+    # owl:disjointWith :OutcomeFairnessNotion ;
+    # dc:source ""^^xsd:anyURI
+    rdfs:label "Social Principle"@en ;
+    # resource:hasSynonym ""@en ;
+    skos:definition "Ethical and contextual interpretation of fairness, informing notions."@en ;
+.
+
+### --- Social Principles Individuals ---
+#TODO: should/can we put them in contrast?
+
+:EquityPrinciple a :SocialPrinciple ;
+    rdfs:label "equity"@en ;
+    skos:definition "Equity is providing different resources based on individual needs to ensure everyone has an equal outcome."@en ;
+.
+
+:EquilityPrincipal a :SocialPrinciple ; 
+    rdfs:label "equility"@en ;
+    skos:definition "Equality is giving everyone the same resources and opportunities."@en ;
+.
+
+## --- ML model evaluation ---
+
+fmo:machine_learning_model_evaluation a owl:Class ;
+    rdfs:subClassOf obo:IAO_0000030 ,
+                    resource:SIO_000006 ,
+                    owl:Thing ;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty resource:SIO_000229 ;
+        owl:someValuesFrom fmo:evaluation_metric
+    ] ;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty resource:SIO_000230 ;
+        owl:someValuesFrom fmo:dataset_cohort
+    ] ;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty resource:SIO_000230 ;
+        owl:someValuesFrom fmo:evaluation_metric
+    ] ;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty resource:SIO_000230 ;
+        owl:someValuesFrom fmo:testing_dataset
+    ] ;
+    dc:source "https://isbndb.com/book/9780521766333"^^xsd:anyURI ;
+    rdfs:label "ML model evaluation"@en ;
+    skos:definition "An evaluation of a specific machine learning model on a set of dataset cohorts."@en ;
+.
+
+# --- Tasks ---
+
+:MLTask a owl:Class ;
+    # rdfs:subClassOf somethingFromExistingOntologies ;
+    # owl:disjointWith :OutcomeFairnessNotion ;
+    # dc:source ""^^xsd:anyURI
+    rdfs:label "Machine-Learning Task"@en ;
+    # resource:hasSynonym ""@en ;
+    skos:definition "A machine learning task is a type of prediction or inference that's based on both the problem or question and the available data."@en ;
+.
+
+:SupervisedLearingTask a owl:Class ;
+    rdfs:subClassOf :MLTask ;
+    owl:disjointWith :UnsupervisedLearningTask ;
+    # dc:source ""^^xsd:anyURI
+    rdfs:label "Supervised Learning Task"@en ;
+    # resource:hasSynonym ""@en ;
+    skos:definition "Supervised learning is a category of machine learning that uses labeled datasets to train algorithms to predict outcomes and recognize patterns."@en ;
+.
+
+:UnsupervisedLearningTask a owl:Class ;
+    rdfs:subClassOf :MLTask ;
+    owl:disjointWith :SupervisedLearingTask ;
+    # dc:source ""^^xsd:anyURI
+    rdfs:label "Unsupervised Learning Task"@en ;
+    # resource:hasSynonym ""@en ;
+    skos:definition "Unsupervised tasks involve using algorithms to find patterns, structures, and groupings in unlabeled data without any human guidance or predefined outcomes."@en ;
+.
+
+:NaturalLanguageProcessingTask a owl:Class ;
+    rdfs:subClassOf :MLTask ;
+    # dc:source ""^^xsd:anyURI
+    rdfs:label "Natural Language Processing Task"@en ;
+    # resource:hasSynonym ""@en ;
+    skos:definition "Natural language processing includes breaking down human text or speech into smaller parts that computer programs can easily understand and process."@en ;
+.
+
+# --- Scientific Papers ---
+
+:ScientificPaper a owl:Class;
+    # rdfs:subClassOf somethingFromExistingOntologies ;
+    # dc:source ""^^xsd:anyURI
+    rdfs:label "Scientific Paper"@en ;
+    # resource:hasSynonym ""@en ;
+    skos:definition "A scientific paper published in a journal or during some conference proceesings."@en ;
+.
+
+:ScientificArtifact a owl:Class;
+    # rdfs:subClassOf somethingFromExistingOntologies ;
+    # dc:source ""^^xsd:anyURI
+    rdfs:label "Scientific Artifact"@en ;
+    # resource:hasSynonym ""@en ;
+    skos:definition "A scientific artifact is the outcome with which the the paper contributes, such as a fairness notion, metric, and so on."@en ;
+.
+# --- Applications ---
+
+:ApplicationDomain a owl:Class;
+    # rdfs:subClassOf somethingFromExistingOntologies ;
+    # dc:source ""^^xsd:anyURI
+    rdfs:label "Application Domain"@en ;
+    # resource:hasSynonym ""@en ;
+    skos:definition "AI systems are tailored to the application domain of the specific use-case."@en ;
+.
+
+# --- ObjectProperties ---
+
+:isGuidedBy a owl:ObjectProperty ;
+    rdfs:domain :FairnessNotion ;
+    rdfs:range :SocialPrinciple ;
+    rdfs:label "is guided by"@en ;
+    rdfs:comment "Links a fairness notion to its underpinning social principle such as equity or equality."@en ;
+.
+:Guides a owl:ObjectProperty ;
+    rdfs:domain :SocialPrinciple ;
+    rdfs:range :FairnessNotion ;
+    rdfs:label "guides"@en ;
+    rdfs:comment "Links a fairness notion to its underpinning social principle such as equity or equality."@en ;
+.
+
+## --- Metrics and Notions ---
+
+:measures a owl:ObjectProperty ;
+    # rdfs:subPropertyOf somethingFromExistingOntologies ;
+    rdfs:label "measures"@en ;
+    rdfs:domain fmo:fairness_metric ;
+    rdfs:range fmo:fairness_notion ;
+    skos:definition "A fairness metric measures some fairness notion if comparisons made with the given metric are a valid way to determine fairness with this notion."@en ;
+.
+
+:isMeasuredBy a owl:ObjectProperty ;
+    # rdfs:subPropertyOf somethingFromExistingOntologies ;
+    rdfs:label "is measured by"@en ;
+    rdfs:domain fmo:fairness_notion ;
+    rdfs:range fmo:fairness_metric ;
+    skos:definition "A fairness notion is measured by a fairness metric if comparisons made with the given metric are a valid way to determine fairness with this notion."@en ;
+.
+
+## --- Notions and Biases ---
+
+:mitigates a owl:ObjectProperty ;
+    # rdfs:subPropertyOf somethingFromExistingOntologies ;
+    rdfs:label "mitigates"@en ;
+    rdfs:domain fmo:fairness_notion ;
+    rdfs:range fmo:bias ;
+    skos:definition "A fairness notion is required to mitigate a certain bias."@en ;
+.
+
+:isMitigatedBy a owl:ObjectProperty ;
+    # rdfs:subPropertyOf somethingFromExistingOntologies ;
+    rdfs:label "is mitigated by"@en ;
+    rdfs:domain fmo:bias ;
+    rdfs:range fmo:fairness_notion ;
+    skos:definition "A certain bias in the use-case can be mitigated by enforcing specific fairness notions."@en ;
+.
+
+:produces a owl:ObjectProperty ;
+    rdfs:subPropertyOf resource:SIO_000215 ;
+    rdfs:label "is measurement value of"@en ;
+    rdfs:domain fmo:machine_learning_model_evaluation ;
+    rdfs:range fmo:evaluation_metric ;
+    skos:definition "A certain model evaluation produces a certain value w.r.t. a specific metric."@en ;
+.
+
+## --- Tasks and ScientificArtifacts ---
+
+:isSuitableFor a owl:ObjectProperty ;
+    # rdfs:subPropertyOf somethingFromExistingOntologies ;
+    rdfs:label "is suitable for"@en ;
+    rdfs:domain :ScientificArtifact ;
+    rdfs:range :MLTask ;
+    skos:definition "A certain fairness notion is suitable for a certain set of tasks."@en ;
+.
+
+## --- Application Domains and ScientificArtifacts ---
+
+:hasBeenAppliedTo a owl:ObjectProperty ;
+    # rdfs:subPropertyOf somethingFromExistingOntologies ;
+    rdfs:label "has been applied to"@en ;
+    rdfs:domain :ScientificArtifact ;
+    rdfs:range :ApplicationDomain ;
+    skos:definition "A certain fairness notion has been applied to certain application domains."@en ;
+.
+
+## --- Scientidic Papers and Notions and Metrics---
+
+:isEquivalentTo a owl:ObjectProperty ;
+    # rdfs:subPropertyOf somethingFromExistingOntologies ;
+    rdfs:label "is equivalent to"@en ;
+    rdfs:domain fmo:ScientificArtifact ;
+    rdfs:range fmo:ScientificArtifact ;
+    skos:definition "A certain fairness notion can be equal to some other fairness notions."@en ;
+.
+
+:IsProposedBy a owl:ObjectProperty ;
+    # rdfs:subPropertyOf somethingFromExistingOntologies ;
+    rdfs:label "is proposed by"@en ;
+    rdfs:domain :ScientificArtifact ;
+    rdfs:range :ScientificPaper ;
+    skos:definition "A certain fairness notion is proposed by a certain scientific paper."@en ;
+.
+
+:IsUsedBy a owl:ObjectProperty ;
+    # rdfs:subPropertyOf somethingFromExistingOntologies ;
+    rdfs:label "is used by"@en ;
+    rdfs:domain :ScientificArtifact ;
+    rdfs:range :ScientificPaper ;
+    skos:definition "A certain fairness notion is used by some scientific papers."@en ;
+.
+
+## --- Others from FMO ---
+
+resource:SIO_000008 a owl:ObjectProperty ;
+    rdfs:label "has attribute"@en ;
+.
+resource:SIO_000011 a owl:ObjectProperty ;
+    rdfs:label "is attribute of"@en ;
+.
+resource:SIO_000053 a owl:ObjectProperty ;
+    rdfs:label "has proper part"@en ;
+.
+resource:SIO_000068 a owl:ObjectProperty ;
+    rdfs:label "is part of"@en ;
+.
+resource:SIO_000093 a owl:ObjectProperty ;
+    rdfs:label "is proper part of"@en ;
+.
+resource:SIO_000095 a owl:ObjectProperty ;
+    rdfs:label "is member of"@en ;
+.
+resource:SIO_000215 a owl:ObjectProperty ;
+    rdfs:label "is measurement value of"@en ;
+.
+resource:SIO_000229 a owl:ObjectProperty ;
+    rdfs:label "has output"@en ;
+.
+resource:SIO_000230 a owl:ObjectProperty ;
+    rdfs:label "has_input"@en ;
+.
+resource:SIO_000232 a owl:ObjectProperty ;
+    rdfs:label "is output of"@en ;
+.
+resource:SIO_000244 a owl:ObjectProperty ;
+    rdfs:label "is derived from"@en ;
+.
+resource:SIO_000365 a owl:ObjectProperty ;
+    rdfs:label "is creator of"@en ;
+.
+resource:SIO_000668 a owl:ObjectProperty ;
+    rdfs:label "in relation to"@en ;
+.
+
+# --- DatatypeProperties ---
+
+
+:notionDefinition a owl:DatatypeProperty ;
+    rdfs:label "has definition"@en ;
+    rdfs:domain fmo:fairness_notion ;
+    rdfs:range xsd:string ;
+.
+
+:metricDefinition a owl:DatatypeProperty ;
+    rdfs:label "has definition"@en ;
+    rdfs:domain fmo:fairness_metric ;
+    rdfs:range xsd:string ;
+.
+
+:hasValue a owl:DatatypeProperty ;
+    rdfs:label "has value"@en ;
+    rdfs:domain fmo:machine_learning_model_evaluation ;
+    rdfs:range xsd:float ;
+.
+
+# --- Individuals ---
+
+## --- Tasks ---
+
+:Classification a :SupervisedLearingTask ;
+.
+:Regression a :SupervisedLearingTask ;
+.
+:Clustering a :UnsupervisedLearningTask ;
+.
+:ChatbotInteraction a :NaturalLanguageProcessingTask ;
+.
+:SentimentAnalysis a :NaturalLanguageProcessingTask ;
+.
+
+## --- Applications ---
+
+:CensusIncomePrediction a :ApplicationDomain ;
+.
+:Health a :ApplicationDomain ;
+.
+:Law a :ApplicationDomain ;
+.
+:Education a :ApplicationDomain ;
+.
+:CreditRisk a :ApplicationDomain ;
+.
+:Finance a :ApplicationDomain ;
+.
+
+## --- Scientific Papers ---
+
+:2012Dwork a :ScientificPaper ;
+.
+:2025Gao a :ScientificPaper ;
+.
+:2018Yona a :ScientificPaper ;
+.
+:2020Yurochkin a :ScientificPaper ;
+.
+:2019Lahoti a :ScientificPaper ;
+.
+:2016GrgicHlaca a :ScientificPaper ;
+.
+:2012Kamishima a :ScientificPaper ;
+.
+:2017CorbettDavies a :ScientificPaper ;
+.
+:2015Feldman a :ScientificPaper ;
+.
+:2013Zemel a :ScientificPaper ;
+.
+:2016Hardt a :ScientificPaper ;
+.
+:2017Chouldechova a :ScientificPaper ;
+.
+:2019Beutel a :ScientificPaper ;
+.
+:2018Berk a :ScientificPaper ;
+.
+:2018Vanmassenhove a :ScientificPaper ;
+.
+:2020aJung a :ScientificPaper ;
+.
+:2018Verma a :ScientificPaper ;
+.
+:2016Dieterich a :ScientificPaper ;
+.
+:2017Kusner a :ScientificPaper ;
+.
+:2024Caton a :ScientificPaper ;
+.
+:2017Kleinberg a :ScientificPaper ;
+.
+:2019Dimitrakakis a :ScientificPaper ;
+.
+:2013_Zemel a :ScientificPaper ;
+.
+:2025_Waller a :ScientificPaper ;
+.
+:2015_Feldman a :ScientificPaper ;
+.
+:2019_DeArteaga a :ScientificPaper ;
+.
+:2016_GrgicHlaca a :ScientificPaper ;
+.
+:2019_Dimitrakakis a :ScientificPaper ;
+.
+:2018_Speicher a :ScientificPaper ;
+.
+:2022_Qian a :ScientificPaper ;
+.
+:2017_Caliskan a :ScientificPaper ;
+.
+:2019_May a :ScientificPaper ;
+.
+:2021_Guo a :ScientificPaper ;
+.
+:2023_Dolci a :ScientificPaper ;
+.
+:2021_Webster a :ScientificPaper ;
+.
+:2019_Kurita a :ScientificPaper ;
+.
+:2021_Ahn a :ScientificPaper ;
+.
+:2020_NANGIA a :ScientificPaper ;
+.
+:2021_NADEEM a :ScientificPaper ;
+.
+:2022_KANEKO a :ScientificPaper ;
+.
+:2021_BARIKERI a :ScientificPaper ;
+.
+:2024_GALLEGOS a :ScientificPaper ;
+.
+:2019_BORDIA a :ScientificPaper ;
+.
+:2023_LIANG a :ScientificPaper ;
+.
+:2020_GEHMAN a :ScientificPaper ;
+.
+:2023_LIANG a :ScientificPaper ;
+.
+:2023_SICILIA a :ScientificPaper ;
+.
+:2020_HUANG a :ScientificPaper ;
+.
+:2019_SHENG a :ScientificPaper ;
+.
+:2022_SMITH a :ScientificPaper ;
+.
+:2021_NOZZA a :ScientificPaper ;
+.
+:2021_DHAMALA a :ScientificPaper ;
+.
+
+## --- Fairness Notions ---
+
+:FairnessThroughUnawareness a :ProceduralFairnessNotion, :ScientificArtifact ;
+    :notionDefinition """An algorithm is fair as long as any protected attributes A are not explicitly used in the decision-making process""" ;
+    :isSuitableFor :Classification ;
+    :isSuitableFor :ChatbotInteraction ;
+    :isProposedBy :2016GrgicHlaca ;
+.
+
+:FairnessThroughAwareness a :IndividualFairnessNotion, :ObservationalFairnessNotion, :ScientificArtifact ;
+    :notionDefinition """An algorithm is fair if it gives similar predictions to similar individuals. Awareness is based on the  Lipschitz condition, which  requires that  any two individuals x, y that are at distance d(x, y) ∈ [0, 1] map to distributions M (x) and M (y), respectively, such that the statistical distance between M(x) and M (y) is at most d(x, y).""" ;
+    :hasBeenAppliedTo :Health ;
+    :hasBeenAppliedTo :Law ;
+    :hasBeenAppliedTo :Education ;
+    :isSuitableFor :Classification ;
+    :isProposedBy :2012Dwork ;
+    :isUsedBy :2025Gao ;
+    :isUsedBy :2018Yona ;
+    :isUsedBy :2020Yurochkin ;
+    :isUsedBy :2019Lahoti ;
+    :isEquivalentTo :IndividualFairness;
+.
+
+:IndividualFairness a :IndividualFairnessNotion, :ObservationalFairnessNotion, :ScientificArtifact ;
+    :notionDefinition """An algorithm is fair if it gives similar predictions to similar individuals""" ;
+    :hasBeenAppliedTo :Health ;
+    :hasBeenAppliedTo :Law ;
+    :hasBeenAppliedTo :Education ;
+    :isSuitableFor :Classification ;
+    :isProposedBy :2012Dwork ;
+    :isUsedBy :2025Gao ;
+    :isUsedBy :2018Yona ;
+    :isUsedBy :2020Yurochkin ;
+    :isUsedBy :2019Lahoti ;
+    :isEquivalentTo :FairnessThroughAwareness ;
+.
+
+:StatisticalParity a :ObservationalFairnessNotion, :IndependenceFairnessNotion, :ScientificArtifact ;
+    :hasDefinition """Each group must have the same probability of being classified with the positive outcome, i.e., the fraction of predicted positive of group a should be equal to that of group b""" ;
+    :hasBeenAppliedTo :CensusIncomePrediction ;
+    :hasBeenAppliedTo :Law ;
+    :hasBeenAppliedTo :CreditRisk ;
+    :hasBeenAppliedTo :Health ;
+    :isSuitableFor :Classification ;
+    :isSuitableFor :ChatbotInteraction ;
+    :isProposedBy :2012Kamishima ;
+    :isProposedBy :2013Zemel ;
+    :isUsedBy :2015Feldman ;
+    :isUsedBy :2017CorbettDavies ;
+    :isEquivalentTo :DemographicParity ;
+    :isBasedOnSocialPrinciple :Equality ;
+.
+
+:DemographicParity a :ObservationalFairnessNotion, :IndependenceFairnessNotion, :ScientificArtifact ;
+    :notionDefinition """Each group must have the same probability of being classified with the positive outcome, i.e., the fraction of predicted positive of group a should be equal to that of group b""" ;
+    :hasBeenAppliedTo :CensusIncomePrediction ;
+    :hasBeenAppliedTo :Law ;
+    :hasBeenAppliedTo :CreditRisk ;
+    :hasBeenAppliedTo :Health ;
+    :isSuitableFor :Classification ;
+    :isSuitableFor :ChatbotInteraction ;
+    :isProposedBy :2012Kamishima ;
+    :isProposedBy :2013Zemel ;
+    :isUsedBy :2015Feldman ;
+    :isUsedBy :2017CorbettDavies ;
+    :isEquivalentTo :StatisticalParity ;
+.
+
+:ConditionalStatisticalParity a :ObservationalFairnessNotion, :IndependenceFairnessNotion, :ScientificArtifact ;
+    :notionDefinition """Demographic parity conditioned on a set of “legitimate factors” L. For example, among defendants who have the same number of prior convictions, ensure that  black and white defendants are detained at equal rates.""" ;
+    :hasBeenAppliedTo :CensusIncomePrediction ;
+    :hasBeenAppliedTo :Law ;
+    :hasBeenAppliedTo :CreditRisk ;
+    :hasBeenAppliedTo :Health ;
+    :isSuitableFor :Classification ;
+    :isSuitableFor :ChatbotInteraction ;
+    :isProposedBy :2017CorbettDavies ;
+.
+
+:EqualOpportunity a :ObservationalFairnessNotion, :SeparationFairnessNotion, :ScientificArtifact ;
+    :notionDefinition """the probability of a person in a positive class being assigned to a positive outcome should be equal for both protected and unprotected group members. In other words, the equal opportunity definition states that the protected and unprotected groups should have equal true positive rates.""" ;
+    :hasBeenAppliedTo :Law ;
+    :hasBeenAppliedTo :Finance ;
+    :hasBeenAppliedTo :Health ;
+    :isSuitableFor :Classification ;
+    :isSuitableFor :ChatbotInteraction ;
+    :isProposedBy :2016Hardt ;
+    :isEquivalentTo :FalseNegativeErrorBalance ;
+.
+
+:FalseNegativeErrorRateBalance a :ObservationalFairnessNotion, :SeparationFairnessNotion, :ScientificArtifact ;
+    :notionDefinition """Protected and unprotected groups should have equal false negative rates.""" ;
+    :hasBeenAppliedTo :Law ;
+    :hasBeenAppliedTo :Finance ;
+    :hasBeenAppliedTo :Health ;
+    :isSuitableFor :Classification ;
+    :isSuitableFor :ChatbotInteraction ;
+    :isProposedBy :2017Chouldechova ;
+    :isEquivalentTo :EqualOpportunity ;
+.
+
+:ConditionalEqualOpportunity a :ObservationalFairnessNotion, :SeparationFairnessNotion, :ScientificArtifact ;
+    :notionDefinition """As examples from different groups may have different distributions of risk,  directly applying equality of opportunity over these different risks can raise  issues.  For example, among defendants who have the same number of prior convictions (L), ensure that  FPRs for black and white defendants are equal""" ;
+    :hasBeenAppliedTo :Law ;
+    :isSuitableFor :Classification ;
+    :isSuitableFor :ChatbotInteraction ;
+    :isProposedBy :2019Beutel ;
+.
+
+:EqualizedOdds a :ObservationalFairnessNotion, :SeparationFairnessNotion, :ScientificArtifact ;
+    :notionDefinition """the probability of a person in the positive class being correctly assigned a positive outcome and the probability of a person in a negative class being incorrectly assigned a positive outcome should both be the same for the protected and unprotected group members""" ;
+    :hasBeenAppliedTo :CensusIncomePrediction ;
+    :hasBeenAppliedTo :Law ;
+    :hasBeenAppliedTo :CreditRisk ;
+    :hasBeenAppliedTo :Health ;
+    :isSuitableFor :Classification ;
+    :isSuitableFor :ChatbotInteraction ;
+    :isProposedBy :2018Berk ;
+    :isProposedBy :2018Vanmassenhove ;
+    :isEquivalentTo :ConditionalProcedureAccuracyEquality ;
+.
+
+:ConditionalProcedureAccuracyEquality a :ObservationalFairnessNotion, :SeparationFairnessNotion, :ScientificArtifact ;
+    :notionDefinition """the probability of a person in the positive class being correctly assigned a positive outcome and the probability of a person in a negative class being incorrectly assigned a positive outcome should both be the same for the protected and unprotected group members""" ;
+    :hasBeenAppliedTo :Law ;
+    :hasBeenAppliedTo :Finance ;
+    :hasBeenAppliedTo :Health ;
+    :isSuitableFor :Classification ;
+    :isSuitableFor :ChatbotInteraction ;
+    :isProposedBy :2018Berk ;
+    :isProposedBy :2018Vanmassenhove ;
+    :isEquivalentTo :EqualizedOdds ;
+.
+
+:ErrorRateBalance a :ObservationalFairnessNotion , :SeparationFairnessNotion, :ScientificArtifact ;
+    :notionDefinition """equal false negative and false positive rates""" ;
+    :hasBeenAppliedTo :Law ;
+    :hasBeenAppliedTo :Finance ;
+    :hasBeenAppliedTo :Health ;
+    :isSuitableFor :Classification ;
+    :isSuitableFor :ChatbotInteraction ;
+    :isProposedBy :2017Chouldechova ;
+    :isEquivalentTo :ConditionalProcedureAccuracyEquality ;
+.
+
+:OverallAccuracyEquality a :ObservationalFairnessNotion, :SeparationFairnessNotion, :ScientificArtifact ;
+    :notionDefinition """The accuracy of the classification must be the same for both groups""" ;
+    :hasBeenAppliedTo :Law ;
+    :hasBeenAppliedTo :Finance ;
+    :hasBeenAppliedTo :Health ;
+    :isSuitableFor :Classification ;
+    :isSuitableFor :ChatbotInteraction ;
+    :isProposedBy :2018Berk ;
+.
+
+:TreatmentEquality a :ObservationalFairnessNotion, :SeparationFairnessNotion, :ScientificArtifact ;
+    :notionDefinition """It is achieved when the ratio of false negatives and false positives  is the same for both protected group categories. If the two ratios are significantly different, then you have that for group a(say, men) it is more probable to be incorrectly classified as a negative, then for group b (say, women)""" ;
+    :hasBeenAppliedTo :Law ;
+    :hasBeenAppliedTo :Finance ;
+    :hasBeenAppliedTo :Health ;
+    :isSuitableFor :Classification ;
+    :isSuitableFor :ChatbotInteraction ;
+    :isProposedBy :2018Berk ;
+.
+
+:EqualizingDisincentives a :ObservationalFairnessNotion, :SeparationFairnessNotion, :ScientificArtifact ;
+    :notionDefinition """It aims at equilizing the disincentive (e.e., to commit a crime) across groups: e.g., the probability of being found guilty having committed a crime relative to not must be the same for different groups.""" ;
+    :hasBeenAppliedTo :Law ;
+    :isSuitableFor :Classification ;
+    :isSuitableFor :ChatbotInteraction ;
+    :isProposedBy :2020aJung ;
+.
+
+:PredictiveEquality a :ObservationalFairnessNotion, :SeparationFairnessNotion, :ScientificArtifact ;
+    :notionDefinition """The probability of a person in a negative class being assigned to a positive outcome should be equal for both protected and unprotected group members. In other words, protected and unprotected groups should have equal false positive rates, which implies same true negative rates.""" ;
+    :hasBeenAppliedTo :Law ;
+    :isSuitableFor :Classification ;
+    :isSuitableFor :ChatbotInteraction ;
+    :isProposedBy :2016Hardt ;
+    :isEquivalentTo :FalsePositiveErrorRateBalance ;
+.
+
+:FalsePositiveErrorRateBalance a :ObservationalFairnessNotion, :SeparationFairnessNotion, :ScientificArtifact ;
+    :notionDefinition """the probability of a person in a negative class being assigned to a positive outcome should be equal for both protected and unprotected group members. In other words, protected and unprotected groups should have equal false positive rates, which implies same true negative rates.""" ;
+    :hasBeenAppliedTo :Law ;
+    :isSuitableFor :Classification ;
+    :isSuitableFor :ChatbotInteraction ;
+    :isProposedBy :2017Chouldechova ;
+    :isEquivalentTo :PredictiveEquality ;
+.
+
+:TestFairness a :ObservationalFairnessNotion, :SufficiencyFairnessNotion, :ScientificArtifact ;
+    :notionDefinition """when two people from different groups get the same predicted score, they should have the same probability of belonging to y = 1.""" ;
+    :hasBeenAppliedTo :Law ;
+    :hasBeenAppliedTo :Finance ;
+    :hasBeenAppliedTo :Health ;
+    :isSuitableFor :Classification ;
+    :isSuitableFor :ChatbotInteraction ;
+    :isProposedBy :2018Verma ;
+    :isEquivalentTo :Calibration ;
+    :isEquivalentTo :MatchingConditionalFrequencies ;
+.
+
+:Calibration a :ObservationalFairnessNotion, :SufficiencyFairnessNotion, :ScientificArtifact ;
+    :notionDefinition """when two people from different groups get the same predicted score, they should have the same probability of belonging to y = 1.""" ;
+    :hasBeenAppliedTo :Law ;
+    :hasBeenAppliedTo :Finance ;
+    :hasBeenAppliedTo :Health ;
+    :isSuitableFor :Classification ;
+    :isSuitableFor :ChatbotInteraction ;
+    :isProposedBy :2017Chouldechova ;
+    :isProposedBy :2018Verma ;
+    :isEquivalentTo :TestFairness ;
+    :isEquivalentTo :MatchingConditionalFrequencies ;
+.
+
+:MatchingConditionalFrequencies a :ObservationalFairnessNotion, :SufficiencyFairnessNotion, :ScientificArtifact ;
+    :notionDefinition """when two people from different groups get the same predicted score, they should have the same probability of belonging to y = 1.""" ;
+    :hasBeenAppliedTo :Law ;
+    :hasBeenAppliedTo :Finance ;
+    :hasBeenAppliedTo :Health ;
+    :isSuitableFor :Classification ;
+    :isSuitableFor :ChatbotInteraction ;
+    :isProposedBy :2018Verma ;
+    :isEquivalentTo :TestFariness ;
+    :isEquivalentTo :Calibration ;
+.
+
+:PredictiveParity a :ObservationalFairnessNotion, :SufficiencyFairnessNotion, :ScientificArtifact ;
+    :notionDefinition """Aims at having similar predictive values for two different groups. E.g.,the probability of recidivating, given a high risk score, is similar for blacks and whites. Let S = S(x) denote the risk score, with higher values of S corresponding to higher levels of assessed risk. A score S = S(x) satisfies predictive parity at a threshold sHR if the likelihood of recidivism among high-risk offenders is the same regardless of group membership.""" ;
+    :hasBeenAppliedTo :Law ;
+    :isSuitableFor :Classification ;
+    :isSuitableFor :ChatbotInteraction ;
+    :isProposedBy :2016Dieterich ;
+    :isProposedBy :2017Chouldechova ;
+    :isProposedBy :2017Kusner ;
+.
+
+:WellCalibration a :ObservationalFairnessNotion, :SufficiencyFairnessNotion, :ScientificArtifact ;
+    :notionDefinition """when two people from different groups get the same predicted score r, they should have the same probability of belonging to Y = 1 and that probability should also be equal to r. In other words, if the algorithm identifies a set of people as having a probability x of constituting positive instances, then approximately an x fraction of this set should indeed be positive instances""" ;
+    :hasBeenAppliedTo :Law ;
+    :isSuitableFor :Classification ;
+    :isSuitableFor :ChatbotInteraction ;
+    :isProposedBy :2017Kleinberg ;
+    :isProposedBy :2024Caton ;
+.
+
+:ConditionalUseAccuracyEquality a :ObservationalFairnessNotion, :SufficiencyFairnessNotion, :ScientificArtifact ;
+    :notionDefinition """Conditional on the prediction of success (or failure), is the projected probability of success (or failure) the same across protected group classes?""" ;
+    :hasBeenAppliedTo :Law ;
+    :isSuitableFor :Classification ;
+    :isSuitableFor :ChatbotInteraction ;
+    :isProposedBy :2018Berk ;
+.
+
+:TotalFairness a :ObservationalFairnessNotion, :IndependenceFairnessNotion, :SeparationFairnessNotion, :SufficiencyFairnessNotion, :ScientificArtifact ;
+    :notionDefinition """Achived when: overall accuracy equality, statistical parity, equalized odds (conditional procedure accuracy equality), conditional use accuracy equality, treatment equality are all achieved""" ;
+    :hasBeenAppliedTo :Law ;
+    :isSuitableFor :Classification ;
+    :isSuitableFor :ChatbotInteraction ;
+    :isProposedBy :2018Berk ;
+.
+
+:BalanceForNegativeClass a :ObservationalFairnessNotion, :SeparationFairnessNotion, :ScientificArtifact ;
+    :notionDefinition """The expected predicted score for the negative class has to be equal for all groups. The average score received by people constituting negative instances should be the same in each group. This metric requires that the average score assigned to people of group a who belong to the negative class should be the same as the average score assigned to people of group b who belong to the negative class. In other words, the assignment of scores shouldn’t be systematically more inaccurate for negative instances in one group than the other.""" ;
+    :hasBeenAppliedTo :Law ;
+    :isSuitableFor :Classification ;
+    :isSuitableFor :ChatbotInteraction ;
+    :isProposedBy :2017Kleinberg ;
+    :isUsedBy :2019Dimitrakakis ;
+.
+
+:BalanceForPositiveClass a :ObservationalFairnessNotion, :SeparationFairnessNotion, :ScientificArtifact ;
+    :notionDefinition """It requires that the average score assigned to people of group a who belong to the positive class should be the same as the average score assigned to people of group b who belong to the positive class.""" ;
+    :hasBeenAppliedTo :Law ;
+    :isSuitableFor :Classification ;
+    :isSuitableFor :ChatbotInteraction ;
+    :isProposedBy :2017Kleinberg ;
+    :isUsedBy :2019Dimitrakakis ;
+.
+
+:CounterfactualFairness a :IndividualFairnessNotion, :CausalFairnessNotion, :ScientificArtifact ;
+    :notionDefinition """a decision is fair towards an individual (or a group) if it is the same in both the actual world and a counterfactual world where the individual belonged to a different demographic group. Essentially, the definition ensures that changing an individual’s sensitive variable, while holding constant all other variables that are not causally dependent on the sensitive variable , does not change the prediction (distribution).""" ;
+    :hasBeenAppliedTo :Education ;
+    :isSuitableFor :Classification ;
+    :isSuitableFor :ChatbotInteraction ;
+    :isProposedBy :2017Kusner ;
+.
+
+## --- Fairness Metrics ---
+
+:ConsistencyScore a :ScientificArtifact, fmo:fairness_metric ;
+    :metricDefinition """It measures the overall level of disparity in the classification of individuals with respect to similar individuals, using the k-nearest neighbours. To do so, NN gives a value in the interval [0, 1], and the higher the value, the lower the level of disparity overall.""" ;
+    :isSuitableFor :Classification ;
+    :isProposedBy :2013_Zemel ;
+    :isUsedBy :2025_Waller ;
+.
+
+:IndividualConsistencyScore a :ScientificArtifact, fmo:fairness_metric ;
+    :metricDefinition """An extension of the consistency score, which does not provide an overall (average) evaluation of the individual fairness performance of the predictor, but is able to assess how fair the model is for any individual in the dataset.""" ;
+    :hasBeenAppliedTo :CensusIncomePrediction ;
+    :hasBeenAppliedTo :Law ;
+    :hasBeenAppliedTo :CreditRisk ;
+    :isSuitableFor :Classification ;
+    :isProposedBy :2025_Waller ;
+.
+
+:SimilarityRobustnessOfIndividualConsistency a :ScientificArtifact, fmo:fairness_metric ;
+    :metricDefinition """It quantifies the proportion of individuals for which the individual consistency decreases below or increases above some threshold, between two different notions of similarity. Useful for comparing the impact of switching between two notions. The lower the value, the more resilient the decisions of a classifier are with respect to the notions.""" ;
+    :hasBeenAppliedTo :CensusIncomePrediction ;
+    :hasBeenAppliedTo :Law ;
+    :hasBeenAppliedTo :CreditRisk ;
+    :isSuitableFor :Classification ;
+    :isProposedBy :2025_Waller ;
+.
+
+:LowIndividualConsistencyCount a :ScientificArtifact, fmo:fairness_metric ;
+    :metricDefinition """It measures the absolute number of individuals whose individual consistency score is below some threshold.""" ;
+    :hasBeenAppliedTo :CensusIncomePrediction ;
+    :hasBeenAppliedTo :Law ;
+    :hasBeenAppliedTo :CreditRisk ;
+    :isSuitableFor :Classification ;
+    :isProposedBy :2025_Waller ;
+.
+
+:ProportionalConsistencyScore a :ScientificArtifact, fmo:fairness_metric ;
+    :metricDefinition """It measures the proportion of individuals in the datasets whose decisions are deemed ‘consistent’, i.e., with an individual consistency score above a certain threshold.""" ;
+    :hasBeenAppliedTo :CensusIncomePrediction ;
+    :hasBeenAppliedTo :Law ;
+    :hasBeenAppliedTo :CreditRisk ;
+    :isSuitableFor :Classification ;
+    :isProposedBy :2025_Waller ;
+.
+
+:BalancedConditionedConsistency a :ScientificArtifact, fmo:fairness_metric ;
+    :metricDefinition """It measures the proportion of acceptable decisions (i.e., above a threshold), but not how close to full agreement those decisions were. It allows each individual to contribute to the score with 1/|E| as long as their individual consistency score meets the threshold, regardless of how close to the threshold the score is (or how far from full agreement, i.e., 1, the score is). The balanced conditioned consistency score BCC allows us to capture this.""" ;
+    :hasBeenAppliedTo :CensusIncomePrediction ;
+    :hasBeenAppliedTo :Law ;
+    :hasBeenAppliedTo :CreditRisk ;
+    :isSuitableFor :Classification ;
+    :isProposedBy :2025_Waller ;
+.
+
+:DisparateImpact a :ScientificArtifact, :ParityBasedFairnessMetric ;
+    :metricDefinition """The ratio between the probabilities of positively classifying unprivileged and privileged groups should exceed a threshold.""" ;
+    :hasBeenAppliedTo :CensusIncomePrediction ;
+    :hasBeenAppliedTo :Law ;
+    :hasBeenAppliedTo :CreditRisk ;
+    :hasBeenAppliedTo :Health ;
+    :isSuitableFor :Classification ;
+    :isSuitableFor :ChatbotInteraction ;
+    :isProposedBy :2015_Feldman ;
+    :isProposedBy :2017_Chouldechova ;
+    :isProposedBy :2023_Giuliani ;
+    :isUsedBy :2015_Feldman ;
+    :measures :StatisticalParity ;
+    :measures :DemographicParity ;
+.
+
+:TruePositiveRateDifference a :ScientificArtifact, :ParityBasedFairnessMetric ;
+    :metricDefinition """Originally: True positive gender gap. It measures the gap in true positive rate between the predictions of machine learning models employing demographic data, meant to be used comparatively; a lower score indicates a fairer model.""" ;
+    :hasBeenAppliedTo :Law ;
+    :isSuitableFor :Classification ;
+    :isSuitableFor :ChatbotInteraction ;
+    :isProposedBy :2019_DeArteaga ;
+    :isEquivalentTo :EqualOpportunity ;
+.
+
+:OutcomeUnfairness a :ScientificArtifact, :ConfusionMatrixBasedFairnessMetric ;
+    :metricDefinition """It quantifies the disparities in the misclassification rates for protected and unprotected groups.""" ;
+    :hasBeenAppliedTo :Law ;
+    :isSuitableFor :Classification ;
+    :isSuitableFor :ChatbotInteraction ;
+    :isProposedBy :2016_GrgicHlaca ;
+.
+
+:BayesianFairness a :ScientificArtifact, :ScoreBasedFairnessMetric ;
+    :metricDefinition """It considers the case that model parameters themselves are uncertain. The amount of uncertainty about the model parameters directly influences the interpretation of the balance condition. Informally, the more uncertain we are, the more stochastic the decision rule will need to be.""" ;
+    :hasBeenAppliedTo :Law ;
+    :isSuitableFor :Classification ;
+    :isSuitableFor :ChatbotInteraction ;
+    :isProposedBy :2019_Dimitrakakis ;
+.
+
+:GeneralizedEntropyIndex a :ScientificArtifact, fmo:fairness_metric ;
+    :metricDefinition """It is a merit-based metric of fairness that seeks to equalize the benefit individuals receive as the result of being subject to algorithmic decision making. Suppose society consists of n individuals, where b_i >= 0 denotes the benefit individual i receives as the result of being subject to algorithmic decision making.""" ;
+    :hasBeenAppliedTo :CensusIncomePrediction ;
+    :hasBeenAppliedTo :Law ;
+    :isSuitableFor :Classification ;
+    :isProposedBy :2018_Speicher ;
+    :isUsedBy :2018_Bellamy ;
+.
+
+:TheilIndex a :ScientificArtifact, fmo:fairness_metric ;
+    :metricDefinition """It measures the inequality in a group or individual concerning the fairness of the algorithm outcome. The lower the better.""" ;
+    :hasBeenAppliedTo :CensusIncomePrediction ;
+    :hasBeenAppliedTo :Law ;
+    :isSuitableFor :Classification ;
+    :isProposedBy :2018_Speicher ;
+    :isUsedBy :2024_González-Sendino ;
+.
+
+:FairScore a :ScientificArtifact, fmo:fairness_metric ;
+    :metricDefinition """Is a counterfactual fairness metric that measures the change in model predictions between the original evaluation dataset and the perturbation-augmented version, with a comparatively lower score indicating a fairer model. The fairscore of a classifier is defined as the percentage of predictions that differ when the input is demographically altered.""" ;
+    :isSuitableFor :Classification ;
+    :isSuitableFor :ChatbotInteraction ;
+    :isProposedBy :2022_Qian ;
+    :isUsedBy :2025_Russo ;
+.
+
+:WEAT a :ScientificArtifact, :WordEmbeddingFairnessMetric ;
+    :isSuitableFor :Classification ;
+    :isSuitableFor :ChatbotInteraction ;
+    :isProposedBy :2017_Caliskan ;
+.
+
+:SEAT a :ScientificArtifact, :SentenceEmbeddingFairnessMetric ;
+    :isSuitableFor :Classification ;
+    :isSuitableFor :ChatbotInteraction ;
+    :isProposedBy :2019_May ;
+.
+
+:CEAT a :ScientificArtifact, :SentenceEmbeddingFairnessMetric ;
+    :isSuitableFor :Classification ;
+    :isSuitableFor :ChatbotInteraction ;
+    :isProposedBy :2021_Guo ;
+.
+
+:SentenceBiasScore a :ScientificArtifact, :SentenceEmbeddingFairnessMetric ;
+    :isSuitableFor :Classification ;
+    :isSuitableFor :ChatbotInteraction ;
+    :isProposedBy :2023_Dolci ;
+.
+
+:DisCo a :ScientificArtifact, :MaskedTokenFairnessMetric ;
+    :isSuitableFor :Classification ;
+    :isSuitableFor :ChatbotInteraction ;
+    :isProposedBy :2021_Webster ;
+.
+
+:LogProbabilityBiasScore a :ScientificArtifact, :MaskedTokenFairnessMetric ;
+    :isSuitableFor :Classification ;
+    :isSuitableFor :ChatbotInteraction ;
+    :isProposedBy :2019_Kurita ;
+.
+
+:CategoricalBiasScore a :ScientificArtifact, :MaskedTokenFairnessMetric ;
+    :isSuitableFor :Classification ;
+    :isSuitableFor :ChatbotInteraction ;
+    :isProposedBy :2021_Ahn ;
+.
+
+:CrowSPairsScore a :ScientificArtifact, :PseudoLogLikelihoodFairnessMetric ;
+    :isSuitableFor :Classification ;
+    :isSuitableFor :ChatbotInteraction ;
+    :isProposedBy :2020_NANGIA ;
+.
+
+:ContextAssociationTest a :ScientificArtifact, :PseudoLogLikelihoodFairnessMetric ;
+    :isSuitableFor :Classification ;
+    :isSuitableFor :ChatbotInteraction ;
+    :isProposedBy :2021_NADEEM ;
+.
+
+:AllUnmaskedLikelihood a :ScientificArtifact, :PseudoLogLikelihoodFairnessMetric ;
+    :isSuitableFor :Classification ;
+    :isSuitableFor :ChatbotInteraction ;
+    :isProposedBy :2022_KANEKO ;
+.
+
+:LanguageModelBias a :ScientificArtifact, :PseudoLogLikelihoodFairnessMetric ;
+    :isSuitableFor :Classification ;
+    :isSuitableFor :ChatbotInteraction ;
+    :isProposedBy :2021_BARIKERI ;
+.
+
+:SocialGroupSubstitution a :ScientificArtifact, :DistributionFairnessMetric ;
+    :isSuitableFor :Classification ;
+    :isSuitableFor :ChatbotInteraction ;
+    :isProposedBy :2024_GALLEGOS ;
+.
+
+:CoOccurrenceBiasScore a :ScientificArtifact, :DistributionFairnessMetric ;
+    :isSuitableFor :Classification ;
+    :isSuitableFor :ChatbotInteraction ;
+    :isProposedBy :2019_BORDIA ;
+.
+
+:DemographicRepresentation a :ScientificArtifact, :DistributionFairnessMetric ;
+    :isSuitableFor :Classification ;
+    :isSuitableFor :ChatbotInteraction ;
+    :isProposedBy :2023_LIANG ;
+.
+
+:StereotypicalAssociations a :ScientificArtifact, :DistributionFairnessMetric ;
+    :isSuitableFor :Classification ;
+    :isSuitableFor :ChatbotInteraction ;
+    :isProposedBy :2023_LIANG ;
+.
+
+:PerspectiveAPI a :ScientificArtifact, :ClassifierFairnessMetric ;
+    :isSuitableFor :Classification ;
+    :isSuitableFor :ChatbotInteraction ;
+    :isUsedBy :2023_LIANG ;
+    :isUsedBy :2024_CHUNG ;
+    :isUsedBy :2023_CHOWDHERY ;
+    :isUsedBy :2020_GEHMAN ;
+.
+
+:ExpectedMaximumToxicity a :ScientificArtifact, :ClassifierFairnessMetric ;
+    :isSuitableFor :Classification ;
+    :isSuitableFor :ChatbotInteraction ;
+    :isProposedBy :2020_GEHMAN ;
+.
+
+:EmpiricalToxicityProbability a :ScientificArtifact, :ClassifierFairnessMetric ;
+    :isSuitableFor :Classification ;
+    :isSuitableFor :ChatbotInteraction ;
+    :isProposedBy :2020_GEHMAN ;
+.
+
+:ToxicityFraction a :ScientificArtifact, :ClassifierFairnessMetric ;
+    :isSuitableFor :Classification ;
+    :isSuitableFor :ChatbotInteraction ;
+    :isProposedBy :2023_LIANG ;
+.
+
+:ScoreParity a :ScientificArtifact, :ClassifierFairnessMetric ;
+    :isSuitableFor :Classification ;
+    :isSuitableFor :ChatbotInteraction ;
+    :isProposedBy :2023_SICILIA ;
+.
+
+:CounterfactualSentimentBias a :ScientificArtifact, :ClassifierFairnessMetric ;
+    :isSuitableFor :Classification ;
+    :isSuitableFor :ChatbotInteraction ;
+    :isProposedBy :2020_HUANG ;
+.
+
+:RegardScore a :ScientificArtifact, :ClassifierFairnessMetric ;
+    :isSuitableFor :Classification ;
+    :isSuitableFor :ChatbotInteraction ;
+    :isProposedBy :2019_SHENG ;
+.
+
+:FullGenBias a :ScientificArtifact, :ClassifierFairnessMetric ;
+    :isSuitableFor :Classification ;
+    :isSuitableFor :ChatbotInteraction ;
+    :isProposedBy :2022_SMITH ;
+.
+
+:HONEST a :ScientificArtifact, :LexiconFairnessMetric ;
+    :isSuitableFor :Classification ;
+    :isSuitableFor :ChatbotInteraction ;
+    :isProposedBy :2021_NOZZA ;
+.
+
+:PsycholinguisticNorms a :ScientificArtifact, :LexiconFairnessMetric ;
+    :isSuitableFor :Classification ;
+    :isSuitableFor :ChatbotInteraction ;
+    :isProposedBy :2021_DHAMALA ;
+.
+
+:GenderPolarity a :ScientificArtifact, :LexiconFairnessMetric ;
+    :isSuitableFor :Classification ;
+    :isSuitableFor :ChatbotInteraction ;
+    :isProposedBy :2021_DHAMALA ;
+.
+
+## Evaluations
+
+:Evaluation_0001 a fmo:machine_learning_model_evaluation ;
+    :isMeasurementValueOf :DisparateImpact ;
+    # ... dataset
+    # ... algorithm
+    :hasValue 0.82 ;
+.

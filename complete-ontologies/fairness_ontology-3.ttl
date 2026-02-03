@@ -1,0 +1,2083 @@
+@prefix : <http://fairness_ontology.com/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix fmo: <https://purl.org/twc/fmo#> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix resource: <http://semanticscience.org/resource/> .
+@base <http://fairness_ontology.com/> .
+
+<http://fairness_ontology.com/> rdf:type owl:Ontology .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://fairness_ontology.com/hasAntonym
+:hasAntonym rdf:type owl:AnnotationProperty ;
+            rdfs:comment "Relates a concept to its antonym, given as a string or URI."@en ;
+            rdfs:label "has antonym"@en .
+
+
+###  http://fairness_ontology.com/isBasedOnSocialPrinciple
+:isBasedOnSocialPrinciple rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/source
+dc:source rdf:type owl:AnnotationProperty .
+
+
+###  http://semanticscience.org/resource/hasSynonym
+resource:hasSynonym rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#definition
+skos:definition rdf:type owl:AnnotationProperty .
+
+
+###  https://purl.org/twc/fmo#probabilistic_definition
+fmo:probabilistic_definition rdf:type owl:AnnotationProperty .
+
+
+###  https://purl.org/twc/fmo#tag
+fmo:tag rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://fairness_ontology.com/ExposesTo
+:ExposesTo rdf:type owl:ObjectProperty ;
+           rdfs:domain :FairnessConcern ;
+           rdfs:range fmo:bias ;
+           rdfs:label "exposes to"@en .
+
+
+###  http://fairness_ontology.com/Guides
+:Guides rdf:type owl:ObjectProperty ;
+        owl:inverseOf :isGuidedBy ;
+        rdfs:domain :SocialPrinciple ;
+        rdfs:range fmo:fairness_notion ;
+        rdfs:comment "Links a fairness notion to its underpinning social principle such as equity or equality."@en ;
+        rdfs:label "guides"@en .
+
+
+###  http://fairness_ontology.com/IsAbout
+:IsAbout rdf:type owl:ObjectProperty ;
+         rdfs:range :AIModel ;
+         rdfs:label "is about"@en .
+
+
+###  http://fairness_ontology.com/IsTrainedOn
+:IsTrainedOn rdf:type owl:ObjectProperty ;
+             rdfs:domain :AIModel ;
+             rdfs:range :TrainingDataset ;
+             rdfs:label "is trained on"@en .
+
+
+###  http://fairness_ontology.com/IsTrainedWith
+:IsTrainedWith rdf:type owl:ObjectProperty ;
+               rdfs:domain :AIModel ;
+               rdfs:range :ExperimentalSetting ;
+               rdfs:label "is trained with"@en .
+
+
+###  http://fairness_ontology.com/defines
+:defines rdf:type owl:ObjectProperty ;
+         rdfs:domain :ExperimentalSetting ;
+         rdfs:range :HyperparameterConfiguration ;
+         rdfs:label "defines"@en .
+
+
+###  http://fairness_ontology.com/enforces
+:enforces rdf:type owl:ObjectProperty ;
+          owl:inverseOf :isEnforcedBy ;
+          rdfs:domain :MitigationTechnique ;
+          rdfs:range fmo:fairness_metric ;
+          rdfs:label "enforces"@en .
+
+
+###  http://fairness_ontology.com/extends
+:extends rdf:type owl:ObjectProperty ;
+         rdfs:domain :ScientificArtifact ;
+         rdfs:range :ScientificArtifact ;
+         rdfs:label "extends" ;
+         skos:definition "A certain Scientific Artifact may extend another. E.g., a certain Fairness Notion can extend another one" .
+
+
+###  http://fairness_ontology.com/follows
+:follows rdf:type owl:ObjectProperty ;
+         owl:inverseOf :isFollowedBy ;
+         rdfs:label "follows" .
+
+
+###  http://fairness_ontology.com/hasBeenAppliedTo
+:hasBeenAppliedTo rdf:type owl:ObjectProperty ;
+                  rdfs:domain :ScientificArtifact ;
+                  rdfs:range :ApplicationDomain ;
+                  rdfs:label "has been applied to"@en ;
+                  skos:definition "A certain fairness notion has been applied to certain application domains."@en .
+
+
+###  http://fairness_ontology.com/hasBeenTestedOn
+:hasBeenTestedOn rdf:type owl:ObjectProperty ;
+                 rdfs:domain :MitigationTechnique ;
+                 rdfs:range :Dataset ;
+                 rdfs:label "has been tested on"@en .
+
+
+###  http://fairness_ontology.com/isAddressedWith
+:isAddressedWith rdf:type owl:ObjectProperty ;
+                 rdfs:domain :FairnessConcern ;
+                 rdfs:range fmo:fairness_notion ;
+                 rdfs:label "is addressed with"@en .
+
+
+###  http://fairness_ontology.com/isEnforcedBy
+:isEnforcedBy rdf:type owl:ObjectProperty ;
+              rdfs:domain fmo:fairness_metric ;
+              rdfs:range :MitigationTechnique ;
+              rdfs:label "is enforced by"@en .
+
+
+###  http://fairness_ontology.com/isEquivalentTo
+:isEquivalentTo rdf:type owl:ObjectProperty ,
+                         owl:SymmetricProperty ;
+                rdfs:label "is equivalent to"@en ;
+                skos:definition "A certain fairness notion can be equal to some other fairness notions."@en .
+
+
+###  http://fairness_ontology.com/isFollowedBy
+:isFollowedBy rdf:type owl:ObjectProperty ;
+              rdfs:domain :AILifecycleStep ;
+              rdfs:range :AILifecycleStep ;
+              rdfs:label "is followed by" .
+
+
+###  http://fairness_ontology.com/isGuidedBy
+:isGuidedBy rdf:type owl:ObjectProperty ;
+            rdfs:domain fmo:fairness_notion ;
+            rdfs:range :SocialPrinciple ;
+            rdfs:comment "Links a fairness notion to its underpinning social principle such as equity or equality."@en ;
+            rdfs:label "is guided by"@en .
+
+
+###  http://fairness_ontology.com/isInstanceOf
+:isInstanceOf rdf:type owl:ObjectProperty ;
+              rdfs:domain :HyperparameterConfiguration ;
+              rdfs:range :Hyperparameter ;
+              rdfs:label "is instance of"@en .
+
+
+###  http://fairness_ontology.com/isMeasuredBy
+:isMeasuredBy rdf:type owl:ObjectProperty ;
+              owl:inverseOf :measures ;
+              rdfs:domain fmo:fairness_notion ;
+              rdfs:range fmo:fairness_metric ;
+              rdfs:label "is measured by"@en ;
+              skos:definition "A fairness notion is measured by a fairness metric if comparisons made with the given metric are a valid way to determine fairness with this notion."@en .
+
+
+###  http://fairness_ontology.com/isMitigatedBy
+:isMitigatedBy rdf:type owl:ObjectProperty ;
+               owl:inverseOf :mitigates ;
+               rdfs:domain fmo:bias ;
+               rdfs:range fmo:fairness_notion ;
+               rdfs:label "is mitigated by"@en ;
+               skos:definition "A certain bias in the use-case can be mitigated by enforcing specific fairness notions."@en .
+
+
+###  http://fairness_ontology.com/isProposedBy
+:isProposedBy rdf:type owl:ObjectProperty ;
+              rdfs:domain :ScientificArtifact ;
+              rdfs:range :ScientificPaper ;
+              rdfs:label "is proposed by"@en ;
+              skos:definition "A certain fairness notion is proposed by a certain scientific paper."@en .
+
+
+###  http://fairness_ontology.com/isRelevantDuring
+:isRelevantDuring rdf:type owl:ObjectProperty ;
+                  rdfs:domain :Legal_Requirement ;
+                  rdfs:range :AILifecycleStep ;
+                  rdfs:label "is relevant during" .
+
+
+###  http://fairness_ontology.com/isSuitableFor
+:isSuitableFor rdf:type owl:ObjectProperty ;
+               rdfs:domain :ScientificArtifact ;
+               rdfs:range :MLTask ;
+               rdfs:label "is suitable for"@en ;
+               skos:definition "A certain fairness notion is suitable for a certain set of tasks."@en .
+
+
+###  http://fairness_ontology.com/isUsedBy
+:isUsedBy rdf:type owl:ObjectProperty ;
+          rdfs:domain :ScientificArtifact ;
+          rdfs:range :ScientificPaper ;
+          rdfs:label "is used by"@en ;
+          skos:definition "A certain fairness notion is used by some scientific papers."@en .
+
+
+###  http://fairness_ontology.com/is_operationalized_by
+:is_operationalized_by rdf:type owl:ObjectProperty ;
+                       owl:inverseOf :operationalize ;
+                       rdfs:domain :Legal_Requirement ;
+                       rdfs:range fmo:fairness_notion ;
+                       rdfs:label "is operationalized by" .
+
+
+###  http://fairness_ontology.com/its_compliance_is_supported_by
+:its_compliance_is_supported_by rdf:type owl:ObjectProperty ;
+                                owl:inverseOf :supports_compliance_with ;
+                                rdfs:domain :Legal_Requirement ;
+                                rdfs:range :MitigationTechnique ;
+                                rdfs:label "its compliance is supported by" .
+
+
+###  http://fairness_ontology.com/measuredWith
+:measuredWith rdf:type owl:ObjectProperty ;
+              rdfs:domain :FairnessConcern ;
+              rdfs:range fmo:fairness_metric ;
+              rdfs:label "measured with"@en .
+
+
+###  http://fairness_ontology.com/measures
+:measures rdf:type owl:ObjectProperty ;
+          rdfs:domain fmo:fairness_metric ;
+          rdfs:range fmo:fairness_notion ;
+          rdfs:label "measures"@en ;
+          skos:definition "A fairness metric measures some fairness notion if comparisons made with the given metric are a valid way to determine fairness with this notion."@en .
+
+
+###  http://fairness_ontology.com/mitigatedWith
+:mitigatedWith rdf:type owl:ObjectProperty ;
+               rdfs:domain :FairnessConcern ;
+               rdfs:range :MitigationTechnique ;
+               rdfs:label "mitigated with"@en .
+
+
+###  http://fairness_ontology.com/mitigates
+:mitigates rdf:type owl:ObjectProperty ;
+           rdfs:domain fmo:fairness_notion ;
+           rdfs:range fmo:bias ;
+           rdfs:label "mitigates"@en ;
+           skos:definition "A fairness notion is required to mitigate a certain bias."@en .
+
+
+###  http://fairness_ontology.com/operationalize
+:operationalize rdf:type owl:ObjectProperty ;
+                rdfs:domain fmo:fairness_notion ;
+                rdfs:range :Legal_Requirement ;
+                rdfs:label "operationalize" .
+
+
+###  http://fairness_ontology.com/supports_compliance_with
+:supports_compliance_with rdf:type owl:ObjectProperty ;
+                          rdfs:domain :MitigationTechnique ;
+                          rdfs:range :Legal_Requirement ;
+                          rdfs:label "supports compliance with" .
+
+
+###  http://fairness_ontology.com/testedOn
+:testedOn rdf:type owl:ObjectProperty ;
+          rdfs:domain :FairnessConcern ;
+          rdfs:range :Dataset ;
+          rdfs:label "tested on"@en .
+
+
+###  http://fairness_ontology.com/IsValidatedOn#is_validated_on
+<http://fairness_ontology.com/IsValidatedOn#is_validated_on> rdf:type owl:ObjectProperty ;
+                                                             rdfs:domain :AIModel ;
+                                                             rdfs:range :ValidationDataset ;
+                                                             rdfs:label "is validated on" .
+
+
+###  http://semanticscience.org/resource/SIO_000068
+resource:SIO_000068 rdf:type owl:ObjectProperty ;
+                    rdfs:domain :Legal_Requirement ;
+                    rdfs:range :Legislation ;
+                    rdfs:label "is part of"@en .
+
+
+###  http://semanticscience.org/resource/SIO_000244
+resource:SIO_000244 rdf:type owl:ObjectProperty ;
+                    rdfs:domain fmo:fairness_metric ;
+                    rdfs:range fmo:statistical_metric ;
+                    rdfs:label "is derived from"@en .
+
+
+###  http://semanticscience.org/resource/SIO_000668
+resource:SIO_000668 rdf:type owl:ObjectProperty ;
+                    rdfs:label "in relation to"@en .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://fairness_ontology.com/concernDescription
+:concernDescription rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :FairnessConcern ;
+                    rdfs:range xsd:string ;
+                    rdfs:label "concern description"@en .
+
+
+###  http://fairness_ontology.com/concernName
+:concernName rdf:type owl:DatatypeProperty ;
+             rdfs:domain :FairnessConcern ;
+             rdfs:range xsd:string ;
+             rdfs:label "concern name"@en .
+
+
+###  http://fairness_ontology.com/configDescription
+:configDescription rdf:type owl:DatatypeProperty ;
+                   rdfs:domain :HyperparameterConfiguration ;
+                   rdfs:range xsd:string ;
+                   rdfs:label "configuration description"@en .
+
+
+###  http://fairness_ontology.com/configName
+:configName rdf:type owl:DatatypeProperty ;
+            rdfs:domain :HyperparameterConfiguration ;
+            rdfs:range xsd:string ;
+            rdfs:label "configuration name"@en .
+
+
+###  http://fairness_ontology.com/configValue
+:configValue rdf:type owl:DatatypeProperty ;
+             rdfs:domain :HyperparameterConfiguration ;
+             rdfs:range xsd:string ;
+             rdfs:label "has value"@en .
+
+
+###  http://fairness_ontology.com/datasetDescription
+:datasetDescription rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :Dataset ;
+                    rdfs:range xsd:string ;
+                    rdfs:label "dataset description"@en .
+
+
+###  http://fairness_ontology.com/datasetName
+:datasetName rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Dataset ;
+             rdfs:range xsd:string ;
+             rdfs:label "dataset name"@en .
+
+
+###  http://fairness_ontology.com/hasGoal
+:hasGoal rdf:type owl:DatatypeProperty ;
+         rdfs:domain :ExperimentalSetting ;
+         rdfs:range xsd:string ;
+         rdfs:label "has goal"@en .
+
+
+###  http://fairness_ontology.com/hasValue
+:hasValue rdf:type owl:DatatypeProperty ;
+          rdfs:range xsd:float ;
+          rdfs:label "has value"@en .
+
+
+###  http://fairness_ontology.com/hyperparameterDescription
+:hyperparameterDescription rdf:type owl:DatatypeProperty ;
+                           rdfs:domain :Hyperparameter ;
+                           rdfs:range xsd:string ;
+                           rdfs:label "hyperparameter description"@en .
+
+
+###  http://fairness_ontology.com/hyperparameterName
+:hyperparameterName rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :Hyperparameter ;
+                    rdfs:range xsd:string ;
+                    rdfs:label "hyperparameter name"@en .
+
+
+###  http://fairness_ontology.com/modelDescription
+:modelDescription rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :AIModel ;
+                  rdfs:range xsd:string ;
+                  rdfs:label "model description"@en .
+
+
+###  http://fairness_ontology.com/modelName
+:modelName rdf:type owl:DatatypeProperty ;
+           rdfs:domain :AIModel ;
+           rdfs:range xsd:string ;
+           rdfs:label "model name"@en .
+
+
+###  http://fairness_ontology.com/scientificArtifactDescription
+:scientificArtifactDescription rdf:type owl:DatatypeProperty ;
+                               rdfs:domain :ScientificArtifact ;
+                               rdfs:range xsd:string ;
+                               rdfs:label "scientific artifact description"@en ;
+                               skos:definition "A latex description of a scientific artifact."@en .
+
+
+###  http://fairness_ontology.com/settingDescription
+:settingDescription rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :ExperimentalSetting ;
+                    rdfs:range xsd:string ;
+                    rdfs:label "setting description"@en .
+
+
+###  http://fairness_ontology.com/settingName
+:settingName rdf:type owl:DatatypeProperty ;
+             rdfs:domain :ExperimentalSetting ;
+             rdfs:range xsd:string ;
+             rdfs:label "setting name"@en .
+
+
+###  http://fairness_ontology.com/stepDescription
+:stepDescription rdf:type owl:DatatypeProperty ;
+                 rdfs:range xsd:string ;
+                 rdfs:label "step description"@en .
+
+
+###  http://fairness_ontology.com/stepName
+:stepName rdf:type owl:DatatypeProperty ;
+          rdfs:range xsd:string ;
+          rdfs:label "step name"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://fairness_ontology.com/AILifecycleStep
+:AILifecycleStep rdf:type owl:Class ;
+                 rdfs:label "AI Lifecycle Step" .
+
+
+###  http://fairness_ontology.com/AIModel
+:AIModel rdf:type owl:Class ;
+         rdfs:label "AI Model"@en ;
+         skos:definition "An artificial intelligence model."@en .
+
+
+###  http://fairness_ontology.com/Adapters
+:Adapters rdf:type owl:Class ;
+          rdfs:subClassOf :PartialFineTuning ;
+          rdfs:label "Adapters" .
+
+
+###  http://fairness_ontology.com/AdversarialLearning
+:AdversarialLearning rdf:type owl:Class ;
+                     rdfs:subClassOf :FullRetraining ;
+                     rdfs:label "Adversarial Learning" .
+
+
+###  http://fairness_ontology.com/AlgorithmicBias
+:AlgorithmicBias rdf:type owl:Class ;
+                 rdfs:subClassOf fmo:bias ;
+                 dc:source "https://doi.org/10.1145/3457607"^^xsd:anyURI ;
+                 rdfs:label "algorithmic bias"@en ;
+                 skos:definition "Algorithmic bias is when the bias is not present in the input data and is added purely by the algorithm."@en .
+
+
+###  http://fairness_ontology.com/AmortizedGranularityMetric
+:AmortizedGranularityMetric rdf:type owl:Class ;
+                            rdfs:subClassOf :GranularityMetric ;
+                            rdfs:label "Amortized Granularity Metric"@en .
+
+
+###  http://fairness_ontology.com/ApplicationDomain
+:ApplicationDomain rdf:type owl:Class ;
+                   rdfs:label "Application Domain"@en ;
+                   skos:definition "AI systems are tailored to the application domain of the specific use-case."@en .
+
+
+###  http://fairness_ontology.com/AuditSets
+:AuditSets rdf:type owl:Class ;
+           rdfs:subClassOf :DataGeneration ;
+           rdfs:label "Audit Sets" .
+
+
+###  http://fairness_ontology.com/BanditsBasedLearning
+:BanditsBasedLearning rdf:type owl:Class ;
+                      rdfs:subClassOf :FullRetraining ;
+                      rdfs:label "Bandits-based Learning" .
+
+
+###  http://fairness_ontology.com/BlackBoxDecisionOnly
+:BlackBoxDecisionOnly rdf:type owl:Class ;
+                      rdfs:subClassOf :ModelAccessResourcesMitigation ;
+                      rdfs:label "Decision Layer Control - Black-box Model (I)" .
+
+
+###  http://fairness_ontology.com/Blinding
+:Blinding rdf:type owl:Class ;
+          rdfs:subClassOf :FeatureLevelColumnIntervention ;
+          rdfs:label "Blinding and Proxy Removal" .
+
+
+###  http://fairness_ontology.com/Calibration
+:Calibration rdf:type owl:Class ;
+             rdfs:subClassOf :GreyBoxScores .
+
+
+###  http://fairness_ontology.com/CalibrationBasedFairnessMetric
+:CalibrationBasedFairnessMetric rdf:type owl:Class ;
+                                rdfs:subClassOf fmo:fairness_metric ;
+                                rdfs:label "Calibration-based Fairness Metric"@en ;
+                                skos:definition "A measurement of any fairness notion, partially connected to the confusion matrix principles, these metrics are usually referred with the term  calibration-based, with the very aim of distinguishing their prevalent attention to the predictive values."@en .
+
+
+###  http://fairness_ontology.com/CausalFairnessNotion
+:CausalFairnessNotion rdf:type owl:Class ;
+                      rdfs:subClassOf :OutcomeFairnessNotion ;
+                      owl:disjointWith :ObservationalFairnessNotion ;
+                      resource:hasSynonym "causal fairness"@en ;
+                      rdfs:label "causal fairness notion"@en ;
+                      skos:definition "A family of fairness notions focusing on the causal relations between variables."@en .
+
+
+###  http://fairness_ontology.com/ClassifierFairnessMetric
+:ClassifierFairnessMetric rdf:type owl:Class ;
+                          rdfs:subClassOf :GeneratedTextBasedFairnessMetric ;
+                          rdfs:label "Classifier Fairness Metric"@en ;
+                          skos:definition "A metric that employs a classifier on generated text to assess the presence of bias or fairness."@en .
+
+
+###  http://fairness_ontology.com/Cleaning
+:Cleaning rdf:type owl:Class ;
+          rdfs:subClassOf :InstanceLevelRowIntervention ;
+          rdfs:label "Cleaning" .
+
+
+###  http://fairness_ontology.com/ConfusionMatrixBasedFairnessMetric
+:ConfusionMatrixBasedFairnessMetric rdf:type owl:Class ;
+                                    rdfs:subClassOf fmo:fairness_metric ;
+                                    rdfs:label "Confusion Matrix-based Fairness Metric"@en ;
+                                    skos:definition "A measurement of any fairness notion, focusing on the amount of correct/incorrect classifications inferred by the predictor."@en .
+
+
+###  http://fairness_ontology.com/ConstrainedOptimization
+:ConstrainedOptimization rdf:type owl:Class ;
+                         rdfs:subClassOf :FullRetraining ;
+                         rdfs:label "Constrained Optimization" .
+
+
+###  http://fairness_ontology.com/CounterfactualAugmentation
+:CounterfactualAugmentation rdf:type owl:Class ;
+                            rdfs:subClassOf :InstanceLevelRowIntervention ;
+                            rdfs:label "Counterfactual Augmentation" .
+
+
+###  http://fairness_ontology.com/DataGeneration
+:DataGeneration rdf:type owl:Class ;
+                rdfs:subClassOf :DataResourcesMitigation ;
+                rdfs:label "Data Acquisition/Generation (D)" .
+
+
+###  http://fairness_ontology.com/DataResourcesMitigation
+:DataResourcesMitigation rdf:type owl:Class ;
+                         rdfs:subClassOf :MitigationTechnique ;
+                         rdfs:label "Data Resources Mitigation"@en .
+
+
+###  http://fairness_ontology.com/Dataset
+:Dataset rdf:type owl:Class ;
+         rdfs:label "Dataset"@en ;
+         skos:definition "A dataset used in machine learning."@en .
+
+
+###  http://fairness_ontology.com/DecisionTimeConstrainedDecisioning
+:DecisionTimeConstrainedDecisioning rdf:type owl:Class ;
+                                    rdfs:subClassOf :BlackBoxDecisionOnly ;
+                                    rdfs:label "Decision-time Constrained Decisioning" .
+
+
+###  http://fairness_ontology.com/DistanceBasedFairnessMetric
+:DistanceBasedFairnessMetric rdf:type owl:Class ;
+                             rdfs:subClassOf fmo:fairness_metric ;
+                             rdfs:label "Distance-based Fairness Metric" .
+
+
+###  http://fairness_ontology.com/DistributionFairnessMetric
+:DistributionFairnessMetric rdf:type owl:Class ;
+                            rdfs:subClassOf :GeneratedTextBasedFairnessMetric ;
+                            rdfs:label "Distribution Fairness Metric"@en ;
+                            skos:definition "A metric that evaluates fairness by comparing the statistical distribution of generated outputs across groups."@en .
+
+
+###  http://fairness_ontology.com/EmbeddingBasedFairnessMetric
+:EmbeddingBasedFairnessMetric rdf:type owl:Class ;
+                              rdfs:subClassOf fmo:fairness_metric ;
+                              rdfs:label "Embedding-based Fairness Metric"@en ;
+                              skos:definition "A fairness metric that evaluates bias or fairness using representations derived from word or sentence embeddings."@en .
+
+
+###  http://fairness_ontology.com/ExperimentalSetting
+:ExperimentalSetting rdf:type owl:Class ;
+                     rdfs:label "Experimental Setting"@en .
+
+
+###  http://fairness_ontology.com/FairnessConcern
+:FairnessConcern rdf:type owl:Class ;
+                 rdfs:label "Fairness Concern"@en .
+
+
+###  http://fairness_ontology.com/FairnessRegularization
+:FairnessRegularization rdf:type owl:Class ;
+                        rdfs:subClassOf :FullRetraining ;
+                        rdfs:label "Fairness Regularization" .
+
+
+###  http://fairness_ontology.com/FeatureLevelColumnIntervention
+:FeatureLevelColumnIntervention rdf:type owl:Class ;
+                                rdfs:subClassOf :DataResourcesMitigation ;
+                                rdfs:label "Feature-level Column Intervention (A)" .
+
+
+###  http://fairness_ontology.com/FeatureLevelRowReweightingResampling
+:FeatureLevelRowReweightingResampling rdf:type owl:Class ;
+                                      rdfs:subClassOf :DataResourcesMitigation ;
+                                      rdfs:label "Feature-level Row Reweighting/Resampling (C)" .
+
+
+###  http://fairness_ontology.com/FeatureReview
+:FeatureReview rdf:type owl:Class ;
+               rdfs:subClassOf :FeatureLevelColumnIntervention ;
+               rdfs:label "Feature Review" .
+
+
+###  http://fairness_ontology.com/FullFineTuning
+:FullFineTuning rdf:type owl:Class ;
+                rdfs:subClassOf :ModelAccessResourcesMitigation ,
+                                :TrainingResourcesMitigation ;
+                owl:disjointWith :PartialFineTuning ;
+                rdfs:label "Full Fine-tuning - White-box Model (F)" .
+
+
+###  http://fairness_ontology.com/FullParameterDebiasing
+:FullParameterDebiasing rdf:type owl:Class ;
+                        rdfs:subClassOf :FullFineTuning ;
+                        rdfs:label "Full Parameter Debiasing" .
+
+
+###  http://fairness_ontology.com/FullPruning
+:FullPruning rdf:type owl:Class ;
+             rdfs:subClassOf :FullFineTuning ;
+             rdfs:comment "A mitigation technique that prunes an already trained model by setting to 0 some of its weights. The model is considered AS A WHOLE, by taking into account for pruning all its internal weights." ;
+             rdfs:label "Full Pruning and Weight Masking" .
+
+
+###  http://fairness_ontology.com/FullRetraining
+:FullRetraining rdf:type owl:Class ;
+                rdfs:subClassOf :TrainingResourcesMitigation ;
+                rdfs:label "Full Retraining (E)" .
+
+
+###  http://fairness_ontology.com/FullWeightRedistribution
+:FullWeightRedistribution rdf:type owl:Class ;
+                          rdfs:subClassOf :FullFineTuning ;
+                          rdfs:comment "A mitigation technique that redistributes the weights of an already trained model, considering it AS A WHOLE, potentially redistributing all its weights." ;
+                          rdfs:label "Full Weight Redistribution"@en .
+
+
+###  http://fairness_ontology.com/GeneratedTextBasedFairnessMetric
+:GeneratedTextBasedFairnessMetric rdf:type owl:Class ;
+                                  rdfs:subClassOf fmo:fairness_metric ;
+                                  rdfs:label "Generated Text-based Fairness Metric"@en ;
+                                  skos:definition "A metric that measures fairness by analyzing or scoring generated text outputs."@en .
+
+
+###  http://fairness_ontology.com/Governance
+:Governance rdf:type owl:Class ;
+            rdfs:subClassOf :AILifecycleStep ;
+            rdfs:label "Governance" .
+
+
+###  http://fairness_ontology.com/GovernanceOnly
+:GovernanceOnly rdf:type owl:Class ;
+                rdfs:subClassOf :HumanOversightMitigation ;
+                rdfs:label "Governance-only Interventions (J)" .
+
+
+###  http://fairness_ontology.com/GranularityMetric
+:GranularityMetric rdf:type owl:Class ;
+                   rdfs:subClassOf :RecommendationSystemMetric ;
+                   rdfs:label "Granularity Metric"@en .
+
+
+###  http://fairness_ontology.com/GreyBoxScores
+:GreyBoxScores rdf:type owl:Class ;
+               rdfs:subClassOf :ModelAccessResourcesMitigation ;
+               rdfs:label "Scores and Probabilities Access - Grey-box Model (H)" .
+
+
+###  http://fairness_ontology.com/GroupFairnessNotion
+:GroupFairnessNotion rdf:type owl:Class ;
+                     rdfs:subClassOf :OutcomeFairnessNotion ;
+                     owl:disjointWith :IndividualFairnessNotion ;
+                     dc:source "https://doi.org/10.1145/3468507.3468511"^^xsd:anyURI ;
+                     resource:hasSynonym "group fairness"@en ;
+                     rdfs:label "group fairness notion"@en ;
+                     skos:definition "A family of fairness notions with the common objective to ensure that groups who differ by their sensitive attributes are treated equally. (Note: Occasionally, \"group fairness\" is used to refer to statistical parity specifically, instead of the broader meaning as defined here)."@en .
+
+
+###  http://fairness_ontology.com/HeadOnly
+:HeadOnly rdf:type owl:Class ;
+          rdfs:subClassOf :PartialFineTuning ;
+          rdfs:label "Head-only" .
+
+
+###  http://fairness_ontology.com/HistoricalBias
+:HistoricalBias rdf:type owl:Class ;
+                rdfs:subClassOf fmo:bias ;
+                dc:source "https://doi.org/10.1145/3457607"^^xsd:anyURI ;
+                rdfs:label "historical bias"@en ;
+                skos:definition "Historical bias is caused by already existing bias and socio-technical issues in the world, and can seep into from the data generation process even given a perfect sampling and feature selection."@en .
+
+
+###  http://fairness_ontology.com/HumanOversightMitigation
+:HumanOversightMitigation rdf:type owl:Class ;
+                          rdfs:subClassOf :MitigationTechnique ;
+                          rdfs:label "Human Oversight Mitigation" .
+
+
+###  http://fairness_ontology.com/Hyperparameter
+:Hyperparameter rdf:type owl:Class ;
+                rdfs:label "Hyperparameter"@en .
+
+
+###  http://fairness_ontology.com/HyperparameterConfiguration
+:HyperparameterConfiguration rdf:type owl:Class ;
+                             rdfs:label "Hyperparameter Configuration"@en .
+
+
+###  http://fairness_ontology.com/ImpactFocusedMetric
+:ImpactFocusedMetric rdf:type owl:Class ;
+                     rdfs:subClassOf :OptimizationObjectMetric ;
+                     rdfs:label "Impact-focused Metric"@en .
+
+
+###  http://fairness_ontology.com/In-processing
+:In-processing rdf:type owl:Class ;
+               rdfs:subClassOf :AILifecycleStep ;
+               rdfs:label "In-processing" .
+
+
+###  http://fairness_ontology.com/IndependenceFairnessNotion
+:IndependenceFairnessNotion rdf:type owl:Class ;
+                            rdfs:subClassOf :GroupFairnessNotion ;
+                            dc:source "https://doi.org/10.1145/3468507.3468511"^^xsd:anyURI ;
+                            resource:hasSynonym "independence fairness"@en ;
+                            rdfs:label "independence fairness notion"@en ;
+                            skos:definition "The fairness property satisfied when the predicted outcome variable is independent from protected attributes."@en ;
+                            fmo:probabilistic_definition "Ŷ ⊥ A"@en .
+
+
+###  http://fairness_ontology.com/IndividualFairnessNotion
+:IndividualFairnessNotion rdf:type owl:Class ;
+                          rdfs:subClassOf :OutcomeFairnessNotion ;
+                          dc:source "https://doi.org/10.1145/2090236.2090255"^^xsd:anyURI ;
+                          resource:hasSynonym "individual fairness"@en ;
+                          rdfs:label "individual fairness notion"@en ;
+                          skos:definition "A family of fairness notions with the common objective to ensure that similar individuals are treated similarly by a model. Some notions in this group may be a relaxed version of &quot;strict&quot; individual fairness (i.e., they may treat similar indivduals differently under certain conditions)."@en .
+
+
+###  http://fairness_ontology.com/InstanceLevelRowIntervention
+:InstanceLevelRowIntervention rdf:type owl:Class ;
+                              rdfs:subClassOf :DataResourcesMitigation ;
+                              rdfs:label "Feature-level Row Intervention (B)" .
+
+
+###  http://fairness_ontology.com/InstanceWeighting
+:InstanceWeighting rdf:type owl:Class ;
+                   rdfs:subClassOf :FeatureLevelRowReweightingResampling ;
+                   rdfs:label "Instance Weighting" .
+
+
+###  http://fairness_ontology.com/IntersectionalBias
+:IntersectionalBias rdf:type owl:Class ;
+                    rdfs:subClassOf fmo:bias ;
+                    dc:source "https://doi.org/10.1145/3468507.3468511"^^xsd:anyURI ;
+                    rdfs:label "intersectional bias"@en ;
+                    skos:definition "Intersectional bias is a type of bias that occurs due to the combination of multiple sensitive factors."@en .
+
+
+###  http://fairness_ontology.com/ItemFocusedMetric
+:ItemFocusedMetric rdf:type owl:Class ;
+                   rdfs:subClassOf :SubjectMetric ;
+                   rdfs:label "Item-focused Metric"@en .
+
+
+###  http://fairness_ontology.com/Legal_Requirement
+:Legal_Requirement rdf:type owl:Class ;
+                   rdfs:label "Legal Requirement" .
+
+
+###  http://fairness_ontology.com/Legislation
+:Legislation rdf:type owl:Class ;
+             rdfs:label "Legislation" .
+
+
+###  http://fairness_ontology.com/LexiconFairnessMetric
+:LexiconFairnessMetric rdf:type owl:Class ;
+                       rdfs:subClassOf :GeneratedTextBasedFairnessMetric ;
+                       rdfs:label "Lexicon Fairness Metric"@en ;
+                       skos:definition "A metric that uses predefined lexicons to study fairness or bias in generated textual content."@en .
+
+
+###  http://fairness_ontology.com/LinguisticBias
+:LinguisticBias rdf:type owl:Class ;
+                rdfs:subClassOf :AlgorithmicBias ;
+                rdfs:label "linguistic bias"@en ;
+                skos:definition "Linguistic bias is embedded in generative AI outputs, the manifestation of harm through demeaning or offensive language that reinforces discrimination."@en .
+
+
+###  http://fairness_ontology.com/LoRA
+:LoRA rdf:type owl:Class ;
+      rdfs:subClassOf :PartialFineTuning ;
+      rdfs:label "LoRA" .
+
+
+###  http://fairness_ontology.com/MLTask
+:MLTask rdf:type owl:Class ;
+        rdfs:label "Machine-Learning Task"@en ;
+        skos:definition "A machine learning task is a type of prediction or inference that's based on both the problem or question and the available data."@en .
+
+
+###  http://fairness_ontology.com/ManagementLegalRequirement
+:ManagementLegalRequirement rdf:type owl:Class ;
+                            rdfs:subClassOf :Legal_Requirement ;
+                            rdfs:label "Management Legal Requirement" .
+
+
+###  http://fairness_ontology.com/MaskedTokenFairnessMetric
+:MaskedTokenFairnessMetric rdf:type owl:Class ;
+                           rdfs:subClassOf :ProbabilityBasedFairnessMetric ;
+                           rdfs:label "Masked Token Fairness Metric"@en ;
+                           skos:definition "A fairness metric relying on the predicted probabilities for masked tokens in language models."@en .
+
+
+###  http://fairness_ontology.com/MaskingBias
+:MaskingBias rdf:type owl:Class ;
+             rdfs:subClassOf fmo:bias ;
+             dc:source "https://doi.org/10.1145/3468507.3468511"^^xsd:anyURI ;
+             rdfs:label "masking bias"@en ;
+             skos:definition "Masking is a form of intentional discrimination that allows decision makers with prejudicial views to mask their intentions, typically by exploiting how fairness notions are defined."@en .
+
+
+###  http://fairness_ontology.com/MitigationTechnique
+:MitigationTechnique rdf:type owl:Class ;
+                     rdfs:subClassOf :ScientificArtifact ;
+                     rdfs:label "Mitigation Technique"@en .
+
+
+###  http://fairness_ontology.com/ModelAccessResourcesMitigation
+:ModelAccessResourcesMitigation rdf:type owl:Class ;
+                                rdfs:subClassOf :MitigationTechnique ;
+                                rdfs:label "Model Access Resources Mitigation"@en .
+
+
+###  http://fairness_ontology.com/NaturalLanguageProcessingTask
+:NaturalLanguageProcessingTask rdf:type owl:Class ;
+                               rdfs:subClassOf :MLTask ;
+                               rdfs:label "Natural Language Processing Task"@en ;
+                               skos:definition "Natural language processing includes breaking down human text or speech into smaller parts that computer programs can easily understand and process."@en .
+
+
+###  http://fairness_ontology.com/ObservationalFairnessNotion
+:ObservationalFairnessNotion rdf:type owl:Class ;
+                             rdfs:subClassOf :OutcomeFairnessNotion ;
+                             resource:hasSynonym "observational fairness"@en ;
+                             rdfs:label "observational fairness notion"@en ;
+                             skos:definition "A family of fairness notions focusing on the joint distribution of observable factors."@en .
+
+
+###  http://fairness_ontology.com/OmmittedVariableBias
+:OmmittedVariableBias rdf:type owl:Class ;
+                      rdfs:subClassOf fmo:bias ;
+                      dc:source "https://doi.org/10.1145/3457607"^^xsd:anyURI ;
+                      rdfs:label "omitted variable bias"@en ;
+                      skos:definition "Omitted variable bias occurs when one or more important variables are left out of a model."@en .
+
+
+###  http://fairness_ontology.com/OptimizationObjectMetric
+:OptimizationObjectMetric rdf:type owl:Class ;
+                          rdfs:subClassOf :RecommendationSystemMetric ;
+                          rdfs:label "Optimization Object Metric"@en .
+
+
+###  http://fairness_ontology.com/OutcomeFairnessNotion
+:OutcomeFairnessNotion rdf:type owl:Class ;
+                       rdfs:subClassOf fmo:fairness_notion ;
+                       owl:disjointWith :ProceduralFairnessNotion ;
+                       resource:hasSynonym "outcome fairness"@en ;
+                       rdfs:label "outcome fairness notion"@en ;
+                       skos:definition "Outcome fairness is concerned with the fairness of the results of the decision-making process."@en .
+
+
+###  http://fairness_ontology.com/OutputRewriting
+:OutputRewriting rdf:type owl:Class ;
+                 rdfs:subClassOf :BlackBoxDecisionOnly ;
+                 rdfs:label "Decision/Output Re-writing" .
+
+
+###  http://fairness_ontology.com/ParityBasedFairnessMetric
+:ParityBasedFairnessMetric rdf:type owl:Class ;
+                           rdfs:subClassOf fmo:fairness_metric ;
+                           rdfs:label "Parity-based Fairness Metric"@en ;
+                           skos:definition "A measurement of any fairness notion, focusing on equalising the probability of a favourable outcome among groups."@en .
+
+
+###  http://fairness_ontology.com/PartialFineTuning
+:PartialFineTuning rdf:type owl:Class ;
+                   rdfs:subClassOf :ModelAccessResourcesMitigation ,
+                                   :TrainingResourcesMitigation ;
+                   rdfs:label "Partial Fine-tuning - White-box Model (G)" .
+
+
+###  http://fairness_ontology.com/PartialPruning
+:PartialPruning rdf:type owl:Class ;
+                rdfs:subClassOf :PartialFineTuning ;
+                rdfs:comment "A mitigation technique that prunes a SUBPART OF an already trained model by setting to 0 some of its weights." ;
+                rdfs:label "Partial Pruning and Weight Masking" .
+
+
+###  http://fairness_ontology.com/Post-processing
+:Post-processing rdf:type owl:Class ;
+                 rdfs:subClassOf :AILifecycleStep ;
+                 rdfs:label "Post-processing" .
+
+
+###  http://fairness_ontology.com/Pre-processing
+:Pre-processing rdf:type owl:Class ;
+                rdfs:subClassOf :AILifecycleStep ;
+                rdfs:label "Pre-processing" .
+
+
+###  http://fairness_ontology.com/ProbabilityBasedFairnessMetric
+:ProbabilityBasedFairnessMetric rdf:type owl:Class ;
+                                rdfs:subClassOf fmo:fairness_metric ;
+                                rdfs:label "Probability-based Fairness Metric"@en ;
+                                skos:definition "A metric that considers the probability distributions of predicted outcomes to measure fairness."@en .
+
+
+###  http://fairness_ontology.com/ProceduralFairnessNotion
+:ProceduralFairnessNotion rdf:type owl:Class ;
+                          rdfs:subClassOf fmo:fairness_notion ;
+                          resource:hasSynonym "procedural fairness"@en ;
+                          rdfs:label "Procedural Fairness Notion"@en ;
+                          skos:definition "Procedural fairness is connected to the concept of fairness from administrative law, which is concerned with equality of treatment within the process that makes a decision."@en .
+
+
+###  http://fairness_ontology.com/PseudoLogLikelihoodFairnessMetric
+:PseudoLogLikelihoodFairnessMetric rdf:type owl:Class ;
+                                   rdfs:subClassOf :ProbabilityBasedFairnessMetric ;
+                                   rdfs:label "Pseudo-log Likelihood Fairness Metric"@en ;
+                                   skos:definition "A metric based on pseudo-log likelihoods, often used to evaluate the fairness of generation or prediction probabilities."@en .
+
+
+###  http://fairness_ontology.com/RecommendationSystemMetric
+:RecommendationSystemMetric rdf:type owl:Class ;
+                            rdfs:subClassOf fmo:fairness_metric ;
+                            rdfs:label "Recommendation System Metric"@en .
+
+
+###  http://fairness_ontology.com/Relabeling
+:Relabeling rdf:type owl:Class ;
+            rdfs:subClassOf :InstanceLevelRowIntervention ;
+            rdfs:label "Relabeling" .
+
+
+###  http://fairness_ontology.com/RepresentationBias
+:RepresentationBias rdf:type owl:Class ;
+                    rdfs:subClassOf fmo:bias ;
+                    dc:source "https://doi.org/10.1145/3457607"^^xsd:anyURI ;
+                    rdfs:label "representation bias"@en ;
+                    skos:definition "Representation bias arises from the use of a skewed or otherwise non-representative sample from a population during data collection process."@en .
+
+
+###  http://fairness_ontology.com/Reranking
+:Reranking rdf:type owl:Class ;
+           rdfs:subClassOf :BlackBoxDecisionOnly ;
+           rdfs:label "Re-ranking" .
+
+
+###  http://fairness_ontology.com/SamplingBias
+:SamplingBias rdf:type owl:Class ;
+              rdfs:subClassOf fmo:bias ;
+              dc:source "https://doi.org/10.1145/3457607"^^xsd:anyURI ;
+              rdfs:label "sampling bias"@en ;
+              skos:definition "Similarly to representation bias, sampling bias arises due to non-random sampling of subgroups"@en .
+
+
+###  http://fairness_ontology.com/ScientificArtifact
+:ScientificArtifact rdf:type owl:Class ;
+                    rdfs:label "Scientific Artifact"@en ;
+                    skos:definition "A scientific artifact is the outcome with which the the paper contributes, such as a fairness notion, metric, and so on."@en .
+
+
+###  http://fairness_ontology.com/ScientificPaper
+:ScientificPaper rdf:type owl:Class ;
+                 rdfs:label "Scientific Paper"@en ;
+                 skos:definition "A scientific paper published in a journal or during some conference proceesings."@en .
+
+
+###  http://fairness_ontology.com/ScoreBasedFairnessMetric
+:ScoreBasedFairnessMetric rdf:type owl:Class ;
+                          rdfs:subClassOf fmo:fairness_metric ;
+                          rdfs:label "Score-based Fairness Metric"@en ;
+                          skos:definition "A measurement of any fairness notion, directing attention to the value of the classification score."@en .
+
+
+###  http://fairness_ontology.com/SelectiveParameterUpdating
+:SelectiveParameterUpdating rdf:type owl:Class ;
+                            rdfs:subClassOf :PartialFineTuning ;
+                            rdfs:comment "A mitigation technique that updates the parameters (e.g., redistributes the weights) of a SUBPART OF an already trained model." ;
+                            rdfs:label "Selective Parameter Updating" .
+
+
+###  http://fairness_ontology.com/SentenceEmbeddingFairnessMetric
+:SentenceEmbeddingFairnessMetric rdf:type owl:Class ;
+                                 rdfs:subClassOf :EmbeddingBasedFairnessMetric ;
+                                 rdfs:label "Sentence Embedding Fairness Metric"@en ;
+                                 skos:definition "A metric using sentence-level embedding representations as the basis for evaluating model or data fairness."@en .
+
+
+###  http://fairness_ontology.com/SeparationFairnessNotion
+:SeparationFairnessNotion rdf:type owl:Class ;
+                          rdfs:subClassOf :GroupFairnessNotion ;
+                          dc:source "https://doi.org/10.1145/3468507.3468511"^^xsd:anyURI ;
+                          resource:hasSynonym "separation fairness"@en ;
+                          rdfs:label "separation fairness notion"@en ;
+                          skos:definition "The fairness property satisfied when the predicted outcome variable is independent of protected attributes, conditionally on the actual outcome variable."@en ;
+                          fmo:probabilistic_definition "Ŷ ⊥ A | Y"@en .
+
+
+###  http://fairness_ontology.com/SingleGranularityMetric
+:SingleGranularityMetric rdf:type owl:Class ;
+                         rdfs:subClassOf :GranularityMetric ;
+                         rdfs:label "Single Granularity Metric"@en .
+
+
+###  http://fairness_ontology.com/SocialPrinciple
+:SocialPrinciple rdf:type owl:Class ;
+                 rdfs:label "Social Principle"@en ;
+                 skos:definition "Ethical and contextual interpretation of fairness, informing notions."@en .
+
+
+###  http://fairness_ontology.com/StratifiedSampling
+:StratifiedSampling rdf:type owl:Class ;
+                    rdfs:subClassOf :FeatureLevelRowReweightingResampling ;
+                    rdfs:label "Stratified Sampling" .
+
+
+###  http://fairness_ontology.com/SubjectMetric
+:SubjectMetric rdf:type owl:Class ;
+               rdfs:subClassOf :RecommendationSystemMetric ;
+               rdfs:label "Subject Metric"@en .
+
+
+###  http://fairness_ontology.com/SufficiencyFairnessNotion
+:SufficiencyFairnessNotion rdf:type owl:Class ;
+                           rdfs:subClassOf :GroupFairnessNotion ;
+                           dc:source "https://doi.org/10.1145/3468507.3468511"^^xsd:anyURI ;
+                           resource:hasSynonym "sufficiency fairness"@en ;
+                           rdfs:label "sufficiency fairness notion"@en ;
+                           skos:definition "The fairness property satisfied when a target variable is independent of protected attributes, conditionally on the predicted outcome variable."@en ;
+                           fmo:probabilistic_definition "Y ⊥ A | Ŷ"@en .
+
+
+###  http://fairness_ontology.com/SupervisedLearingTask
+:SupervisedLearingTask rdf:type owl:Class ;
+                       rdfs:subClassOf :MLTask ;
+                       owl:disjointWith :UnsupervisedLearningTask ;
+                       rdfs:label "Supervised Learning Task"@en ;
+                       skos:definition "Supervised learning is a category of machine learning that uses labeled datasets to train algorithms to predict outcomes and recognize patterns."@en .
+
+
+###  http://fairness_ontology.com/SyntheticData
+:SyntheticData rdf:type owl:Class ;
+               rdfs:subClassOf :DataGeneration ;
+               rdfs:label "Synthetic Data" .
+
+
+###  http://fairness_ontology.com/TargetedCollections
+:TargetedCollections rdf:type owl:Class ;
+                     rdfs:subClassOf :DataGeneration ;
+                     rdfs:label "Targeted Collections" .
+
+
+###  http://fairness_ontology.com/TechnicalLegalRequirement
+:TechnicalLegalRequirement rdf:type owl:Class ;
+                           rdfs:subClassOf :Legal_Requirement ;
+                           rdfs:label "Technical Legal Requirement" .
+
+
+###  http://fairness_ontology.com/TestingDataset
+:TestingDataset rdf:type owl:Class ;
+                rdfs:subClassOf :Dataset ;
+                rdfs:label "Testing Dataset"@en .
+
+
+###  http://fairness_ontology.com/Thresholding
+:Thresholding rdf:type owl:Class ;
+              rdfs:subClassOf :GreyBoxScores ;
+              rdfs:label "Thresholding" .
+
+
+###  http://fairness_ontology.com/TrainingDataset
+:TrainingDataset rdf:type owl:Class ;
+                 rdfs:subClassOf :Dataset ;
+                 rdfs:label "Training Dataset"@en .
+
+
+###  http://fairness_ontology.com/TrainingResourcesMitigation
+:TrainingResourcesMitigation rdf:type owl:Class ;
+                             rdfs:subClassOf :MitigationTechnique ;
+                             rdfs:label "Training Resources Mitigation"@en .
+
+
+###  http://fairness_ontology.com/Transformation
+:Transformation rdf:type owl:Class ;
+                rdfs:subClassOf :InstanceLevelRowIntervention ;
+                rdfs:label "Transformation/Representation Learning" .
+
+
+###  http://fairness_ontology.com/TreatmentFocusedMetric
+:TreatmentFocusedMetric rdf:type owl:Class ;
+                        rdfs:subClassOf :OptimizationObjectMetric ;
+                        rdfs:label "Treatment-focused Metric"@en .
+
+
+###  http://fairness_ontology.com/UnsupervisedLearningTask
+:UnsupervisedLearningTask rdf:type owl:Class ;
+                          rdfs:subClassOf :MLTask ;
+                          rdfs:label "Unsupervised Learning Task"@en ;
+                          skos:definition "Unsupervised tasks involve using algorithms to find patterns, structures, and groupings in unlabeled data without any human guidance or predefined outcomes."@en .
+
+
+###  http://fairness_ontology.com/UserFocusedMetric
+:UserFocusedMetric rdf:type owl:Class ;
+                   rdfs:subClassOf :SubjectMetric ;
+                   rdfs:label "User-focused Metric"@en .
+
+
+###  http://fairness_ontology.com/ValidationDataset
+:ValidationDataset rdf:type owl:Class ;
+                   rdfs:subClassOf :Dataset ;
+                   rdfs:label "Validation Dataset"@en .
+
+
+###  http://fairness_ontology.com/WordEmbeddingFairnessMetric
+:WordEmbeddingFairnessMetric rdf:type owl:Class ;
+                             rdfs:subClassOf :EmbeddingBasedFairnessMetric ;
+                             rdfs:label "Word Embedding Fairness Metric"@en ;
+                             skos:definition "A metric that leverages word vector representations to assess fairness or bias in language models or datasets."@en .
+
+
+###  https://purl.org/twc/fmo#bias
+fmo:bias rdf:type owl:Class ;
+         rdfs:subClassOf owl:Thing ;
+         dc:source "https://www.lexico.com/en/definition/bias"^^xsd:anyURI ;
+         rdfs:label "Bias" ;
+         skos:definition "Predisposition in favor of or against one thing, person, or group compared with another, usually in a way considered to be unfair."@en .
+
+
+###  https://purl.org/twc/fmo#dataset_cohort
+fmo:dataset_cohort rdf:type owl:Class ;
+                   rdfs:label "Dataset Cohort" .
+
+
+###  https://purl.org/twc/fmo#evaluation_metric
+fmo:evaluation_metric rdf:type owl:Class ;
+                      rdfs:subClassOf :ScientificArtifact ;
+                      rdfs:label "Evaluation Metric" .
+
+
+###  https://purl.org/twc/fmo#fairness_metric
+fmo:fairness_metric rdf:type owl:Class ;
+                    rdfs:subClassOf fmo:evaluation_metric ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty resource:SIO_000244 ;
+                                      owl:someValuesFrom fmo:statistical_metric
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty resource:SIO_000668 ;
+                                      owl:someValuesFrom fmo:dataset_cohort
+                                    ] ;
+                    dc:source "https://doi.org/10.1145/3468507.3468511"^^xsd:anyURI ;
+                    rdfs:label "Fairness Metric"@en ;
+                    skos:definition "A measurement of some fairness notion in a machine-learning model or dataset, with regards to some specific cohort(s)."@en ;
+                    fmo:tag "hide" .
+
+
+###  https://purl.org/twc/fmo#fairness_notion
+fmo:fairness_notion rdf:type owl:Class ;
+                    rdfs:subClassOf :ScientificArtifact ;
+                    dc:source "https://doi.org/10.1145/3468507.3468511"^^xsd:anyURI ;
+                    resource:hasSynonym "criterion"@en ,
+                                        "fairness"@en ;
+                    rdfs:label "Fairness Notion"@en ;
+                    skos:definition "A formal definition of fairness that can be observed as a property of a predictive model, in relation to that model's treatment of different cohorts."@en .
+
+
+###  https://purl.org/twc/fmo#statistical_metric
+fmo:statistical_metric rdf:type owl:Class ;
+                       rdfs:label "Statistical Metric" .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://fairness_ontology.com/AllUnmaskedLikelihood
+:AllUnmaskedLikelihood rdf:type owl:NamedIndividual ,
+                                :PseudoLogLikelihoodFairnessMetric ;
+                       :isSuitableFor :ChatbotInteraction ,
+                                      :Classification ;
+                       :scientificArtifactDescription "Extends the CrowS-Pair Score and CAT to consider multiple correct candidate predictions. While pseudo-loglikelihood and CAT consider a single correct answer for a masked test example, AUL provides an unmasked sentence to the model and predicts all tokens in the sentence. The unmasked input provides the model with all information to predict a token, which can improve the prediction accuracy of the model, and avoids selection bias in the choice of which words to mask." .
+
+
+###  http://fairness_ontology.com/AnalyticsApproach
+:AnalyticsApproach rdf:type owl:NamedIndividual ,
+                            :Pre-processing ;
+                   :isFollowedBy :DataRequirements .
+
+
+###  http://fairness_ontology.com/Art5
+:Art5 rdf:type owl:NamedIndividual ,
+               :Legal_Requirement ;
+      :is_operationalized_by :Calibration ,
+                             :ConditionalStatisticalParity ,
+                             :CounterfactualFairness ,
+                             :EqualOpportunity ,
+                             :EqualizedOdds ,
+                             :ErrorRateBalance ,
+                             :FairnessThroughAwareness ,
+                             :FalseNegativeErrorRateBalance ,
+                             :FalsePositiveErrorRateBalance ,
+                             :PredictiveEquality ,
+                             :StatisticalParity ,
+                             :TestFairness ,
+                             :TotalFairness ,
+                             :TreatmentEquality ;
+      resource:SIO_000068 :EU_AI_Act ;
+      rdfs:comment "Prohibits certain AI practices, such as exploiting vulnerabilities of specific groups, social scoring, and some forms of predictive policing, which are considered incompatible with fundamental rights and equality" .
+
+
+###  http://fairness_ontology.com/BalanceForNegativeClass
+:BalanceForNegativeClass rdf:type owl:NamedIndividual ,
+                                  :ObservationalFairnessNotion ,
+                                  :SeparationFairnessNotion ;
+                         :hasBeenAppliedTo :Law ;
+                         :isSuitableFor :ChatbotInteraction ,
+                                        :Classification ;
+                         :scientificArtifactDescription "The expected predicted score for the negative class has to be equal for all groups. The average score received by people constituting negative instances should be the same in each group. This metric requires that the average score assigned to people of group a who belong to the negative class should be the same as the average score assigned to people of group b who belong to the negative class. In other words, the assignment of scores shouldn’t be systematically more inaccurate for negative instances in one group than the other." .
+
+
+###  http://fairness_ontology.com/BalanceForPositiveClass
+:BalanceForPositiveClass rdf:type owl:NamedIndividual ,
+                                  :ObservationalFairnessNotion ,
+                                  :SeparationFairnessNotion ;
+                         :hasBeenAppliedTo :Law ;
+                         :isSuitableFor :ChatbotInteraction ,
+                                        :Classification ;
+                         :scientificArtifactDescription "It requires that the average score assigned to people of group a who belong to the positive class should be the same as the average score assigned to people of group b who belong to the positive class." .
+
+
+###  http://fairness_ontology.com/BalancedConditionedConsistency
+:BalancedConditionedConsistency rdf:type owl:NamedIndividual ,
+                                         fmo:fairness_metric ;
+                                :hasBeenAppliedTo :CensusIncomePrediction ,
+                                                  :CreditRisk ,
+                                                  :Law ;
+                                :isSuitableFor :Classification ;
+                                :scientificArtifactDescription "It measures the proportion of acceptable decisions (i.e., above a threshold), but not how close to full agreement those decisions were. It allows each individual to contribute to the score with 1/|E| as long as their individual consistency score meets the threshold, regardless of how close to the threshold the score is (or how far from full agreement, i.e., 1, the score is). The balanced conditioned consistency score BCC allows us to capture this." .
+
+
+###  http://fairness_ontology.com/BayesianFairness
+:BayesianFairness rdf:type owl:NamedIndividual ,
+                           :ScoreBasedFairnessMetric ;
+                  :hasBeenAppliedTo :Law ;
+                  :isSuitableFor :ChatbotInteraction ,
+                                 :Classification ;
+                  :scientificArtifactDescription "It considers the case that model parameters themselves are uncertain. The amount of uncertainty about the model parameters directly influences the interpretation of the balance condition. Informally, the more uncertain we are, the more stochastic the decision rule will need to be." .
+
+
+###  http://fairness_ontology.com/BusinessRequirements
+:BusinessRequirements rdf:type owl:NamedIndividual ,
+                               :Pre-processing ;
+                      :isFollowedBy :AnalyticsApproach .
+
+
+###  http://fairness_ontology.com/CEAT
+:CEAT rdf:type owl:NamedIndividual ,
+               :SentenceEmbeddingFairnessMetric ;
+      :isSuitableFor :ChatbotInteraction ,
+                     :Classification .
+
+
+###  http://fairness_ontology.com/Calibration
+:Calibration rdf:type owl:NamedIndividual ,
+                      :ObservationalFairnessNotion ,
+                      :SufficiencyFairnessNotion ;
+             :hasBeenAppliedTo :Finance ,
+                               :Health ,
+                               :Law ;
+             :isEquivalentTo :MatchingConditionalFrequencies ,
+                             :TestFairness ;
+             :isSuitableFor :ChatbotInteraction ,
+                            :Classification ;
+             :scientificArtifactDescription "when two people from different groups get the same predicted score, they should have the same probability of belonging to y = 1." .
+
+
+###  http://fairness_ontology.com/CategoricalBiasScore
+:CategoricalBiasScore rdf:type owl:NamedIndividual ,
+                               :MaskedTokenFairnessMetric ;
+                      :isSuitableFor :ChatbotInteraction ,
+                                     :Classification .
+
+
+###  http://fairness_ontology.com/CensusIncomePrediction
+:CensusIncomePrediction rdf:type owl:NamedIndividual ,
+                                 :ApplicationDomain .
+
+
+###  http://fairness_ontology.com/ChangeAttentionWeights
+:ChangeAttentionWeights rdf:type owl:NamedIndividual ,
+                                 :FullWeightRedistribution ;
+                        rdfs:comment "Apply temperature scaling to attention weights post-training." ;
+                        rdfs:label "ChangeAttentionWeights" .
+
+
+###  http://fairness_ontology.com/ChatbotInteraction
+:ChatbotInteraction rdf:type owl:NamedIndividual ,
+                             :NaturalLanguageProcessingTask .
+
+
+###  http://fairness_ontology.com/Classification
+:Classification rdf:type owl:NamedIndividual ,
+                         :SupervisedLearingTask .
+
+
+###  http://fairness_ontology.com/Clustering
+:Clustering rdf:type owl:NamedIndividual ,
+                     :UnsupervisedLearningTask .
+
+
+###  http://fairness_ontology.com/CoOccurrenceBiasScore
+:CoOccurrenceBiasScore rdf:type owl:NamedIndividual ,
+                                :DistributionFairnessMetric ;
+                       :isSuitableFor :ChatbotInteraction ,
+                                      :Classification .
+
+
+###  http://fairness_ontology.com/ConditionalEqualOpportunity
+:ConditionalEqualOpportunity rdf:type owl:NamedIndividual ,
+                                      :ObservationalFairnessNotion ,
+                                      :SeparationFairnessNotion ;
+                             :hasBeenAppliedTo :Law ;
+                             :isSuitableFor :ChatbotInteraction ,
+                                            :Classification ;
+                             :scientificArtifactDescription "As examples from different groups may have different distributions of risk,  directly applying equality of opportunity over these different risks can raise  issues.  For example, among defendants who have the same number of prior convictions (L), ensure that  FPRs for black and white defendants are equal" .
+
+
+###  http://fairness_ontology.com/ConditionalProcedureAccuracyEquality
+:ConditionalProcedureAccuracyEquality rdf:type owl:NamedIndividual ,
+                                               :ObservationalFairnessNotion ,
+                                               :SeparationFairnessNotion ;
+                                      :hasBeenAppliedTo :Finance ,
+                                                        :Health ,
+                                                        :Law ;
+                                      :isEquivalentTo :EqualizedOdds ;
+                                      :isSuitableFor :ChatbotInteraction ,
+                                                     :Classification ;
+                                      :scientificArtifactDescription "the probability of a person in the positive class being correctly assigned a positive outcome and the probability of a person in a negative class being incorrectly assigned a positive outcome should both be the same for the protected and unprotected group members" .
+
+
+###  http://fairness_ontology.com/ConditionalStatisticalParity
+:ConditionalStatisticalParity rdf:type owl:NamedIndividual ,
+                                       :IndependenceFairnessNotion ,
+                                       :ObservationalFairnessNotion ;
+                              :hasBeenAppliedTo :CensusIncomePrediction ,
+                                                :CreditRisk ,
+                                                :Health ,
+                                                :Law ;
+                              :isSuitableFor :ChatbotInteraction ,
+                                             :Classification ;
+                              :scientificArtifactDescription "Demographic parity conditioned on a set of “legitimate factors” L. For example, among defendants who have the same number of prior convictions, ensure that  black and white defendants are detained at equal rates." .
+
+
+###  http://fairness_ontology.com/ConditionalUseAccuracyEquality
+:ConditionalUseAccuracyEquality rdf:type owl:NamedIndividual ,
+                                         :ObservationalFairnessNotion ,
+                                         :SufficiencyFairnessNotion ;
+                                :hasBeenAppliedTo :Law ;
+                                :isSuitableFor :ChatbotInteraction ,
+                                               :Classification ;
+                                :scientificArtifactDescription "Conditional on the prediction of success (or failure), is the projected probability of success (or failure) the same across protected group classes?" .
+
+
+###  http://fairness_ontology.com/ConsistencyScore
+:ConsistencyScore rdf:type owl:NamedIndividual ,
+                           fmo:fairness_metric ;
+                  :isSuitableFor :Classification ;
+                  :scientificArtifactDescription "It measures the overall level of disparity in the classification of individuals with respect to similar individuals, using the k-nearest neighbours. To do so, NN gives a value in the interval [0, 1], and the higher the value, the lower the level of disparity overall." .
+
+
+###  http://fairness_ontology.com/ContextAssociationTest
+:ContextAssociationTest rdf:type owl:NamedIndividual ,
+                                 :PseudoLogLikelihoodFairnessMetric ;
+                        :isSuitableFor :ChatbotInteraction ,
+                                       :Classification .
+
+
+###  http://fairness_ontology.com/CounterfactualFairness
+:CounterfactualFairness rdf:type owl:NamedIndividual ,
+                                 :CausalFairnessNotion ,
+                                 :IndividualFairnessNotion ;
+                        :hasBeenAppliedTo :Education ;
+                        :isSuitableFor :ChatbotInteraction ,
+                                       :Classification ;
+                        :scientificArtifactDescription "a decision is fair towards an individual (or a group) if it is the same in both the actual world and a counterfactual world where the individual belonged to a different demographic group. Essentially, the definition ensures that changing an individual’s sensitive variable, while holding constant all other variables that are not causally dependent on the sensitive variable , does not change the prediction (distribution)." .
+
+
+###  http://fairness_ontology.com/CounterfactualSentimentBias
+:CounterfactualSentimentBias rdf:type owl:NamedIndividual ,
+                                      :ClassifierFairnessMetric ;
+                             :isSuitableFor :ChatbotInteraction ,
+                                            :Classification .
+
+
+###  http://fairness_ontology.com/CreditRisk
+:CreditRisk rdf:type owl:NamedIndividual ,
+                     :ApplicationDomain .
+
+
+###  http://fairness_ontology.com/CrowSPairsScore
+:CrowSPairsScore rdf:type owl:NamedIndividual ,
+                          :PseudoLogLikelihoodFairnessMetric ;
+                 :isSuitableFor :ChatbotInteraction ,
+                                :Classification .
+
+
+###  http://fairness_ontology.com/DataCollection
+:DataCollection rdf:type owl:NamedIndividual ,
+                         :Pre-processing ;
+                :isFollowedBy :ExploratoryDataAnalysis .
+
+
+###  http://fairness_ontology.com/DataPreparation
+:DataPreparation rdf:type owl:NamedIndividual ,
+                          :Pre-processing ;
+                 :isFollowedBy :ModelSelection .
+
+
+###  http://fairness_ontology.com/DataRequirements
+:DataRequirements rdf:type owl:NamedIndividual ,
+                           :Pre-processing ;
+                  :isFollowedBy :DataCollection .
+
+
+###  http://fairness_ontology.com/DemographicParity
+:DemographicParity rdf:type owl:NamedIndividual ,
+                            :IndependenceFairnessNotion ,
+                            :ObservationalFairnessNotion ;
+                   owl:sameAs :StatisticalParity .
+
+
+###  http://fairness_ontology.com/StatisticalParity
+
+###  http://fairness_ontology.com/DemographicRepresentation
+:DemographicRepresentation rdf:type owl:NamedIndividual ,
+                                    :DistributionFairnessMetric ;
+                           :isSuitableFor :ChatbotInteraction ,
+                                          :Classification .
+
+
+###  http://fairness_ontology.com/DisCo
+:DisCo rdf:type owl:NamedIndividual ,
+                :MaskedTokenFairnessMetric ;
+       :isSuitableFor :ChatbotInteraction ,
+                      :Classification .
+
+
+###  http://fairness_ontology.com/Disparagement
+:Disparagement rdf:type owl:NamedIndividual ,
+                        :LinguisticBias ,
+                        :RepresentationBias ;
+               rdfs:label "disparagement"@en ;
+               skos:definition "Disparagement is not merely bias in representation but bias in expression, it is the linguistic realization of stereotype."@en .
+
+
+###  http://fairness_ontology.com/DisparateImpact
+:DisparateImpact rdf:type owl:NamedIndividual ,
+                          :ParityBasedFairnessMetric ;
+                 :hasBeenAppliedTo :CensusIncomePrediction ,
+                                   :CreditRisk ,
+                                   :Health ,
+                                   :Law ;
+                 :isSuitableFor :ChatbotInteraction ,
+                                :Classification ;
+                 :measures :StatisticalParity ;
+                 :scientificArtifactDescription "The ratio between the probabilities of positively classifying unprivileged and privileged groups should exceed a threshold." .
+
+
+###  http://fairness_ontology.com/EU_AI_Act
+:EU_AI_Act rdf:type owl:NamedIndividual ,
+                    :Legislation ;
+           dc:source "https://www.euaiact.com/" ;
+           rdfs:label "EU AI Act" .
+
+
+###  http://fairness_ontology.com/Education
+:Education rdf:type owl:NamedIndividual ,
+                    :ApplicationDomain .
+
+
+###  http://fairness_ontology.com/EmpiricalToxicityProbability
+:EmpiricalToxicityProbability rdf:type owl:NamedIndividual ,
+                                       :ClassifierFairnessMetric ;
+                              :isSuitableFor :ChatbotInteraction ,
+                                             :Classification .
+
+
+###  http://fairness_ontology.com/EqualOpportunity
+:EqualOpportunity rdf:type owl:NamedIndividual ,
+                           :ObservationalFairnessNotion ,
+                           :SeparationFairnessNotion ;
+                  :hasBeenAppliedTo :Finance ,
+                                    :Health ,
+                                    :Law ;
+                  :isSuitableFor :ChatbotInteraction ,
+                                 :Classification ;
+                  :scientificArtifactDescription "the probability of a person in a positive class being assigned to a positive outcome should be equal for both protected and unprotected group members. In other words, the equal opportunity definition states that the protected and unprotected groups should have equal true positive rates." .
+
+
+###  http://fairness_ontology.com/EqualityPrincipal
+:EqualityPrincipal rdf:type owl:NamedIndividual ,
+                            :SocialPrinciple ;
+                   rdfs:label "Equality"@en ;
+                   skos:definition "Equality is giving everyone the same resources and opportunities."@en .
+
+
+###  http://fairness_ontology.com/EqualizedOdds
+:EqualizedOdds rdf:type owl:NamedIndividual ,
+                        :ObservationalFairnessNotion ,
+                        :SeparationFairnessNotion ;
+               :hasBeenAppliedTo :CensusIncomePrediction ,
+                                 :CreditRisk ,
+                                 :Health ,
+                                 :Law ;
+               :isEquivalentTo :ConditionalProcedureAccuracyEquality ;
+               :isSuitableFor :ChatbotInteraction ,
+                              :Classification ;
+               :scientificArtifactDescription "the probability of a person in the positive class being correctly assigned a positive outcome and the probability of a person in a negative class being incorrectly assigned a positive outcome should both be the same for the protected and unprotected group members" .
+
+
+###  http://fairness_ontology.com/EqualizingDisincentives
+:EqualizingDisincentives rdf:type owl:NamedIndividual ,
+                                  :ObservationalFairnessNotion ,
+                                  :SeparationFairnessNotion ;
+                         :hasBeenAppliedTo :Law ;
+                         :isSuitableFor :ChatbotInteraction ,
+                                        :Classification ;
+                         :scientificArtifactDescription "It aims at equilizing the disincentive (e.e., to commit a crime) across groups: e.g., the probability of being found guilty having committed a crime relative to not must be the same for different groups." .
+
+
+###  http://fairness_ontology.com/EquityPrinciple
+:EquityPrinciple rdf:type owl:NamedIndividual ,
+                          :SocialPrinciple ;
+                 rdfs:label "Equity"@en ;
+                 skos:definition "Equity is providing different resources based on individual needs to ensure everyone has an equal outcome."@en .
+
+
+###  http://fairness_ontology.com/ErrorRateBalance
+:ErrorRateBalance rdf:type owl:NamedIndividual ,
+                           :ObservationalFairnessNotion ,
+                           :SeparationFairnessNotion ;
+                  :hasBeenAppliedTo :Finance ,
+                                    :Health ,
+                                    :Law ;
+                  :isEquivalentTo :ConditionalProcedureAccuracyEquality ;
+                  :isSuitableFor :ChatbotInteraction ,
+                                 :Classification ;
+                  :scientificArtifactDescription "equal false negative and false positive rates" .
+
+
+###  http://fairness_ontology.com/ExpectedMaximumToxicity
+:ExpectedMaximumToxicity rdf:type owl:NamedIndividual ,
+                                  :ClassifierFairnessMetric ;
+                         :isSuitableFor :ChatbotInteraction ,
+                                        :Classification .
+
+
+###  http://fairness_ontology.com/ExploratoryDataAnalysis
+:ExploratoryDataAnalysis rdf:type owl:NamedIndividual ,
+                                  :Pre-processing ;
+                         :isFollowedBy :DataPreparation .
+
+
+###  http://fairness_ontology.com/FairScore
+:FairScore rdf:type owl:NamedIndividual ,
+                    fmo:fairness_metric ;
+           :isSuitableFor :ChatbotInteraction ,
+                          :Classification ;
+           :scientificArtifactDescription "Is a counterfactual fairness metric that measures the change in model predictions between the original evaluation dataset and the perturbation-augmented version, with a comparatively lower score indicating a fairer model. The fairscore of a classifier is defined as the percentage of predictions that differ when the input is demographically altered." .
+
+
+###  http://fairness_ontology.com/FairnessThroughAwareness
+:FairnessThroughAwareness rdf:type owl:NamedIndividual ,
+                                   :IndividualFairnessNotion ,
+                                   :ObservationalFairnessNotion ;
+                          owl:sameAs :IndividualFairness ;
+                          :hasBeenAppliedTo :Education ,
+                                            :Health ,
+                                            :Law ;
+                          :isSuitableFor :Classification ;
+                          :scientificArtifactDescription """An algorithm is fair if it gives similar predictions to similar individuals
+Awareness is based on the Lipschitz condition, which requires that any two individuals 
+$x$ and $y$ at distance $d(x,y) \\in [0,1]$ map to distributions $M(x)$ and $M(y)$, respectively, such that the statistical distance between them is at most $d(x,y)$:
+\\[
+D(M(x_1), M(x_2)) \\le d(x_1, x_2), 
+\\quad \\forall x_1, x_2 \\in E .
+\\]
+
+Here, $M(x)$ denotes the probability distribution of the output for individual $x$, 
+$E$ is a dataset, $D(\\cdot,\\cdot)$ returns the statistical distance between 
+$M(x_1)$ and $M(x_2)$, and $d(\\cdot,\\cdot)$ denotes a distance between individuals 
+$x_1$ and $x_2$, defined using a pre-specified, domain-dependent notion of similarity.
+\\cite{2025_WALLER}""" .
+
+
+###  http://fairness_ontology.com/IndividualFairness
+
+###  http://fairness_ontology.com/FairnessThroughUnawareness
+:FairnessThroughUnawareness rdf:type owl:NamedIndividual ,
+                                     :ProceduralFairnessNotion ;
+                            :isSuitableFor :ChatbotInteraction ,
+                                           :Classification ;
+                            :scientificArtifactDescription "An algorithm is fair as long as any protected attributes A are not explicitly used in the decision-making process" .
+
+
+###  http://fairness_ontology.com/FalseNegativeErrorRateBalance
+:FalseNegativeErrorRateBalance rdf:type owl:NamedIndividual ,
+                                        :ObservationalFairnessNotion ,
+                                        :SeparationFairnessNotion ;
+                               :hasBeenAppliedTo :Finance ,
+                                                 :Health ,
+                                                 :Law ;
+                               :isEquivalentTo :EqualOpportunity ;
+                               :isSuitableFor :ChatbotInteraction ,
+                                              :Classification ;
+                               :scientificArtifactDescription "Protected and unprotected groups should have equal false negative rates." .
+
+
+###  http://fairness_ontology.com/FalsePositiveErrorRateBalance
+:FalsePositiveErrorRateBalance rdf:type owl:NamedIndividual ,
+                                        :ObservationalFairnessNotion ,
+                                        :SeparationFairnessNotion ;
+                               :hasBeenAppliedTo :Law ;
+                               :isEquivalentTo :PredictiveEquality ;
+                               :isSuitableFor :ChatbotInteraction ,
+                                              :Classification ;
+                               :scientificArtifactDescription "the probability of a person in a negative class being assigned to a positive outcome should be equal for both protected and unprotected group members. In other words, protected and unprotected groups should have equal false positive rates, which implies same true negative rates." .
+
+
+###  http://fairness_ontology.com/Finance
+:Finance rdf:type owl:NamedIndividual ,
+                  :ApplicationDomain .
+
+
+###  http://fairness_ontology.com/FullGenBias
+:FullGenBias rdf:type owl:NamedIndividual ,
+                      :ClassifierFairnessMetric ;
+             :isSuitableFor :ChatbotInteraction ,
+                            :Classification .
+
+
+###  http://fairness_ontology.com/GenderPolarity
+:GenderPolarity rdf:type owl:NamedIndividual ,
+                         :LexiconFairnessMetric ;
+                :isSuitableFor :ChatbotInteraction ,
+                               :Classification .
+
+
+###  http://fairness_ontology.com/GeneralizedEntropyIndex
+:GeneralizedEntropyIndex rdf:type owl:NamedIndividual ,
+                                  fmo:fairness_metric ;
+                         :hasBeenAppliedTo :CensusIncomePrediction ,
+                                           :Law ;
+                         :isSuitableFor :Classification ;
+                         :scientificArtifactDescription "It is a merit-based metric of fairness that seeks to equalize the benefit individuals receive as the result of being subject to algorithmic decision making. Suppose society consists of n individuals, where b_i >= 0 denotes the benefit individual i receives as the result of being subject to algorithmic decision making." .
+
+
+###  http://fairness_ontology.com/HONEST
+:HONEST rdf:type owl:NamedIndividual ,
+                 :LexiconFairnessMetric ;
+        :isSuitableFor :ChatbotInteraction ,
+                       :Classification .
+
+
+###  http://fairness_ontology.com/Health
+:Health rdf:type owl:NamedIndividual ,
+                 :ApplicationDomain .
+
+
+###  http://fairness_ontology.com/IndividualConsistencyScore
+:IndividualConsistencyScore rdf:type owl:NamedIndividual ,
+                                     fmo:fairness_metric ;
+                            :hasBeenAppliedTo :CensusIncomePrediction ,
+                                              :CreditRisk ,
+                                              :Law ;
+                            :isSuitableFor :Classification ;
+                            :scientificArtifactDescription "An extension of the consistency score, which does not provide an overall (average) evaluation of the individual fairness performance of the predictor, but is able to assess how fair the model is for any individual in the dataset." .
+
+
+###  http://fairness_ontology.com/IndividualFairness
+:IndividualFairness rdf:type owl:NamedIndividual ,
+                             :IndividualFairnessNotion ,
+                             :ObservationalFairnessNotion ;
+                    rdfs:label "Individual Fairness" .
+
+
+###  http://fairness_ontology.com/ItemRecommendation
+:ItemRecommendation rdf:type owl:NamedIndividual ,
+                             :ApplicationDomain .
+
+
+###  http://fairness_ontology.com/LanguageModelBias
+:LanguageModelBias rdf:type owl:NamedIndividual ,
+                            :PseudoLogLikelihoodFairnessMetric ;
+                   :isSuitableFor :ChatbotInteraction ,
+                                  :Classification .
+
+
+###  http://fairness_ontology.com/Law
+:Law rdf:type owl:NamedIndividual ,
+              :ApplicationDomain .
+
+
+###  http://fairness_ontology.com/LogProbabilityBiasScore
+:LogProbabilityBiasScore rdf:type owl:NamedIndividual ,
+                                  :MaskedTokenFairnessMetric ,
+                                  :ScientificArtifact ;
+                         :isSuitableFor :ChatbotInteraction ,
+                                        :Classification .
+
+
+###  http://fairness_ontology.com/LowIndividualConsistencyCount
+:LowIndividualConsistencyCount rdf:type owl:NamedIndividual ,
+                                        :ScientificArtifact ,
+                                        fmo:fairness_metric ;
+                               :hasBeenAppliedTo :CensusIncomePrediction ,
+                                                 :CreditRisk ,
+                                                 :Law ;
+                               :isSuitableFor :Classification ;
+                               :scientificArtifactDescription "It measures the absolute number of individuals whose individual consistency score is below some threshold." .
+
+
+###  http://fairness_ontology.com/MaskedLanguageModelling
+:MaskedLanguageModelling rdf:type owl:NamedIndividual ,
+                                  :NaturalLanguageProcessingTask .
+
+
+###  http://fairness_ontology.com/MatchingConditionalFrequencies
+:MatchingConditionalFrequencies rdf:type owl:NamedIndividual ,
+                                         :ObservationalFairnessNotion ,
+                                         :ScientificArtifact ,
+                                         :SufficiencyFairnessNotion ;
+                                :hasBeenAppliedTo :Finance ,
+                                                  :Health ,
+                                                  :Law ;
+                                :isEquivalentTo :Calibration ;
+                                :isSuitableFor :ChatbotInteraction ,
+                                               :Classification ;
+                                :scientificArtifactDescription "when two people from different groups get the same predicted score, they should have the same probability of belonging to y = 1." .
+
+
+###  http://fairness_ontology.com/ModelDeployment
+:ModelDeployment rdf:type owl:NamedIndividual ,
+                          :Post-processing ;
+                 :isFollowedBy :ModelTuning ;
+                 rdfs:label "Model Deployment" .
+
+
+###  http://fairness_ontology.com/ModelEvaluation
+:ModelEvaluation rdf:type owl:NamedIndividual ,
+                          :In-processing ;
+                 :isFollowedBy :ModelDeployment .
+
+
+###  http://fairness_ontology.com/ModelSelection
+:ModelSelection rdf:type owl:NamedIndividual ,
+                         :In-processing ;
+                :isFollowedBy :ModelEvaluation .
+
+
+###  http://fairness_ontology.com/ModelTuning
+:ModelTuning rdf:type owl:NamedIndividual ,
+                      :Post-processing ;
+             :isFollowedBy :ProjectReview ;
+             rdfs:label "Model Tuning" .
+
+
+###  http://fairness_ontology.com/OutcomeUnfairness
+:OutcomeUnfairness rdf:type owl:NamedIndividual ,
+                            :ConfusionMatrixBasedFairnessMetric ;
+                   :hasBeenAppliedTo :Law ;
+                   :isSuitableFor :ChatbotInteraction ,
+                                  :Classification ;
+                   :scientificArtifactDescription "It quantifies the disparities in the misclassification rates for protected and unprotected groups." .
+
+
+###  http://fairness_ontology.com/OverallAccuracyEquality
+:OverallAccuracyEquality rdf:type owl:NamedIndividual ,
+                                  :ObservationalFairnessNotion ,
+                                  :ScientificArtifact ,
+                                  :SeparationFairnessNotion ;
+                         :hasBeenAppliedTo :Finance ,
+                                           :Health ,
+                                           :Law ;
+                         :isSuitableFor :ChatbotInteraction ,
+                                        :Classification ;
+                         :scientificArtifactDescription "The accuracy of the classification must be the same for both groups" .
+
+
+###  http://fairness_ontology.com/PerspectiveAPI
+:PerspectiveAPI rdf:type owl:NamedIndividual ,
+                         :ClassifierFairnessMetric ,
+                         :ScientificArtifact ;
+                :isSuitableFor :ChatbotInteraction ,
+                               :Classification .
+
+
+###  http://fairness_ontology.com/PredictiveEquality
+:PredictiveEquality rdf:type owl:NamedIndividual ,
+                             :ObservationalFairnessNotion ,
+                             :ScientificArtifact ,
+                             :SeparationFairnessNotion ;
+                    :hasBeenAppliedTo :Law ;
+                    :isEquivalentTo :FalsePositiveErrorRateBalance ;
+                    :isSuitableFor :ChatbotInteraction ,
+                                   :Classification ;
+                    :scientificArtifactDescription "The probability of a person in a negative class being assigned to a positive outcome should be equal for both protected and unprotected group members. In other words, protected and unprotected groups should have equal false positive rates, which implies same true negative rates." .
+
+
+###  http://fairness_ontology.com/PredictiveParity
+:PredictiveParity rdf:type owl:NamedIndividual ,
+                           :ObservationalFairnessNotion ,
+                           :ScientificArtifact ,
+                           :SufficiencyFairnessNotion ;
+                  :hasBeenAppliedTo :Law ;
+                  :isSuitableFor :ChatbotInteraction ,
+                                 :Classification ;
+                  :scientificArtifactDescription "Aims at having similar predictive values for two different groups. E.g.,the probability of recidivating, given a high risk score, is similar for blacks and whites. Let S = S(x) denote the risk score, with higher values of S corresponding to higher levels of assessed risk. A score S = S(x) satisfies predictive parity at a threshold sHR if the likelihood of recidivism among high-risk offenders is the same regardless of group membership." .
+
+
+###  http://fairness_ontology.com/Prejudice
+:Prejudice rdf:type owl:NamedIndividual ,
+                    :HistoricalBias ;
+           rdfs:label "prejudice"@en ;
+           skos:definition "Prejudice is a latent human or cultural construct and represents historical predispositions to discrimination."@en .
+
+
+###  http://fairness_ontology.com/ProjectReview
+:ProjectReview rdf:type owl:NamedIndividual ,
+                        :Governance .
+
+
+###  http://fairness_ontology.com/ProportionalConsistencyScore
+:ProportionalConsistencyScore rdf:type owl:NamedIndividual ,
+                                       fmo:fairness_metric ;
+                              :hasBeenAppliedTo :CensusIncomePrediction ,
+                                                :CreditRisk ,
+                                                :Law ;
+                              :isSuitableFor :Classification ;
+                              :scientificArtifactDescription "It measures the proportion of individuals in the datasets whose decisions are deemed ‘consistent’, i.e., with an individual consistency score above a certain threshold." .
+
+
+###  http://fairness_ontology.com/PsycholinguisticNorms
+:PsycholinguisticNorms rdf:type owl:NamedIndividual ,
+                                :LexiconFairnessMetric ;
+                       :isSuitableFor :ChatbotInteraction ,
+                                      :Classification .
+
+
+###  http://fairness_ontology.com/RegardScore
+:RegardScore rdf:type owl:NamedIndividual ,
+                      :ClassifierFairnessMetric ;
+             :isSuitableFor :ChatbotInteraction ,
+                            :Classification .
+
+
+###  http://fairness_ontology.com/Regression
+:Regression rdf:type owl:NamedIndividual ,
+                     :SupervisedLearingTask .
+
+
+###  http://fairness_ontology.com/SEAT
+:SEAT rdf:type owl:NamedIndividual ,
+               :SentenceEmbeddingFairnessMetric ;
+      :isSuitableFor :ChatbotInteraction ,
+                     :Classification .
+
+
+###  http://fairness_ontology.com/ScoreParity
+:ScoreParity rdf:type owl:NamedIndividual ,
+                      :ClassifierFairnessMetric ;
+             :isSuitableFor :ChatbotInteraction ,
+                            :Classification .
+
+
+###  http://fairness_ontology.com/SentenceBiasScore
+:SentenceBiasScore rdf:type owl:NamedIndividual ,
+                            :SentenceEmbeddingFairnessMetric ;
+                   :isSuitableFor :ChatbotInteraction ,
+                                  :Classification .
+
+
+###  http://fairness_ontology.com/SimilarityRobustnessOfIndividualConsistency
+:SimilarityRobustnessOfIndividualConsistency rdf:type owl:NamedIndividual ,
+                                                      fmo:fairness_metric ;
+                                             :hasBeenAppliedTo :CensusIncomePrediction ,
+                                                               :CreditRisk ,
+                                                               :Law ;
+                                             :isSuitableFor :Classification ;
+                                             :scientificArtifactDescription "It quantifies the proportion of individuals for which the individual consistency decreases below or increases above some threshold, between two different notions of similarity. Useful for comparing the impact of switching between two notions. The lower the value, the more resilient the decisions of a classifier are with respect to the notions." .
+
+
+###  http://fairness_ontology.com/SocialGroupSubstitution
+:SocialGroupSubstitution rdf:type owl:NamedIndividual ,
+                                  :DistributionFairnessMetric ;
+                         :isSuitableFor :ChatbotInteraction ,
+                                        :Classification .
+
+
+###  http://fairness_ontology.com/StatisticalParity
+:StatisticalParity rdf:type owl:NamedIndividual ,
+                            :IndependenceFairnessNotion ,
+                            :ObservationalFairnessNotion ;
+                   :hasBeenAppliedTo :CensusIncomePrediction ,
+                                     :CreditRisk ,
+                                     :Health ,
+                                     :Law ;
+                   :isSuitableFor :ChatbotInteraction ,
+                                  :Classification ;
+                   :scientificArtifactDescription "Each group must have the same probability of being classified with the positive outcome, i.e., the fraction of predicted positive of group a should be equal to that of group b" ;
+                   :isBasedOnSocialPrinciple :Equality .
+
+
+###  http://fairness_ontology.com/Stereotype
+:Stereotype rdf:type owl:NamedIndividual ,
+                     :RepresentationBias ;
+            rdfs:label "stereotype"@en ;
+            skos:definition "A simplified and generalized representation of a group (e.g., “women are nurses,” “men are engineers”) that operationalizes discrimination in communication, media, or data."@en .
+
+
+###  http://fairness_ontology.com/StereotypicalAssociations
+:StereotypicalAssociations rdf:type owl:NamedIndividual ,
+                                    :DistributionFairnessMetric ;
+                           :isSuitableFor :ChatbotInteraction ,
+                                          :Classification .
+
+
+###  http://fairness_ontology.com/TestFairness
+:TestFairness rdf:type owl:NamedIndividual ,
+                       :ObservationalFairnessNotion ,
+                       :SufficiencyFairnessNotion ;
+              :hasBeenAppliedTo :Finance ,
+                                :Health ,
+                                :Law ;
+              :isEquivalentTo :Calibration ,
+                              :MatchingConditionalFrequencies ;
+              :isSuitableFor :ChatbotInteraction ,
+                             :Classification ;
+              :scientificArtifactDescription "when two people from different groups get the same predicted score, they should have the same probability of belonging to y = 1." .
+
+
+###  http://fairness_ontology.com/TextClassification
+:TextClassification rdf:type owl:NamedIndividual ,
+                             :NaturalLanguageProcessingTask .
+
+
+###  http://fairness_ontology.com/TheilIndex
+:TheilIndex rdf:type owl:NamedIndividual ,
+                     fmo:fairness_metric ;
+            :hasBeenAppliedTo :CensusIncomePrediction ,
+                              :Law ;
+            :isSuitableFor :Classification ;
+            :scientificArtifactDescription "It measures the inequality in a group or individual concerning the fairness of the algorithm outcome. The lower the better." .
+
+
+###  http://fairness_ontology.com/TokenClassification
+:TokenClassification rdf:type owl:NamedIndividual ,
+                              :NaturalLanguageProcessingTask .
+
+
+###  http://fairness_ontology.com/TotalFairness
+:TotalFairness rdf:type owl:NamedIndividual ,
+                        :IndependenceFairnessNotion ,
+                        :ObservationalFairnessNotion ,
+                        :SeparationFairnessNotion ,
+                        :SufficiencyFairnessNotion ;
+               :hasBeenAppliedTo :Law ;
+               :isSuitableFor :ChatbotInteraction ,
+                              :Classification ;
+               :scientificArtifactDescription "Achived when: overall accuracy equality, statistical parity, equalized odds (conditional procedure accuracy equality), conditional use accuracy equality, treatment equality are all achieved" .
+
+
+###  http://fairness_ontology.com/ToxicityFraction
+:ToxicityFraction rdf:type owl:NamedIndividual ,
+                           :ClassifierFairnessMetric ;
+                  :isSuitableFor :ChatbotInteraction ,
+                                 :Classification .
+
+
+###  http://fairness_ontology.com/TreatmentEquality
+:TreatmentEquality rdf:type owl:NamedIndividual ,
+                            :ObservationalFairnessNotion ,
+                            :SeparationFairnessNotion ;
+                   :hasBeenAppliedTo :Finance ,
+                                     :Health ,
+                                     :Law ;
+                   :isSuitableFor :ChatbotInteraction ,
+                                  :Classification ;
+                   :scientificArtifactDescription "It is achieved when the ratio of false negatives and false positives  is the same for both protected group categories. If the two ratios are significantly different, then you have that for group a(say, men) it is more probable to be incorrectly classified as a negative, then for group b (say, women)" .
+
+
+###  http://fairness_ontology.com/TruePositiveRateDifference
+:TruePositiveRateDifference rdf:type owl:NamedIndividual ,
+                                     :ParityBasedFairnessMetric ;
+                            :hasBeenAppliedTo :Law ;
+                            :isEquivalentTo :EqualOpportunity ;
+                            :isSuitableFor :ChatbotInteraction ,
+                                           :Classification ;
+                            :scientificArtifactDescription "Originally: True positive gender gap. It measures the gap in true positive rate between the predictions of machine learning models employing demographic data, meant to be used comparatively; a lower score indicates a fairer model." .
+
+
+###  http://fairness_ontology.com/WEAT
+:WEAT rdf:type owl:NamedIndividual ,
+               :WordEmbeddingFairnessMetric ;
+      :isSuitableFor :ChatbotInteraction ,
+                     :Classification .
+
+
+###  http://fairness_ontology.com/WellCalibration
+:WellCalibration rdf:type owl:NamedIndividual ,
+                          :ObservationalFairnessNotion ,
+                          :SufficiencyFairnessNotion ;
+                 :hasBeenAppliedTo :Law ;
+                 :isSuitableFor :ChatbotInteraction ,
+                                :Classification ;
+                 :scientificArtifactDescription "when two people from different groups get the same predicted score r, they should have the same probability of belonging to Y = 1 and that probability should also be equal to r. In other words, if the algorithm identifies a set of people as having a probability x of constituting positive instances, then approximately an x fraction of this set should indeed be positive instances" .
+
+
+#################################################################
+#    Annotations
+#################################################################
+
+:Calibration rdfs:label "Calibration" .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi

@@ -1,0 +1,67 @@
+Row,Column,File1_Value,File2_Value
+2,Formula,Remove the sensitive features from the training dataset,
+3,Formula,"𝐷 (𝑀 (𝑥1), 𝑀 (𝑥2)) ≤ 𝑑 (𝑥1, 𝑥2), ∀𝑥1, 𝑥2 ∈ 𝐸 
+where 𝑀 (𝑥 ) is the probability distribution for the output for 𝑥 , 𝐸 is a dataset, 𝐷 returns the statistical distance between 𝑀(𝑥1) and 𝑀(𝑥2) and 𝑑 returns a distance between 𝑥1 and 𝑥2, found using a pre-specified, domain-dependent definition of similarity. [2025_WALLER]",
+4,Formula,"𝐷 (𝑀 (𝑥1), 𝑀 (𝑥2)) ≤ 𝑑 (𝑥1, 𝑥2), ∀𝑥1, 𝑥2 ∈ 𝐸 
+where 𝑀 (𝑥 ) is the probability distribution for the output for 𝑥 , 𝐸 is a dataset, 𝐷 returns the statistical distance between 𝑀(𝑥1) and 𝑀(𝑥2) and 𝑑 returns a distance between 𝑥1 and 𝑥2, found using a pre-specified, domain-dependent definition of similarity. [2025_WALLER]",
+13,Formula,"Pr(Yˆ = 1,A= a) = Pr(Yˆ = 1, A=b)
+",
+14,Formula,"Pr(Yˆ = 1,A= a) = Pr(Yˆ = 1, A=b)
+",
+15,Formula,"P(Yˆ=1|L=1,A = a) = P(Yˆ=1|L=1,A = b) ",
+16,Formula,Pr(Yˆ = 1|a) / Pr(Yˆ = 1|b) >= t,
+17,Formula,"P(Yˆ =1|A=a,Y=1) = P(Yˆ =1|A=b,Y=1)
+in other words:
+TPR(a)=TPR(b) 
+i.e., equal Sensitivity",
+18,Formula,FNR(a)=FNR(b) ,
+19,Formula,|TPR(a)-TPR(b)|,
+20,Formula,"P(Yˆ ≥ τ|A=a,Y< τ,L=1)  = P ( Yˆ ≥ τ | A=b , Y< τ , L=1 ) ∀ a ∈ A",
+21,Formula,"TPR(a) = TPR(b)     [ <==> FNR(a)=FNR(b) ]
+and
+FPR(a)=FPR(b)   [ <==> TNR(a) = TNR(b)  ]",
+22,Formula,"TPR(a) = TPR(b)     [ <==> FNR(a)=FNR(b) ]
+and
+TNR(a) = TNR(b)    [ <==> FPR(a)=FPR(b) ]",
+23,Formula,"FNR(a)=FNR(b)    [ <==> TPR(a) = TPR(b)  ]
+and
+FPR(a)=FPR(b)   [ <==> TNR(a) = TNR(b)  ]",
+24,Formula,|FPR(a)-FPR(b)|+|FNR(a)-FNR(b)|,
+25,Formula,"Accuracy(a) =Accuracy(b), i.e., (TPa+TNa)/(P+N) = (TPb+TNb)/(P+N)",
+26,Formula,Originally defined as: FN(a)/FP(a) =FN(b) /FP(b) [2021_BERK][2021_MEHRABI]. Later reported as FNR(a)/FPR(a) =FNR(b) /FPR(b) [2024_CATON],
+27,Formula,TPR(a)-FPR(a)=TPR(b)-FPR(b),
+28,Formula,FPR(a)=FPR(b) [<==> TNR(a)=TNR(b)],
+29,Formula,FPR(a)=FPR(b) [<==> TNR(a)=TNR(b)],
+30,Formula,"P(Y =1|R=r,A=a)=P(Y =1|R=r,A=b) for all values of r",
+31,Formula,"P(Y =1|R=r,A=a)=P(Y =1|R=r,A=b) for all values of r",
+32,Formula,"P(Y =1|R=r,A=a)=P(Y =1|R=r,A=b) for all values of r",
+33,Formula,"P(Y =1|R>t,A=a)=P(Y =1|R>t,A=b) [2017_CHOULDECHOVA]
+P(Y =1|Yˆ =1,A=a)=P(Y =1|Yˆ =1,A=b) [2017_KUSNER]
+i.e., TP(a)/P'(a) = TP(b)/P'(b) , i.e., PPV(a)=PPV(b)",
+34,Formula,"P(Y=0,Y^=1,A=a)=P(Y=0,Y^=1,A=b), i.e., FDR(a)=FDR(b)",
+35,Formula,"\tau = min{FDR(a)/FDR(b),FDR(b)/FDR(a) }",
+36,Formula,"P(Y =1|R=r,A=a)=P(Y =1|R=r,A=b)=r.     for all values of r",
+37,Formula,"P(Y=1|Yˆ=1,A=a)=P(Y=1|Yˆ=1,A=b) and P(Y=0|Yˆ=0,A=a)=P(Y=0|Yˆ=0,A=b) 
+i.e., TP(a)/P'(a) = TP(b)/P'(b) and TN(a)/N'(a) =TN(b)/N'(b)",
+38,Formula,logical AND of the formulas of the involved metrics,
+39,Formula,"E(R = r|Y = 0, A=a) = E(R = r|Y = 0,A=b).  [2024_CATON]
+Avg(r|Y = 0, A=a)=Avg(r|Y = 0, A=b)   [2017_KLEINBERG]",
+40,Formula,"E(R = r|Y = 1, A=a) = E(R = r|Y = 1,A=b).    [2024_CATON]
+Avg(r|Y = 1, A=a)=Avg(r|Y = 1, A=b)      [2017_KLEINBERG]",
+42,Formula,"Given  U  latent (background) variables, and V = A ∪ X  observable variables including the sensitive variable A, 
+P(YˆA←a (U)=y|X =x,A=a)=P(YˆA←a′(U)=y|X =x,A=a), (1) for all y and for any value a′ attainable by A.",
+43,Definition,"merit-based metric of fairness that seeks to equalize the benefit individuals receive as the result of being subject to algorithmic decision making. Suppose society consists of n individuals, where bi ≥ 0 denotes the benefit individual i receives as the result of being subject to algorithmic decision making. For a constant α < {0, 1}, the gener- alized entropy of benefits b1,b2,··· ,bn with mean benefit μ is defined as:","merit-based metric of fairness that seeks to equalize the benefit individuals receive as the result of being subject to algorithmic decision making. Suppose society consists of n individuals, where bi ≥ 0 denotes the benefit individual i receives as the result of being subject to algorithmic decision making. For a constant α < {0, 1}, the generalized entropy of benefits b1,b2,··· ,bn with mean benefit μ is defined as:"
+44,Formula,GEI with α = 1,
+47,Formula,"The same formulation of WEAT, using the [CLS] token as the embeddings. ",
+50,Definition,"Discovery of Correlations (DisCo) compares the completion of template sentences. Each template (e.g., “[X] is [MASK]”. “[X] likes to [MASK]”) has two slots, the first manually filled with a bias trigger associated with a social group (originally presented for gendered names and nouns, but generalizable to other groups with well-defined word lists), and the second filled by the model’s top three candidate predictions.","Discovery of Correlations (DisCo) compares the completion of template sentences. Each template (e.g., “[X] is [MASK]”, “[X] likes to [MASK]”) has two slots, the first manually filled with a bias trigger associated with a social group (originally presented for gendered names and nouns, but generalizable to other groups with well-defined word lists), and the second filled by the model’s top three candidate predictions."
+50,Formula,The score is calculated by averaging the count of differing predictions between social groups across all templates.,
+50,Proposed by,2021_WEBSTER,2021_WENSTER
+56,Formula,"After removing outlier pairs with very high or low perplexity, LMB computes the t-value of the Student’s two-tailed test between PP(S1) and PP(S2).",
+61,Formula,/,
+62,Formula,/,
+66,Formula,/,
+71,Formula,| f (G0) − f (G1)|,
+82,Formula,"Avg(U_under,U_over)",
+83,Formula,"NDCGu1 = NDCGu2, for all u1, u2 in U ",
+104,Formula,F= |G_{ef}| / |G|,
+107,Formula,Take the n user/items with lowest utility value and average the value over them,

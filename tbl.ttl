@@ -1,0 +1,1463 @@
+@prefix : <http://fairness_ontology.com/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix fmo: <https://purl.org/twc/fmo#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix resource: <http://semanticscience.org/resource/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology .
+
+:2012_DWORK a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2012_DWORK" .
+
+:2012_KAMISHIMA a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2012_KAMISHIMA" .
+
+:2013_ZEMEL a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2013_ZEMEL" .
+
+:2015_FELDMAN a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2015_FELDMAN" .
+
+:2016_DIETERICH a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2016_DIETERICH" .
+
+:2016_GRGIC-HLACA a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2016_GRGIC-HLACA" .
+
+:2016_HARDT a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2016_HARDT" .
+
+:2017_CALISKAN a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2017_CALISKAN" .
+
+:2017_CHOULDECHOVA a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2017_CHOULDECHOVA" .
+
+:2017_CORBETTDAVIES a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2017_CORBETTDAVIES" .
+
+:2017_KLEINBERG a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2017_KLEINBERG" .
+
+:2017_KUSNER a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2017_KUSNER" .
+
+:2018_BELLAMY a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2018_BELLAMY" .
+
+:2018_BERK a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2018_BERK" .
+
+:2018_SPEICHER a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2018_SPEICHER" .
+
+:2018_VANMASSENHOVE a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2018_VANMASSENHOVE" .
+
+:2018_VERMA a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2018_VERMA" .
+
+:2018_YONA a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2018_YONA" .
+
+:2019_BEUTEL a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2019_BEUTEL" .
+
+:2019_BORDIA a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2019_BORDIA" .
+
+:2019_DIMITRAKAKIS a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2019_DIMITRAKAKIS" .
+
+:2019_KURITA a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2019_KURITA" .
+
+:2019_LAHOTI a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2019_LAHOTI" .
+
+:2019_MAY a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2019_MAY" .
+
+:2020_HUANG a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2020_HUANG" .
+
+:2020_JUNGa a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2020_JUNGa" .
+
+:2020_NANGIA a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2020_NANGIA" .
+
+:2020_YUROCHKIN a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2020_YUROCHKIN" .
+
+:2021_AHN a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2021_AHN" .
+
+:2021_BARIKERI a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2021_BARIKERI" .
+
+:2021_DEARTEAGA a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2021_DEARTEAGA" .
+
+:2021_DHAMALA a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2021_DHAMALA" .
+
+:2021_GUO a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2021_GUO" .
+
+:2021_NADEEM a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2021_NADEEM" .
+
+:2021_NOZZA a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2021_NOZZA" .
+
+:2021_WEBSTER a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2021_WEBSTER" .
+
+:2022_KANEKO a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2022_KANEKO" .
+
+:2022_QIAN a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2022_QIAN" .
+
+:2022_SMITH a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2022_SMITH" .
+
+:2023_CHOWDHERY a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2023_CHOWDHERY" .
+
+:2023_DOLCI a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2023_DOLCI" .
+
+:2023_GIULIANI a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2023_GIULIANI" .
+
+:2023_LIANG a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2023_LIANG" .
+
+:2023_SICILIA a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2023_SICILIA" .
+
+:2024_CATON a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2024_CATON" .
+
+:2024_CHUNG a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2024_CHUNG" .
+
+:2024_GALLEGOS a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2024_GALLEGOS" .
+
+:2024_GONZALEZ-SENDINO a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2024_GONZALEZ-SENDINO" .
+
+:2025_GAO a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2025_GAO" .
+
+:2025_RUSSO a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2025_RUSSO" .
+
+:2025_WALLER a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2025_WALLER" .
+
+:ADELE a owl:NamedIndividual ;
+    rdfs:label "ADELE" ;
+    :isProposedBy :2021_LAUSCHER ;
+    rdfs:comment "Introduce debiasing adapter modules, called ADELE, to mitigate gender bias." .
+
+:Adapters a owl:Class ;
+    rdfs:label "Adapters" ;
+    rdfs:subClassOf :PartialFineTuning .
+
+:AddNonToxicExamples a owl:NamedIndividual ;
+    rdfs:label "AddNonToxicExamples" ;
+    :isProposedBy :2018_DIXON ;
+    rdfs:comment "Add non-toxic examples for groups disproportionately represented with toxicity." .
+
+:AdvBERT a owl:NamedIndividual ;
+    rdfs:label "AdvBERT" ;
+    :isProposedBy :2021_REKABSAZ ;
+    rdfs:comment "Adversarial learning with a ranking of information retrieval results to reduce bias while maintaining relevance." .
+
+:AdvPredictedScore a owl:NamedIndividual ;
+    rdfs:label "AdvPredictedScore" ;
+    :isProposedBy :2020_ZHU ;
+    rdfs:comment "Learn fair predicted scores by enhancing score distribution similarity" .
+
+:AdversarialFDP a owl:NamedIndividual ;
+    rdfs:label "AdversarialFDP" ;
+    :isProposedBy :2019_CELISa ;
+    rdfs:comment "Adversarial training using False Discovery Rate parity." .
+
+:AdversarialLearning a owl:Class ;
+    rdfs:label "Adversarial Learning" ;
+    rdfs:subClassOf :FullRetraining .
+
+:AmortizedGranularityMetric a owl:Class ;
+    rdfs:label "Amortized Granularity Metric"@en ;
+    rdfs:subClassOf :GranularityMetric .
+
+:Art5 a :Legal_Requirement,
+        owl:NamedIndividual ;
+    :its_compliance_is_supported_by :Re-SamplingProtectedGroup ;
+    resource:SIO_000068 :EU_AI_Act ;
+    rdfs:comment "Prohibits certain AI practices, such as exploiting vulnerabilities of specific groups, social scoring, and some forms of predictive policing, which are considered incompatible with fundamental rights and equality" .
+
+:AuditSets a owl:Class ;
+    rdfs:label "Audit Sets" ;
+    rdfs:subClassOf :DataGeneration .
+
+:AugmentedAntidoteData a owl:NamedIndividual ;
+    rdfs:label "AugmentedAntidoteData" ;
+    :isProposedBy :2019_RASTEGARPANAH ;
+    rdfs:comment "Add antidote data to the training data" .
+
+:BanditsBasedLearning a owl:Class ;
+    rdfs:label "Bandits-based Learning" ;
+    rdfs:subClassOf :FullRetraining .
+
+:Blinding a owl:Class ;
+    rdfs:label "Blinding and Proxy Removal" ;
+    rdfs:subClassOf :FeatureLevelColumnIntervention .
+
+:BlocklistDocumentRemoval a owl:NamedIndividual ;
+    rdfs:label "BlocklistDocumentRemoval" ;
+    :isProposedBy :2020_RAFFEL ;
+    rdfs:comment "Removal of biased instances, such as derogatory language: coarse word-level technique, removing all documents containing any words on a blocklist." .
+
+:BusinessRequirements a :Pre-processing,
+        owl:NamedIndividual ;
+    :isFollowedBy :AnalyticsApproach .
+
+:CDA a owl:NamedIndividual ;
+    rdfs:label "CDA" ;
+    :isProposedBy :2020_LU ;
+    rdfs:comment "Use CDA to mitigate occupation-gender bias, creating matched pairs." .
+
+:CDS a owl:NamedIndividual ;
+    rdfs:label "CDS" ;
+    :isProposedBy :2019_MAUDSLAY ;
+    rdfs:comment "Randomly substitute gendered text with counterfactuals." .
+
+:CalibratedRe-ranking a owl:NamedIndividual ;
+    rdfs:label "CalibratedRe-ranking" ;
+    :isProposedBy :2018_STECK ;
+    rdfs:comment "Calibrated recommendation through maximal marginal relevance" .
+
+:CalibrationBasedFairnessMetric a owl:Class ;
+    rdfs:label "Calibration-based Fairness Metric"@en ;
+    rdfs:subClassOf fmo:fairness_metric ;
+    skos:definition "A measurement of any fairness notion, partially connected to the confusion matrix principles, these metrics are usually referred with the term  calibration-based, with the very aim of distinguishing their prevalent attention to the predictive values."@en .
+
+:CausalFairnessNotion a owl:Class ;
+    rdfs:label "causal fairness notion"@en ;
+    resource:hasSynonym "causal fairness"@en ;
+    rdfs:subClassOf :OutcomeFairnessNotion ;
+    owl:disjointWith :ObservationalFairnessNotion ;
+    skos:definition "A family of fairness notions focusing on the causal relations between variables."@en .
+
+:CensusIncomePrediction a :ApplicationDomain,
+        owl:NamedIndividual .
+
+:ChangeAttentionScores a owl:NamedIndividual ;
+    rdfs:label "ChangeAttentionScores" ;
+    :isProposedBy :2022_GACI ;
+    rdfs:comment "Redistribute attention scores to address learned stereotypes." .
+
+:ChangeAttentionWeights a :FullWeightRedistribution,
+        owl:NamedIndividual ;
+    rdfs:label "ChangeAttentionWeights" ;
+    :isProposedBy :2023_ZAYED ;
+    rdfs:comment "Apply temperature scaling to attention weights post-training." .
+
+:ChatbotInteraction a :NaturalLanguageProcessingTask,
+        owl:NamedIndividual .
+
+:Classification a :SupervisedLearingTask,
+        owl:NamedIndividual .
+
+:ClassifierFairnessMetric a owl:Class ;
+    rdfs:label "Classifier Fairness Metric"@en ;
+    rdfs:subClassOf :GeneratedTextBasedFairnessMetric ;
+    skos:definition "A metric that employs a classifier on generated text to assess the presence of bias or fairness."@en .
+
+:Cleaning a owl:Class ;
+    rdfs:label "Cleaning" ;
+    rdfs:subClassOf :InstanceLevelRowIntervention .
+
+:Clustering a :UnsupervisedLearningTask,
+        owl:NamedIndividual .
+
+:ConfusionMatrixBasedFairnessMetric a owl:Class ;
+    rdfs:label "Confusion Matrix-based Fairness Metric"@en ;
+    rdfs:subClassOf fmo:fairness_metric ;
+    skos:definition "A measurement of any fairness notion, focusing on the amount of correct/incorrect classifications inferred by the predictor."@en .
+
+:ConstrainedOptimization a owl:Class ;
+    rdfs:label "Constrained Optimization" ;
+    rdfs:subClassOf :FullRetraining .
+
+:ControlOffensiveTokens a owl:NamedIndividual ;
+    rdfs:label "ControlOffensiveTokens" ;
+    :isProposedBy :2020_XU ;
+    rdfs:comment "Use control tokens to prevent offensive output." .
+
+:CounterfactualAugmentation a owl:Class ;
+    rdfs:label "Counterfactual Augmentation" ;
+    rdfs:subClassOf :InstanceLevelRowIntervention .
+
+:CreditRisk a :ApplicationDomain,
+        owl:NamedIndividual .
+
+:DecisionTimeConstrainedDecisioning a owl:Class ;
+    rdfs:label "Decision-time Constrained Decisioning" ;
+    rdfs:subClassOf :BlackBoxDecisionOnly .
+
+:Disparagement a :LinguisticBias,
+        :RepresentationBias,
+        owl:NamedIndividual ;
+    rdfs:label "disparagement"@en ;
+    skos:definition "Disparagement is not merely bias in representation but bias in expression, it is the linguistic realization of stereotype."@en .
+
+:DistanceBasedFairnessMetric a owl:Class ;
+    rdfs:label "Distance-based Fairness Metric" ;
+    rdfs:subClassOf fmo:fairness_metric .
+
+:DistributionFairnessMetric a owl:Class ;
+    rdfs:label "Distribution Fairness Metric"@en ;
+    rdfs:subClassOf :GeneratedTextBasedFairnessMetric ;
+    skos:definition "A metric that evaluates fairness by comparing the statistical distribution of generated outputs across groups."@en .
+
+:DropoutOnAttention a owl:NamedIndividual ;
+    rdfs:label "DropoutOnAttention" ;
+    :isProposedBy :2020_WEBSTER ;
+    rdfs:comment "Use dropout during pre-training to reduce stereotypical gendered associations." .
+
+:Education a :ApplicationDomain,
+        owl:NamedIndividual .
+
+:EqualityPrincipal a :SocialPrinciple,
+        owl:NamedIndividual ;
+    rdfs:label "Equality"@en ;
+    skos:definition "Equality is giving everyone the same resources and opportunities."@en .
+
+:EquityPrinciple a :SocialPrinciple,
+        owl:NamedIndividual ;
+    rdfs:label "Equity"@en ;
+    skos:definition "Equity is providing different resources based on individual needs to ensure everyone has an equal outcome."@en .
+
+:ExposesTo a owl:ObjectProperty ;
+    rdfs:label "exposes to"@en ;
+    rdfs:domain :FairnessConcern ;
+    rdfs:range fmo:bias .
+
+:FairPSL a owl:NamedIndividual ;
+    rdfs:label "FairPSL" ;
+    :isProposedBy :2018_FARNADI ;
+    rdfs:comment "FairPSL extends an existing statistical relational learning framework, probabilistic soft logic (PSL). FairPSL incorporates logical definitions of fairnesss supporting a probabilistic interpretation." .
+
+:FairnessRegularization a owl:Class ;
+    rdfs:label "Fairness Regularization" ;
+    rdfs:subClassOf :FullRetraining .
+
+:FeatureReview a owl:Class ;
+    rdfs:label "Feature Review" ;
+    rdfs:subClassOf :FeatureLevelColumnIntervention .
+
+:Finance a :ApplicationDomain,
+        owl:NamedIndividual .
+
+:FullParameterDebiasing a owl:Class ;
+    rdfs:label "Full Parameter Debiasing" ;
+    rdfs:subClassOf :FullFineTuning .
+
+:FullPruning a owl:Class ;
+    rdfs:label "Full Pruning and Weight Masking" ;
+    rdfs:comment "A mitigation technique that prunes an already trained model by setting to 0 some of its weights. The model is considered AS A WHOLE, by taking into account for pruning all its internal weights." ;
+    rdfs:subClassOf :FullFineTuning .
+
+:Gender-neutralAlternatives a owl:NamedIndividual ;
+    rdfs:label "Gender-neutralAlternatives" ;
+    :isProposedBy :2021_JAIN ;
+    rdfs:comment "Generate gender-neutral sentence alternatives." .
+
+:GovernanceOnly a owl:Class ;
+    rdfs:label "Governance-only Interventions (J)" ;
+    rdfs:subClassOf :HumanOversightMitigation .
+
+:Guides a owl:ObjectProperty ;
+    rdfs:label "guides"@en ;
+    rdfs:comment "Links a fairness notion to its underpinning social principle such as equity or equality."@en ;
+    rdfs:domain :SocialPrinciple ;
+    rdfs:range fmo:fairness_notion ;
+    owl:inverseOf :isGuidedBy .
+
+:HeadOnly a owl:Class ;
+    rdfs:label "Head-only" ;
+    rdfs:subClassOf :PartialFineTuning .
+
+:Health a :ApplicationDomain,
+        owl:NamedIndividual .
+
+:ImpactFocusedMetric a owl:Class ;
+    rdfs:label "Impact-focused Metric"@en ;
+    rdfs:subClassOf :OptimizationObjectMetric .
+
+:IndependenceFairnessNotion a owl:Class ;
+    rdfs:label "independence fairness notion"@en ;
+    dc:source "https://doi.org/10.1145/3468507.3468511"^^xsd:anyURI ;
+    resource:hasSynonym "independence fairness"@en ;
+    rdfs:subClassOf :GroupFairnessNotion ;
+    skos:definition "The fairness property satisfied when the predicted outcome variable is independent from protected attributes."@en ;
+    fmo:probabilistic_definition "Ŷ ⊥ A"@en .
+
+:InferenceSubnetworks a owl:NamedIndividual ;
+    rdfs:label "InferenceSubnetworks" ;
+    :isProposedBy :2023_HAUZENBERG ;
+    rdfs:comment "Apply trained subnetworks modularly at inference time." .
+
+:InstanceWeighting a owl:Class ;
+    rdfs:label "Instance Weighting" ;
+    rdfs:subClassOf :FeatureLevelRowReweightingResampling .
+
+:IntersectionalBias a owl:Class ;
+    rdfs:label "intersectional bias"@en ;
+    dc:source "https://doi.org/10.1145/3468507.3468511"^^xsd:anyURI ;
+    rdfs:subClassOf fmo:bias ;
+    skos:definition "Intersectional bias is a type of bias that occurs due to the combination of multiple sensitive factors."@en .
+
+:IsAbout a owl:ObjectProperty ;
+    rdfs:label "is about"@en ;
+    rdfs:range :AIModel .
+
+:IsTrainedOn a owl:ObjectProperty ;
+    rdfs:label "is trained on"@en ;
+    rdfs:domain :AIModel ;
+    rdfs:range :TrainingDataset .
+
+:IsTrainedWith a owl:ObjectProperty ;
+    rdfs:label "is trained with"@en ;
+    rdfs:domain :AIModel ;
+    rdfs:range :ExperimentalSetting .
+
+<http://fairness_ontology.com/IsValidatedOn#is_validated_on> a owl:ObjectProperty ;
+    rdfs:label "is validated on" ;
+    rdfs:domain :AIModel ;
+    rdfs:range :ValidationDataset .
+
+:ItemFocusedMetric a owl:Class ;
+    rdfs:label "Item-focused Metric"@en ;
+    rdfs:subClassOf :SubjectMetric .
+
+:ItemRecommendation a :ApplicationDomain,
+        owl:NamedIndividual .
+
+:Law a :ApplicationDomain,
+        owl:NamedIndividual .
+
+:LexiconFairnessMetric a owl:Class ;
+    rdfs:label "Lexicon Fairness Metric"@en ;
+    rdfs:subClassOf :GeneratedTextBasedFairnessMetric ;
+    skos:definition "A metric that uses predefined lexicons to study fairness or bias in generated textual content."@en .
+
+:ListRe-adjustment a owl:NamedIndividual ;
+    rdfs:label "ListRe-adjustment" ;
+    :isProposedBy :2021_MANSOURY ;
+    rdfs:comment "Re-ranking method based on maximum flow: iteratively adds high-quality items that have low visibility or items from suppliers with low exposure to the users’ final recommendation lists." .
+
+:LoRA a owl:Class ;
+    rdfs:label "LoRA" ;
+    rdfs:subClassOf :PartialFineTuning .
+
+:LogLikeDocumentRemoval a owl:NamedIndividual ;
+    rdfs:label "LogLikeDocumentRemoval" ;
+    :isProposedBy :2021_NGO ;
+    rdfs:comment "Append to each document a phrase representative of an undesirable harm, such as racism or hate speech, and then use a pre-trained model to compute the conditional log-likelihood of the modified documents." .
+
+:ManagementLegalRequirement a owl:Class ;
+    rdfs:label "Management Legal Requirement" ;
+    rdfs:subClassOf :Legal_Requirement .
+
+:MaskedTokenFairnessMetric a owl:Class ;
+    rdfs:label "Masked Token Fairness Metric"@en ;
+    rdfs:subClassOf :ProbabilityBasedFairnessMetric ;
+    skos:definition "A fairness metric relying on the predicted probabilities for masked tokens in language models."@en .
+
+:MaskingBias a owl:Class ;
+    rdfs:label "masking bias"@en ;
+    dc:source "https://doi.org/10.1145/3468507.3468511"^^xsd:anyURI ;
+    rdfs:subClassOf fmo:bias ;
+    skos:definition "Masking is a form of intentional discrimination that allows decision makers with prejudicial views to mask their intentions, typically by exploiting how fairness notions are defined."@en .
+
+:NamesIntervention a owl:NamedIndividual ;
+    rdfs:label "NamesIntervention" ;
+    :isProposedBy :2019_MAUDSLAY ;
+    rdfs:comment "Swap masculine and feminine first names during CDA." .
+
+:OSCAR a owl:NamedIndividual ;
+    rdfs:label "OSCAR" ;
+    :isProposedBy :2021_DEV ;
+    rdfs:comment "Bias removal while maintaining relevant semantic information: orthogonalize two directions that should be independent." .
+
+:OmmittedVariableBias a owl:Class ;
+    rdfs:label "omitted variable bias"@en ;
+    dc:source "https://doi.org/10.1145/3457607"^^xsd:anyURI ;
+    rdfs:subClassOf fmo:bias ;
+    skos:definition "Omitted variable bias occurs when one or more important variables are left out of a model."@en .
+
+:OutputRewriting a owl:Class ;
+    rdfs:label "Decision/Output Re-writing" ;
+    rdfs:subClassOf :BlackBoxDecisionOnly .
+
+:ParityBasedFairnessMetric a owl:Class ;
+    rdfs:label "Parity-based Fairness Metric"@en ;
+    rdfs:subClassOf fmo:fairness_metric ;
+    skos:definition "A measurement of any fairness notion, focusing on equalising the probability of a favourable outcome among groups."@en .
+
+:PartialPruning a owl:Class ;
+    rdfs:label "Partial Pruning and Weight Masking" ;
+    rdfs:comment "A mitigation technique that prunes a SUBPART OF an already trained model by setting to 0 some of its weights." ;
+    rdfs:subClassOf :PartialFineTuning .
+
+:PerceptronForUnawareness a owl:NamedIndividual ;
+    rdfs:label "PerceptronForUnawareness" ;
+    :isProposedBy :2023_KUMAR ;
+    rdfs:comment "Adapter network removing protected attributes." .
+
+:PoliteAlternatives a owl:NamedIndividual ;
+    rdfs:label "PoliteAlternatives" ;
+    :isProposedBy :2022_WANG ;
+    rdfs:comment "Generate more polite sentence rewrites." .
+
+:PredictedReplacements a owl:NamedIndividual ;
+    rdfs:label "PredictedReplacements" ;
+    :isProposedBy :2022_TOKPO ;
+    rdfs:comment "Use LIME to identify biased tokens and predict replacements." .
+
+:Prejudice a :HistoricalBias,
+        owl:NamedIndividual ;
+    rdfs:label "prejudice"@en ;
+    skos:definition "Prejudice is a latent human or cultural construct and represents historical predispositions to discrimination."@en .
+
+:PseudoLogLikelihoodFairnessMetric a owl:Class ;
+    rdfs:label "Pseudo-log Likelihood Fairness Metric"@en ;
+    rdfs:subClassOf :ProbabilityBasedFairnessMetric ;
+    skos:definition "A metric based on pseudo-log likelihoods, often used to evaluate the fairness of generation or prediction probabilities."@en .
+
+:REALTOXICITYPROMPTS a owl:NamedIndividual ;
+    rdfs:label "REALTOXICITYPROMPTS" ;
+    :isProposedBy :2020_GEHMAN ;
+    rdfs:comment "Constrained decoding to reduce toxic generation." .
+
+:RecIndependence a owl:NamedIndividual ;
+    rdfs:label "RecIndependence" ;
+    :isProposedBy :2018_KAMISHIMA ;
+    rdfs:comment "Use distribution matching and mutual information terms as regularization (to make recommendations independent of a specific attribute)" .
+
+:RegardClassifier a owl:NamedIndividual ;
+    rdfs:label "RegardClassifier" ;
+    :isProposedBy :2019_SHENG ;
+    rdfs:comment "Classifier measuring regard toward social groups." .
+
+:Regression a :SupervisedLearingTask,
+        owl:NamedIndividual .
+
+:RegularizationOnANOVA a owl:NamedIndividual ;
+    rdfs:label "RegularizationOnANOVA" ;
+    :isProposedBy :2020_WAN ;
+    rdfs:comment "Use F-statistic of ANOVA in the the loss function as regularization term to calibrate the parity of prediction errors across different market segments." .
+
+:RegularizationOnEmbeddings a owl:NamedIndividual ;
+    rdfs:label "RegularizationOnEmbeddings" ;
+    :isProposedBy :2023_PARK ;
+    rdfs:comment "introduce a regularization term that orthogonalizes stereotypical word embeddings and the gender direction in the embedding space." .
+
+:RegularizationOnValueFairness a owl:NamedIndividual ;
+    rdfs:label "RegularizationOnValueFairness" ;
+    :isProposedBy :2017_YAO ;
+    rdfs:comment "Use fairness metrics (e.g., value fairness) as fair regularization" .
+
+:Relabeling a owl:Class ;
+    rdfs:label "Relabeling" ;
+    rdfs:subClassOf :InstanceLevelRowIntervention .
+
+:ReplaceStereotypes a owl:NamedIndividual ;
+    rdfs:label "ReplaceStereotypes" ;
+    :isProposedBy :2023_DHINGRA ;
+    rdfs:comment "Identify and replace stereotypical words using SHAP." .
+
+:Reranking a owl:Class ;
+    rdfs:label "Re-ranking" ;
+    rdfs:subClassOf :BlackBoxDecisionOnly .
+
+:SamplingBias a owl:Class ;
+    rdfs:label "sampling bias"@en ;
+    dc:source "https://doi.org/10.1145/3457607"^^xsd:anyURI ;
+    rdfs:subClassOf fmo:bias ;
+    skos:definition "Similarly to representation bias, sampling bias arises due to non-random sampling of subgroups"@en .
+
+:ScoreBasedFairnessMetric a owl:Class ;
+    rdfs:label "Score-based Fairness Metric"@en ;
+    rdfs:subClassOf fmo:fairness_metric ;
+    skos:definition "A measurement of any fairness notion, directing attention to the value of the classification score."@en .
+
+:SelectiveParameterUpdating a owl:Class ;
+    rdfs:label "Selective Parameter Updating" ;
+    rdfs:comment "A mitigation technique that updates the parameters (e.g., redistributes the weights) of a SUBPART OF an already trained model." ;
+    rdfs:subClassOf :PartialFineTuning .
+
+:SentenceEmbeddingFairnessMetric a owl:Class ;
+    rdfs:label "Sentence Embedding Fairness Metric"@en ;
+    rdfs:subClassOf :EmbeddingBasedFairnessMetric ;
+    skos:definition "A metric using sentence-level embedding representations as the basis for evaluating model or data fairness."@en .
+
+:SentimentAnalysis a :NaturalLanguageProcessingTask,
+        owl:NamedIndividual .
+
+:SeparationFairnessNotion a owl:Class ;
+    rdfs:label "separation fairness notion"@en ;
+    dc:source "https://doi.org/10.1145/3468507.3468511"^^xsd:anyURI ;
+    resource:hasSynonym "separation fairness"@en ;
+    rdfs:subClassOf :GroupFairnessNotion ;
+    skos:definition "The fairness property satisfied when the predicted outcome variable is independent of protected attributes, conditionally on the actual outcome variable."@en ;
+    fmo:probabilistic_definition "Ŷ ⊥ A | Y"@en .
+
+:SingleGranularityMetric a owl:Class ;
+    rdfs:label "Single Granularity Metric"@en ;
+    rdfs:subClassOf :GranularityMetric .
+
+:Stereotype a :RepresentationBias,
+        owl:NamedIndividual ;
+    rdfs:label "stereotype"@en ;
+    skos:definition "A simplified and generalized representation of a group (e.g., “women are nurses,” “men are engineers”) that operationalizes discrimination in communication, media, or data."@en .
+
+:StratifiedSampling a owl:Class ;
+    rdfs:label "Stratified Sampling" ;
+    rdfs:subClassOf :FeatureLevelRowReweightingResampling .
+
+:SufficiencyFairnessNotion a owl:Class ;
+    rdfs:label "sufficiency fairness notion"@en ;
+    dc:source "https://doi.org/10.1145/3468507.3468511"^^xsd:anyURI ;
+    resource:hasSynonym "sufficiency fairness"@en ;
+    rdfs:subClassOf :GroupFairnessNotion ;
+    skos:definition "The fairness property satisfied when a target variable is independent of protected attributes, conditionally on the predicted outcome variable."@en ;
+    fmo:probabilistic_definition "Y ⊥ A | Ŷ"@en .
+
+:SyntheticData a owl:Class ;
+    rdfs:label "Synthetic Data" ;
+    rdfs:subClassOf :DataGeneration .
+
+:TargetedCollections a owl:Class ;
+    rdfs:label "Targeted Collections" ;
+    rdfs:subClassOf :DataGeneration .
+
+:TechnicalLegalRequirement a owl:Class ;
+    rdfs:label "Technical Legal Requirement" ;
+    rdfs:subClassOf :Legal_Requirement .
+
+:TestingDataset a owl:Class ;
+    rdfs:label "Testing Dataset"@en ;
+    rdfs:subClassOf :Dataset .
+
+:Thresholding a owl:Class ;
+    rdfs:label "Thresholding" ;
+    rdfs:subClassOf :GreyBoxScores .
+
+:Transformation a owl:Class ;
+    rdfs:label "Transformation/Representation Learning" ;
+    rdfs:subClassOf :InstanceLevelRowIntervention .
+
+:TreatmentFocusedMetric a owl:Class ;
+    rdfs:label "Treatment-focused Metric"@en ;
+    rdfs:subClassOf :OptimizationObjectMetric .
+
+:UserFocusedMetric a owl:Class ;
+    rdfs:label "User-focused Metric"@en ;
+    rdfs:subClassOf :SubjectMetric .
+
+:UserItemRe-ranking a owl:NamedIndividual ;
+    rdfs:label "UserItemRe-ranking" ;
+    :isProposedBy :2020_PATRO ;
+    rdfs:comment "Re-ranking for both user fairness and item fairness" .
+
+:WordEmbeddingFairnessMetric a owl:Class ;
+    rdfs:label "Word Embedding Fairness Metric"@en ;
+    rdfs:subClassOf :EmbeddingBasedFairnessMetric ;
+    skos:definition "A metric that leverages word vector representations to assess fairness or bias in language models or datasets."@en .
+
+:concernDescription a owl:DatatypeProperty ;
+    rdfs:label "concern description"@en ;
+    rdfs:domain :FairnessConcern ;
+    rdfs:range xsd:string .
+
+:concernName a owl:DatatypeProperty ;
+    rdfs:label "concern name"@en ;
+    rdfs:domain :FairnessConcern ;
+    rdfs:range xsd:string .
+
+:configDescription a owl:DatatypeProperty ;
+    rdfs:label "configuration description"@en ;
+    rdfs:domain :HyperparameterConfiguration ;
+    rdfs:range xsd:string .
+
+:configName a owl:DatatypeProperty ;
+    rdfs:label "configuration name"@en ;
+    rdfs:domain :HyperparameterConfiguration ;
+    rdfs:range xsd:string .
+
+:configValue a owl:DatatypeProperty ;
+    rdfs:label "has value"@en ;
+    rdfs:domain :HyperparameterConfiguration ;
+    rdfs:range xsd:string .
+
+:datasetDescription a owl:DatatypeProperty ;
+    rdfs:label "dataset description"@en ;
+    rdfs:domain :Dataset ;
+    rdfs:range xsd:string .
+
+:datasetName a owl:DatatypeProperty ;
+    rdfs:label "dataset name"@en ;
+    rdfs:domain :Dataset ;
+    rdfs:range xsd:string .
+
+:defines a owl:ObjectProperty ;
+    rdfs:label "defines"@en ;
+    rdfs:domain :ExperimentalSetting ;
+    rdfs:range :HyperparameterConfiguration .
+
+:enforces a owl:ObjectProperty ;
+    rdfs:label "enforces"@en ;
+    rdfs:domain :MitigationTechnique ;
+    rdfs:range fmo:fairness_metric ;
+    owl:inverseOf :isEnforcedBy .
+
+:extends a owl:ObjectProperty ;
+    rdfs:label "extends" ;
+    rdfs:domain :ScientificArtifact ;
+    rdfs:range :ScientificArtifact ;
+    skos:definition "A certain Scientific Artifact may extend another. E.g., a certain Fairness Notion can extend another one" .
+
+:follows a owl:ObjectProperty ;
+    rdfs:label "follows" ;
+    owl:inverseOf :isFollowedBy .
+
+:hasAntonym a owl:AnnotationProperty ;
+    rdfs:label "has antonym"@en ;
+    rdfs:comment "Relates a concept to its antonym, given as a string or URI."@en .
+
+:hasBeenAppliedTo a owl:ObjectProperty ;
+    rdfs:label "has been applied to"@en ;
+    rdfs:domain :ScientificArtifact ;
+    rdfs:range :ApplicationDomain ;
+    skos:definition "A certain fairness notion has been applied to certain application domains."@en .
+
+:hasBeenTestedOn a owl:ObjectProperty ;
+    rdfs:label "has been tested on"@en ;
+    rdfs:domain :MitigationTechnique ;
+    rdfs:range :Dataset .
+
+:hasGoal a owl:DatatypeProperty ;
+    rdfs:label "has goal"@en ;
+    rdfs:domain :ExperimentalSetting ;
+    rdfs:range xsd:string .
+
+:hasValue a owl:DatatypeProperty ;
+    rdfs:label "has value"@en ;
+    rdfs:range xsd:float .
+
+:hyperparameterDescription a owl:DatatypeProperty ;
+    rdfs:label "hyperparameter description"@en ;
+    rdfs:domain :Hyperparameter ;
+    rdfs:range xsd:string .
+
+:hyperparameterName a owl:DatatypeProperty ;
+    rdfs:label "hyperparameter name"@en ;
+    rdfs:domain :Hyperparameter ;
+    rdfs:range xsd:string .
+
+:isAddressedWith a owl:ObjectProperty ;
+    rdfs:label "is addressed with"@en ;
+    rdfs:domain :FairnessConcern ;
+    rdfs:range fmo:fairness_notion .
+
+:isBasedOnSocialPrinciple a owl:AnnotationProperty .
+
+:isEquivalentTo a owl:ObjectProperty,
+        owl:SymmetricProperty ;
+    rdfs:label "is equivalent to"@en ;
+    skos:definition "A certain fairness notion can be equal to some other fairness notions."@en .
+
+:isInstanceOf a owl:ObjectProperty ;
+    rdfs:label "is instance of"@en ;
+    rdfs:domain :HyperparameterConfiguration ;
+    rdfs:range :Hyperparameter .
+
+:isMeasuredBy a owl:ObjectProperty ;
+    rdfs:label "is measured by"@en ;
+    rdfs:domain fmo:fairness_notion ;
+    rdfs:range fmo:fairness_metric ;
+    owl:inverseOf :measures ;
+    skos:definition "A fairness notion is measured by a fairness metric if comparisons made with the given metric are a valid way to determine fairness with this notion."@en .
+
+:isMitigatedBy a owl:ObjectProperty ;
+    rdfs:label "is mitigated by"@en ;
+    rdfs:domain fmo:bias ;
+    rdfs:range fmo:fairness_notion ;
+    owl:inverseOf :mitigates ;
+    skos:definition "A certain bias in the use-case can be mitigated by enforcing specific fairness notions."@en .
+
+:isProposedBy a owl:ObjectProperty ;
+    rdfs:label "is proposed by"@en ;
+    rdfs:domain :ScientificArtifact ;
+    rdfs:range :ScientificPaper ;
+    skos:definition "A certain fairness notion is proposed by a certain scientific paper."@en .
+
+:isRelevantDuring a owl:ObjectProperty ;
+    rdfs:label "is relevant during" ;
+    rdfs:domain :Legal_Requirement ;
+    rdfs:range :AILifecycleStep .
+
+:isSuitableFor a owl:ObjectProperty ;
+    rdfs:label "is suitable for"@en ;
+    rdfs:domain :ScientificArtifact ;
+    rdfs:range :MLTask ;
+    skos:definition "A certain fairness notion is suitable for a certain set of tasks."@en .
+
+:isUsedBy a owl:ObjectProperty ;
+    rdfs:label "is used by"@en ;
+    rdfs:domain :ScientificArtifact ;
+    rdfs:range :ScientificPaper ;
+    skos:definition "A certain fairness notion is used by some scientific papers."@en .
+
+:is_operationalized_by a owl:ObjectProperty ;
+    rdfs:label "is operationalized by" ;
+    rdfs:domain :Legal_Requirement ;
+    rdfs:range fmo:fairness_notion ;
+    owl:inverseOf :operationalize .
+
+:its_compliance_is_supported_by a owl:ObjectProperty ;
+    rdfs:label "its compliance is supported by" ;
+    rdfs:domain :Legal_Requirement ;
+    rdfs:range :MitigationTechnique ;
+    owl:inverseOf :supports_compliance_with .
+
+:measuredWith a owl:ObjectProperty ;
+    rdfs:label "measured with"@en ;
+    rdfs:domain :FairnessConcern ;
+    rdfs:range fmo:fairness_metric .
+
+:mitigatedWith a owl:ObjectProperty ;
+    rdfs:label "mitigated with"@en ;
+    rdfs:domain :FairnessConcern ;
+    rdfs:range :MitigationTechnique .
+
+:modelDescription a owl:DatatypeProperty ;
+    rdfs:label "model description"@en ;
+    rdfs:domain :AIModel ;
+    rdfs:range xsd:string .
+
+:modelName a owl:DatatypeProperty ;
+    rdfs:label "model name"@en ;
+    rdfs:domain :AIModel ;
+    rdfs:range xsd:string .
+
+:scientificArtifactDescription a owl:DatatypeProperty ;
+    rdfs:label "scientific artifact description"@en ;
+    rdfs:domain :ScientificArtifact ;
+    rdfs:range xsd:string ;
+    skos:definition "A latex description of a scientific artifact."@en .
+
+:settingDescription a owl:DatatypeProperty ;
+    rdfs:label "setting description"@en ;
+    rdfs:domain :ExperimentalSetting ;
+    rdfs:range xsd:string .
+
+:settingName a owl:DatatypeProperty ;
+    rdfs:label "setting name"@en ;
+    rdfs:domain :ExperimentalSetting ;
+    rdfs:range xsd:string .
+
+:stepDescription a owl:DatatypeProperty ;
+    rdfs:label "step description"@en ;
+    rdfs:range xsd:string .
+
+:stepName a owl:DatatypeProperty ;
+    rdfs:label "step name"@en ;
+    rdfs:range xsd:string .
+
+:testedOn a owl:ObjectProperty ;
+    rdfs:label "tested on"@en ;
+    rdfs:domain :FairnessConcern ;
+    rdfs:range :Dataset .
+
+dc:source a owl:AnnotationProperty .
+
+resource:SIO_000068 a owl:ObjectProperty ;
+    rdfs:label "is part of"@en ;
+    rdfs:domain :Legal_Requirement ;
+    rdfs:range :Legislation .
+
+resource:hasSynonym a owl:AnnotationProperty .
+
+skos:definition a owl:AnnotationProperty .
+
+fmo:probabilistic_definition a owl:AnnotationProperty .
+
+fmo:tag a owl:AnnotationProperty .
+
+:2017_YAO a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2017_YAO" .
+
+:2018_DIXON a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2018_DIXON" .
+
+:2018_EKSTRAND a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2018_EKSTRAND" .
+
+:2018_FARNADI a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2018_FARNADI" .
+
+:2018_KAMISHIMA a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2018_KAMISHIMA" .
+
+:2018_STECK a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2018_STECK" .
+
+:2019_CELISa a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2019_CELISa" .
+
+:2019_RASTEGARPANAH a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2019_RASTEGARPANAH" .
+
+:2019_SHENG a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2019_SHENG" .
+
+:2020_GEHMAN a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2020_GEHMAN" .
+
+:2020_LU a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2020_LU" .
+
+:2020_PATRO a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2020_PATRO" .
+
+:2020_RAFFEL a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2020_RAFFEL" .
+
+:2020_WAN a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2020_WAN" .
+
+:2020_WEBSTER a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2020_WEBSTER" .
+
+:2020_XU a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2020_XU" .
+
+:2020_ZHU a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2020_ZHU" .
+
+:2021_DEV a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2021_DEV" .
+
+:2021_JAIN a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2021_JAIN" .
+
+:2021_LAUSCHER a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2021_LAUSCHER" .
+
+:2021_MANSOURY a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2021_MANSOURY" .
+
+:2021_NGO a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2021_NGO" .
+
+:2021_REKABSAZ a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2021_REKABSAZ" .
+
+:2022_GACI a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2022_GACI" .
+
+:2022_TOKPO a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2022_TOKPO" .
+
+:2022_WANG a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2022_WANG" .
+
+:2023_DHINGRA a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2023_DHINGRA" .
+
+:2023_HAUZENBERG a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2023_HAUZENBERG" .
+
+:2023_KUMAR a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2023_KUMAR" .
+
+:2023_PARK a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2023_PARK" .
+
+:2023_ZAYED a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2023_ZAYED" .
+
+:AlgorithmicBias a owl:Class ;
+    rdfs:label "algorithmic bias"@en ;
+    dc:source "https://doi.org/10.1145/3457607"^^xsd:anyURI ;
+    rdfs:subClassOf fmo:bias ;
+    skos:definition "Algorithmic bias is when the bias is not present in the input data and is added purely by the algorithm."@en .
+
+:AnalyticsApproach a :Pre-processing,
+        owl:NamedIndividual ;
+    :isFollowedBy :DataRequirements .
+
+:DataCollection a :Pre-processing,
+        owl:NamedIndividual ;
+    :isFollowedBy :ExploratoryDataAnalysis .
+
+:DataPreparation a :Pre-processing,
+        owl:NamedIndividual ;
+    :isFollowedBy :ModelSelection .
+
+:DataRequirements a :Pre-processing,
+        owl:NamedIndividual ;
+    :isFollowedBy :DataCollection .
+
+:EU_AI_Act a :Legislation,
+        owl:NamedIndividual ;
+    rdfs:label "EU AI Act" ;
+    dc:source "https://www.euaiact.com/" .
+
+:ExploratoryDataAnalysis a :Pre-processing,
+        owl:NamedIndividual ;
+    :isFollowedBy :DataPreparation .
+
+:FullWeightRedistribution a owl:Class ;
+    rdfs:label "Full Weight Redistribution"@en ;
+    rdfs:comment "A mitigation technique that redistributes the weights of an already trained model, considering it AS A WHOLE, potentially redistributing all its weights." ;
+    rdfs:subClassOf :FullFineTuning .
+
+:Governance a owl:Class ;
+    rdfs:label "Governance" ;
+    rdfs:subClassOf :AILifecycleStep .
+
+:GreyBoxScores a owl:Class ;
+    rdfs:label "Scores and Probabilities Access - Grey-box Model (H)" ;
+    rdfs:subClassOf :ModelAccessResourcesMitigation .
+
+:HistoricalBias a owl:Class ;
+    rdfs:label "historical bias"@en ;
+    dc:source "https://doi.org/10.1145/3457607"^^xsd:anyURI ;
+    rdfs:subClassOf fmo:bias ;
+    skos:definition "Historical bias is caused by already existing bias and socio-technical issues in the world, and can seep into from the data generation process even given a perfect sampling and feature selection."@en .
+
+:HumanOversightMitigation a owl:Class ;
+    rdfs:label "Human Oversight Mitigation" ;
+    rdfs:subClassOf :MitigationTechnique .
+
+:IndividualFairnessNotion a owl:Class ;
+    rdfs:label "individual fairness notion"@en ;
+    dc:source "https://doi.org/10.1145/2090236.2090255"^^xsd:anyURI ;
+    resource:hasSynonym "individual fairness"@en ;
+    rdfs:subClassOf :OutcomeFairnessNotion ;
+    skos:definition "A family of fairness notions with the common objective to ensure that similar individuals are treated similarly by a model. Some notions in this group may be a relaxed version of &quot;strict&quot; individual fairness (i.e., they may treat similar indivduals differently under certain conditions)."@en .
+
+:LinguisticBias a owl:Class ;
+    rdfs:label "linguistic bias"@en ;
+    rdfs:subClassOf :AlgorithmicBias ;
+    skos:definition "Linguistic bias is embedded in generative AI outputs, the manifestation of harm through demeaning or offensive language that reinforces discrimination."@en .
+
+:ModelDeployment a :Post-processing,
+        owl:NamedIndividual ;
+    rdfs:label "Model Deployment" ;
+    :isFollowedBy :ModelTuning .
+
+:ModelEvaluation a :In-processing,
+        owl:NamedIndividual ;
+    :isFollowedBy :ModelDeployment .
+
+:ModelSelection a :In-processing,
+        owl:NamedIndividual ;
+    :isFollowedBy :ModelEvaluation .
+
+:ModelTuning a :Post-processing,
+        owl:NamedIndividual ;
+    rdfs:label "Model Tuning" ;
+    :isFollowedBy :ProjectReview .
+
+:ObservationalFairnessNotion a owl:Class ;
+    rdfs:label "observational fairness notion"@en ;
+    resource:hasSynonym "observational fairness"@en ;
+    rdfs:subClassOf :OutcomeFairnessNotion ;
+    skos:definition "A family of fairness notions focusing on the joint distribution of observable factors."@en .
+
+:ProceduralFairnessNotion a owl:Class ;
+    rdfs:label "Procedural Fairness Notion"@en ;
+    resource:hasSynonym "procedural fairness"@en ;
+    rdfs:subClassOf fmo:fairness_notion ;
+    skos:definition "Procedural fairness is connected to the concept of fairness from administrative law, which is concerned with equality of treatment within the process that makes a decision."@en .
+
+:ProjectReview a :Governance,
+        owl:NamedIndividual .
+
+:Re-SamplingProtectedGroup a owl:NamedIndividual ;
+    rdfs:label "Re-SamplingProtectedGroup" ;
+    :isProposedBy :2018_EKSTRAND ;
+    rdfs:comment "Adjust the proportion of the protected group by resampling" .
+
+:TrainingDataset a owl:Class ;
+    rdfs:label "Training Dataset"@en ;
+    rdfs:subClassOf :Dataset .
+
+:ValidationDataset a owl:Class ;
+    rdfs:label "Validation Dataset"@en ;
+    rdfs:subClassOf :Dataset .
+
+:isEnforcedBy a owl:ObjectProperty ;
+    rdfs:label "is enforced by"@en ;
+    rdfs:domain fmo:fairness_metric ;
+    rdfs:range :MitigationTechnique .
+
+:isFollowedBy a owl:ObjectProperty ;
+    rdfs:label "is followed by" ;
+    rdfs:domain :AILifecycleStep ;
+    rdfs:range :AILifecycleStep .
+
+:isGuidedBy a owl:ObjectProperty ;
+    rdfs:label "is guided by"@en ;
+    rdfs:comment "Links a fairness notion to its underpinning social principle such as equity or equality."@en ;
+    rdfs:domain fmo:fairness_notion ;
+    rdfs:range :SocialPrinciple .
+
+:measures a owl:ObjectProperty ;
+    rdfs:label "measures"@en ;
+    rdfs:domain fmo:fairness_metric ;
+    rdfs:range fmo:fairness_notion ;
+    skos:definition "A fairness metric measures some fairness notion if comparisons made with the given metric are a valid way to determine fairness with this notion."@en .
+
+:mitigates a owl:ObjectProperty ;
+    rdfs:label "mitigates"@en ;
+    rdfs:domain fmo:fairness_notion ;
+    rdfs:range fmo:bias ;
+    skos:definition "A fairness notion is required to mitigate a certain bias."@en .
+
+:operationalize a owl:ObjectProperty ;
+    rdfs:label "operationalize" ;
+    rdfs:domain fmo:fairness_notion ;
+    rdfs:range :Legal_Requirement .
+
+:supports_compliance_with a owl:ObjectProperty ;
+    rdfs:label "supports compliance with" ;
+    rdfs:domain :MitigationTechnique ;
+    rdfs:range :Legal_Requirement .
+
+resource:SIO_000244 a owl:ObjectProperty ;
+    rdfs:label "is derived from"@en ;
+    rdfs:domain fmo:fairness_metric ;
+    rdfs:range fmo:statistical_metric .
+
+resource:SIO_000668 a owl:ObjectProperty ;
+    rdfs:label "in relation to"@en .
+
+fmo:dataset_cohort a owl:Class ;
+    rdfs:label "Dataset Cohort" .
+
+fmo:evaluation_metric a owl:Class ;
+    rdfs:label "Evaluation Metric" ;
+    rdfs:subClassOf :ScientificArtifact .
+
+:2019_MAUDSLAY a :ScientificPaper,
+        owl:NamedIndividual ;
+    rdfs:label "2019_MAUDSLAY" .
+
+:EmbeddingBasedFairnessMetric a owl:Class ;
+    rdfs:label "Embedding-based Fairness Metric"@en ;
+    rdfs:subClassOf fmo:fairness_metric ;
+    skos:definition "A fairness metric that evaluates bias or fairness using representations derived from word or sentence embeddings."@en .
+
+:FeatureLevelColumnIntervention a owl:Class ;
+    rdfs:label "Feature-level Column Intervention (A)" ;
+    rdfs:subClassOf :DataResourcesMitigation .
+
+:FeatureLevelRowReweightingResampling a owl:Class ;
+    rdfs:label "Feature-level Row Reweighting/Resampling (C)" ;
+    rdfs:subClassOf :DataResourcesMitigation .
+
+:GranularityMetric a owl:Class ;
+    rdfs:label "Granularity Metric"@en ;
+    rdfs:subClassOf :RecommendationSystemMetric .
+
+:In-processing a owl:Class ;
+    rdfs:label "In-processing" ;
+    rdfs:subClassOf :AILifecycleStep .
+
+:Legislation a owl:Class ;
+    rdfs:label "Legislation" .
+
+:NaturalLanguageProcessingTask a owl:Class ;
+    rdfs:label "Natural Language Processing Task"@en ;
+    rdfs:subClassOf :MLTask ;
+    skos:definition "Natural language processing includes breaking down human text or speech into smaller parts that computer programs can easily understand and process."@en .
+
+:OptimizationObjectMetric a owl:Class ;
+    rdfs:label "Optimization Object Metric"@en ;
+    rdfs:subClassOf :RecommendationSystemMetric .
+
+:Post-processing a owl:Class ;
+    rdfs:label "Post-processing" ;
+    rdfs:subClassOf :AILifecycleStep .
+
+:ProbabilityBasedFairnessMetric a owl:Class ;
+    rdfs:label "Probability-based Fairness Metric"@en ;
+    rdfs:subClassOf fmo:fairness_metric ;
+    skos:definition "A metric that considers the probability distributions of predicted outcomes to measure fairness."@en .
+
+:RepresentationBias a owl:Class ;
+    rdfs:label "representation bias"@en ;
+    dc:source "https://doi.org/10.1145/3457607"^^xsd:anyURI ;
+    rdfs:subClassOf fmo:bias ;
+    skos:definition "Representation bias arises from the use of a skewed or otherwise non-representative sample from a population during data collection process."@en .
+
+:SubjectMetric a owl:Class ;
+    rdfs:label "Subject Metric"@en ;
+    rdfs:subClassOf :RecommendationSystemMetric .
+
+:SupervisedLearingTask a owl:Class ;
+    rdfs:label "Supervised Learning Task"@en ;
+    rdfs:subClassOf :MLTask ;
+    owl:disjointWith :UnsupervisedLearningTask ;
+    skos:definition "Supervised learning is a category of machine learning that uses labeled datasets to train algorithms to predict outcomes and recognize patterns."@en .
+
+:UnsupervisedLearningTask a owl:Class ;
+    rdfs:label "Unsupervised Learning Task"@en ;
+    rdfs:subClassOf :MLTask ;
+    skos:definition "Unsupervised tasks involve using algorithms to find patterns, structures, and groupings in unlabeled data without any human guidance or predefined outcomes."@en .
+
+fmo:statistical_metric a owl:Class ;
+    rdfs:label "Statistical Metric" .
+
+:BlackBoxDecisionOnly a owl:Class ;
+    rdfs:label "Decision Layer Control - Black-box Model (I)" ;
+    rdfs:subClassOf :ModelAccessResourcesMitigation .
+
+:DataGeneration a owl:Class ;
+    rdfs:label "Data Acquisition/Generation (D)" ;
+    rdfs:subClassOf :DataResourcesMitigation .
+
+:FullFineTuning a owl:Class ;
+    rdfs:label "Full Fine-tuning - White-box Model (F)" ;
+    rdfs:subClassOf :ModelAccessResourcesMitigation,
+        :TrainingResourcesMitigation ;
+    owl:disjointWith :PartialFineTuning .
+
+:GeneratedTextBasedFairnessMetric a owl:Class ;
+    rdfs:label "Generated Text-based Fairness Metric"@en ;
+    rdfs:subClassOf fmo:fairness_metric ;
+    skos:definition "A metric that measures fairness by analyzing or scoring generated text outputs."@en .
+
+:GroupFairnessNotion a owl:Class ;
+    rdfs:label "group fairness notion"@en ;
+    dc:source "https://doi.org/10.1145/3468507.3468511"^^xsd:anyURI ;
+    resource:hasSynonym "group fairness"@en ;
+    rdfs:subClassOf :OutcomeFairnessNotion ;
+    owl:disjointWith :IndividualFairnessNotion ;
+    skos:definition "A family of fairness notions with the common objective to ensure that groups who differ by their sensitive attributes are treated equally. (Note: Occasionally, \"group fairness\" is used to refer to statistical parity specifically, instead of the broader meaning as defined here)."@en .
+
+:Hyperparameter a owl:Class ;
+    rdfs:label "Hyperparameter"@en .
+
+:RecommendationSystemMetric a owl:Class ;
+    rdfs:label "Recommendation System Metric"@en ;
+    rdfs:subClassOf fmo:fairness_metric .
+
+:TrainingResourcesMitigation a owl:Class ;
+    rdfs:label "Training Resources Mitigation"@en ;
+    rdfs:subClassOf :MitigationTechnique .
+
+:DataResourcesMitigation a owl:Class ;
+    rdfs:label "Data Resources Mitigation"@en ;
+    rdfs:subClassOf :MitigationTechnique .
+
+:FullRetraining a owl:Class ;
+    rdfs:label "Full Retraining (E)" ;
+    rdfs:subClassOf :TrainingResourcesMitigation .
+
+:InstanceLevelRowIntervention a owl:Class ;
+    rdfs:label "Feature-level Row Intervention (B)" ;
+    rdfs:subClassOf :DataResourcesMitigation .
+
+:MLTask a owl:Class ;
+    rdfs:label "Machine-Learning Task"@en ;
+    skos:definition "A machine learning task is a type of prediction or inference that's based on both the problem or question and the available data."@en .
+
+:ModelAccessResourcesMitigation a owl:Class ;
+    rdfs:label "Model Access Resources Mitigation"@en ;
+    rdfs:subClassOf :MitigationTechnique .
+
+:OutcomeFairnessNotion a owl:Class ;
+    rdfs:label "outcome fairness notion"@en ;
+    resource:hasSynonym "outcome fairness"@en ;
+    rdfs:subClassOf fmo:fairness_notion ;
+    owl:disjointWith :ProceduralFairnessNotion ;
+    skos:definition "Outcome fairness is concerned with the fairness of the results of the decision-making process."@en .
+
+:SocialPrinciple a owl:Class ;
+    rdfs:label "Social Principle"@en ;
+    skos:definition "Ethical and contextual interpretation of fairness, informing notions."@en .
+
+:ExperimentalSetting a owl:Class ;
+    rdfs:label "Experimental Setting"@en .
+
+:HyperparameterConfiguration a owl:Class ;
+    rdfs:label "Hyperparameter Configuration"@en .
+
+:AIModel a owl:Class ;
+    rdfs:label "AI Model"@en ;
+    skos:definition "An artificial intelligence model."@en .
+
+:PartialFineTuning a owl:Class ;
+    rdfs:label "Partial Fine-tuning - White-box Model (G)" ;
+    rdfs:subClassOf :ModelAccessResourcesMitigation,
+        :TrainingResourcesMitigation .
+
+:Pre-processing a owl:Class ;
+    rdfs:label "Pre-processing" ;
+    rdfs:subClassOf :AILifecycleStep .
+
+:AILifecycleStep a owl:Class ;
+    rdfs:label "AI Lifecycle Step" .
+
+:Dataset a owl:Class ;
+    rdfs:label "Dataset"@en ;
+    skos:definition "A dataset used in machine learning."@en .
+
+:FairnessConcern a owl:Class ;
+    rdfs:label "Fairness Concern"@en .
+
+:ApplicationDomain a owl:Class ;
+    rdfs:label "Application Domain"@en ;
+    skos:definition "AI systems are tailored to the application domain of the specific use-case."@en .
+
+:Legal_Requirement a owl:Class ;
+    rdfs:label "Legal Requirement" .
+
+:MitigationTechnique a owl:Class ;
+    rdfs:label "Mitigation Technique"@en ;
+    rdfs:subClassOf :ScientificArtifact .
+
+:ScientificArtifact a owl:Class ;
+    rdfs:label "Scientific Artifact"@en ;
+    skos:definition "A scientific artifact is the outcome with which the the paper contributes, such as a fairness notion, metric, and so on."@en .
+
+fmo:bias a owl:Class ;
+    rdfs:label "Bias" ;
+    dc:source "https://www.lexico.com/en/definition/bias"^^xsd:anyURI ;
+    rdfs:subClassOf owl:Thing ;
+    skos:definition "Predisposition in favor of or against one thing, person, or group compared with another, usually in a way considered to be unfair."@en .
+
+fmo:fairness_notion a owl:Class ;
+    rdfs:label "Fairness Notion"@en ;
+    dc:source "https://doi.org/10.1145/3468507.3468511"^^xsd:anyURI ;
+    resource:hasSynonym "criterion"@en,
+        "fairness"@en ;
+    rdfs:subClassOf :ScientificArtifact ;
+    skos:definition "A formal definition of fairness that can be observed as a property of a predictive model, in relation to that model's treatment of different cohorts."@en .
+
+fmo:fairness_metric a owl:Class ;
+    rdfs:label "Fairness Metric"@en ;
+    dc:source "https://doi.org/10.1145/3468507.3468511"^^xsd:anyURI ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty resource:SIO_000244 ;
+            owl:someValuesFrom fmo:statistical_metric ],
+        [ a owl:Restriction ;
+            owl:onProperty resource:SIO_000668 ;
+            owl:someValuesFrom fmo:dataset_cohort ],
+        fmo:evaluation_metric ;
+    skos:definition "A measurement of some fairness notion in a machine-learning model or dataset, with regards to some specific cohort(s)."@en ;
+    fmo:tag "hide" .
+
+:ScientificPaper a owl:Class ;
+    rdfs:label "Scientific Paper"@en ;
+    skos:definition "A scientific paper published in a journal or during some conference proceesings."@en .
+
