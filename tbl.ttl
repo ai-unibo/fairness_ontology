@@ -9,238 +9,9 @@
 
 : a owl:Ontology .
 
-:2012_DWORK a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2012_DWORK" .
-
-:2012_KAMISHIMA a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2012_KAMISHIMA" .
-
-:2013_ZEMEL a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2013_ZEMEL" .
-
-:2015_FELDMAN a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2015_FELDMAN" .
-
-:2016_DIETERICH a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2016_DIETERICH" .
-
-:2016_GRGIC-HLACA a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2016_GRGIC-HLACA" .
-
-:2016_HARDT a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2016_HARDT" .
-
-:2017_CALISKAN a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2017_CALISKAN" .
-
-:2017_CHOULDECHOVA a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2017_CHOULDECHOVA" .
-
-:2017_CORBETTDAVIES a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2017_CORBETTDAVIES" .
-
-:2017_KLEINBERG a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2017_KLEINBERG" .
-
-:2017_KUSNER a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2017_KUSNER" .
-
-:2018_BELLAMY a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2018_BELLAMY" .
-
-:2018_BERK a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2018_BERK" .
-
-:2018_SPEICHER a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2018_SPEICHER" .
-
-:2018_VANMASSENHOVE a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2018_VANMASSENHOVE" .
-
-:2018_VERMA a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2018_VERMA" .
-
-:2018_YONA a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2018_YONA" .
-
-:2019_BEUTEL a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2019_BEUTEL" .
-
-:2019_BORDIA a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2019_BORDIA" .
-
-:2019_DIMITRAKAKIS a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2019_DIMITRAKAKIS" .
-
-:2019_KURITA a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2019_KURITA" .
-
-:2019_LAHOTI a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2019_LAHOTI" .
-
-:2019_MAY a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2019_MAY" .
-
-:2020_HUANG a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2020_HUANG" .
-
-:2020_JUNGa a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2020_JUNGa" .
-
-:2020_NANGIA a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2020_NANGIA" .
-
-:2020_YUROCHKIN a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2020_YUROCHKIN" .
-
-:2021_AHN a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2021_AHN" .
-
-:2021_BARIKERI a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2021_BARIKERI" .
-
-:2021_DEARTEAGA a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2021_DEARTEAGA" .
-
-:2021_DHAMALA a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2021_DHAMALA" .
-
-:2021_GUO a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2021_GUO" .
-
-:2021_NADEEM a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2021_NADEEM" .
-
-:2021_NOZZA a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2021_NOZZA" .
-
-:2021_WEBSTER a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2021_WEBSTER" .
-
-:2022_KANEKO a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2022_KANEKO" .
-
-:2022_QIAN a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2022_QIAN" .
-
-:2022_SMITH a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2022_SMITH" .
-
-:2023_CHOWDHERY a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2023_CHOWDHERY" .
-
-:2023_DOLCI a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2023_DOLCI" .
-
-:2023_GIULIANI a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2023_GIULIANI" .
-
-:2023_LIANG a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2023_LIANG" .
-
-:2023_SICILIA a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2023_SICILIA" .
-
-:2024_CATON a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2024_CATON" .
-
-:2024_CHUNG a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2024_CHUNG" .
-
-:2024_GALLEGOS a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2024_GALLEGOS" .
-
-:2024_GONZALEZ-SENDINO a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2024_GONZALEZ-SENDINO" .
-
-:2025_GAO a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2025_GAO" .
-
-:2025_RUSSO a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2025_RUSSO" .
-
-:2025_WALLER a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2025_WALLER" .
-
-:ADELE a owl:NamedIndividual ;
-    rdfs:label "ADELE" ;
-    :isProposedBy :2021_LAUSCHER ;
-    rdfs:comment "Introduce debiasing adapter modules, called ADELE, to mitigate gender bias." .
-
 :Adapters a owl:Class ;
     rdfs:label "Adapters" ;
     rdfs:subClassOf :PartialFineTuning .
-
-:AddNonToxicExamples a owl:NamedIndividual ;
-    rdfs:label "AddNonToxicExamples" ;
-    :isProposedBy :2018_DIXON ;
-    rdfs:comment "Add non-toxic examples for groups disproportionately represented with toxicity." .
-
-:AdvBERT a owl:NamedIndividual ;
-    rdfs:label "AdvBERT" ;
-    :isProposedBy :2021_REKABSAZ ;
-    rdfs:comment "Adversarial learning with a ranking of information retrieval results to reduce bias while maintaining relevance." .
-
-:AdvPredictedScore a owl:NamedIndividual ;
-    rdfs:label "AdvPredictedScore" ;
-    :isProposedBy :2020_ZHU ;
-    rdfs:comment "Learn fair predicted scores by enhancing score distribution similarity" .
-
-:AdversarialFDP a owl:NamedIndividual ;
-    rdfs:label "AdversarialFDP" ;
-    :isProposedBy :2019_CELISa ;
-    rdfs:comment "Adversarial training using False Discovery Rate parity." .
 
 :AdversarialLearning a owl:Class ;
     rdfs:label "Adversarial Learning" ;
@@ -252,18 +23,12 @@
 
 :Art5 a :Legal_Requirement,
         owl:NamedIndividual ;
-    :its_compliance_is_supported_by :Re-SamplingProtectedGroup ;
     resource:SIO_000068 :EU_AI_Act ;
     rdfs:comment "Prohibits certain AI practices, such as exploiting vulnerabilities of specific groups, social scoring, and some forms of predictive policing, which are considered incompatible with fundamental rights and equality" .
 
 :AuditSets a owl:Class ;
     rdfs:label "Audit Sets" ;
     rdfs:subClassOf :DataGeneration .
-
-:AugmentedAntidoteData a owl:NamedIndividual ;
-    rdfs:label "AugmentedAntidoteData" ;
-    :isProposedBy :2019_RASTEGARPANAH ;
-    rdfs:comment "Add antidote data to the training data" .
 
 :BanditsBasedLearning a owl:Class ;
     rdfs:label "Bandits-based Learning" ;
@@ -273,29 +38,9 @@
     rdfs:label "Blinding and Proxy Removal" ;
     rdfs:subClassOf :FeatureLevelColumnIntervention .
 
-:BlocklistDocumentRemoval a owl:NamedIndividual ;
-    rdfs:label "BlocklistDocumentRemoval" ;
-    :isProposedBy :2020_RAFFEL ;
-    rdfs:comment "Removal of biased instances, such as derogatory language: coarse word-level technique, removing all documents containing any words on a blocklist." .
-
 :BusinessRequirements a :Pre-processing,
         owl:NamedIndividual ;
     :isFollowedBy :AnalyticsApproach .
-
-:CDA a owl:NamedIndividual ;
-    rdfs:label "CDA" ;
-    :isProposedBy :2020_LU ;
-    rdfs:comment "Use CDA to mitigate occupation-gender bias, creating matched pairs." .
-
-:CDS a owl:NamedIndividual ;
-    rdfs:label "CDS" ;
-    :isProposedBy :2019_MAUDSLAY ;
-    rdfs:comment "Randomly substitute gendered text with counterfactuals." .
-
-:CalibratedRe-ranking a owl:NamedIndividual ;
-    rdfs:label "CalibratedRe-ranking" ;
-    :isProposedBy :2018_STECK ;
-    rdfs:comment "Calibrated recommendation through maximal marginal relevance" .
 
 :CalibrationBasedFairnessMetric a owl:Class ;
     rdfs:label "Calibration-based Fairness Metric"@en ;
@@ -311,17 +56,6 @@
 
 :CensusIncomePrediction a :ApplicationDomain,
         owl:NamedIndividual .
-
-:ChangeAttentionScores a owl:NamedIndividual ;
-    rdfs:label "ChangeAttentionScores" ;
-    :isProposedBy :2022_GACI ;
-    rdfs:comment "Redistribute attention scores to address learned stereotypes." .
-
-:ChangeAttentionWeights a :FullWeightRedistribution,
-        owl:NamedIndividual ;
-    rdfs:label "ChangeAttentionWeights" ;
-    :isProposedBy :2023_ZAYED ;
-    rdfs:comment "Apply temperature scaling to attention weights post-training." .
 
 :ChatbotInteraction a :NaturalLanguageProcessingTask,
         owl:NamedIndividual .
@@ -350,11 +84,6 @@
     rdfs:label "Constrained Optimization" ;
     rdfs:subClassOf :FullRetraining .
 
-:ControlOffensiveTokens a owl:NamedIndividual ;
-    rdfs:label "ControlOffensiveTokens" ;
-    :isProposedBy :2020_XU ;
-    rdfs:comment "Use control tokens to prevent offensive output." .
-
 :CounterfactualAugmentation a owl:Class ;
     rdfs:label "Counterfactual Augmentation" ;
     rdfs:subClassOf :InstanceLevelRowIntervention .
@@ -381,11 +110,6 @@
     rdfs:subClassOf :GeneratedTextBasedFairnessMetric ;
     skos:definition "A metric that evaluates fairness by comparing the statistical distribution of generated outputs across groups."@en .
 
-:DropoutOnAttention a owl:NamedIndividual ;
-    rdfs:label "DropoutOnAttention" ;
-    :isProposedBy :2020_WEBSTER ;
-    rdfs:comment "Use dropout during pre-training to reduce stereotypical gendered associations." .
-
 :Education a :ApplicationDomain,
         owl:NamedIndividual .
 
@@ -403,11 +127,6 @@
     rdfs:label "exposes to"@en ;
     rdfs:domain :FairnessConcern ;
     rdfs:range fmo:bias .
-
-:FairPSL a owl:NamedIndividual ;
-    rdfs:label "FairPSL" ;
-    :isProposedBy :2018_FARNADI ;
-    rdfs:comment "FairPSL extends an existing statistical relational learning framework, probabilistic soft logic (PSL). FairPSL incorporates logical definitions of fairnesss supporting a probabilistic interpretation." .
 
 :FairnessRegularization a owl:Class ;
     rdfs:label "Fairness Regularization" ;
@@ -429,10 +148,10 @@
     rdfs:comment "A mitigation technique that prunes an already trained model by setting to 0 some of its weights. The model is considered AS A WHOLE, by taking into account for pruning all its internal weights." ;
     rdfs:subClassOf :FullFineTuning .
 
-:Gender-neutralAlternatives a owl:NamedIndividual ;
-    rdfs:label "Gender-neutralAlternatives" ;
-    :isProposedBy :2021_JAIN ;
-    rdfs:comment "Generate gender-neutral sentence alternatives." .
+:FullWeightRedistribution a owl:Class ;
+    rdfs:label "Full Weight Redistribution"@en ;
+    rdfs:comment "A mitigation technique that redistributes the weights of an already trained model, considering it AS A WHOLE, potentially redistributing all its weights." ;
+    rdfs:subClassOf :FullFineTuning .
 
 :GovernanceOnly a owl:Class ;
     rdfs:label "Governance-only Interventions (J)" ;
@@ -463,11 +182,6 @@
     rdfs:subClassOf :GroupFairnessNotion ;
     skos:definition "The fairness property satisfied when the predicted outcome variable is independent from protected attributes."@en ;
     fmo:probabilistic_definition "Ŷ ⊥ A"@en .
-
-:InferenceSubnetworks a owl:NamedIndividual ;
-    rdfs:label "InferenceSubnetworks" ;
-    :isProposedBy :2023_HAUZENBERG ;
-    rdfs:comment "Apply trained subnetworks modularly at inference time." .
 
 :InstanceWeighting a owl:Class ;
     rdfs:label "Instance Weighting" ;
@@ -513,23 +227,16 @@
     rdfs:subClassOf :GeneratedTextBasedFairnessMetric ;
     skos:definition "A metric that uses predefined lexicons to study fairness or bias in generated textual content."@en .
 
-:ListRe-adjustment a owl:NamedIndividual ;
-    rdfs:label "ListRe-adjustment" ;
-    :isProposedBy :2021_MANSOURY ;
-    rdfs:comment "Re-ranking method based on maximum flow: iteratively adds high-quality items that have low visibility or items from suppliers with low exposure to the users’ final recommendation lists." .
-
 :LoRA a owl:Class ;
     rdfs:label "LoRA" ;
     rdfs:subClassOf :PartialFineTuning .
 
-:LogLikeDocumentRemoval a owl:NamedIndividual ;
-    rdfs:label "LogLikeDocumentRemoval" ;
-    :isProposedBy :2021_NGO ;
-    rdfs:comment "Append to each document a phrase representative of an undesirable harm, such as racism or hate speech, and then use a pre-trained model to compute the conditional log-likelihood of the modified documents." .
-
 :ManagementLegalRequirement a owl:Class ;
     rdfs:label "Management Legal Requirement" ;
     rdfs:subClassOf :Legal_Requirement .
+
+:MaskedLanguageModelling a :NaturalLanguageProcessingTask,
+        owl:NamedIndividual .
 
 :MaskedTokenFairnessMetric a owl:Class ;
     rdfs:label "Masked Token Fairness Metric"@en ;
@@ -541,16 +248,6 @@
     dc:source "https://doi.org/10.1145/3468507.3468511"^^xsd:anyURI ;
     rdfs:subClassOf fmo:bias ;
     skos:definition "Masking is a form of intentional discrimination that allows decision makers with prejudicial views to mask their intentions, typically by exploiting how fairness notions are defined."@en .
-
-:NamesIntervention a owl:NamedIndividual ;
-    rdfs:label "NamesIntervention" ;
-    :isProposedBy :2019_MAUDSLAY ;
-    rdfs:comment "Swap masculine and feminine first names during CDA." .
-
-:OSCAR a owl:NamedIndividual ;
-    rdfs:label "OSCAR" ;
-    :isProposedBy :2021_DEV ;
-    rdfs:comment "Bias removal while maintaining relevant semantic information: orthogonalize two directions that should be independent." .
 
 :OmmittedVariableBias a owl:Class ;
     rdfs:label "omitted variable bias"@en ;
@@ -572,21 +269,6 @@
     rdfs:comment "A mitigation technique that prunes a SUBPART OF an already trained model by setting to 0 some of its weights." ;
     rdfs:subClassOf :PartialFineTuning .
 
-:PerceptronForUnawareness a owl:NamedIndividual ;
-    rdfs:label "PerceptronForUnawareness" ;
-    :isProposedBy :2023_KUMAR ;
-    rdfs:comment "Adapter network removing protected attributes." .
-
-:PoliteAlternatives a owl:NamedIndividual ;
-    rdfs:label "PoliteAlternatives" ;
-    :isProposedBy :2022_WANG ;
-    rdfs:comment "Generate more polite sentence rewrites." .
-
-:PredictedReplacements a owl:NamedIndividual ;
-    rdfs:label "PredictedReplacements" ;
-    :isProposedBy :2022_TOKPO ;
-    rdfs:comment "Use LIME to identify biased tokens and predict replacements." .
-
 :Prejudice a :HistoricalBias,
         owl:NamedIndividual ;
     rdfs:label "prejudice"@en ;
@@ -597,47 +279,12 @@
     rdfs:subClassOf :ProbabilityBasedFairnessMetric ;
     skos:definition "A metric based on pseudo-log likelihoods, often used to evaluate the fairness of generation or prediction probabilities."@en .
 
-:REALTOXICITYPROMPTS a owl:NamedIndividual ;
-    rdfs:label "REALTOXICITYPROMPTS" ;
-    :isProposedBy :2020_GEHMAN ;
-    rdfs:comment "Constrained decoding to reduce toxic generation." .
-
-:RecIndependence a owl:NamedIndividual ;
-    rdfs:label "RecIndependence" ;
-    :isProposedBy :2018_KAMISHIMA ;
-    rdfs:comment "Use distribution matching and mutual information terms as regularization (to make recommendations independent of a specific attribute)" .
-
-:RegardClassifier a owl:NamedIndividual ;
-    rdfs:label "RegardClassifier" ;
-    :isProposedBy :2019_SHENG ;
-    rdfs:comment "Classifier measuring regard toward social groups." .
-
 :Regression a :SupervisedLearingTask,
         owl:NamedIndividual .
-
-:RegularizationOnANOVA a owl:NamedIndividual ;
-    rdfs:label "RegularizationOnANOVA" ;
-    :isProposedBy :2020_WAN ;
-    rdfs:comment "Use F-statistic of ANOVA in the the loss function as regularization term to calibrate the parity of prediction errors across different market segments." .
-
-:RegularizationOnEmbeddings a owl:NamedIndividual ;
-    rdfs:label "RegularizationOnEmbeddings" ;
-    :isProposedBy :2023_PARK ;
-    rdfs:comment "introduce a regularization term that orthogonalizes stereotypical word embeddings and the gender direction in the embedding space." .
-
-:RegularizationOnValueFairness a owl:NamedIndividual ;
-    rdfs:label "RegularizationOnValueFairness" ;
-    :isProposedBy :2017_YAO ;
-    rdfs:comment "Use fairness metrics (e.g., value fairness) as fair regularization" .
 
 :Relabeling a owl:Class ;
     rdfs:label "Relabeling" ;
     rdfs:subClassOf :InstanceLevelRowIntervention .
-
-:ReplaceStereotypes a owl:NamedIndividual ;
-    rdfs:label "ReplaceStereotypes" ;
-    :isProposedBy :2023_DHINGRA ;
-    rdfs:comment "Identify and replace stereotypical words using SHAP." .
 
 :Reranking a owl:Class ;
     rdfs:label "Re-ranking" ;
@@ -663,9 +310,6 @@
     rdfs:label "Sentence Embedding Fairness Metric"@en ;
     rdfs:subClassOf :EmbeddingBasedFairnessMetric ;
     skos:definition "A metric using sentence-level embedding representations as the basis for evaluating model or data fairness."@en .
-
-:SentimentAnalysis a :NaturalLanguageProcessingTask,
-        owl:NamedIndividual .
 
 :SeparationFairnessNotion a owl:Class ;
     rdfs:label "separation fairness notion"@en ;
@@ -712,9 +356,15 @@
     rdfs:label "Testing Dataset"@en ;
     rdfs:subClassOf :Dataset .
 
+:TextClassification a :NaturalLanguageProcessingTask,
+        owl:NamedIndividual .
+
 :Thresholding a owl:Class ;
     rdfs:label "Thresholding" ;
     rdfs:subClassOf :GreyBoxScores .
+
+:TokenClassification a :NaturalLanguageProcessingTask,
+        owl:NamedIndividual .
 
 :Transformation a owl:Class ;
     rdfs:label "Transformation/Representation Learning" ;
@@ -727,11 +377,6 @@
 :UserFocusedMetric a owl:Class ;
     rdfs:label "User-focused Metric"@en ;
     rdfs:subClassOf :SubjectMetric .
-
-:UserItemRe-ranking a owl:NamedIndividual ;
-    rdfs:label "UserItemRe-ranking" ;
-    :isProposedBy :2020_PATRO ;
-    rdfs:comment "Re-ranking for both user fairness and item fairness" .
 
 :WordEmbeddingFairnessMetric a owl:Class ;
     rdfs:label "Word Embedding Fairness Metric"@en ;
@@ -958,130 +603,6 @@ fmo:probabilistic_definition a owl:AnnotationProperty .
 
 fmo:tag a owl:AnnotationProperty .
 
-:2017_YAO a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2017_YAO" .
-
-:2018_DIXON a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2018_DIXON" .
-
-:2018_EKSTRAND a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2018_EKSTRAND" .
-
-:2018_FARNADI a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2018_FARNADI" .
-
-:2018_KAMISHIMA a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2018_KAMISHIMA" .
-
-:2018_STECK a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2018_STECK" .
-
-:2019_CELISa a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2019_CELISa" .
-
-:2019_RASTEGARPANAH a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2019_RASTEGARPANAH" .
-
-:2019_SHENG a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2019_SHENG" .
-
-:2020_GEHMAN a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2020_GEHMAN" .
-
-:2020_LU a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2020_LU" .
-
-:2020_PATRO a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2020_PATRO" .
-
-:2020_RAFFEL a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2020_RAFFEL" .
-
-:2020_WAN a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2020_WAN" .
-
-:2020_WEBSTER a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2020_WEBSTER" .
-
-:2020_XU a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2020_XU" .
-
-:2020_ZHU a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2020_ZHU" .
-
-:2021_DEV a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2021_DEV" .
-
-:2021_JAIN a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2021_JAIN" .
-
-:2021_LAUSCHER a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2021_LAUSCHER" .
-
-:2021_MANSOURY a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2021_MANSOURY" .
-
-:2021_NGO a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2021_NGO" .
-
-:2021_REKABSAZ a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2021_REKABSAZ" .
-
-:2022_GACI a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2022_GACI" .
-
-:2022_TOKPO a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2022_TOKPO" .
-
-:2022_WANG a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2022_WANG" .
-
-:2023_DHINGRA a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2023_DHINGRA" .
-
-:2023_HAUZENBERG a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2023_HAUZENBERG" .
-
-:2023_KUMAR a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2023_KUMAR" .
-
-:2023_PARK a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2023_PARK" .
-
-:2023_ZAYED a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2023_ZAYED" .
-
 :AlgorithmicBias a owl:Class ;
     rdfs:label "algorithmic bias"@en ;
     dc:source "https://doi.org/10.1145/3457607"^^xsd:anyURI ;
@@ -1112,11 +633,6 @@ fmo:tag a owl:AnnotationProperty .
 :ExploratoryDataAnalysis a :Pre-processing,
         owl:NamedIndividual ;
     :isFollowedBy :DataPreparation .
-
-:FullWeightRedistribution a owl:Class ;
-    rdfs:label "Full Weight Redistribution"@en ;
-    rdfs:comment "A mitigation technique that redistributes the weights of an already trained model, considering it AS A WHOLE, potentially redistributing all its weights." ;
-    rdfs:subClassOf :FullFineTuning .
 
 :Governance a owl:Class ;
     rdfs:label "Governance" ;
@@ -1181,11 +697,6 @@ fmo:tag a owl:AnnotationProperty .
 :ProjectReview a :Governance,
         owl:NamedIndividual .
 
-:Re-SamplingProtectedGroup a owl:NamedIndividual ;
-    rdfs:label "Re-SamplingProtectedGroup" ;
-    :isProposedBy :2018_EKSTRAND ;
-    rdfs:comment "Adjust the proportion of the protected group by resampling" .
-
 :TrainingDataset a owl:Class ;
     rdfs:label "Training Dataset"@en ;
     rdfs:subClassOf :Dataset .
@@ -1247,10 +758,6 @@ fmo:evaluation_metric a owl:Class ;
     rdfs:label "Evaluation Metric" ;
     rdfs:subClassOf :ScientificArtifact .
 
-:2019_MAUDSLAY a :ScientificPaper,
-        owl:NamedIndividual ;
-    rdfs:label "2019_MAUDSLAY" .
-
 :EmbeddingBasedFairnessMetric a owl:Class ;
     rdfs:label "Embedding-based Fairness Metric"@en ;
     rdfs:subClassOf fmo:fairness_metric ;
@@ -1275,11 +782,6 @@ fmo:evaluation_metric a owl:Class ;
 :Legislation a owl:Class ;
     rdfs:label "Legislation" .
 
-:NaturalLanguageProcessingTask a owl:Class ;
-    rdfs:label "Natural Language Processing Task"@en ;
-    rdfs:subClassOf :MLTask ;
-    skos:definition "Natural language processing includes breaking down human text or speech into smaller parts that computer programs can easily understand and process."@en .
-
 :OptimizationObjectMetric a owl:Class ;
     rdfs:label "Optimization Object Metric"@en ;
     rdfs:subClassOf :RecommendationSystemMetric .
@@ -1298,6 +800,10 @@ fmo:evaluation_metric a owl:Class ;
     dc:source "https://doi.org/10.1145/3457607"^^xsd:anyURI ;
     rdfs:subClassOf fmo:bias ;
     skos:definition "Representation bias arises from the use of a skewed or otherwise non-representative sample from a population during data collection process."@en .
+
+:ScientificPaper a owl:Class ;
+    rdfs:label "Scientific Paper"@en ;
+    skos:definition "A scientific paper published in a journal or during some conference proceesings."@en .
 
 :SubjectMetric a owl:Class ;
     rdfs:label "Subject Metric"@en ;
@@ -1374,6 +880,11 @@ fmo:statistical_metric a owl:Class ;
 :ModelAccessResourcesMitigation a owl:Class ;
     rdfs:label "Model Access Resources Mitigation"@en ;
     rdfs:subClassOf :MitigationTechnique .
+
+:NaturalLanguageProcessingTask a owl:Class ;
+    rdfs:label "Natural Language Processing Task"@en ;
+    rdfs:subClassOf :MLTask ;
+    skos:definition "Natural language processing includes breaking down human text or speech into smaller parts that computer programs can easily understand and process."@en .
 
 :OutcomeFairnessNotion a owl:Class ;
     rdfs:label "outcome fairness notion"@en ;
@@ -1456,8 +967,4 @@ fmo:fairness_metric a owl:Class ;
         fmo:evaluation_metric ;
     skos:definition "A measurement of some fairness notion in a machine-learning model or dataset, with regards to some specific cohort(s)."@en ;
     fmo:tag "hide" .
-
-:ScientificPaper a owl:Class ;
-    rdfs:label "Scientific Paper"@en ;
-    skos:definition "A scientific paper published in a journal or during some conference proceesings."@en .
 
