@@ -51,6 +51,182 @@
     :isSuitableFor :MaskedLanguageModelling ;
     :scientificArtifactDescription "Extends the CrowS-Pair Score and CAT to consider multiple correct candidate predictions. While pseudo-loglikelihood and CAT consider a single correct answer for a masked test example, AUL provides an unmasked sentence to the model and predicts all tokens in the sentence. The unmasked input provides the model with all information to predict a token, which can improve the prediction accuracy of the model, and avoids selection bias in the choice of which words to mask." .
 
+:Art.10 a :TechnicalLegalRequirement,
+        owl:NamedIndividual ;
+    resource:SIO_000068 :EU_AI_Act ;
+    rdfs:comment "Establishes data and data governance requirements for high-risk AI systems, including quality, relevance, representativeness and appropriate statistical properties of training, validation and testing data." .
+
+:Art.10.3 a :TechnicalLegalRequirement,
+        owl:NamedIndividual ;
+    resource:SIO_000068 :EU_AI_Act ;
+    rdfs:comment "Training, validation and testing data must be relevant, representative, free of errors and complete, with appropriate statistical properties, including where applicable in relation to the persons or groups for whom the system is intended." .
+
+:Art.10.4 a :TechnicalLegalRequirement,
+        owl:NamedIndividual ;
+    resource:SIO_000068 :EU_AI_Act ;
+    rdfs:comment "Datasets shall, to the best extent possible, take into account the specific geographical, behavioural and functional context in which the AI system is intended to be used, so that performance and fairness generalise to the deployment environment." .
+
+:Art.10.5 a :ManagementLegalRequirement,
+        :TechnicalLegalRequirement,
+        owl:NamedIndividual ;
+    resource:SIO_000068 :EU_AI_Act ;
+    rdfs:comment "Allows, under strict conditions, the processing of special categories of personal data for the purposes of detecting, preventing or mitigating bias in AI systems, subject to Union data-protection law." .
+
+:Art.11 a :ManagementLegalRequirement,
+        owl:NamedIndividual ;
+    resource:SIO_000068 :EU_AI_Act ;
+    rdfs:comment "Obliges providers to draw up technical documentation demonstrating compliance with the requirements, including design choices, data sources, model properties, performance and limitations relevant to fairness and non-discrimination." .
+
+:Art.112.10 a :ManagementLegalRequirement,
+        owl:NamedIndividual ;
+    resource:SIO_000068 :EU_AI_Act ;
+    rdfs:comment "Requires the Commission to evaluate and review the implementation of the Regulation and, where appropriate, propose amendments, taking into account technological developments and the effects of AI systems on health, safety and fundamental rights, including equality and non-discrimination." .
+
+:Art.12 a :TechnicalLegalRequirement,
+        owl:NamedIndividual ;
+    resource:SIO_000068 :EU_AI_Act ;
+    rdfs:comment "Requires that high-risk AI systems are designed with automatic logging capabilities to record events relevant for performance monitoring and compliance, including behaviour affecting fundamental rights." .
+
+:Art.13 a :ManagementLegalRequirement,
+        owl:NamedIndividual ;
+    resource:SIO_000068 :EU_AI_Act ;
+    rdfs:comment "Requires providers to ensure that high-risk AI systems are accompanied by clear instructions for use and information about performance, assumptions, limitations and foreseeable risks to fundamental rights." .
+
+:Art.14 a :ManagementLegalRequirement,
+        owl:NamedIndividual ;
+    resource:SIO_000068 :EU_AI_Act ;
+    rdfs:comment "Requires that high-risk AI systems be designed and developed with effective human oversight, enabling human operators to understand, monitor and intervene to prevent or minimise harm, including discriminatory outcomes." .
+
+:Art.15 a :TechnicalLegalRequirement,
+        owl:NamedIndividual ;
+    resource:SIO_000068 :EU_AI_Act ;
+    rdfs:comment "Requires high-risk AI systems to achieve appropriate levels of accuracy, robustness and cybersecurity, and to maintain these properties throughout the lifecycle." .
+
+:Art.16 a :ManagementLegalRequirement,
+        owl:NamedIndividual ;
+    resource:SIO_000068 :EU_AI_Act ;
+    rdfs:comment "Sets out the obligations of providers of high-risk AI systems, including designing and developing systems in accordance with the requirements and implementing risk management, data governance and monitoring procedures." .
+
+:Art.17 a :ManagementLegalRequirement,
+        owl:NamedIndividual ;
+    resource:SIO_000068 :EU_AI_Act ;
+    rdfs:comment "Requires providers to establish and maintain a quality management system covering design, development, testing, validation, data management and monitoring processes for high-risk AI systems." .
+
+:Art.2 a :ManagementLegalRequirement,
+        owl:NamedIndividual ;
+    resource:SIO_000068 :EU_AI_Act ;
+    rdfs:comment "Defines the subject matter and scope of the Regulation, specifying which AI systems and providers fall under the uniform requirements, including those on fundamental-rights protection and non-discrimination." .
+
+:Art.20 a :ManagementLegalRequirement,
+        owl:NamedIndividual ;
+    resource:SIO_000068 :EU_AI_Act ;
+    rdfs:comment "Corrective actions and duty of information: when a high-risk AI system is non-compliant or presents a risk, the provider must take corrective actions without undue delay (bring into conformity, withdraw/recall, or disable as appropriate) and promptly inform relevant economic operators and competent actors, providing details of the non-compliance/risk and actions taken." .
+
+:Art.21 a :ManagementLegalRequirement,
+        owl:NamedIndividual ;
+    resource:SIO_000068 :EU_AI_Act ;
+    rdfs:comment "Requires providers of high-risk AI systems to cooperate with competent authorities and, upon reasoned request, provide necessary information and documentation to demonstrate compliance; where applicable, provide access to automatically generated logs under their control." .
+
+:Art.23 a :ManagementLegalRequirement,
+        owl:NamedIndividual ;
+    resource:SIO_000068 :EU_AI_Act ;
+    rdfs:comment "Sets obligations for importers of high-risk AI systems to verify conformity (incl. required compliance artefacts and instructions), refrain from market placement when non-compliant, ensure storage/transport do not compromise compliance, and cooperate with competent authorities including corrective actions where needed." .
+
+:Art.24 a :ManagementLegalRequirement,
+        owl:NamedIndividual ;
+    resource:SIO_000068 :EU_AI_Act ;
+    rdfs:comment "Sets obligations for distributors of high-risk AI systems to ensure compliance at market placement (e.g., presence of required documentation/instructions and integrity of the supplied system), cooperate with competent authorities, and take actions when non-compliance or risks are suspected." .
+
+:Art.25 a :ManagementLegalRequirement,
+        owl:NamedIndividual ;
+    resource:SIO_000068 :EU_AI_Act ;
+    rdfs:comment "Clarifies responsibilities along the AI value chain for high-risk AI systems, including when another actor becomes the provider (e.g., branding, substantial modification, or purpose change) and related cooperation duties between actors." .
+
+:Art.26 a :ManagementLegalRequirement,
+        owl:NamedIndividual ;
+    resource:SIO_000068 :EU_AI_Act ;
+    rdfs:comment "Specifies additional obligations for deployers of high-risk AI systems, including using systems in accordance with instructions and monitoring operation, especially where decisions significantly affect individuals." .
+
+:Art.27 a :ManagementLegalRequirement,
+        owl:NamedIndividual ;
+    resource:SIO_000068 :EU_AI_Act ;
+    rdfs:comment "Requires deployers of certain high-risk AI systems to perform a fundamental rights impact assessment (FRIA), identifying and evaluating risks to fundamental rights, including discrimination, and defining mitigation measures." .
+
+:Art.29 a :ManagementLegalRequirement,
+        owl:NamedIndividual ;
+    resource:SIO_000068 :EU_AI_Act ;
+    rdfs:comment "Regulates the application and notification procedure for organisations that wish to act as notified bodies for high-risk AI systems, including competence requirements." .
+
+:Art.3 a :ManagementLegalRequirement,
+        owl:NamedIndividual ;
+    resource:SIO_000068 :EU_AI_Act ;
+    rdfs:comment "Provides core definitions (AI system, provider, deployer, high-risk AI system, general-purpose AI model) that allocate responsibilities for compliance with fairness and non-discrimination requirements." .
+
+:Art.4 a :ManagementLegalRequirement,
+        owl:NamedIndividual ;
+    resource:SIO_000068 :EU_AI_Act ;
+    rdfs:comment "Requires providers and deployers to take measures to ensure, to the best extent possible, a sufficient level of AI literacy for staff and other persons dealing with the operation and use of AI systems, considering their skills and the context of use." .
+
+:Art.43 a :ManagementLegalRequirement,
+        owl:NamedIndividual ;
+    resource:SIO_000068 :EU_AI_Act ;
+    rdfs:comment "Lays down rules for conformity assessment procedures for high-risk AI systems, including assessment of compliance with all applicable requirements of the Regulation." .
+
+:Art.5 a :ManagementLegalRequirement,
+        owl:NamedIndividual ;
+    resource:SIO_000068 :EU_AI_Act ;
+    rdfs:comment "Prohibits certain AI practices, such as exploiting vulnerabilities of specific groups, social scoring, and some forms of predictive policing, which are considered incompatible with fundamental rights and equality." .
+
+:Art.50 a :ManagementLegalRequirement,
+        owl:NamedIndividual ;
+    resource:SIO_000068 :EU_AI_Act ;
+    rdfs:comment "Introduces specific transparency obligations for certain AI systems, such as those interacting with humans or detecting emotions, requiring users to be informed that they are interacting with AI." .
+
+:Art.53 a :ManagementLegalRequirement,
+        owl:NamedIndividual ;
+    resource:SIO_000068 :EU_AI_Act ;
+    rdfs:comment "Sets out obligations for providers of general-purpose AI models, including documentation, information on training data, and risk management for systemic risks such as discrimination." .
+
+:Art.6 a :ManagementLegalRequirement,
+        owl:NamedIndividual ;
+    resource:SIO_000068 :EU_AI_Act ;
+    rdfs:comment "Defines when an AI system is classified as high-risk, triggering stricter requirements where systems may significantly affect health, safety or fundamental rights, including non-discrimination." .
+
+:Art.6.2 a :ManagementLegalRequirement,
+        owl:NamedIndividual ;
+    resource:SIO_000068 :EU_AI_Act ;
+    rdfs:comment "Further clarifies the classification of high-risk AI systems, particularly those listed in Annex III, based on their intended purpose and context of use." .
+
+:Art.71 a :ManagementLegalRequirement,
+        owl:NamedIndividual ;
+    resource:SIO_000068 :EU_AI_Act ;
+    rdfs:comment "Establishes an EU database for high-risk AI systems, containing information on systems placed on the market or put into service, including their purpose and key characteristics." .
+
+:Art.72.1 a :ManagementLegalRequirement,
+        owl:NamedIndividual ;
+    resource:SIO_000068 :EU_AI_Act ;
+    rdfs:comment "Specifies that providers must systematically collect, document and analyse data relevant to the functioning of high-risk AI systems, including possible risks to fundamental rights, as part of post-market monitoring." .
+
+:Art.72.2 a :ManagementLegalRequirement,
+        owl:NamedIndividual ;
+    resource:SIO_000068 :EU_AI_Act ;
+    rdfs:comment "Requires providers to take corrective actions, including necessary updates or withdrawal, when they identify non-compliance or new risks to health, safety or fundamental rights." .
+
+:Art.73 a :ManagementLegalRequirement,
+        owl:NamedIndividual ;
+    resource:SIO_000068 :EU_AI_Act ;
+    rdfs:comment "Requires providers to report serious incidents and malfunctioning that constitute a breach of obligations or pose serious risks to health, safety or fundamental rights to competent authorities." .
+
+:Art.77 a :ManagementLegalRequirement,
+        owl:NamedIndividual ;
+    resource:SIO_000068 :EU_AI_Act ;
+    rdfs:comment "Establishes the role and powers of authorities protecting fundamental rights (incl. non-discrimination): they may request necessary documentation/information and, if insufficient to assess risk, ask market surveillance authorities to organise testing." .
+
+:Art.9 a :ManagementLegalRequirement,
+        owl:NamedIndividual ;
+    resource:SIO_000068 :EU_AI_Act ;
+    rdfs:comment "Requires providers of high-risk AI systems to establish, implement, document and maintain a risk management system to identify, analyse and mitigate risks to health, safety and fundamental rights, including discrimination." .
+
 :AuditSets a owl:Class ;
     rdfs:label "Audit Sets" ;
     rdfs:subClassOf :DataGeneration .
@@ -272,11 +448,6 @@
         owl:NamedIndividual ;
     :isProposedBy :2020_WEBSTER ;
     :scientificArtifactDescription "Use dropout during pre-training to reduce stereotypical gendered associations between words. By increasing dropout on the attention weights and hidden activations, the work hypothesizes that the interruption of the attention mechanism disrupts gendered correlations." .
-
-:EU_AI_Act a :Legislation,
-        owl:NamedIndividual ;
-    rdfs:label "EU AI Act" ;
-    dc:source "https://www.euaiact.com/" .
 
 :EmpiricalToxicityProbability a :ClassifierFairnessMetric,
         owl:NamedIndividual ;
@@ -583,10 +754,6 @@
     :hasBeenAppliedTo :ItemRecommendation ;
     :isProposedBy :2017_SERBOS .
 
-:ManagementLegalRequirement a owl:Class ;
-    rdfs:label "Management Legal Requirement" ;
-    rdfs:subClassOf :LegalRequirement .
-
 :MaskingBias a owl:Class ;
     rdfs:label "masking bias"@en ;
     dc:source "https://doi.org/10.1145/3468507.3468511"^^xsd:anyURI ;
@@ -789,10 +956,6 @@
         owl:NamedIndividual ;
     :isProposedBy :2023_LIANG ;
     :isSuitableFor :TokenClassification .
-
-:TechnicalLegalRequirement a owl:Class ;
-    rdfs:label "Technical Legal Requirement" ;
-    rdfs:subClassOf :LegalRequirement .
 
 :TestingDataset a owl:Class ;
     rdfs:label "Testing Dataset"@en ;
@@ -2538,6 +2701,10 @@ fmo:statistical_metric a owl:Class ;
     rdfs:label "Pre-processing" ;
     rdfs:subClassOf :AILifecycleStep .
 
+:TechnicalLegalRequirement a owl:Class ;
+    rdfs:label "Technical Legal Requirement" ;
+    rdfs:subClassOf :LegalRequirement .
+
 :TestFairness a :ObservationalFairnessNotion,
         :SufficiencyFairnessNotion,
         owl:NamedIndividual ;
@@ -2787,11 +2954,20 @@ fmo:fairness_metric a owl:Class ;
     rdfs:label "User-focused Metric"@en ;
     rdfs:subClassOf :SubjectMetric .
 
+:ManagementLegalRequirement a owl:Class ;
+    rdfs:label "Management Legal Requirement" ;
+    rdfs:subClassOf :LegalRequirement .
+
 :ObservationalFairnessNotion a owl:Class ;
     rdfs:label "observational fairness notion"@en ;
     resource:hasSynonym "observational fairness"@en ;
     rdfs:subClassOf :OutcomeFairnessNotion ;
     skos:definition "A family of fairness notions focusing on the joint distribution of observable factors."@en .
+
+:EU_AI_Act a :Legislation,
+        owl:NamedIndividual ;
+    rdfs:label "EU AI Act" ;
+    dc:source "https://www.euaiact.com/" .
 
 :Law a :ApplicationDomain,
         owl:NamedIndividual .
