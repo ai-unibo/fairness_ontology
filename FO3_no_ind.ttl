@@ -127,11 +127,6 @@
     rdfs:label "Equity"@en ;
     skos:definition "Equity is providing different resources based on individual needs to ensure everyone has an equal outcome."@en .
 
-:ExposesTo a owl:ObjectProperty ;
-    rdfs:label "exposes to"@en ;
-    rdfs:domain :FairnessConcern ;
-    rdfs:range fmo:bias .
-
 :FairnessRegularization a owl:Class ;
     rdfs:label "Fairness Regularization" ;
     rdfs:subClassOf :FullRetraining .
@@ -161,13 +156,6 @@
     rdfs:label "Governance-only Interventions (J)" ;
     rdfs:subClassOf :HumanOversightMitigation .
 
-:Guides a owl:ObjectProperty ;
-    rdfs:label "guides"@en ;
-    rdfs:comment "Links a fairness notion to its underpinning social principle such as equity or equality."@en ;
-    rdfs:domain :SocialPrinciple ;
-    rdfs:range fmo:fairness_notion ;
-    owl:inverseOf :isGuidedBy .
-
 :HeadOnly a owl:Class ;
     rdfs:label "Head-only" ;
     rdfs:subClassOf :PartialFineTuning .
@@ -187,6 +175,8 @@
     skos:definition "The fairness property satisfied when the predicted outcome variable is independent from protected attributes."@en ;
     fmo:probabilistic_definition "Ŷ ⊥ A"@en .
 
+:IndividualFairness a owl:NamedIndividual .
+
 :InstanceWeighting a owl:Class ;
     rdfs:label "Instance Weighting" ;
     rdfs:subClassOf :FeatureLevelRowReweightingResampling .
@@ -196,10 +186,6 @@
     dc:source "https://doi.org/10.1145/3468507.3468511"^^xsd:anyURI ;
     rdfs:subClassOf fmo:bias ;
     skos:definition "Intersectional bias is a type of bias that occurs due to the combination of multiple sensitive factors."@en .
-
-:IsAbout a owl:ObjectProperty ;
-    rdfs:label "is about"@en ;
-    rdfs:range :AIModel .
 
 :IsTrainedOn a owl:ObjectProperty ;
     rdfs:label "is trained on"@en ;
@@ -211,7 +197,7 @@
     rdfs:domain :AIModel ;
     rdfs:range :ExperimentalSetting .
 
-<http://fairness_ontology.com/IsValidatedOn#is_validated_on> a owl:ObjectProperty ;
+<http://fairness_ontology.com/IsValidatedOn#isValidatedOn> a owl:ObjectProperty ;
     rdfs:label "is validated on" ;
     rdfs:domain :AIModel ;
     rdfs:range :ValidationDataset .
@@ -433,6 +419,11 @@
     rdfs:range fmo:fairness_metric ;
     owl:inverseOf :isEnforcedBy .
 
+:exposesTo a owl:ObjectProperty ;
+    rdfs:label "exposes to"@en ;
+    rdfs:domain :FairnessConcern ;
+    rdfs:range fmo:bias .
+
 :extends a owl:ObjectProperty ;
     rdfs:label "extends" ;
     rdfs:domain :ScientificArtifact ;
@@ -442,6 +433,13 @@
 :follows a owl:ObjectProperty ;
     rdfs:label "follows" ;
     owl:inverseOf :isFollowedBy .
+
+:guides a owl:ObjectProperty ;
+    rdfs:label "guides"@en ;
+    rdfs:comment "Links a fairness notion to its underpinning social principle such as equity or equality."@en ;
+    rdfs:domain :SocialPrinciple ;
+    rdfs:range fmo:fairness_notion ;
+    owl:inverseOf :isGuidedBy .
 
 :hasAntonym a owl:AnnotationProperty ;
     rdfs:label "has antonym"@en ;
@@ -477,6 +475,10 @@
     rdfs:domain :Hyperparameter ;
     rdfs:range xsd:string .
 
+:isAbout a owl:ObjectProperty ;
+    rdfs:label "is about"@en ;
+    rdfs:range :AIModel .
+
 :isAddressedWith a owl:ObjectProperty ;
     rdfs:label "is addressed with"@en ;
     rdfs:domain :FairnessConcern ;
@@ -508,6 +510,12 @@
     owl:inverseOf :mitigates ;
     skos:definition "A certain bias in the use-case can be mitigated by enforcing specific fairness notions."@en .
 
+:isOperationalizedBy a owl:ObjectProperty ;
+    rdfs:label "is operationalized by" ;
+    rdfs:domain :LegalRequirement ;
+    rdfs:range fmo:fairness_notion ;
+    owl:inverseOf :operationalize .
+
 :isProposedBy a owl:ObjectProperty ;
     rdfs:label "is proposed by"@en ;
     rdfs:domain :ScientificArtifact ;
@@ -531,17 +539,11 @@
     rdfs:range :ScientificPaper ;
     skos:definition "A certain fairness notion is used by some scientific papers."@en .
 
-:is_operationalized_by a owl:ObjectProperty ;
-    rdfs:label "is operationalized by" ;
-    rdfs:domain :LegalRequirement ;
-    rdfs:range fmo:fairness_notion ;
-    owl:inverseOf :operationalize .
-
-:its_compliance_is_supported_by a owl:ObjectProperty ;
+:itsComplianceIsSupportedWith a owl:ObjectProperty ;
     rdfs:label "its compliance is supported by" ;
     rdfs:domain :LegalRequirement ;
     rdfs:range :MitigationTechnique ;
-    owl:inverseOf :supports_compliance_with .
+    owl:inverseOf :supportsComplianceWith .
 
 :measuredWith a owl:ObjectProperty ;
     rdfs:label "measured with"@en ;
@@ -733,7 +735,7 @@ fmo:tag a owl:AnnotationProperty .
     rdfs:domain fmo:fairness_notion ;
     rdfs:range :LegalRequirement .
 
-:supports_compliance_with a owl:ObjectProperty ;
+:supportsComplianceWith a owl:ObjectProperty ;
     rdfs:label "supports compliance with" ;
     rdfs:domain :MitigationTechnique ;
     rdfs:range :LegalRequirement .

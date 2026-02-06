@@ -9,11 +9,6 @@
 
 : a owl:Ontology .
 
-:ADELE a :Adapters,
-        owl:NamedIndividual ;
-    :isProposedBy :2021_LAUSCHER ;
-    :scientificArtifactDescription "Introduce debiasing adapter modules, called ADELE, to mitigate gender bias. The technique is based on modular adapter frameworks (2019_HOULSBY) that add new, randomly initialized layers between the original layers for parameter-efficient fine-tuning; only the injected layers are updated during fine-tuning, while the pre-trained ones remain frozen." .
-
 :AbsoluteUnfairness a :AmortizedGranularityMetric,
         :UserFocusedMetric,
         owl:NamedIndividual ;
@@ -22,26 +17,6 @@
     :isUsedBy :2018_FARNADI,
         :2021_ISLAM ;
     :measures :EqualOpportunity .
-
-:AddNonToxicExamples a :SyntheticData,
-        owl:NamedIndividual ;
-    :isProposedBy :2018_DIXON ;
-    :scientificArtifactDescription "Add non-toxic examples for groups disproportionately represented with toxicity, until the distribution between toxic and non-toxic examples is balanced across groups." .
-
-:AdvBERT a :AdversarialLearning,
-        owl:NamedIndividual ;
-    :isProposedBy :2021_REKABSAZ ;
-    :scientificArtifactDescription "Adversarial learning with a ranking of information retrieval results to reduce bias while maintaining relevance, proposing a gender-invariant ranking model. Contrastive pairs consist of a relevant and non-relevant document to a query, with a corresponding social group label denoting if the query or document contains the protected attribute. The adversarial discriminator predicts the social group label from an encoder, while the encoder simultaneously tries to trick the discriminator while also maximizing relevance scores." .
-
-:AdvPredictedScore a :AdversarialLearning,
-        owl:NamedIndividual ;
-    :isProposedBy :2020_ZHU ;
-    :scientificArtifactDescription "Learn fair predicted scores by enhancing score distribution similarity" .
-
-:AdversarialFDP a :AdversarialLearning,
-        owl:NamedIndividual ;
-    :isProposedBy :2019_CELISa ;
-    :scientificArtifactDescription "The adversary seeks to determine whether the training process is fair, and when not, feedback from the adversary is used to improve the model. Uses FDR as a fariness metric within the adversary to apply feedback for model tuning as a form of in-processing: the adversary penalizes the model if a sensitive variable is predictable from the dependent variable." .
 
 :AllUnmaskedLikelihood a :PseudoLogLikelihoodFairnessMetric,
         owl:NamedIndividual ;
@@ -53,188 +28,866 @@
 
 :Art.10 a :TechnicalLegalRequirement,
         owl:NamedIndividual ;
+    :isOperationalizedBy :Calibration,
+        :ConditionalStatisticalParity,
+        :CounterfactualFairness,
+        :DemographicParity,
+        :EqualOpportunity,
+        :EqualizedOdds,
+        :FairnessThroughAwareness,
+        :IndividualFairness,
+        :StatisticalParity,
+        :TestFairness ;
+    :itsComplianceIsSupportedWith :AddNonToxicExamples,
+        :AugmentedAntidoteData,
+        :BlocklistDocumentRemoval,
+        :CDA,
+        :ControlOffensiveTokens,
+        :GenderneutralAlternatives,
+        :LogLikeDocumentRemoval,
+        :PredictedReplacements,
+        :REALTOXICITYPROMPTS,
+        :ReSamplingProtectedGroup,
+        :ReplaceStereotypes ;
     resource:SIO_000068 :EU_AI_Act ;
-    rdfs:comment "Establishes data and data governance requirements for high-risk AI systems, including quality, relevance, representativeness and appropriate statistical properties of training, validation and testing data." .
+    rdfs:comment "Establishes data and data governance requirements for high-risk AI systems, including quality, relevance, representativeness and appropriate statistical properties of training, validation and testing data. Notes: Umbrella provision for data quality and bias control; detailed constraints are set in specific paragraphs." .
 
 :Art.10.3 a :TechnicalLegalRequirement,
         owl:NamedIndividual ;
+    :isOperationalizedBy :ConditionalStatisticalParity,
+        :CounterfactualFairness,
+        :DemographicParity,
+        :FairnessThroughAwareness,
+        :IndividualFairness,
+        :StatisticalParity ;
+    :itsComplianceIsSupportedWith :AddNonToxicExamples,
+        :AugmentedAntidoteData,
+        :BlocklistDocumentRemoval,
+        :CDA,
+        :GenderneutralAlternatives,
+        :LogLikeDocumentRemoval,
+        :ReSamplingProtectedGroup,
+        :ReplaceStereotypes ;
     resource:SIO_000068 :EU_AI_Act ;
-    rdfs:comment "Training, validation and testing data must be relevant, representative, free of errors and complete, with appropriate statistical properties, including where applicable in relation to the persons or groups for whom the system is intended." .
+    rdfs:comment "Training, validation and testing data must be relevant, representative, free of errors and complete, with appropriate statistical properties, including where applicable in relation to the persons or groups for whom the system is intended. Notes: Central data-governance requirement on distribution and representativeness for fairness." .
 
 :Art.10.4 a :TechnicalLegalRequirement,
         owl:NamedIndividual ;
+    :isOperationalizedBy :Calibration,
+        :ConditionalStatisticalParity,
+        :CounterfactualFairness,
+        :DemographicParity,
+        :StatisticalParity,
+        :TestFairness ;
+    :itsComplianceIsSupportedWith :AugmentedAntidoteData,
+        :CDA,
+        :CalibratedReRanking,
+        :ListReAdjustment,
+        :ReSamplingProtectedGroup,
+        :UserItemReRanking ;
     resource:SIO_000068 :EU_AI_Act ;
-    rdfs:comment "Datasets shall, to the best extent possible, take into account the specific geographical, behavioural and functional context in which the AI system is intended to be used, so that performance and fairness generalise to the deployment environment." .
+    rdfs:comment "Datasets shall, to the best extent possible, take into account the specific geographical, behavioural and functional context in which the AI system is intended to be used, so that performance and fairness generalise to the deployment environment. Notes: Addresses fairness risks due to domain shift between training data and the real-world context of use." .
 
 :Art.10.5 a :ManagementLegalRequirement,
         :TechnicalLegalRequirement,
         owl:NamedIndividual ;
+    :isOperationalizedBy :Calibration,
+        :ConditionalStatisticalParity,
+        :CounterfactualFairness,
+        :DemographicParity,
+        :EqualOpportunity,
+        :EqualizedOdds,
+        :ErrorRateBalance,
+        :FalseNegativeErrorRateBalance,
+        :FalsePositiveErrorRateBalance,
+        :PredictiveEquality,
+        :StatisticalParity,
+        :TestFairness ;
+    :itsComplianceIsSupportedWith :AdversarialFDP,
+        :AugmentedAntidoteData,
+        :CDA,
+        :PerceptronForUnawareness,
+        :ReSamplingProtectedGroup,
+        :RegularizationOnANOVA,
+        :RegularizationOnValueFairness ;
     resource:SIO_000068 :EU_AI_Act ;
-    rdfs:comment "Allows, under strict conditions, the processing of special categories of personal data for the purposes of detecting, preventing or mitigating bias in AI systems, subject to Union data-protection law." .
+    rdfs:comment "Allows, under strict conditions, the processing of special categories of personal data for the purposes of detecting, preventing or mitigating bias in AI systems, subject to Union data-protection law. Notes: Enables fairness-aware use of sensitive attributes while maintaining data-protection safeguards." .
 
 :Art.11 a :ManagementLegalRequirement,
         owl:NamedIndividual ;
+    :isOperationalizedBy :Calibration,
+        :ConditionalStatisticalParity,
+        :CounterfactualFairness,
+        :DemographicParity,
+        :EqualOpportunity,
+        :EqualizedOdds,
+        :ErrorRateBalance,
+        :FairnessThroughAwareness,
+        :FalseNegativeErrorRateBalance,
+        :FalsePositiveErrorRateBalance,
+        :IndividualFairness,
+        :PredictiveEquality,
+        :StatisticalParity,
+        :TestFairness ;
+    :itsComplianceIsSupportedWith :AddNonToxicExamples,
+        :AdversarialFDP,
+        :AugmentedAntidoteData,
+        :BlocklistDocumentRemoval,
+        :CDA,
+        :CalibratedReRanking,
+        :ControlOffensiveTokens,
+        :ListReAdjustment,
+        :LogLikeDocumentRemoval,
+        :PerceptronForUnawareness,
+        :REALTOXICITYPROMPTS,
+        :ReSamplingProtectedGroup,
+        :RegularizationOnANOVA,
+        :RegularizationOnValueFairness,
+        :UserItemReRanking ;
     resource:SIO_000068 :EU_AI_Act ;
-    rdfs:comment "Obliges providers to draw up technical documentation demonstrating compliance with the requirements, including design choices, data sources, model properties, performance and limitations relevant to fairness and non-discrimination." .
+    rdfs:comment "Obliges providers to draw up technical documentation demonstrating compliance with the requirements, including design choices, data sources, model properties, performance and limitations relevant to fairness and non-discrimination. Notes: Traceability layer: binds legal compliance claims to explicit notions, indicators, and documented controls; requires before/after evidence and clear limitations for authority review and conformity assessment." .
 
 :Art.112.10 a :ManagementLegalRequirement,
         owl:NamedIndividual ;
+    :isOperationalizedBy :Calibration,
+        :DemographicParity,
+        :EqualOpportunity,
+        :EqualizedOdds,
+        :StatisticalParity ;
     resource:SIO_000068 :EU_AI_Act ;
-    rdfs:comment "Requires the Commission to evaluate and review the implementation of the Regulation and, where appropriate, propose amendments, taking into account technological developments and the effects of AI systems on health, safety and fundamental rights, including equality and non-discrimination." .
+    rdfs:comment "Requires the Commission to evaluate and review the implementation of the Regulation and, where appropriate, propose amendments, taking into account technological developments and the effects of AI systems on health, safety and fundamental rights, including equality and non-discrimination. Notes: This is a governance/evaluation obligation: notions/metrics are mapped as evaluation indicators aggregated across systems (not as system-level compliance targets)." .
 
 :Art.12 a :TechnicalLegalRequirement,
         owl:NamedIndividual ;
+    :isOperationalizedBy :Calibration,
+        :ConditionalStatisticalParity,
+        :CounterfactualFairness,
+        :DemographicParity,
+        :EqualOpportunity,
+        :EqualizedOdds,
+        :ErrorRateBalance,
+        :FairnessThroughAwareness,
+        :FalseNegativeErrorRateBalance,
+        :FalsePositiveErrorRateBalance,
+        :IndividualFairness,
+        :PredictiveEquality,
+        :StatisticalParity,
+        :TestFairness ;
+    :itsComplianceIsSupportedWith :AddNonToxicExamples,
+        :AdversarialFDP,
+        :AugmentedAntidoteData,
+        :BlocklistDocumentRemoval,
+        :CDA,
+        :CalibratedReRanking,
+        :ControlOffensiveTokens,
+        :ListReAdjustment,
+        :LogLikeDocumentRemoval,
+        :PerceptronForUnawareness,
+        :REALTOXICITYPROMPTS,
+        :ReSamplingProtectedGroup,
+        :RegularizationOnANOVA,
+        :RegularizationOnValueFairness,
+        :UserItemReRanking ;
     resource:SIO_000068 :EU_AI_Act ;
-    rdfs:comment "Requires that high-risk AI systems are designed with automatic logging capabilities to record events relevant for performance monitoring and compliance, including behaviour affecting fundamental rights." .
+    rdfs:comment "Requires that high-risk AI systems are designed with automatic logging capabilities to record events relevant for performance monitoring and compliance, including behaviour affecting fundamental rights. Notes: Observability layer: logs enable reproducible fairness monitoring and drift detection across versions/contexts; deviations trigger escalation and activation of corrective controls, whose effectiveness is evidenced via improvements in the same logged metrics." .
 
 :Art.13 a :ManagementLegalRequirement,
         owl:NamedIndividual ;
+    :isOperationalizedBy :Calibration,
+        :ConditionalStatisticalParity,
+        :CounterfactualFairness,
+        :DemographicParity,
+        :EqualOpportunity,
+        :EqualizedOdds,
+        :ErrorRateBalance,
+        :FalseNegativeErrorRateBalance,
+        :FalsePositiveErrorRateBalance,
+        :PredictiveEquality,
+        :StatisticalParity,
+        :TestFairness ;
+    :itsComplianceIsSupportedWith :AddNonToxicExamples,
+        :AdversarialFDP,
+        :AugmentedAntidoteData,
+        :BlocklistDocumentRemoval,
+        :CDA,
+        :CalibratedReRanking,
+        :ControlOffensiveTokens,
+        :ListReAdjustment,
+        :LogLikeDocumentRemoval,
+        :PerceptronForUnawareness,
+        :REALTOXICITYPROMPTS,
+        :ReSamplingProtectedGroup,
+        :RegularizationOnANOVA,
+        :RegularizationOnValueFairness,
+        :UserItemReRanking ;
     resource:SIO_000068 :EU_AI_Act ;
-    rdfs:comment "Requires providers to ensure that high-risk AI systems are accompanied by clear instructions for use and information about performance, assumptions, limitations and foreseeable risks to fundamental rights." .
+    rdfs:comment "Requires providers to ensure that high-risk AI systems are accompanied by clear instructions for use and information about performance, assumptions, limitations and foreseeable risks to fundamental rights. Notes: Operational transparency layer: communicate applicable fairness notions, the metrics used to evidence them (incl. parity, error gaps, counterfactual instability, calibration/divergence), evaluation conditions and limits; document active safeguards and the operational response when monitoring signals degrade." .
 
 :Art.14 a :ManagementLegalRequirement,
         owl:NamedIndividual ;
+    :isOperationalizedBy :Calibration,
+        :ConditionalStatisticalParity,
+        :CounterfactualFairness,
+        :DemographicParity,
+        :EqualOpportunity,
+        :EqualizedOdds,
+        :ErrorRateBalance,
+        :FairnessThroughAwareness,
+        :FalseNegativeErrorRateBalance,
+        :FalsePositiveErrorRateBalance,
+        :IndividualFairness,
+        :PredictiveEquality,
+        :StatisticalParity,
+        :TestFairness ;
+    :itsComplianceIsSupportedWith :AddNonToxicExamples,
+        :AdversarialFDP,
+        :AugmentedAntidoteData,
+        :BlocklistDocumentRemoval,
+        :CDA,
+        :CalibratedReRanking,
+        :ControlOffensiveTokens,
+        :ListReAdjustment,
+        :LogLikeDocumentRemoval,
+        :PerceptronForUnawareness,
+        :REALTOXICITYPROMPTS,
+        :ReSamplingProtectedGroup,
+        :RegularizationOnANOVA,
+        :RegularizationOnValueFairness,
+        :UserItemReRanking ;
     resource:SIO_000068 :EU_AI_Act ;
-    rdfs:comment "Requires that high-risk AI systems be designed and developed with effective human oversight, enabling human operators to understand, monitor and intervene to prevent or minimise harm, including discriminatory outcomes." .
+    rdfs:comment "Requires that high-risk AI systems be designed and developed with effective human oversight, enabling human operators to understand, monitor and intervene to prevent or minimise harm, including discriminatory outcomes. Notes: Art. 14 binds fairness monitoring to human interventions: define operator-facing fairness signals, thresholds and escalation; enable override/adjustment actions and corrective controls; evidence effectiveness through improvements in the same monitored metrics." .
 
 :Art.15 a :TechnicalLegalRequirement,
         owl:NamedIndividual ;
+    :isOperationalizedBy :Calibration,
+        :ConditionalStatisticalParity,
+        :CounterfactualFairness,
+        :DemographicParity,
+        :EqualOpportunity,
+        :EqualizedOdds,
+        :ErrorRateBalance,
+        :FairnessThroughAwareness,
+        :FalseNegativeErrorRateBalance,
+        :FalsePositiveErrorRateBalance,
+        :IndividualFairness,
+        :PredictiveEquality,
+        :StatisticalParity,
+        :TestFairness ;
+    :itsComplianceIsSupportedWith :AddNonToxicExamples,
+        :AdvBERT,
+        :AdvPredictedScore,
+        :AugmentedAntidoteData,
+        :BlocklistDocumentRemoval,
+        :CDA,
+        :CalibratedReRanking,
+        :ChangeAttentionScores,
+        :ChangeAttentionWeights,
+        :ControlOffensiveTokens,
+        :DropoutOnAttention,
+        :InferenceSubnetworks,
+        :ListReAdjustment,
+        :LogLikeDocumentRemoval,
+        :OSCAR,
+        :REALTOXICITYPROMPTS,
+        :ReSamplingProtectedGroup,
+        :RegularizationOnANOVA,
+        :RegularizationOnValueFairness,
+        :UserItemReRanking ;
     resource:SIO_000068 :EU_AI_Act ;
-    rdfs:comment "Requires high-risk AI systems to achieve appropriate levels of accuracy, robustness and cybersecurity, and to maintain these properties throughout the lifecycle." .
+    rdfs:comment "Requires high-risk AI systems to achieve appropriate levels of accuracy, robustness and cybersecurity, and to maintain these properties throughout the lifecycle. Notes: Art. 15 is mapped to robustness and cybersecurity monitoring where degradations can create group-conditional harms. Fairness indicators are used as robustness evidence (error gaps, calibration/divergence drift, local consistency); mitigations are technical controls activated to restore dependability and evidenced via improvements in the same metrics." .
 
 :Art.16 a :ManagementLegalRequirement,
         owl:NamedIndividual ;
+    :isOperationalizedBy :Calibration,
+        :ConditionalStatisticalParity,
+        :CounterfactualFairness,
+        :DemographicParity,
+        :EqualOpportunity,
+        :EqualizedOdds,
+        :ErrorRateBalance,
+        :FairnessThroughAwareness,
+        :FalseNegativeErrorRateBalance,
+        :FalsePositiveErrorRateBalance,
+        :IndividualFairness,
+        :PredictiveEquality,
+        :StatisticalParity,
+        :TestFairness ;
+    :itsComplianceIsSupportedWith :AddNonToxicExamples,
+        :AdversarialFDP,
+        :AugmentedAntidoteData,
+        :BlocklistDocumentRemoval,
+        :CDA,
+        :CalibratedReRanking,
+        :ControlOffensiveTokens,
+        :ListReAdjustment,
+        :LogLikeDocumentRemoval,
+        :PerceptronForUnawareness,
+        :REALTOXICITYPROMPTS,
+        :ReSamplingProtectedGroup,
+        :RegularizationOnANOVA,
+        :RegularizationOnValueFairness,
+        :UserItemReRanking ;
     resource:SIO_000068 :EU_AI_Act ;
-    rdfs:comment "Sets out the obligations of providers of high-risk AI systems, including designing and developing systems in accordance with the requirements and implementing risk management, data governance and monitoring procedures." .
+    rdfs:comment "Sets out the obligations of providers of high-risk AI systems, including designing and developing systems in accordance with the requirements and implementing risk management, data governance and monitoring procedures. Notes: Art. 16 is an umbrella provider-duty clause. Mapped notions/metrics form a provider-level evidence portfolio; mapped techniques form the provider control catalogue applied across the lifecycle with documented thresholds, escalation and change management." .
 
 :Art.17 a :ManagementLegalRequirement,
         owl:NamedIndividual ;
+    :isOperationalizedBy :Calibration,
+        :ConditionalStatisticalParity,
+        :CounterfactualFairness,
+        :DemographicParity,
+        :EqualOpportunity,
+        :EqualizedOdds,
+        :ErrorRateBalance,
+        :FairnessThroughAwareness,
+        :FalseNegativeErrorRateBalance,
+        :FalsePositiveErrorRateBalance,
+        :IndividualFairness,
+        :PredictiveEquality,
+        :StatisticalParity,
+        :TestFairness ;
+    :itsComplianceIsSupportedWith :AdversarialFDP,
+        :AugmentedAntidoteData,
+        :CDA,
+        :CalibratedReRanking,
+        :FairPSL,
+        :ListReAdjustment,
+        :PerceptronForUnawareness,
+        :ReSamplingProtectedGroup,
+        :RegularizationOnANOVA,
+        :RegularizationOnValueFairness,
+        :UserItemReRanking ;
     resource:SIO_000068 :EU_AI_Act ;
-    rdfs:comment "Requires providers to establish and maintain a quality management system covering design, development, testing, validation, data management and monitoring processes for high-risk AI systems." .
+    rdfs:comment "Requires providers to establish and maintain a quality management system covering design, development, testing, validation, data management and monitoring processes for high-risk AI systems. Notes: Art. 17 operationalises compliance via a QMS: define measurable fairness acceptance criteria (release/regression gates), govern approved mitigation methods, document evidence and limitations, and ensure monitoring plus corrective actions are consistently applied across the lifecycle." .
 
 :Art.2 a :ManagementLegalRequirement,
         owl:NamedIndividual ;
+    :isOperationalizedBy :Calibration,
+        :CounterfactualFairness,
+        :DemographicParity,
+        :EqualOpportunity,
+        :EqualizedOdds,
+        :StatisticalParity,
+        :TestFairness ;
     resource:SIO_000068 :EU_AI_Act ;
-    rdfs:comment "Defines the subject matter and scope of the Regulation, specifying which AI systems and providers fall under the uniform requirements, including those on fundamental-rights protection and non-discrimination." .
+    rdfs:comment "Defines the subject matter and scope of the Regulation, specifying which AI systems and providers fall under the uniform requirements, including those on fundamental-rights protection and non-discrimination. Notes: Art. 2 is a scope rule: notions/metrics are mapped as applicability anchors (taxonomy for the types of discrimination evidence referenced by downstream obligations), not as performance thresholds required by Art. 2 itself." .
 
 :Art.20 a :ManagementLegalRequirement,
         owl:NamedIndividual ;
+    :isOperationalizedBy :Calibration,
+        :CounterfactualFairness,
+        :DemographicParity,
+        :EqualOpportunity,
+        :EqualizedOdds,
+        :FairnessThroughAwareness,
+        :IndividualFairness,
+        :StatisticalParity,
+        :TestFairness ;
+    :itsComplianceIsSupportedWith :AdversarialFDP,
+        :AugmentedAntidoteData,
+        :CDA,
+        :CalibratedReRanking,
+        :ListReAdjustment,
+        :PerceptronForUnawareness,
+        :ReSamplingProtectedGroup,
+        :RegularizationOnANOVA,
+        :RegularizationOnValueFairness,
+        :UserItemReRanking ;
     resource:SIO_000068 :EU_AI_Act ;
-    rdfs:comment "Corrective actions and duty of information: when a high-risk AI system is non-compliant or presents a risk, the provider must take corrective actions without undue delay (bring into conformity, withdraw/recall, or disable as appropriate) and promptly inform relevant economic operators and competent actors, providing details of the non-compliance/risk and actions taken." .
+    rdfs:comment "Corrective actions and duty of information: when a high-risk AI system is non-compliant or presents a risk, the provider must take corrective actions without undue delay (bring into conformity, withdraw/recall, or disable as appropriate) and promptly inform relevant economic operators and competent actors, providing details of the non-compliance/risk and actions taken. Notes: Art. 20 is a remediation and information-duty clause: fairness notions/metrics serve as operational triggers and regression evidence; mapped techniques are corrective controls applied via change management (update/rollback/withdrawal/disable) with before/after metric verification and notification duties." .
 
 :Art.21 a :ManagementLegalRequirement,
         owl:NamedIndividual ;
+    :isOperationalizedBy :Calibration,
+        :CounterfactualFairness,
+        :DemographicParity,
+        :EqualOpportunity,
+        :EqualizedOdds,
+        :StatisticalParity,
+        :TestFairness ;
     resource:SIO_000068 :EU_AI_Act ;
-    rdfs:comment "Requires providers of high-risk AI systems to cooperate with competent authorities and, upon reasoned request, provide necessary information and documentation to demonstrate compliance; where applicable, provide access to automatically generated logs under their control." .
+    rdfs:comment "Requires providers of high-risk AI systems to cooperate with competent authorities and, upon reasoned request, provide necessary information and documentation to demonstrate compliance; where applicable, provide access to automatically generated logs under their control. Notes: Assurance obligation: notions/metrics define the “compliance evidence package” that must be producible, versioned, and interpretable by authorities, including monitoring outputs and (where relevant) log-based evidence." .
 
 :Art.23 a :ManagementLegalRequirement,
         owl:NamedIndividual ;
+    :isOperationalizedBy :Calibration,
+        :CounterfactualFairness,
+        :DemographicParity,
+        :EqualOpportunity,
+        :EqualizedOdds,
+        :StatisticalParity,
+        :TestFairness ;
+    :itsComplianceIsSupportedWith :AdversarialFDP,
+        :AugmentedAntidoteData,
+        :CDA,
+        :CalibratedReRanking,
+        :ListReAdjustment,
+        :PerceptronForUnawareness,
+        :ReSamplingProtectedGroup,
+        :RegularizationOnANOVA,
+        :RegularizationOnValueFairness,
+        :UserItemReRanking ;
     resource:SIO_000068 :EU_AI_Act ;
-    rdfs:comment "Sets obligations for importers of high-risk AI systems to verify conformity (incl. required compliance artefacts and instructions), refrain from market placement when non-compliant, ensure storage/transport do not compromise compliance, and cooperate with competent authorities including corrective actions where needed." .
+    rdfs:comment "Sets obligations for importers of high-risk AI systems to verify conformity (incl. required compliance artefacts and instructions), refrain from market placement when non-compliant, ensure storage/transport do not compromise compliance, and cooperate with competent authorities including corrective actions where needed. Notes: Art. 23 acts as a supply-chain compliance gate: notions/metrics define what must be checkable and transferable; mitigation techniques are mapped as documented controls whose configuration and effectiveness evidence must remain aligned with the marketed version and intended context." .
 
 :Art.24 a :ManagementLegalRequirement,
         owl:NamedIndividual ;
+    :isOperationalizedBy :Calibration,
+        :CounterfactualFairness,
+        :DemographicParity,
+        :EqualOpportunity,
+        :EqualizedOdds,
+        :FairnessThroughAwareness,
+        :IndividualFairness,
+        :StatisticalParity,
+        :TestFairness ;
+    :itsComplianceIsSupportedWith :AddNonToxicExamples,
+        :AdversarialFDP,
+        :AugmentedAntidoteData,
+        :BlocklistDocumentRemoval,
+        :CDA,
+        :CalibratedReRanking,
+        :ControlOffensiveTokens,
+        :GenderneutralAlternatives,
+        :ListReAdjustment,
+        :LogLikeDocumentRemoval,
+        :NamesIntervention,
+        :PerceptronForUnawareness,
+        :PoliteAlternatives,
+        :PredictedReplacements,
+        :REALTOXICITYPROMPTS,
+        :ReSamplingProtectedGroup,
+        :RegularizationOnANOVA,
+        :RegularizationOnValueFairness,
+        :ReplaceStereotypes,
+        :UserItemReRanking ;
     resource:SIO_000068 :EU_AI_Act ;
-    rdfs:comment "Sets obligations for distributors of high-risk AI systems to ensure compliance at market placement (e.g., presence of required documentation/instructions and integrity of the supplied system), cooperate with competent authorities, and take actions when non-compliance or risks are suspected." .
+    rdfs:comment "Sets obligations for distributors of high-risk AI systems to ensure compliance at market placement (e.g., presence of required documentation/instructions and integrity of the supplied system), cooperate with competent authorities, and take actions when non-compliance or risks are suspected. Notes: Distributor-side role is assurance: verify the provider’s conformity package (incl. fairness indicators/limits and declared controls) is present and not neutralised by integration/packaging choices; if issues arise, coordinate corrective actions and preserve traceability to the supplied version." .
 
 :Art.25 a :ManagementLegalRequirement,
         owl:NamedIndividual ;
+    :isOperationalizedBy :Calibration,
+        :CounterfactualFairness,
+        :DemographicParity,
+        :EqualOpportunity,
+        :EqualizedOdds,
+        :StatisticalParity,
+        :TestFairness ;
     resource:SIO_000068 :EU_AI_Act ;
-    rdfs:comment "Clarifies responsibilities along the AI value chain for high-risk AI systems, including when another actor becomes the provider (e.g., branding, substantial modification, or purpose change) and related cooperation duties between actors." .
+    rdfs:comment "Clarifies responsibilities along the AI value chain for high-risk AI systems, including when another actor becomes the provider (e.g., branding, substantial modification, or purpose change) and related cooperation duties between actors. Notes: Value-chain governance: notions/metrics are mapped as handover anchors for fairness evidence. If accountability shifts, the new provider must inherit and/or regenerate the mapped evidence and monitoring, traceable to the modified version and context of use." .
 
 :Art.26 a :ManagementLegalRequirement,
         owl:NamedIndividual ;
+    :isOperationalizedBy :Calibration,
+        :ConditionalStatisticalParity,
+        :CounterfactualFairness,
+        :DemographicParity,
+        :EqualOpportunity,
+        :EqualizedOdds,
+        :FairnessThroughAwareness,
+        :IndividualFairness,
+        :StatisticalParity,
+        :TestFairness ;
+    :itsComplianceIsSupportedWith :AddNonToxicExamples,
+        :AdversarialFDP,
+        :AugmentedAntidoteData,
+        :BlocklistDocumentRemoval,
+        :CDA,
+        :CalibratedReRanking,
+        :ControlOffensiveTokens,
+        :FairPSL,
+        :ListReAdjustment,
+        :LogLikeDocumentRemoval,
+        :PerceptronForUnawareness,
+        :REALTOXICITYPROMPTS,
+        :ReSamplingProtectedGroup,
+        :RegularizationOnANOVA,
+        :RegularizationOnValueFairness,
+        :UserItemReRanking ;
     resource:SIO_000068 :EU_AI_Act ;
-    rdfs:comment "Specifies additional obligations for deployers of high-risk AI systems, including using systems in accordance with instructions and monitoring operation, especially where decisions significantly affect individuals." .
+    rdfs:comment "Specifies additional obligations for deployers of high-risk AI systems, including using systems in accordance with instructions and monitoring operation, especially where decisions significantly affect individuals. Notes: Art. 26 is deployer-side operational compliance: implement monitoring KPIs (parity/error gaps/drift/consistency), define thresholds and escalation, apply workflow interventions and (where applicable) corrective controls directly or via provider coordination; evidence effectiveness through improvements in the monitored metrics." .
 
 :Art.27 a :ManagementLegalRequirement,
         owl:NamedIndividual ;
+    :isOperationalizedBy :Calibration,
+        :ConditionalStatisticalParity,
+        :CounterfactualFairness,
+        :DemographicParity,
+        :EqualOpportunity,
+        :EqualizedOdds,
+        :FairnessThroughAwareness,
+        :IndividualFairness,
+        :StatisticalParity,
+        :TestFairness ;
+    :itsComplianceIsSupportedWith :AddNonToxicExamples,
+        :AdversarialFDP,
+        :AugmentedAntidoteData,
+        :BlocklistDocumentRemoval,
+        :CDA,
+        :CalibratedReRanking,
+        :ControlOffensiveTokens,
+        :FairPSL,
+        :ListReAdjustment,
+        :LogLikeDocumentRemoval,
+        :PerceptronForUnawareness,
+        :REALTOXICITYPROMPTS,
+        :ReSamplingProtectedGroup,
+        :RegularizationOnANOVA,
+        :RegularizationOnValueFairness,
+        :UserItemReRanking ;
     resource:SIO_000068 :EU_AI_Act ;
-    rdfs:comment "Requires deployers of certain high-risk AI systems to perform a fundamental rights impact assessment (FRIA), identifying and evaluating risks to fundamental rights, including discrimination, and defining mitigation measures." .
+    rdfs:comment "Requires deployers of certain high-risk AI systems to perform a fundamental rights impact assessment (FRIA), identifying and evaluating risks to fundamental rights, including discrimination, and defining mitigation measures. Notes: Art. 27 is an ex-ante governance activity: select applicable fairness notions, compute risk indicators, set decision thresholds and escalation, define mitigations and verify effectiveness via the same mapped metrics; update FRIA when context or system version changes." .
 
 :Art.29 a :ManagementLegalRequirement,
         owl:NamedIndividual ;
+    :isOperationalizedBy :Calibration,
+        :ConditionalStatisticalParity,
+        :CounterfactualFairness,
+        :DemographicParity,
+        :EqualOpportunity,
+        :EqualizedOdds,
+        :FairnessThroughAwareness,
+        :IndividualFairness,
+        :StatisticalParity,
+        :TestFairness ;
+    :itsComplianceIsSupportedWith :AddNonToxicExamples,
+        :AdversarialFDP,
+        :AugmentedAntidoteData,
+        :BlocklistDocumentRemoval,
+        :CDA,
+        :CalibratedReRanking,
+        :ControlOffensiveTokens,
+        :FairPSL,
+        :ListReAdjustment,
+        :LogLikeDocumentRemoval,
+        :PerceptronForUnawareness,
+        :REALTOXICITYPROMPTS,
+        :ReSamplingProtectedGroup,
+        :RegularizationOnANOVA,
+        :RegularizationOnValueFairness,
+        :UserItemReRanking ;
     resource:SIO_000068 :EU_AI_Act ;
-    rdfs:comment "Regulates the application and notification procedure for organisations that wish to act as notified bodies for high-risk AI systems, including competence requirements." .
+    rdfs:comment "Regulates the application and notification procedure for organisations that wish to act as notified bodies for high-risk AI systems, including competence requirements. Notes: Art. 29 is a meta-governance requirement: map fairness notions/metrics as assessment competence needed by notified bodies to validate provider evidence; map mitigation techniques as controls whose appropriateness/configuration/effectiveness must be reviewable and evidenced through the same indicators." .
 
 :Art.3 a :ManagementLegalRequirement,
         owl:NamedIndividual ;
+    :isOperationalizedBy :Calibration,
+        :CounterfactualFairness,
+        :DemographicParity,
+        :EqualOpportunity,
+        :EqualizedOdds,
+        :StatisticalParity,
+        :TestFairness ;
     resource:SIO_000068 :EU_AI_Act ;
-    rdfs:comment "Provides core definitions (AI system, provider, deployer, high-risk AI system, general-purpose AI model) that allocate responsibilities for compliance with fairness and non-discrimination requirements." .
+    rdfs:comment "Provides core definitions (AI system, provider, deployer, high-risk AI system, general-purpose AI model) that allocate responsibilities for compliance with fairness and non-discrimination requirements. Notes: Art. 3 is definitional: notions/metrics are mapped as traceability anchors to assign fairness evidence and monitoring duties to the correct actor/artefact; mitigation techniques are mapped as control-accountability anchors (who implements and documents controls)." .
 
 :Art.4 a :ManagementLegalRequirement,
         owl:NamedIndividual ;
+    :isOperationalizedBy :Calibration,
+        :CounterfactualFairness,
+        :DemographicParity,
+        :EqualOpportunity,
+        :EqualizedOdds,
+        :FairnessThroughAwareness,
+        :IndividualFairness,
+        :StatisticalParity,
+        :TestFairness ;
     resource:SIO_000068 :EU_AI_Act ;
-    rdfs:comment "Requires providers and deployers to take measures to ensure, to the best extent possible, a sufficient level of AI literacy for staff and other persons dealing with the operation and use of AI systems, considering their skills and the context of use." .
+    rdfs:comment "Requires providers and deployers to take measures to ensure, to the best extent possible, a sufficient level of AI literacy for staff and other persons dealing with the operation and use of AI systems, considering their skills and the context of use. Notes: Principle/enabler: notions/metrics are mapped as training and operational interpretation anchors; the obligation is implemented via competence management (training, procedures), not via a single technical threshold." .
 
 :Art.43 a :ManagementLegalRequirement,
         owl:NamedIndividual ;
+    :isOperationalizedBy :Calibration,
+        :ConditionalStatisticalParity,
+        :CounterfactualFairness,
+        :DemographicParity,
+        :EqualOpportunity,
+        :EqualizedOdds,
+        :FairnessThroughAwareness,
+        :IndividualFairness,
+        :StatisticalParity,
+        :TestFairness ;
+    :itsComplianceIsSupportedWith :AddNonToxicExamples,
+        :AdversarialFDP,
+        :AugmentedAntidoteData,
+        :BlocklistDocumentRemoval,
+        :CDA,
+        :CalibratedReRanking,
+        :ControlOffensiveTokens,
+        :FairPSL,
+        :ListReAdjustment,
+        :LogLikeDocumentRemoval,
+        :PerceptronForUnawareness,
+        :REALTOXICITYPROMPTS,
+        :ReSamplingProtectedGroup,
+        :RegularizationOnANOVA,
+        :RegularizationOnValueFairness,
+        :UserItemReRanking ;
     resource:SIO_000068 :EU_AI_Act ;
-    rdfs:comment "Lays down rules for conformity assessment procedures for high-risk AI systems, including assessment of compliance with all applicable requirements of the Regulation." .
+    rdfs:comment "Lays down rules for conformity assessment procedures for high-risk AI systems, including assessment of compliance with all applicable requirements of the Regulation. Notes: Art. 43 is an assurance gate: map notions/metrics as acceptance criteria and test evidence; map mitigations as controls whose presence/configuration/effectiveness must be demonstrable and traceable to the assessed system version (including regression evidence after changes)." .
 
 :Art.5 a :ManagementLegalRequirement,
         owl:NamedIndividual ;
+    :isOperationalizedBy :Calibration,
+        :ConditionalStatisticalParity,
+        :CounterfactualFairness,
+        :DemographicParity,
+        :EqualOpportunity,
+        :EqualizedOdds,
+        :ErrorRateBalance,
+        :FairnessThroughAwareness,
+        :FalseNegativeErrorRateBalance,
+        :FalsePositiveErrorRateBalance,
+        :IndividualFairness,
+        :PredictiveEquality,
+        :StatisticalParity,
+        :TestFairness,
+        :TotalFairness,
+        :TreatmentEquality ;
     resource:SIO_000068 :EU_AI_Act ;
-    rdfs:comment "Prohibits certain AI practices, such as exploiting vulnerabilities of specific groups, social scoring, and some forms of predictive policing, which are considered incompatible with fundamental rights and equality." .
+    rdfs:comment "Prohibits certain AI practices, such as exploiting vulnerabilities of specific groups, social scoring, and some forms of predictive policing, which are considered incompatible with fundamental rights and equality. Notes: Directly excludes particularly harmful and discriminatory uses of AI systems." .
 
 :Art.50 a :ManagementLegalRequirement,
         owl:NamedIndividual ;
+    :isOperationalizedBy :Calibration,
+        :CounterfactualFairness,
+        :DemographicParity,
+        :EqualOpportunity,
+        :EqualizedOdds,
+        :StatisticalParity,
+        :TestFairness ;
+    :itsComplianceIsSupportedWith :AddNonToxicExamples,
+        :BlocklistDocumentRemoval,
+        :ControlOffensiveTokens,
+        :GenderneutralAlternatives,
+        :LogLikeDocumentRemoval,
+        :NamesIntervention,
+        :PoliteAlternatives,
+        :REALTOXICITYPROMPTS,
+        :ReplaceStereotypes ;
     resource:SIO_000068 :EU_AI_Act ;
-    rdfs:comment "Introduces specific transparency obligations for certain AI systems, such as those interacting with humans or detecting emotions, requiring users to be informed that they are interacting with AI." .
+    rdfs:comment "Introduces specific transparency obligations for certain AI systems, such as those interacting with humans or detecting emotions, requiring users to be informed that they are interacting with AI. Notes: Renumbered to Art. 50 to match Regulation (EU) 2024/1689; transparency obligations mapped as operational control and risk-indicator support for discrimination detection." .
 
 :Art.53 a :ManagementLegalRequirement,
         owl:NamedIndividual ;
+    :isOperationalizedBy :Calibration,
+        :CounterfactualFairness,
+        :DemographicParity,
+        :FairnessThroughAwareness,
+        :StatisticalParity,
+        :TestFairness ;
+    :itsComplianceIsSupportedWith :ADELE,
+        :AddNonToxicExamples,
+        :AdvBERT,
+        :BiasCorrectionFineTuning,
+        :BlocklistDocumentRemoval,
+        :CDA,
+        :CDS,
+        :ChangeAttentionScores,
+        :ChangeAttentionWeights,
+        :ControlOffensiveTokens,
+        :DropoutOnAttention,
+        :GenderneutralAlternatives,
+        :LogLikeDocumentRemoval,
+        :NamesIntervention,
+        :OSCAR,
+        :PoliteAlternatives,
+        :PredictedReplacements,
+        :REALTOXICITYPROMPTS,
+        :RegardClassifier,
+        :RegularizationOnEmbeddings,
+        :ReplaceStereotypes ;
     resource:SIO_000068 :EU_AI_Act ;
-    rdfs:comment "Sets out obligations for providers of general-purpose AI models, including documentation, information on training data, and risk management for systemic risks such as discrimination." .
+    rdfs:comment "Sets out obligations for providers of general-purpose AI models, including documentation, information on training data, and risk management for systemic risks such as discrimination. Notes: Art. 53 maps notions/metrics as documentation evidence (evaluation protocols and results) and techniques as documentable controls whose configuration/limits must be communicated to downstream providers." .
 
 :Art.6 a :ManagementLegalRequirement,
         owl:NamedIndividual ;
+    :isOperationalizedBy :Calibration,
+        :ConditionalStatisticalParity,
+        :CounterfactualFairness,
+        :DemographicParity,
+        :EqualOpportunity,
+        :EqualizedOdds,
+        :ErrorRateBalance,
+        :FairnessThroughAwareness,
+        :FalseNegativeErrorRateBalance,
+        :FalsePositiveErrorRateBalance,
+        :IndividualFairness,
+        :PredictiveEquality,
+        :StatisticalParity,
+        :TestFairness ;
+    :itsComplianceIsSupportedWith :AdversarialFDP,
+        :AugmentedAntidoteData,
+        :CDA,
+        :CalibratedReRanking,
+        :ListReAdjustment,
+        :PerceptronForUnawareness,
+        :ReSamplingProtectedGroup,
+        :RegularizationOnANOVA,
+        :RegularizationOnValueFairness,
+        :UserItemReRanking ;
     resource:SIO_000068 :EU_AI_Act ;
-    rdfs:comment "Defines when an AI system is classified as high-risk, triggering stricter requirements where systems may significantly affect health, safety or fundamental rights, including non-discrimination." .
+    rdfs:comment "Defines when an AI system is classified as high-risk, triggering stricter requirements where systems may significantly affect health, safety or fundamental rights, including non-discrimination. Notes: Determines when the comprehensive high-risk regime, including fairness safeguards, applies." .
 
 :Art.6.2 a :ManagementLegalRequirement,
         owl:NamedIndividual ;
+    :isOperationalizedBy :Calibration,
+        :ConditionalStatisticalParity,
+        :CounterfactualFairness,
+        :DemographicParity,
+        :EqualOpportunity,
+        :EqualizedOdds,
+        :ErrorRateBalance,
+        :FairnessThroughAwareness,
+        :FalseNegativeErrorRateBalance,
+        :FalsePositiveErrorRateBalance,
+        :IndividualFairness,
+        :PredictiveEquality,
+        :StatisticalParity,
+        :TestFairness ;
+    :itsComplianceIsSupportedWith :AdversarialFDP,
+        :AugmentedAntidoteData,
+        :CDA,
+        :CalibratedReRanking,
+        :ListReAdjustment,
+        :PerceptronForUnawareness,
+        :ReSamplingProtectedGroup,
+        :RegularizationOnANOVA,
+        :RegularizationOnValueFairness,
+        :UserItemReRanking ;
     resource:SIO_000068 :EU_AI_Act ;
-    rdfs:comment "Further clarifies the classification of high-risk AI systems, particularly those listed in Annex III, based on their intended purpose and context of use." .
+    rdfs:comment "Further clarifies the classification of high-risk AI systems, particularly those listed in Annex III, based on their intended purpose and context of use. Notes: Art. 6(2) is a governance classification rule: it determines whether Annex III systems fall under the high-risk regime. Fairness notions/metrics are used as evidence instruments to support non-discrimination assessment, acceptance testing, and monitoring once the presumption applies (or to substantiate the non-high-risk derogation when claimed)." .
 
 :Art.71 a :ManagementLegalRequirement,
         owl:NamedIndividual ;
+    :isOperationalizedBy :Calibration,
+        :CounterfactualFairness,
+        :DemographicParity,
+        :EqualOpportunity,
+        :EqualizedOdds,
+        :StatisticalParity,
+        :TestFairness ;
+    :itsComplianceIsSupportedWith :AugmentedAntidoteData,
+        :CalibratedReRanking,
+        :ListReAdjustment,
+        :ReSamplingProtectedGroup,
+        :RegularizationOnANOVA,
+        :RegularizationOnValueFairness,
+        :UserItemReRanking ;
     resource:SIO_000068 :EU_AI_Act ;
-    rdfs:comment "Establishes an EU database for high-risk AI systems, containing information on systems placed on the market or put into service, including their purpose and key characteristics." .
+    rdfs:comment "Establishes an EU database for high-risk AI systems, containing information on systems placed on the market or put into service, including their purpose and key characteristics. Notes: The database can be used to track and analyse fairness-relevant properties across systems." .
 
 :Art.72.1 a :ManagementLegalRequirement,
         owl:NamedIndividual ;
+    :isOperationalizedBy :Calibration,
+        :CounterfactualFairness,
+        :DemographicParity,
+        :EqualOpportunity,
+        :EqualizedOdds,
+        :FairnessThroughAwareness,
+        :IndividualFairness,
+        :StatisticalParity,
+        :TestFairness ;
     resource:SIO_000068 :EU_AI_Act ;
-    rdfs:comment "Specifies that providers must systematically collect, document and analyse data relevant to the functioning of high-risk AI systems, including possible risks to fundamental rights, as part of post-market monitoring." .
+    rdfs:comment "Specifies that providers must systematically collect, document and analyse data relevant to the functioning of high-risk AI systems, including possible risks to fundamental rights, as part of post-market monitoring. Notes: Art. 72(1) is the KPI layer: fairness notions/metrics are used as post-deployment risk indicators and drift signals; techniques are handled under 72(2)." .
 
 :Art.72.2 a :ManagementLegalRequirement,
         owl:NamedIndividual ;
+    :isOperationalizedBy :Calibration,
+        :CounterfactualFairness,
+        :DemographicParity,
+        :EqualOpportunity,
+        :EqualizedOdds,
+        :StatisticalParity,
+        :TestFairness ;
+    :itsComplianceIsSupportedWith :AugmentedAntidoteData,
+        :CDA,
+        :CalibratedReRanking,
+        :ListReAdjustment,
+        :ReSamplingProtectedGroup,
+        :RegularizationOnANOVA,
+        :RegularizationOnValueFairness,
+        :UserItemReRanking ;
     resource:SIO_000068 :EU_AI_Act ;
-    rdfs:comment "Requires providers to take corrective actions, including necessary updates or withdrawal, when they identify non-compliance or new risks to health, safety or fundamental rights." .
+    rdfs:comment "Requires providers to take corrective actions, including necessary updates or withdrawal, when they identify non-compliance or new risks to health, safety or fundamental rights. Notes: Art. 72(2) is the remediation layer: apply updates/rollback/withdrawal; demonstrate risk reduction using the same KPIs defined under 72(1) with versioned evidence." .
 
 :Art.73 a :ManagementLegalRequirement,
         owl:NamedIndividual ;
+    :isOperationalizedBy :Calibration,
+        :CounterfactualFairness,
+        :DemographicParity,
+        :EqualOpportunity,
+        :EqualizedOdds,
+        :StatisticalParity ;
     resource:SIO_000068 :EU_AI_Act ;
-    rdfs:comment "Requires providers to report serious incidents and malfunctioning that constitute a breach of obligations or pose serious risks to health, safety or fundamental rights to competent authorities." .
+    rdfs:comment "Requires providers to report serious incidents and malfunctioning that constitute a breach of obligations or pose serious risks to health, safety or fundamental rights to competent authorities. Notes: Art. 72(3) is the escalation layer: report serious incidents; triggers can be defined as material KPI breaches or abrupt drift that invalidates prior compliance evidence." .
 
 :Art.77 a :ManagementLegalRequirement,
         owl:NamedIndividual ;
+    :isOperationalizedBy :Calibration,
+        :CounterfactualFairness,
+        :DemographicParity,
+        :EqualOpportunity,
+        :EqualizedOdds,
+        :FairnessThroughAwareness,
+        :IndividualFairness,
+        :StatisticalParity,
+        :TestFairness ;
+    :itsComplianceIsSupportedWith :AddNonToxicExamples,
+        :AdversarialFDP,
+        :AugmentedAntidoteData,
+        :BlocklistDocumentRemoval,
+        :CDA,
+        :CalibratedReRanking,
+        :ControlOffensiveTokens,
+        :ListReAdjustment,
+        :LogLikeDocumentRemoval,
+        :PerceptronForUnawareness,
+        :REALTOXICITYPROMPTS,
+        :ReSamplingProtectedGroup,
+        :RegularizationOnANOVA,
+        :RegularizationOnValueFairness,
+        :UserItemReRanking ;
     resource:SIO_000068 :EU_AI_Act ;
-    rdfs:comment "Establishes the role and powers of authorities protecting fundamental rights (incl. non-discrimination): they may request necessary documentation/information and, if insufficient to assess risk, ask market surveillance authorities to organise testing." .
+    rdfs:comment "Establishes the role and powers of authorities protecting fundamental rights (incl. non-discrimination): they may request necessary documentation/information and, if insufficient to assess risk, ask market surveillance authorities to organise testing. Notes: Enforcement hook: authorities can request documentation and trigger testing; notions/metrics are mapped as reviewable evidence, techniques as corrective options that can be required/verified after findings." .
 
 :Art.9 a :ManagementLegalRequirement,
         owl:NamedIndividual ;
+    :isOperationalizedBy :Calibration,
+        :ConditionalStatisticalParity,
+        :CounterfactualFairness,
+        :DemographicParity,
+        :EqualOpportunity,
+        :EqualizedOdds,
+        :ErrorRateBalance,
+        :FairnessThroughAwareness,
+        :FalseNegativeErrorRateBalance,
+        :FalsePositiveErrorRateBalance,
+        :IndividualFairness,
+        :PredictiveEquality,
+        :StatisticalParity,
+        :TestFairness ;
+    :itsComplianceIsSupportedWith :AddNonToxicExamples,
+        :AdversarialFDP,
+        :AugmentedAntidoteData,
+        :BlocklistDocumentRemoval,
+        :CDA,
+        :CalibratedReRanking,
+        :ControlOffensiveTokens,
+        :ListReAdjustment,
+        :LogLikeDocumentRemoval,
+        :PerceptronForUnawareness,
+        :REALTOXICITYPROMPTS,
+        :ReSamplingProtectedGroup,
+        :RegularizationOnANOVA,
+        :RegularizationOnValueFairness,
+        :UserItemReRanking ;
     resource:SIO_000068 :EU_AI_Act ;
-    rdfs:comment "Requires providers of high-risk AI systems to establish, implement, document and maintain a risk management system to identify, analyse and mitigate risks to health, safety and fundamental rights, including discrimination." .
+    rdfs:comment "Requires providers of high-risk AI systems to establish, implement, document and maintain a risk management system to identify, analyse and mitigate risks to health, safety and fundamental rights, including discrimination. Notes: Art. 9 operationalises discrimination risk as a continuous iterative process across the entire lifecycle. Fairness notions/metrics are used as KRIs for risk identification/evaluation and drift monitoring; mitigation techniques are modelled as risk treatments with effectiveness evidenced through improvements in the corresponding metrics over time." .
 
 :AuditSets a owl:Class ;
     rdfs:label "Audit Sets" ;
     rdfs:subClassOf :DataGeneration .
-
-:AugmentedAntidoteData a :CounterfactualAugmentation,
-        owl:NamedIndividual ;
-    :isProposedBy :2019_RASTEGARPANAH ;
-    :scientificArtifactDescription "Add antidote data to the training data" .
 
 :BalanceUnfairness a :AmortizedGranularityMetric,
         :UserFocusedMetric,
@@ -275,19 +928,9 @@
         :TextClassification ;
     skos:definition "Can be viewed as a generalization of balance for pos/neg classes in case of a model where some variables are latent" .
 
-:BiasCorrectionFineTuning a :FullParameterDebiasing,
-        owl:NamedIndividual ;
-    :isProposedBy :2021_ISLAM ;
-    :scientificArtifactDescription "use a pre-training and fine-tuning approach with bias correction techniques" .
-
 :Blinding a owl:Class ;
     rdfs:label "Blinding and Proxy Removal" ;
     rdfs:subClassOf :FeatureLevelColumnIntervention .
-
-:BlocklistDocumentRemoval a :Cleaning,
-        owl:NamedIndividual ;
-    :isProposedBy :2020_RAFFEL ;
-    :scientificArtifactDescription "Removal of biased instances, such as derogatory language: coarse word-level technique, removing all documents containing any words on a blocklist." .
 
 :BottomNAverage a :AmortizedGranularityMetric,
         :ImpactFocusedMetric,
@@ -303,25 +946,10 @@
         owl:NamedIndividual ;
     :isFollowedBy :AnalyticsApproach .
 
-:CDA a :CounterfactualAugmentation,
-        owl:NamedIndividual ;
-    :isProposedBy :2020_LU ;
-    :scientificArtifactDescription "Use CDA to mitigate occupation-gender bias, creating matched pairs by flipping gendered (e.g., “he” and “she”) or definitionally gendered (e.g., “king” and “queen”) words, while preserving grammatical and semantic correctness, under the definition that an unbiased model should consider each sentence in a pair equally." .
-
-:CDS a :CounterfactualAugmentation,
-        owl:NamedIndividual ;
-    :isProposedBy :2019_MAUDSLAY ;
-    :scientificArtifactDescription "gendered text is randomly substituted with a counterfactual version with 0.5 probability, as opposed to duplicating and reversing the gender of all gendered examples." .
-
 :CEAT a :SentenceEmbeddingFairnessMetric,
         owl:NamedIndividual ;
     :isProposedBy :2021_GUO ;
     :isSuitableFor :TextClassification .
-
-:CalibratedReRanking a :CalibrationBasedMitigation,
-        owl:NamedIndividual ;
-    :isProposedBy :2018_STECK ;
-    :scientificArtifactDescription "Calibrated recommendation through maximal marginal relevance" .
 
 :CalibrationBasedFairnessMetric a owl:Class ;
     rdfs:label "Calibration-based Fairness Metric" ;
@@ -334,16 +962,6 @@
     :isProposedBy :2021_AHN ;
     :isSuitableFor :MaskedLanguageModelling,
         :TokenClassification .
-
-:ChangeAttentionScores a :HeadOnly,
-        owl:NamedIndividual ;
-    :isProposedBy :2022_GACI ;
-    :scientificArtifactDescription "Address stereotypes learned in the attention layer of sentence-level encoders by redistributing attention scores, fine-tuning the encoder with an equalization loss that encourages equal attention scores (e.g., to attend to “doctor”) with respect to each social group (e.g., “he” and “she”), while minimizing changes to the attention of other words in the sentence. The equalization loss is added as a regularization term to a semantic information preservation term that computes the distance between the original and fine-tuned models’ attention scores." .
-
-:ChangeAttentionWeights a :SelectiveParameterUpdating,
-        owl:NamedIndividual ;
-    :isProposedBy :2023_ZAYED ;
-    :scientificArtifactDescription "modify the attention weights after training, applying temperature scaling controlled by a hyperparameter that can be tuned to maximize some fairness metric. The hyperparameter can either increase entropy to focus on a broader set of potentially less stereotypical tokens, or can decrease entropy to attend to a narrower context, which may reduce exposure to stereotypical tokens." .
 
 :ChatbotInteraction a :ApplicationDomain,
         owl:NamedIndividual .
@@ -367,25 +985,6 @@
         :TextClassification ;
     skos:definition "Extends both Statistical parity and Equal opportunity (although considers FPRs instead of TPRs)" .
 
-:ConditionalStatisticalParity a :IndependenceFairnessNotion,
-        :ObservationalFairnessNotion,
-        owl:NamedIndividual ;
-    :extends :FairnessThroughUnawareness,
-        :StatisticalParity ;
-    :hasBeenAppliedTo :CensusIncomePrediction,
-        :CreditRisk,
-        :Health,
-        :Law ;
-    :isProposedBy :2017_CORBETT-DAVIES ;
-    :isSuitableFor :Classification,
-        :TextClassification ;
-    skos:definition "Conditional statistical parity is closely related to the idea of fairness through blindness (i.e., unawareness[Ndr]), in which one attempts to create fair algorithms by prohibiting use of protected attributes, such as race. However, as frequently noted, it is difficult to restrict to “legitimate” features that do not at least partially correlate with race and other protected attributes, and so one cannot be completely “blind” to the sensitive information. Moreover, unlike the other definitions of fairness, this one does not necessarily re- duce racial disparities. Conditional statistical parity mitigates these limitations of the blindness approach while preserving its intuitive appeal. [2017_CORBETT-DAVIES]" .
-
-:ControlOffensiveTokens a :DecisionTimeConstrainedDecisioning,
-        owl:NamedIndividual ;
-    :isProposedBy :2020_XU ;
-    :scientificArtifactDescription "use word- or ngram-blocking during decoding, prohibiting the use of tokens from an offensive word list. The authors identify control tokens using a classifier that measures offensiveness, bias, and other potential harms in text. The control tokens can be appended to the input during inference to control model generation." .
-
 :CounterfactualSentimentBias a :ClassifierFairnessMetric,
         owl:NamedIndividual ;
     :isProposedBy :2020_HUANG ;
@@ -404,23 +1003,6 @@
     :isUsedBy :2023_WANG ;
     :measures :DisparateImpact ;
     skos:definition "This is actually a Min-Max Difference casted into a setting where the utility function is the average exposure for multiple item groups" .
-
-:DemographicParity a :IndependenceFairnessNotion,
-        :ObservationalFairnessNotion,
-        owl:NamedIndividual ;
-    :hasBeenAppliedTo :CensusIncomePrediction,
-        :CreditRisk,
-        :Education,
-        :Health,
-        :Law ;
-    :isMeasuredBy :DisparateImpact ;
-    :isProposedBy :2012_KAMISHIMA,
-        :2013_ZEMEL ;
-    :isSuitableFor :Classification,
-        :TextClassification ;
-    :isUsedBy :2015_FELDMAN,
-        :2017_CORBETT-DAVIES ;
-    owl:sameAs :StatisticalParity .
 
 :DemographicRepresentation a :DistributionFairnessMetric,
         owl:NamedIndividual ;
@@ -443,11 +1025,6 @@
         owl:NamedIndividual ;
     rdfs:label "disparagement"@en ;
     skos:definition "Disparagement is not merely bias in representation but bias in expression, it is the linguistic realization of stereotype."@en .
-
-:DropoutOnAttention a :FairnessRegularization,
-        owl:NamedIndividual ;
-    :isProposedBy :2020_WEBSTER ;
-    :scientificArtifactDescription "Use dropout during pre-training to reduce stereotypical gendered associations between words. By increasing dropout on the attention weights and hidden activations, the work hypothesizes that the interruption of the attention mechanism disrupts gendered correlations." .
 
 :EmpiricalToxicityProbability a :ClassifierFairnessMetric,
         owl:NamedIndividual ;
@@ -505,11 +1082,6 @@
     :isProposedBy :2020_GEHMAN ;
     :isSuitableFor :TextClassification .
 
-:ExposesTo a owl:ObjectProperty ;
-    rdfs:label "exposes to"@en ;
-    rdfs:domain :FairnessConcern ;
-    rdfs:range fmo:bias .
-
 :FStatisticOfANOVA a :AmortizedGranularityMetric,
         :ImpactFocusedMetric,
         :ItemFocusedMetric,
@@ -526,11 +1098,6 @@
         owl:NamedIndividual ;
     :isProposedBy :2018_XU ;
     :scientificArtifactDescription "used a generative approach to generate discrimination-free data for training" .
-
-:FairPSL a :FairnessRegularization,
-        owl:NamedIndividual ;
-    :isProposedBy :2018_FARNADI ;
-    :scientificArtifactDescription "FairPSL extends an existing statistical relational learning framework, probabilistic soft logic (PSL). FairPSL incorporates logical definitions of fairnesss supporting a probabilistic interpretation." .
 
 :FeatureReview a owl:Class ;
     rdfs:label "Feature Review" ;
@@ -567,11 +1134,6 @@
     :isProposedBy :2021_DHAMALA ;
     :isSuitableFor :TextClassification .
 
-:GenderneutralAlternatives a :OutputRewriting,
-        owl:NamedIndividual ;
-    :isProposedBy :2021_JAIN ;
-    :scientificArtifactDescription "To provide gender-neutral alternatives to sentences with gendered pronouns, use a rulesbased approach to generate parallel debiased sentences from biased sources, and then train a machine translation model to translate from biased sentences to debiased ones." .
-
 :GeneralizedCrossEntropy a :AmortizedGranularityMetric,
         :ImpactFocusedMetric,
         :ItemFocusedMetric,
@@ -601,32 +1163,16 @@
     rdfs:label "Governance-only Interventions (J)" ;
     rdfs:subClassOf :HumanOversightMitigation .
 
-:Guides a owl:ObjectProperty ;
-    rdfs:label "guides"@en ;
-    rdfs:comment "Links a fairness notion to its underpinning social principle such as equity or equality."@en ;
-    rdfs:domain :SocialPrinciple ;
-    rdfs:range fmo:fairness_notion ;
-    owl:inverseOf :isGuidedBy .
-
 :HONEST a :LexiconFairnessMetric,
         owl:NamedIndividual ;
     :isProposedBy :2021_NOZZA ;
     :isSuitableFor :MaskedLanguageModelling .
-
-:InferenceSubnetworks a :Adapters,
-        owl:NamedIndividual ;
-    :isProposedBy :2023_HAUZENBERG ;
-    :scientificArtifactDescription "trains several subnetworks that can be applied modularly at inference time to remove a specific set of biases. The output is several stand-alone modules, each corresponding to a debiasing task, that can be used with a base pre-trained model during inference." .
 
 :IntersectionalBias a owl:Class ;
     rdfs:label "intersectional bias"@en ;
     dc:source "https://doi.org/10.1145/3468507.3468511"^^xsd:anyURI ;
     rdfs:subClassOf fmo:bias ;
     skos:definition "Intersectional bias is a type of bias that occurs due to the combination of multiple sensitive factors."@en .
-
-:IsAbout a owl:ObjectProperty ;
-    rdfs:label "is about"@en ;
-    rdfs:range :AIModel .
 
 :IsTrainedOn a owl:ObjectProperty ;
     rdfs:label "is trained on"@en ;
@@ -638,7 +1184,7 @@
     rdfs:domain :AIModel ;
     rdfs:range :ExperimentalSetting .
 
-<http://fairness_ontology.com/IsValidatedOn#is_validated_on> a owl:ObjectProperty ;
+<http://fairness_ontology.com/IsValidatedOn#isValidatedOn> a owl:ObjectProperty ;
     rdfs:label "is validated on" ;
     rdfs:domain :AIModel ;
     rdfs:range :ValidationDataset .
@@ -717,19 +1263,9 @@
     :isUsedBy :2019_SACHARIDIS,
         :2020_KAYA .
 
-:ListReAdjustment a :Reranking,
-        owl:NamedIndividual ;
-    :isProposedBy :2022_MANSOURY ;
-    :scientificArtifactDescription "Re-ranking method based on maximum flow: iteratively adds high-quality items that have low visibility or items from suppliers with low exposure to the users’ final recommendation lists." .
-
 :LoRA a owl:Class ;
     rdfs:label "LoRA" ;
     rdfs:subClassOf :PartialFineTuning .
-
-:LogLikeDocumentRemoval a :Cleaning,
-        owl:NamedIndividual ;
-    :isProposedBy :2021_NGO ;
-    :scientificArtifactDescription "Append to each document a phrase representative of an undesirable harm, such as racism or hate speech, and then use a pre-trained model to compute the conditional log-likelihood of the modified documents. Documents with high loglikelihoods are removed from the training set." .
 
 :LogRegThresholds a :Thresholding,
         owl:NamedIndividual ;
@@ -793,16 +1329,6 @@
     :measures :Calibration ;
     skos:definition "While having the benefit of providing a single measure of bias over all attribute values and a holistic  view over the whole ranked list, the NDKL measure has the following disadvantages. (1) It cannot differentiate between bias of equal  extent, but in opposite directions. For example, given an equal desired proportion of males and females (i.e., p_{q,r,male} = p_{q,r,female} =  0.5), NDKL would be the same irrespective of whether males or  females are being under-represented in the top ranked results by  the same extent. Thus, the measure does not convey which attribute value is being unfairly treated (Skew measure is more suitable for  this). (2) It is not as easy to interpret as the skew measure." .
 
-:NamesIntervention a :CounterfactualAugmentation,
-        owl:NamedIndividual ;
-    :isProposedBy :2019_MAUDSLAY ;
-    :scientificArtifactDescription "considers only first names, as opposed to all gendered words: ssociates masculine-specified names with feminine-specified pairs (based on name frequencies in the United States), which can be swapped during CDA." .
-
-:OSCAR a :Transformation,
-        owl:NamedIndividual ;
-    :isProposedBy :2021_DEV ;
-    :scientificArtifactDescription "Bias removal while maintaining relevant semantic information: orthogonalize two directions that should be independent, such as gender and occupation, while minimizing the change in the embeddings to preserve important semantic meaning from gendered words." .
-
 :OmmittedVariableBias a owl:Class ;
     rdfs:label "omitted variable bias"@en ;
     dc:source "https://doi.org/10.1145/3457607"^^xsd:anyURI ;
@@ -834,21 +1360,6 @@
     rdfs:comment "A mitigation technique that prunes a SUBPART OF an already trained model by setting to 0 some of its weights." ;
     rdfs:subClassOf :PartialFineTuning .
 
-:PerceptronForUnawareness a :Adapters,
-        owl:NamedIndividual ;
-    :isProposedBy :2023_KUMARa ;
-    :scientificArtifactDescription "creates an adapter network by training a single-layer multilayer perceptron with the objective of removing protected attributes, with an additional fusion module to combine the original pretrained model with the adapter." .
-
-:PoliteAlternatives a :OutputRewriting,
-        owl:NamedIndividual ;
-    :isProposedBy :2022_WANG ;
-    :scientificArtifactDescription "use a a dataset of sentence rewrites to train rewriting models to generate more polite outputs, preserving semantic information but altering the emotion and sentiment." .
-
-:PredictedReplacements a :OutputRewriting,
-        owl:NamedIndividual ;
-    :isProposedBy :2022_TOKPO ;
-    :scientificArtifactDescription "Use LIME (2016_RIBEIRO) to identify tokens responsible for bias in an output and predict new tokens for replacement based on the latent representations of the original sentence" .
-
 :Prejudice a :HistoricalBias,
         owl:NamedIndividual ;
     rdfs:label "prejudice"@en ;
@@ -858,16 +1369,6 @@
         owl:NamedIndividual ;
     :isProposedBy :2021_DHAMALA ;
     :isSuitableFor :TextClassification .
-
-:REALTOXICITYPROMPTS a :OutputRewriting,
-        owl:NamedIndividual ;
-    :isProposedBy :2020_GEHMAN ;
-    :scientificArtifactDescription "adaptive pretraining on non-toxic data: increase the likelihood of non-toxic tokens, adding a (non-)toxicity score to the logits over the vocabulary before normalization, ans use word- or ngram-blocking during decoding, prohibiting the use of tokens from an offensive word list" .
-
-:ReSamplingProtectedGroup a :StratifiedSampling,
-        owl:NamedIndividual ;
-    :isProposedBy :2018_EKSTRAND ;
-    :scientificArtifactDescription "Adjust the proportion of the protected group by resampling" .
 
 :RecIndependence a :FairnessRegularization,
         owl:NamedIndividual ;
@@ -880,11 +1381,6 @@
     :isProposedBy :2023_LIU ;
     :scientificArtifactDescription "alternatively redistribute the probability mass with bias terms. The proposed method seeks to minimize a constraint function such as toxicity with an iterative sequence generation process, tuning bias terms added to the predicted logits at each decoding step." .
 
-:RegardClassifier a :FairnessRegularization,
-        owl:NamedIndividual ;
-    :isProposedBy :2019_SHENG ;
-    :scientificArtifactDescription "Regard Score measures polarity towards and perceptions of social groups, similar to a sentiment and respect score. Using prefix templates to prompt the language model (e.g., “The woman worked as”), they generate a human-annotated dataset to train a regard classifier where regard is a measure of positive or negative social connotation towards a social group. " .
-
 :RegardScore a :ClassifierFairnessMetric,
         owl:NamedIndividual ;
     :isProposedBy :2019_SHENG ;
@@ -894,29 +1390,9 @@
 :Regression a :SupervisedLearingTask,
         owl:NamedIndividual .
 
-:RegularizationOnANOVA a :FairnessRegularization,
-        owl:NamedIndividual ;
-    :isProposedBy :2020_WAN ;
-    :scientificArtifactDescription "Use F-statistic of ANOVA in the the loss function as regularization term to calibrate the parity of prediction errors across different market segments." .
-
-:RegularizationOnEmbeddings a :FairnessRegularization,
-        owl:NamedIndividual ;
-    :isProposedBy :2023_PARK ;
-    :scientificArtifactDescription "introduce a regularization term that orthogonalizes stereotypical word embeddings and the gender direction in the embedding space. This term distances the embeddings of neutral occupation words from those of gender-inherent words (e.g., “sister” or “brother”). " .
-
-:RegularizationOnValueFairness a :FairnessRegularization,
-        owl:NamedIndividual ;
-    :isProposedBy :2017_YAO ;
-    :scientificArtifactDescription "Use fairness metrics (e.g., value fairness) as fair regularization" .
-
 :Relabeling a owl:Class ;
     rdfs:label "Relabeling" ;
     rdfs:subClassOf :InstanceLevelRowIntervention .
-
-:ReplaceStereotypes a :OutputRewriting,
-        owl:NamedIndividual ;
-    :isProposedBy :2023_DHINGRA ;
-    :scientificArtifactDescription "Use SHAP (2017_Lundberg) to identify stereotypical words towards queer people, providing reasoning for why the original word was harmful. They then re-prompt the language model to replace those words, using style transfer to preserve the semantic meaning of the original sentence." .
 
 :SEAT a :SentenceEmbeddingFairnessMetric,
         owl:NamedIndividual ;
@@ -970,30 +1446,10 @@
     :isSuitableFor :Classification ;
     :isUsedBy :2024_GONZALEZ-SENDINO .
 
-:TotalFairness a :IndependenceFairnessNotion,
-        :ObservationalFairnessNotion,
-        :SeparationFairnessNotion,
-        :SufficiencyFairnessNotion,
-        owl:NamedIndividual ;
-    :extends :ConditionalUseAccuracyEquality,
-        :EqualizedOdds,
-        :OverallAccuracyEquality,
-        :StatisticalParity,
-        :TreatmentEquality ;
-    :isProposedBy :2021_BERK ;
-    :isSuitableFor :Classification,
-        :TextClassification ;
-    skos:definition "cannot be achieved except in highly artificial simulations" .
-
 :ToxicityFraction a :ClassifierFairnessMetric,
         owl:NamedIndividual ;
     :isProposedBy :2023_LIANG ;
     :isSuitableFor :TextClassification .
-
-:UserItemReRanking a :Reranking,
-        owl:NamedIndividual ;
-    :isProposedBy :2020_PATRO ;
-    :scientificArtifactDescription "Re-ranking  for both user fairness and item fairness" .
 
 :ValueUnfairness a :AmortizedGranularityMetric,
         :UserFocusedMetric,
@@ -1068,6 +1524,11 @@
     rdfs:range fmo:fairness_metric ;
     owl:inverseOf :isEnforcedBy .
 
+:exposesTo a owl:ObjectProperty ;
+    rdfs:label "exposes to"@en ;
+    rdfs:domain :FairnessConcern ;
+    rdfs:range fmo:bias .
+
 :extends a owl:ObjectProperty ;
     rdfs:label "extends" ;
     rdfs:domain :ScientificArtifact ;
@@ -1077,6 +1538,13 @@
 :follows a owl:ObjectProperty ;
     rdfs:label "follows" ;
     owl:inverseOf :isFollowedBy .
+
+:guides a owl:ObjectProperty ;
+    rdfs:label "guides"@en ;
+    rdfs:comment "Links a fairness notion to its underpinning social principle such as equity or equality."@en ;
+    rdfs:domain :SocialPrinciple ;
+    rdfs:range fmo:fairness_notion ;
+    owl:inverseOf :isGuidedBy .
 
 :hasAntonym a owl:AnnotationProperty ;
     rdfs:label "has antonym"@en ;
@@ -1112,6 +1580,10 @@
     rdfs:domain :Hyperparameter ;
     rdfs:range xsd:string .
 
+:isAbout a owl:ObjectProperty ;
+    rdfs:label "is about"@en ;
+    rdfs:range :AIModel .
+
 :isAddressedWith a owl:ObjectProperty ;
     rdfs:label "is addressed with"@en ;
     rdfs:domain :FairnessConcern ;
@@ -1143,6 +1615,12 @@
     owl:inverseOf :mitigates ;
     skos:definition "A certain bias in the use-case can be mitigated by enforcing specific fairness notions."@en .
 
+:isOperationalizedBy a owl:ObjectProperty ;
+    rdfs:label "is operationalized by" ;
+    rdfs:domain :LegalRequirement ;
+    rdfs:range fmo:fairness_notion ;
+    owl:inverseOf :operationalize .
+
 :isProposedBy a owl:ObjectProperty ;
     rdfs:label "is proposed by"@en ;
     rdfs:domain :ScientificArtifact ;
@@ -1166,17 +1644,11 @@
     rdfs:range :ScientificPaper ;
     skos:definition "A certain fairness notion is used by some scientific papers."@en .
 
-:is_operationalized_by a owl:ObjectProperty ;
-    rdfs:label "is operationalized by" ;
-    rdfs:domain :LegalRequirement ;
-    rdfs:range fmo:fairness_notion ;
-    owl:inverseOf :operationalize .
-
-:its_compliance_is_supported_by a owl:ObjectProperty ;
+:itsComplianceIsSupportedWith a owl:ObjectProperty ;
     rdfs:label "its compliance is supported by" ;
     rdfs:domain :LegalRequirement ;
     rdfs:range :MitigationTechnique ;
-    owl:inverseOf :supports_compliance_with .
+    owl:inverseOf :supportsComplianceWith .
 
 :measuredWith a owl:ObjectProperty ;
     rdfs:label "measured with"@en ;
@@ -1527,6 +1999,16 @@ fmo:tag a owl:AnnotationProperty .
         owl:NamedIndividual ;
     rdfs:label "2024_GONZALEZ-SENDINO" .
 
+:ADELE a :Adapters,
+        owl:NamedIndividual ;
+    :isProposedBy :2021_LAUSCHER ;
+    :scientificArtifactDescription "Introduce debiasing adapter modules, called ADELE, to mitigate gender bias. The technique is based on modular adapter frameworks (2019_HOULSBY) that add new, randomly initialized layers between the original layers for parameter-efficient fine-tuning; only the injected layers are updated during fine-tuning, while the pre-trained ones remain frozen." .
+
+:AdvPredictedScore a :AdversarialLearning,
+        owl:NamedIndividual ;
+    :isProposedBy :2020_ZHU ;
+    :scientificArtifactDescription "Learn fair predicted scores by enhancing score distribution similarity" .
+
 :AlgorithmicBias a owl:Class ;
     rdfs:label "algorithmic bias"@en ;
     dc:source "https://doi.org/10.1145/3457607"^^xsd:anyURI ;
@@ -1559,6 +2041,16 @@ fmo:tag a owl:AnnotationProperty .
     :isUsedBy :2019_DIMITRAKAKIS ;
     skos:definition "Can be viewed as a  generalization of the notion that both groups should have equal false negative rates.  [2017_KLEINBERG] ==>generalizes Equal Opportunity" .
 
+:BiasCorrectionFineTuning a :FullParameterDebiasing,
+        owl:NamedIndividual ;
+    :isProposedBy :2021_ISLAM ;
+    :scientificArtifactDescription "use a pre-training and fine-tuning approach with bias correction techniques" .
+
+:CDS a :CounterfactualAugmentation,
+        owl:NamedIndividual ;
+    :isProposedBy :2019_MAUDSLAY ;
+    :scientificArtifactDescription "gendered text is randomly substituted with a counterfactual version with 0.5 probability, as opposed to duplicating and reversing the gender of all gendered examples." .
+
 :CausalFairnessNotion a owl:Class ;
     rdfs:label "causal fairness notion"@en ;
     resource:hasSynonym "causal fairness"@en ;
@@ -1585,15 +2077,6 @@ fmo:tag a owl:AnnotationProperty .
         owl:NamedIndividual ;
     :isProposedBy :2021_NADEEM ;
     :isSuitableFor :MaskedLanguageModelling .
-
-:CounterfactualFairness a :CausalFairnessNotion,
-        :IndividualFairnessNotion,
-        owl:NamedIndividual ;
-    :hasBeenAppliedTo :Education ;
-    :isMeasuredBy :FairScore ;
-    :isProposedBy :2017_KUSNER ;
-    :isSuitableFor :Classification,
-        :TextClassification .
 
 :CrowSPairsScore a :PseudoLogLikelihoodFairnessMetric,
         owl:NamedIndividual ;
@@ -1624,22 +2107,6 @@ fmo:tag a owl:AnnotationProperty .
 \\frac{a_{i_1}}{r_{i_1}} = \\frac{a_{i_2}}{r_{i_2}},
 \\quad \\forall\\, u_{i_1}, u_{i_2}.
 \\]""" .
-
-:ErrorRateBalance a :ObservationalFairnessNotion,
-        :SeparationFairnessNotion,
-        owl:NamedIndividual ;
-    :extends :EqualOpportunity,
-        :PredictiveEquality ;
-    :hasBeenAppliedTo :CensusIncomePrediction,
-        :CreditRisk,
-        :Health,
-        :Law ;
-    :isEquivalentTo :ConditionalProcedureAccuracyEquality ;
-    :isMeasuredBy :OutcomeUnfairness ;
-    :isProposedBy :2017_CHOULDECHOVA ;
-    :isSuitableFor :Classification,
-        :TextClassification ;
-    skos:definition "Equal opportunity  and Predictive equality  i.e., if you satisfy Equalized odds, than you also satisfy Equal opportunity" .
 
 :ExploratoryDataAnalysis a :Pre-processing,
         owl:NamedIndividual ;
@@ -1697,15 +2164,6 @@ F_S(f_C, X)
     :isUsedBy :2019_CELISa ;
     :measures :FalseDiscoveryParity .
 
-:FalsePositiveErrorRateBalance a :ObservationalFairnessNotion,
-        :SeparationFairnessNotion,
-        owl:NamedIndividual ;
-    :hasBeenAppliedTo :Law ;
-    :isEquivalentTo :PredictiveEquality ;
-    :isProposedBy :2017_CHOULDECHOVA ;
-    :isSuitableFor :Classification,
-        :TextClassification .
-
 :FullParameterDebiasing a owl:Class ;
     rdfs:label "Full Parameter Debiasing" ;
     rdfs:subClassOf :FullFineTuning .
@@ -1754,6 +2212,11 @@ c_{\\sigma,k}(x)
 = 1 - \\left| f(x) - \\frac{1}{k} 
 \\sum_{y \\in {nbr}_{\\sigma}(x,k)} f(y) \\right| .
 \\]""" .
+
+:InferenceSubnetworks a :Adapters,
+        owl:NamedIndividual ;
+    :isProposedBy :2023_HAUZENBERG ;
+    :scientificArtifactDescription "trains several subnetworks that can be applied modularly at inference time to remove a specific set of biases. The output is several stand-alone modules, each corresponding to a debiasing task, that can be used with a base pre-trained model during inference." .
 
 :InstanceWeighting a owl:Class ;
     rdfs:label "Instance Weighting" ;
@@ -1877,6 +2340,16 @@ c_{\\sigma,k}(x)
     :isSuitableFor :Classification ;
     :measures :FairnessThroughAwareness .
 
+:RegardClassifier a :FairnessRegularization,
+        owl:NamedIndividual ;
+    :isProposedBy :2019_SHENG ;
+    :scientificArtifactDescription "Regard Score measures polarity towards and perceptions of social groups, similar to a sentiment and respect score. Using prefix templates to prompt the language model (e.g., “The woman worked as”), they generate a human-annotated dataset to train a regard classifier where regard is a measure of positive or negative social connotation towards a social group. " .
+
+:RegularizationOnEmbeddings a :FairnessRegularization,
+        owl:NamedIndividual ;
+    :isProposedBy :2023_PARK ;
+    :scientificArtifactDescription "introduce a regularization term that orthogonalizes stereotypical word embeddings and the gender direction in the embedding space. This term distances the embeddings of neutral occupation words from those of gender-inherent words (e.g., “sister” or “brother”). " .
+
 :RelativeLInfiniteMetric a :DistanceBasedFairnessMetric,
         owl:NamedIndividual ;
     :extends :FairnessThroughAwareness ;
@@ -1912,6 +2385,21 @@ c_{\\sigma,k}(x)
     rdfs:label "Thresholding" ;
     rdfs:subClassOf :GreyBoxScores .
 
+:TotalFairness a :IndependenceFairnessNotion,
+        :ObservationalFairnessNotion,
+        :SeparationFairnessNotion,
+        :SufficiencyFairnessNotion,
+        owl:NamedIndividual ;
+    :extends :ConditionalUseAccuracyEquality,
+        :EqualizedOdds,
+        :OverallAccuracyEquality,
+        :StatisticalParity,
+        :TreatmentEquality ;
+    :isProposedBy :2021_BERK ;
+    :isSuitableFor :Classification,
+        :TextClassification ;
+    skos:definition "cannot be achieved except in highly artificial simulations" .
+
 :TotalVariationNorm a :DistanceBasedFairnessMetric,
         owl:NamedIndividual ;
     :extends :FairnessThroughAwareness ;
@@ -1935,20 +2423,6 @@ c_{\\sigma,k}(x)
 :Transformation a owl:Class ;
     rdfs:label "Transformation/Representation Learning" ;
     rdfs:subClassOf :InstanceLevelRowIntervention .
-
-:TreatmentEquality a :ObservationalFairnessNotion,
-        :SeparationFairnessNotion,
-        owl:NamedIndividual ;
-    :extends :EqualizedOdds,
-        :OverallAccuracyEquality ;
-    :hasBeenAppliedTo :CensusIncomePrediction,
-        :CreditRisk,
-        :Health,
-        :Law ;
-    :isProposedBy :2021_BERK ;
-    :isSuitableFor :Classification,
-        :TextClassification ;
-    skos:definition "Extends Overall accuracy equality, because even if the accuracy is the same for both groups, it might happend that, when a misclassification occurr for a group, it is more likely to be a FN than a FP" .
 
 :UnderestimationUnfairness a :AmortizedGranularityMetric,
         :UserFocusedMetric,
@@ -2009,7 +2483,7 @@ c_{\\sigma,k}(x)
     rdfs:domain fmo:fairness_notion ;
     rdfs:range :LegalRequirement .
 
-:supports_compliance_with a owl:ObjectProperty ;
+:supportsComplianceWith a owl:ObjectProperty ;
     rdfs:label "supports compliance with" ;
     rdfs:domain :MitigationTechnique ;
     rdfs:range :LegalRequirement .
@@ -2149,9 +2623,24 @@ fmo:evaluation_metric a owl:Class ;
         :2021_WANG ;
     :measures :StatisticalParity .
 
+:AdvBERT a :AdversarialLearning,
+        owl:NamedIndividual ;
+    :isProposedBy :2021_REKABSAZ ;
+    :scientificArtifactDescription "Adversarial learning with a ranking of information retrieval results to reduce bias while maintaining relevance, proposing a gender-invariant ranking model. Contrastive pairs consist of a relevant and non-relevant document to a query, with a corresponding social group label denoting if the query or document contains the protected attribute. The adversarial discriminator predicts the social group label from an encoder, while the encoder simultaneously tries to trick the discriminator while also maximizing relevance scores." .
+
 :CalibrationBasedMitigation a owl:Class ;
     rdfs:label "Calibration-based Mitigation" ;
     rdfs:subClassOf :GreyBoxScores .
+
+:ChangeAttentionScores a :HeadOnly,
+        owl:NamedIndividual ;
+    :isProposedBy :2022_GACI ;
+    :scientificArtifactDescription "Address stereotypes learned in the attention layer of sentence-level encoders by redistributing attention scores, fine-tuning the encoder with an equalization loss that encourages equal attention scores (e.g., to attend to “doctor”) with respect to each social group (e.g., “he” and “she”), while minimizing changes to the attention of other words in the sentence. The equalization loss is added as a regularization term to a semantic information preservation term that computes the distance between the original and fine-tuned models’ attention scores." .
+
+:ChangeAttentionWeights a :SelectiveParameterUpdating,
+        owl:NamedIndividual ;
+    :isProposedBy :2023_ZAYED ;
+    :scientificArtifactDescription "modify the attention weights after training, applying temperature scaling controlled by a hyperparameter that can be tuned to maximize some fairness metric. The hyperparameter can either increase entropy to focus on a broader set of potentially less stereotypical tokens, or can decrease entropy to attend to a narrower context, which may reduce exposure to stereotypical tokens." .
 
 :Cleaning a owl:Class ;
     rdfs:label "Cleaning" ;
@@ -2160,6 +2649,11 @@ fmo:evaluation_metric a owl:Class ;
 :DecisionTimeConstrainedDecisioning a owl:Class ;
     rdfs:label "Decision-time Constrained Decisioning" ;
     rdfs:subClassOf :BlackBoxDecisionOnly .
+
+:DropoutOnAttention a :FairnessRegularization,
+        owl:NamedIndividual ;
+    :isProposedBy :2020_WEBSTER ;
+    :scientificArtifactDescription "Use dropout during pre-training to reduce stereotypical gendered associations between words. By increasing dropout on the attention weights and hidden activations, the work hypothesizes that the interruption of the attention mechanism disrupts gendered correlations." .
 
 :EmbeddingBasedFairnessMetric a owl:Class ;
     rdfs:label "Embedding-based Fairness Metric"@en ;
@@ -2202,6 +2696,11 @@ fmo:evaluation_metric a owl:Class ;
 
 :Legislation a owl:Class ;
     rdfs:label "Legislation" .
+
+:OSCAR a :Transformation,
+        owl:NamedIndividual ;
+    :isProposedBy :2021_DEV ;
+    :scientificArtifactDescription "Bias removal while maintaining relevant semantic information: orthogonalize two directions that should be independent, such as gender and occupation, while minimizing the change in the embeddings to preserve important semantic meaning from gendered words." .
 
 :OptimizationObjectMetric a owl:Class ;
     rdfs:label "Optimization Object Metric"@en ;
@@ -2253,6 +2752,20 @@ fmo:evaluation_metric a owl:Class ;
 :TargetedCollections a owl:Class ;
     rdfs:label "Targeted Collections" ;
     rdfs:subClassOf :DataGeneration .
+
+:TreatmentEquality a :ObservationalFairnessNotion,
+        :SeparationFairnessNotion,
+        owl:NamedIndividual ;
+    :extends :EqualizedOdds,
+        :OverallAccuracyEquality ;
+    :hasBeenAppliedTo :CensusIncomePrediction,
+        :CreditRisk,
+        :Health,
+        :Law ;
+    :isProposedBy :2021_BERK ;
+    :isSuitableFor :Classification,
+        :TextClassification ;
+    skos:definition "Extends Overall accuracy equality, because even if the accuracy is the same for both groups, it might happend that, when a misclassification occurr for a group, it is more likely to be a FN than a FP" .
 
 :TruePositiveRateDifference a :ConfusionMatrixBasedFairnessMetric,
         owl:NamedIndividual ;
@@ -2415,20 +2928,6 @@ fmo:statistical_metric a owl:Class ;
         :2023_GIULIANI ;
     :measures :StatisticalParity .
 
-:FalseNegativeErrorRateBalance a :ObservationalFairnessNotion,
-        :SeparationFairnessNotion,
-        owl:NamedIndividual ;
-    :hasBeenAppliedTo :CensusIncomePrediction,
-        :CreditRisk,
-        :Health,
-        :Law ;
-    :isEquivalentTo :EqualOpportunity ;
-    :isMeasuredBy :TruePositiveRateDifference ;
-    :isProposedBy :2017_CHOULDECHOVA ;
-    :isSuitableFor :Classification,
-        :TextClassification ;
-    skos:definition "Equivalent to Equal opportunity because TPR=1-FNR" .
-
 :FullFineTuning a owl:Class ;
     rdfs:label "Full Fine-tuning - White-box Model (F)" ;
     rdfs:subClassOf :ModelAccessResourcesMitigation,
@@ -2461,6 +2960,11 @@ fmo:statistical_metric a owl:Class ;
     rdfs:subClassOf :ProbabilityBasedFairnessMetric ;
     skos:definition "A fairness metric relying on the predicted probabilities for masked tokens in language models."@en .
 
+:NamesIntervention a :CounterfactualAugmentation,
+        owl:NamedIndividual ;
+    :isProposedBy :2019_MAUDSLAY ;
+    :scientificArtifactDescription "considers only first names, as opposed to all gendered words: ssociates masculine-specified names with feminine-specified pairs (based on name frequencies in the United States), which can be swapped during CDA." .
+
 :NaturalLanguageProcessingTask a owl:Class ;
     rdfs:label "Natural Language Processing Task"@en ;
     rdfs:subClassOf :MLTask ;
@@ -2491,6 +2995,16 @@ fmo:statistical_metric a owl:Class ;
     :isSuitableFor :Classification,
         :TextClassification ;
     skos:definition "Extends equal opportunity because also considers the TNR (besides TPR)" .
+
+:PoliteAlternatives a :OutputRewriting,
+        owl:NamedIndividual ;
+    :isProposedBy :2022_WANG ;
+    :scientificArtifactDescription "use a a dataset of sentence rewrites to train rewriting models to generate more polite outputs, preserving semantic information but altering the emotion and sentiment." .
+
+:PredictedReplacements a :OutputRewriting,
+        owl:NamedIndividual ;
+    :isProposedBy :2022_TOKPO ;
+    :scientificArtifactDescription "Use LIME (2016_RIBEIRO) to identify tokens responsible for bias in an output and predict new tokens for replacement based on the latent representations of the original sentence" .
 
 :QualityWeightedFairness a :IndependenceFairnessNotion,
         :ObservationalFairnessNotion,
@@ -2565,24 +3079,6 @@ fmo:statistical_metric a owl:Class ;
     rdfs:subClassOf :GeneratedTextBasedFairnessMetric ;
     skos:definition "A metric that evaluates fairness by comparing the statistical distribution of generated outputs across groups."@en .
 
-:EqualizedOdds a :ObservationalFairnessNotion,
-        :SeparationFairnessNotion,
-        owl:NamedIndividual ;
-    :extends :EqualOpportunity,
-        :OverallAccuracyEquality,
-        :PredictiveEquality ;
-    :hasBeenAppliedTo :CensusIncomePrediction,
-        :CreditRisk,
-        :Health,
-        :Law ;
-    :isEquivalentTo :ConditionalProcedureAccuracyEquality ;
-    :isMeasuredBy :OutcomeUnfairness ;
-    :isProposedBy :2018_VANMASSENHOVE,
-        :2021_BERK ;
-    :isSuitableFor :Classification,
-        :TextClassification ;
-    skos:definition "for NLP classification tasks, or tasks with a superimposed classifier, traditional fairness definitions like equalized odds or statistical parity MAY be used without modification[2024_Gallegos]. Extends Equal opportunity  and Predictive equality  i.e., if you satisfy Equalized odds, than you also satisfy Equal opportunity. It also extends Overall accuracy equality because if you achieve equalized odds, then you have equal accuracy." .
-
 :FullRetraining a owl:Class ;
     rdfs:label "Full Retraining (E)" ;
     rdfs:subClassOf :TrainingResourcesMitigation .
@@ -2645,6 +3141,16 @@ fmo:statistical_metric a owl:Class ;
 :ExperimentalSetting a owl:Class ;
     rdfs:label "Experimental Setting"@en .
 
+:FairPSL a :FairnessRegularization,
+        owl:NamedIndividual ;
+    :isProposedBy :2018_FARNADI ;
+    :scientificArtifactDescription "FairPSL extends an existing statistical relational learning framework, probabilistic soft logic (PSL). FairPSL incorporates logical definitions of fairnesss supporting a probabilistic interpretation." .
+
+:GenderneutralAlternatives a :OutputRewriting,
+        owl:NamedIndividual ;
+    :isProposedBy :2021_JAIN ;
+    :scientificArtifactDescription "To provide gender-neutral alternatives to sentences with gendered pronouns, use a rulesbased approach to generate parallel debiased sentences from biased sources, and then train a machine translation model to translate from biased sentences to debiased ones." .
+
 :HyperparameterConfiguration a owl:Class ;
     rdfs:label "Hyperparameter Configuration"@en .
 
@@ -2652,15 +3158,10 @@ fmo:statistical_metric a owl:Class ;
     rdfs:label "Decision/Output Re-writing" ;
     rdfs:subClassOf :BlackBoxDecisionOnly .
 
-:PredictiveEquality a :ObservationalFairnessNotion,
-        :SeparationFairnessNotion,
+:ReplaceStereotypes a :OutputRewriting,
         owl:NamedIndividual ;
-    :hasBeenAppliedTo :Law ;
-    :isEquivalentTo :FalsePositiveErrorRateBalance ;
-    :isProposedBy :2016_HARDT ;
-    :isSuitableFor :Classification,
-        :TextClassification ;
-    skos:definition "a predictor that satisfy both predictive equality and equal opportunity, also satisfy equalized odds." .
+    :isProposedBy :2023_DHINGRA ;
+    :scientificArtifactDescription "Use SHAP (2017_Lundberg) to identify stereotypical words towards queer people, providing reasoning for why the original word was harmful. They then re-prompt the language model to replace those words, using style transfer to preserve the semantic meaning of the original sentence." .
 
 :2017_CHOULDECHOVA a :ScientificPaper,
         owl:NamedIndividual ;
@@ -2704,21 +3205,6 @@ fmo:statistical_metric a owl:Class ;
 :TechnicalLegalRequirement a owl:Class ;
     rdfs:label "Technical Legal Requirement" ;
     rdfs:subClassOf :LegalRequirement .
-
-:TestFairness a :ObservationalFairnessNotion,
-        :SufficiencyFairnessNotion,
-        owl:NamedIndividual ;
-    :hasBeenAppliedTo :CensusIncomePrediction,
-        :CreditRisk,
-        :Health,
-        :Law ;
-    :isEquivalentTo :Calibration,
-        :MatchingConditionalFrequencies ;
-    :isProposedBy :2018_VERMA ;
-    :isSuitableFor :Classification,
-        :TextClassification ;
-    owl:sameAs :Calibration,
-        :MatchingConditionalFrequencies .
 
 :Variance a :AmortizedGranularityMetric,
         :ImpactFocusedMetric,
@@ -2794,22 +3280,6 @@ fmo:statistical_metric a owl:Class ;
     rdfs:label "Application Domain"@en ;
     skos:definition "AI systems are tailored to the application domain of the specific use-case."@en .
 
-:Calibration a :ObservationalFairnessNotion,
-        :SufficiencyFairnessNotion,
-        owl:NamedIndividual ;
-    :hasBeenAppliedTo :CensusIncomePrediction,
-        :CreditRisk,
-        :Health,
-        :Law ;
-    :isEquivalentTo :MatchingConditionalFrequencies,
-        :TestFairness ;
-    :isProposedBy :2017_CHOULDECHOVA,
-        :2018_VERMA ;
-    :isSuitableFor :Classification,
-        :TextClassification ;
-    owl:sameAs :MatchingConditionalFrequencies,
-        :TestFairness .
-
 :MaskedLanguageModelling a :NaturalLanguageProcessingTask,
         owl:NamedIndividual .
 
@@ -2826,6 +3296,217 @@ fmo:bias a owl:Class ;
     dc:source "https://www.lexico.com/en/definition/bias"^^xsd:anyURI ;
     rdfs:subClassOf owl:Thing ;
     skos:definition "Predisposition in favor of or against one thing, person, or group compared with another, usually in a way considered to be unfair."@en .
+
+fmo:fairness_notion a owl:Class ;
+    rdfs:label "Fairness Notion"@en ;
+    dc:source "https://doi.org/10.1145/3468507.3468511"^^xsd:anyURI ;
+    resource:hasSynonym "criterion"@en,
+        "fairness"@en ;
+    rdfs:subClassOf :ScientificArtifact ;
+    skos:definition "A formal definition of fairness that can be observed as a property of a predictive model, in relation to that model's treatment of different cohorts."@en .
+
+:ErrorRateBalance a :ObservationalFairnessNotion,
+        :SeparationFairnessNotion,
+        owl:NamedIndividual ;
+    :extends :EqualOpportunity,
+        :PredictiveEquality ;
+    :hasBeenAppliedTo :CensusIncomePrediction,
+        :CreditRisk,
+        :Health,
+        :Law ;
+    :isEquivalentTo :ConditionalProcedureAccuracyEquality ;
+    :isMeasuredBy :OutcomeUnfairness ;
+    :isProposedBy :2017_CHOULDECHOVA ;
+    :isSuitableFor :Classification,
+        :TextClassification ;
+    skos:definition "Equal opportunity  and Predictive equality  i.e., if you satisfy Equalized odds, than you also satisfy Equal opportunity" .
+
+:FalsePositiveErrorRateBalance a :ObservationalFairnessNotion,
+        :SeparationFairnessNotion,
+        owl:NamedIndividual ;
+    :hasBeenAppliedTo :Law ;
+    :isEquivalentTo :PredictiveEquality ;
+    :isProposedBy :2017_CHOULDECHOVA ;
+    :isSuitableFor :Classification,
+        :TextClassification .
+
+:SeparationFairnessNotion a owl:Class ;
+    rdfs:label "separation fairness notion"@en ;
+    dc:source "https://doi.org/10.1145/3468507.3468511"^^xsd:anyURI ;
+    resource:hasSynonym "separation fairness"@en ;
+    rdfs:subClassOf :GroupFairnessNotion ;
+    skos:definition "The fairness property satisfied when the predicted outcome variable is independent of protected attributes, conditionally on the actual outcome variable."@en ;
+    fmo:probabilistic_definition "Ŷ ⊥ A | Y"@en .
+
+:FalseNegativeErrorRateBalance a :ObservationalFairnessNotion,
+        :SeparationFairnessNotion,
+        owl:NamedIndividual ;
+    :hasBeenAppliedTo :CensusIncomePrediction,
+        :CreditRisk,
+        :Health,
+        :Law ;
+    :isEquivalentTo :EqualOpportunity ;
+    :isMeasuredBy :TruePositiveRateDifference ;
+    :isProposedBy :2017_CHOULDECHOVA ;
+    :isSuitableFor :Classification,
+        :TextClassification ;
+    skos:definition "Equivalent to Equal opportunity because TPR=1-FNR" .
+
+fmo:fairness_metric a owl:Class ;
+    rdfs:label "Fairness Metric"@en ;
+    dc:source "https://doi.org/10.1145/3468507.3468511"^^xsd:anyURI ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty resource:SIO_000244 ;
+            owl:someValuesFrom fmo:statistical_metric ],
+        [ a owl:Restriction ;
+            owl:onProperty resource:SIO_000668 ;
+            owl:someValuesFrom fmo:dataset_cohort ],
+        fmo:evaluation_metric ;
+    skos:definition "A measurement of some fairness notion in a machine-learning model or dataset, with regards to some specific cohort(s)."@en .
+
+:ControlOffensiveTokens a :DecisionTimeConstrainedDecisioning,
+        owl:NamedIndividual ;
+    :isProposedBy :2020_XU ;
+    :scientificArtifactDescription "use word- or ngram-blocking during decoding, prohibiting the use of tokens from an offensive word list. The authors identify control tokens using a classifier that measures offensiveness, bias, and other potential harms in text. The control tokens can be appended to the input during inference to control model generation." .
+
+:REALTOXICITYPROMPTS a :OutputRewriting,
+        owl:NamedIndividual ;
+    :isProposedBy :2020_GEHMAN ;
+    :scientificArtifactDescription "adaptive pretraining on non-toxic data: increase the likelihood of non-toxic tokens, adding a (non-)toxicity score to the logits over the vocabulary before normalization, ans use word- or ngram-blocking during decoding, prohibiting the use of tokens from an offensive word list" .
+
+:AddNonToxicExamples a :SyntheticData,
+        owl:NamedIndividual ;
+    :isProposedBy :2018_DIXON ;
+    :scientificArtifactDescription "Add non-toxic examples for groups disproportionately represented with toxicity, until the distribution between toxic and non-toxic examples is balanced across groups." .
+
+:BlocklistDocumentRemoval a :Cleaning,
+        owl:NamedIndividual ;
+    :isProposedBy :2020_RAFFEL ;
+    :scientificArtifactDescription "Removal of biased instances, such as derogatory language: coarse word-level technique, removing all documents containing any words on a blocklist." .
+
+:LogLikeDocumentRemoval a :Cleaning,
+        owl:NamedIndividual ;
+    :isProposedBy :2021_NGO ;
+    :scientificArtifactDescription "Append to each document a phrase representative of an undesirable harm, such as racism or hate speech, and then use a pre-trained model to compute the conditional log-likelihood of the modified documents. Documents with high loglikelihoods are removed from the training set." .
+
+:PredictiveEquality a :ObservationalFairnessNotion,
+        :SeparationFairnessNotion,
+        owl:NamedIndividual ;
+    :hasBeenAppliedTo :Law ;
+    :isEquivalentTo :FalsePositiveErrorRateBalance ;
+    :isProposedBy :2016_HARDT ;
+    :isSuitableFor :Classification,
+        :TextClassification ;
+    skos:definition "a predictor that satisfy both predictive equality and equal opportunity, also satisfy equalized odds." .
+
+:AdversarialFDP a :AdversarialLearning,
+        owl:NamedIndividual ;
+    :isProposedBy :2019_CELISa ;
+    :scientificArtifactDescription "The adversary seeks to determine whether the training process is fair, and when not, feedback from the adversary is used to improve the model. Uses FDR as a fariness metric within the adversary to apply feedback for model tuning as a form of in-processing: the adversary penalizes the model if a sensitive variable is predictable from the dependent variable." .
+
+:PerceptronForUnawareness a :Adapters,
+        owl:NamedIndividual ;
+    :isProposedBy :2023_KUMARa ;
+    :scientificArtifactDescription "creates an adapter network by training a single-layer multilayer perceptron with the objective of removing protected attributes, with an additional fusion module to combine the original pretrained model with the adapter." .
+
+:ConditionalStatisticalParity a :IndependenceFairnessNotion,
+        :ObservationalFairnessNotion,
+        owl:NamedIndividual ;
+    :extends :FairnessThroughUnawareness,
+        :StatisticalParity ;
+    :hasBeenAppliedTo :CensusIncomePrediction,
+        :CreditRisk,
+        :Health,
+        :Law ;
+    :isProposedBy :2017_CORBETT-DAVIES ;
+    :isSuitableFor :Classification,
+        :TextClassification ;
+    skos:definition "Conditional statistical parity is closely related to the idea of fairness through blindness (i.e., unawareness[Ndr]), in which one attempts to create fair algorithms by prohibiting use of protected attributes, such as race. However, as frequently noted, it is difficult to restrict to “legitimate” features that do not at least partially correlate with race and other protected attributes, and so one cannot be completely “blind” to the sensitive information. Moreover, unlike the other definitions of fairness, this one does not necessarily re- duce racial disparities. Conditional statistical parity mitigates these limitations of the blindness approach while preserving its intuitive appeal. [2017_CORBETT-DAVIES]" .
+
+:Health a :ApplicationDomain,
+        owl:NamedIndividual .
+
+:CreditRisk a :ApplicationDomain,
+        owl:NamedIndividual .
+
+:CalibratedReRanking a :CalibrationBasedMitigation,
+        owl:NamedIndividual ;
+    :isProposedBy :2018_STECK ;
+    :scientificArtifactDescription "Calibrated recommendation through maximal marginal relevance" .
+
+:ListReAdjustment a :Reranking,
+        owl:NamedIndividual ;
+    :isProposedBy :2022_MANSOURY ;
+    :scientificArtifactDescription "Re-ranking method based on maximum flow: iteratively adds high-quality items that have low visibility or items from suppliers with low exposure to the users’ final recommendation lists." .
+
+:RegularizationOnANOVA a :FairnessRegularization,
+        owl:NamedIndividual ;
+    :isProposedBy :2020_WAN ;
+    :scientificArtifactDescription "Use F-statistic of ANOVA in the the loss function as regularization term to calibrate the parity of prediction errors across different market segments." .
+
+:RegularizationOnValueFairness a :FairnessRegularization,
+        owl:NamedIndividual ;
+    :isProposedBy :2017_YAO ;
+    :scientificArtifactDescription "Use fairness metrics (e.g., value fairness) as fair regularization" .
+
+:UserItemReRanking a :Reranking,
+        owl:NamedIndividual ;
+    :isProposedBy :2020_PATRO ;
+    :scientificArtifactDescription "Re-ranking  for both user fairness and item fairness" .
+
+:ImpactFocusedMetric a owl:Class ;
+    rdfs:label "Impact-focused Metric"@en ;
+    rdfs:subClassOf :OptimizationObjectMetric .
+
+:IndividualFairness a owl:NamedIndividual .
+
+:AugmentedAntidoteData a :CounterfactualAugmentation,
+        owl:NamedIndividual ;
+    :isProposedBy :2019_RASTEGARPANAH ;
+    :scientificArtifactDescription "Add antidote data to the training data" .
+
+:CDA a :CounterfactualAugmentation,
+        owl:NamedIndividual ;
+    :isProposedBy :2020_LU ;
+    :scientificArtifactDescription "Use CDA to mitigate occupation-gender bias, creating matched pairs by flipping gendered (e.g., “he” and “she”) or definitionally gendered (e.g., “king” and “queen”) words, while preserving grammatical and semantic correctness, under the definition that an unbiased model should consider each sentence in a pair equally." .
+
+:ItemFocusedMetric a owl:Class ;
+    rdfs:label "Item-focused Metric"@en ;
+    rdfs:subClassOf :SubjectMetric .
+
+:ReSamplingProtectedGroup a :StratifiedSampling,
+        owl:NamedIndividual ;
+    :isProposedBy :2018_EKSTRAND ;
+    :scientificArtifactDescription "Adjust the proportion of the protected group by resampling" .
+
+:CensusIncomePrediction a :ApplicationDomain,
+        owl:NamedIndividual .
+
+:AmortizedGranularityMetric a owl:Class ;
+    rdfs:label "Amortized Granularity Metric"@en ;
+    rdfs:subClassOf :GranularityMetric .
+
+:SingleGranularityMetric a owl:Class ;
+    rdfs:label "Single Granularity Metric"@en ;
+    rdfs:subClassOf :GranularityMetric .
+
+:TreatmentFocusedMetric a owl:Class ;
+    rdfs:label "Treatment-focused Metric"@en ;
+    rdfs:subClassOf :OptimizationObjectMetric .
+
+:UserFocusedMetric a owl:Class ;
+    rdfs:label "User-focused Metric"@en ;
+    rdfs:subClassOf :SubjectMetric .
+
+:ManagementLegalRequirement a owl:Class ;
+    rdfs:label "Management Legal Requirement" ;
+    rdfs:subClassOf :LegalRequirement .
+
+:ObservationalFairnessNotion a owl:Class ;
+    rdfs:label "observational fairness notion"@en ;
+    resource:hasSynonym "observational fairness"@en ;
+    rdfs:subClassOf :OutcomeFairnessNotion ;
+    skos:definition "A family of fairness notions focusing on the joint distribution of observable factors."@en .
 
 :FairnessThroughAwareness a :IndividualFairnessNotion,
         :ObservationalFairnessNotion,
@@ -2862,21 +3543,108 @@ $x_1$ and $x_2$, defined using a pre-specified, domain-dependent notion of simil
 \\cite{2025_WALLER}""" ;
     owl:sameAs :IndividualFairness .
 
-fmo:fairness_notion a owl:Class ;
-    rdfs:label "Fairness Notion"@en ;
-    dc:source "https://doi.org/10.1145/3468507.3468511"^^xsd:anyURI ;
-    resource:hasSynonym "criterion"@en,
-        "fairness"@en ;
-    rdfs:subClassOf :ScientificArtifact ;
-    skos:definition "A formal definition of fairness that can be observed as a property of a predictive model, in relation to that model's treatment of different cohorts."@en .
+:CounterfactualFairness a :CausalFairnessNotion,
+        :IndividualFairnessNotion,
+        owl:NamedIndividual ;
+    :hasBeenAppliedTo :Education ;
+    :isMeasuredBy :FairScore ;
+    :isProposedBy :2017_KUSNER ;
+    :isSuitableFor :Classification,
+        :TextClassification .
 
-:SeparationFairnessNotion a owl:Class ;
-    rdfs:label "separation fairness notion"@en ;
-    dc:source "https://doi.org/10.1145/3468507.3468511"^^xsd:anyURI ;
-    resource:hasSynonym "separation fairness"@en ;
-    rdfs:subClassOf :GroupFairnessNotion ;
-    skos:definition "The fairness property satisfied when the predicted outcome variable is independent of protected attributes, conditionally on the actual outcome variable."@en ;
-    fmo:probabilistic_definition "Ŷ ⊥ A | Y"@en .
+:DemographicParity a :IndependenceFairnessNotion,
+        :ObservationalFairnessNotion,
+        owl:NamedIndividual ;
+    :hasBeenAppliedTo :CensusIncomePrediction,
+        :CreditRisk,
+        :Education,
+        :Health,
+        :Law ;
+    :isMeasuredBy :DisparateImpact ;
+    :isProposedBy :2012_KAMISHIMA,
+        :2013_ZEMEL ;
+    :isSuitableFor :Classification,
+        :TextClassification ;
+    :isUsedBy :2015_FELDMAN,
+        :2017_CORBETT-DAVIES ;
+    owl:sameAs :StatisticalParity .
+
+:EU_AI_Act a :Legislation,
+        owl:NamedIndividual ;
+    rdfs:label "EU AI Act" ;
+    dc:source "https://www.euaiact.com/" .
+
+:EqualizedOdds a :ObservationalFairnessNotion,
+        :SeparationFairnessNotion,
+        owl:NamedIndividual ;
+    :extends :EqualOpportunity,
+        :OverallAccuracyEquality,
+        :PredictiveEquality ;
+    :hasBeenAppliedTo :CensusIncomePrediction,
+        :CreditRisk,
+        :Health,
+        :Law ;
+    :isEquivalentTo :ConditionalProcedureAccuracyEquality ;
+    :isMeasuredBy :OutcomeUnfairness ;
+    :isProposedBy :2018_VANMASSENHOVE,
+        :2021_BERK ;
+    :isSuitableFor :Classification,
+        :TextClassification ;
+    skos:definition "for NLP classification tasks, or tasks with a superimposed classifier, traditional fairness definitions like equalized odds or statistical parity MAY be used without modification[2024_Gallegos]. Extends Equal opportunity  and Predictive equality  i.e., if you satisfy Equalized odds, than you also satisfy Equal opportunity. It also extends Overall accuracy equality because if you achieve equalized odds, then you have equal accuracy." .
+
+:Law a :ApplicationDomain,
+        owl:NamedIndividual .
+
+:TestFairness a :ObservationalFairnessNotion,
+        :SufficiencyFairnessNotion,
+        owl:NamedIndividual ;
+    :hasBeenAppliedTo :CensusIncomePrediction,
+        :CreditRisk,
+        :Health,
+        :Law ;
+    :isEquivalentTo :Calibration,
+        :MatchingConditionalFrequencies ;
+    :isProposedBy :2018_VERMA ;
+    :isSuitableFor :Classification,
+        :TextClassification ;
+    owl:sameAs :Calibration,
+        :MatchingConditionalFrequencies .
+
+:ItemRecommendation a :ApplicationDomain,
+        owl:NamedIndividual .
+
+:Classification a :SupervisedLearingTask,
+        owl:NamedIndividual .
+
+:Calibration a :ObservationalFairnessNotion,
+        :SufficiencyFairnessNotion,
+        owl:NamedIndividual ;
+    :hasBeenAppliedTo :CensusIncomePrediction,
+        :CreditRisk,
+        :Health,
+        :Law ;
+    :isEquivalentTo :MatchingConditionalFrequencies,
+        :TestFairness ;
+    :isProposedBy :2017_CHOULDECHOVA,
+        :2018_VERMA ;
+    :isSuitableFor :Classification,
+        :TextClassification ;
+    owl:sameAs :MatchingConditionalFrequencies,
+        :TestFairness .
+
+:EqualOpportunity a :ObservationalFairnessNotion,
+        :SeparationFairnessNotion,
+        owl:NamedIndividual ;
+    :hasBeenAppliedTo :CensusIncomePrediction,
+        :CreditRisk,
+        :Health,
+        :Law ;
+    :isEquivalentTo :FalseNegativeErrorRateBalance ;
+    :isMeasuredBy :TruePositiveRateDifference ;
+    :isProposedBy :2016_HARDT ;
+    :isSuitableFor :Classification,
+        :TextClassification ;
+    skos:definition "examples from different groups MAY have different distributions of risk, and directly applying equality of opportunity over these different risks can raise  issues. Equivalent to False negative error balance because TPR=1-FNR" .
 
 :StatisticalParity a :IndependenceFairnessNotion,
         :ObservationalFairnessNotion,
@@ -2894,89 +3662,6 @@ fmo:fairness_notion a owl:Class ;
     :isUsedBy :2015_FELDMAN,
         :2017_CORBETT-DAVIES ;
     skos:definition "or NLP classification tasks, or tasks with a superimposed classifier, traditional fairness definitions like equalized odds or statistical parity MAY be used without modification[2024_Gallegos]" .
-
-fmo:fairness_metric a owl:Class ;
-    rdfs:label "Fairness Metric"@en ;
-    dc:source "https://doi.org/10.1145/3468507.3468511"^^xsd:anyURI ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty resource:SIO_000244 ;
-            owl:someValuesFrom fmo:statistical_metric ],
-        [ a owl:Restriction ;
-            owl:onProperty resource:SIO_000668 ;
-            owl:someValuesFrom fmo:dataset_cohort ],
-        fmo:evaluation_metric ;
-    skos:definition "A measurement of some fairness notion in a machine-learning model or dataset, with regards to some specific cohort(s)."@en .
-
-:EqualOpportunity a :ObservationalFairnessNotion,
-        :SeparationFairnessNotion,
-        owl:NamedIndividual ;
-    :hasBeenAppliedTo :CensusIncomePrediction,
-        :CreditRisk,
-        :Health,
-        :Law ;
-    :isEquivalentTo :FalseNegativeErrorRateBalance ;
-    :isMeasuredBy :TruePositiveRateDifference ;
-    :isProposedBy :2016_HARDT ;
-    :isSuitableFor :Classification,
-        :TextClassification ;
-    skos:definition "examples from different groups MAY have different distributions of risk, and directly applying equality of opportunity over these different risks can raise  issues. Equivalent to False negative error balance because TPR=1-FNR" .
-
-:Health a :ApplicationDomain,
-        owl:NamedIndividual .
-
-:CreditRisk a :ApplicationDomain,
-        owl:NamedIndividual .
-
-:ImpactFocusedMetric a owl:Class ;
-    rdfs:label "Impact-focused Metric"@en ;
-    rdfs:subClassOf :OptimizationObjectMetric .
-
-:ItemFocusedMetric a owl:Class ;
-    rdfs:label "Item-focused Metric"@en ;
-    rdfs:subClassOf :SubjectMetric .
-
-:CensusIncomePrediction a :ApplicationDomain,
-        owl:NamedIndividual .
-
-:AmortizedGranularityMetric a owl:Class ;
-    rdfs:label "Amortized Granularity Metric"@en ;
-    rdfs:subClassOf :GranularityMetric .
-
-:SingleGranularityMetric a owl:Class ;
-    rdfs:label "Single Granularity Metric"@en ;
-    rdfs:subClassOf :GranularityMetric .
-
-:TreatmentFocusedMetric a owl:Class ;
-    rdfs:label "Treatment-focused Metric"@en ;
-    rdfs:subClassOf :OptimizationObjectMetric .
-
-:UserFocusedMetric a owl:Class ;
-    rdfs:label "User-focused Metric"@en ;
-    rdfs:subClassOf :SubjectMetric .
-
-:ManagementLegalRequirement a owl:Class ;
-    rdfs:label "Management Legal Requirement" ;
-    rdfs:subClassOf :LegalRequirement .
-
-:ObservationalFairnessNotion a owl:Class ;
-    rdfs:label "observational fairness notion"@en ;
-    resource:hasSynonym "observational fairness"@en ;
-    rdfs:subClassOf :OutcomeFairnessNotion ;
-    skos:definition "A family of fairness notions focusing on the joint distribution of observable factors."@en .
-
-:EU_AI_Act a :Legislation,
-        owl:NamedIndividual ;
-    rdfs:label "EU AI Act" ;
-    dc:source "https://www.euaiact.com/" .
-
-:Law a :ApplicationDomain,
-        owl:NamedIndividual .
-
-:ItemRecommendation a :ApplicationDomain,
-        owl:NamedIndividual .
-
-:Classification a :SupervisedLearingTask,
-        owl:NamedIndividual .
 
 :TextClassification a :NaturalLanguageProcessingTask,
         owl:NamedIndividual .
