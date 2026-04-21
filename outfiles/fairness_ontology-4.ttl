@@ -1,0 +1,1715 @@
+@base <http://fairness_ontology.com/> .
+@prefix : <http://fairness_ontology.com/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix fmo: <https://purl.org/twc/fmo#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix resource: <http://semanticscience.org/resource/> .
+# 
+# 
+# #################################################################
+# #
+# #    Annotation properties
+# #
+# #################################################################
+# 
+# 
+# http://fairness_ontology.com/hasAntonym
+# 
+# http://fairness_ontology.com/isBasedOnSocialPrinciple
+# 
+# http://purl.org/dc/elements/1.1/source
+# 
+# http://semanticscience.org/resource/hasSynonym
+# 
+# http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled
+# 
+# http://www.w3.org/2004/02/skos/core#definition
+# 
+# https://purl.org/twc/fmo#probabilistic_definition
+# 
+# https://purl.org/twc/fmo#tag
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Object Properties
+# #
+# #################################################################
+# 
+# 
+# http://fairness_ontology.com/arisesIn
+# 
+# http://fairness_ontology.com/conflictsWith
+# 
+# http://fairness_ontology.com/enforces
+# 
+# http://fairness_ontology.com/exposesTo
+# 
+# http://fairness_ontology.com/extends
+# 
+# http://fairness_ontology.com/follows
+# 
+# http://fairness_ontology.com/guides
+# 
+# http://fairness_ontology.com/hasBeenAppliedTo
+# 
+# http://fairness_ontology.com/hasBeenTestedOn
+# 
+# http://fairness_ontology.com/independenceSeparationConflictsWith
+# 
+# http://fairness_ontology.com/independenceSufficiencyConflictsWith
+# 
+# http://fairness_ontology.com/isAddressedWith
+# 
+# http://fairness_ontology.com/isAppliedAt
+# 
+# http://fairness_ontology.com/isEnforcedBy
+# 
+# http://fairness_ontology.com/isEquivalentTo
+# 
+# http://fairness_ontology.com/isFollowedBy
+# 
+# http://fairness_ontology.com/isGuidedBy
+# 
+# http://fairness_ontology.com/isMeasuredBy
+# 
+# http://fairness_ontology.com/isMitigatedBy
+# 
+# http://fairness_ontology.com/isOperationalizedBy
+# 
+# http://fairness_ontology.com/isProposedBy
+# 
+# http://fairness_ontology.com/isQuantifiedBy
+# 
+# http://fairness_ontology.com/isRelevantDuring
+# 
+# http://fairness_ontology.com/isSuitableFor
+# 
+# http://fairness_ontology.com/isTriggeredBy
+# 
+# http://fairness_ontology.com/isUsedBy
+# 
+# http://fairness_ontology.com/itsComplianceIsSupportedWith
+# 
+# http://fairness_ontology.com/measures
+# 
+# http://fairness_ontology.com/mitigatedWith
+# 
+# http://fairness_ontology.com/mitigates
+# 
+# http://fairness_ontology.com/operationalize
+# 
+# http://fairness_ontology.com/refersTo
+# 
+# http://fairness_ontology.com/relatesTo
+# 
+# http://fairness_ontology.com/requires
+# 
+# http://fairness_ontology.com/separationSufficiencyConflictsWith
+# 
+# http://fairness_ontology.com/supportsComplianceWith
+# 
+# http://fairness_ontology.com/testedOn
+# 
+# http://fairness_ontology.com/triggers
+# 
+# http://semanticscience.org/resource/SIO_000068
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Data properties
+# #
+# #################################################################
+# 
+# 
+# http://fairness_ontology.com/scientificArtifactDescription
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Classes
+# #
+# #################################################################
+# 
+# 
+# http://fairness_ontology.com/AILifecycleStep
+# 
+# http://fairness_ontology.com/AITask
+# 
+# http://fairness_ontology.com/AITypeOfUse
+# 
+# http://fairness_ontology.com/Adapters
+# 
+# http://fairness_ontology.com/AdversarialLearning
+# 
+# http://fairness_ontology.com/AmortizedGranularityMetric
+# 
+# http://fairness_ontology.com/ApplicationDomain
+# 
+# http://fairness_ontology.com/AuditSets
+# 
+# http://fairness_ontology.com/BanditsBasedLearning
+# 
+# http://fairness_ontology.com/BlackBoxDecisionOnly
+# 
+# http://fairness_ontology.com/Blinding
+# 
+# http://fairness_ontology.com/CalibrationBasedFairnessMetric
+# 
+# http://fairness_ontology.com/CalibrationBasedMitigation
+# 
+# http://fairness_ontology.com/CausalFairnessNotion
+# 
+# http://fairness_ontology.com/ClassifierFairnessMetric
+# 
+# http://fairness_ontology.com/Cleaning
+# 
+# http://fairness_ontology.com/ConfusionMatrixBasedFairnessMetric
+# 
+# http://fairness_ontology.com/ConstrainedOptimization
+# 
+# http://fairness_ontology.com/ConversationFairnessConcern
+# 
+# http://fairness_ontology.com/CounterfactualAugmentation
+# 
+# http://fairness_ontology.com/DataGeneration
+# 
+# http://fairness_ontology.com/DataResourcesMitigation
+# 
+# http://fairness_ontology.com/Dataset
+# 
+# http://fairness_ontology.com/DecisionTimeConstrainedDecisioning
+# 
+# http://fairness_ontology.com/DistanceBasedFairnessMetric
+# 
+# http://fairness_ontology.com/DistributionFairnessMetric
+# 
+# http://fairness_ontology.com/EmbeddingBasedFairnessMetric
+# 
+# http://fairness_ontology.com/EvidenceArtifact
+# 
+# http://fairness_ontology.com/FairnessConcern
+# 
+# http://fairness_ontology.com/FairnessRegularization
+# 
+# http://fairness_ontology.com/FeatureLevelColumnIntervention
+# 
+# http://fairness_ontology.com/FeatureLevelRowReweightingResampling
+# 
+# http://fairness_ontology.com/FeatureReview
+# 
+# http://fairness_ontology.com/FullFineTuning
+# 
+# http://fairness_ontology.com/FullParameterDebiasing
+# 
+# http://fairness_ontology.com/FullPruning
+# 
+# http://fairness_ontology.com/FullRetraining
+# 
+# http://fairness_ontology.com/FullWeightRedistribution
+# 
+# http://fairness_ontology.com/GeneratedTextBasedFairnessMetric
+# 
+# http://fairness_ontology.com/Governance
+# 
+# http://fairness_ontology.com/GovernanceOnly
+# 
+# http://fairness_ontology.com/GranularityMetric
+# 
+# http://fairness_ontology.com/GreyBoxScores
+# 
+# http://fairness_ontology.com/GroupFairnessNotion
+# 
+# http://fairness_ontology.com/HeadOnly
+# 
+# http://fairness_ontology.com/HumanOversightMitigation
+# 
+# http://fairness_ontology.com/ImpactFocusedMetric
+# 
+# http://fairness_ontology.com/In-processing
+# 
+# http://fairness_ontology.com/IndependenceFairnessNotion
+# 
+# http://fairness_ontology.com/IndividualFairnessNotion
+# 
+# http://fairness_ontology.com/InstanceLevelRowIntervention
+# 
+# http://fairness_ontology.com/InstanceWeighting
+# 
+# http://fairness_ontology.com/ItemFocusedMetric
+# 
+# http://fairness_ontology.com/LearningAndPerception
+# 
+# http://fairness_ontology.com/LegalRequirement
+# 
+# http://fairness_ontology.com/Legislation
+# 
+# http://fairness_ontology.com/LexiconFairnessMetric
+# 
+# http://fairness_ontology.com/LoRA
+# 
+# http://fairness_ontology.com/ManagementLegalRequirement
+# 
+# http://fairness_ontology.com/MaskedTokenFairnessMetric
+# 
+# http://fairness_ontology.com/MitigationTechnique
+# 
+# http://fairness_ontology.com/ModelAccessResourcesMitigation
+# 
+# http://fairness_ontology.com/ObservationalFairnessNotion
+# 
+# http://fairness_ontology.com/OptimizationObjectMetric
+# 
+# http://fairness_ontology.com/OutcomeFairnessNotion
+# 
+# http://fairness_ontology.com/OutputRewriting
+# 
+# http://fairness_ontology.com/ParityBasedFairnessMetric
+# 
+# http://fairness_ontology.com/PartialFineTuning
+# 
+# http://fairness_ontology.com/PartialPruning
+# 
+# http://fairness_ontology.com/Post-processing
+# 
+# http://fairness_ontology.com/Pre-processing
+# 
+# http://fairness_ontology.com/ProbabilityBasedFairnessMetric
+# 
+# http://fairness_ontology.com/ProceduralFairnessNotion
+# 
+# http://fairness_ontology.com/PseudoLogLikelihoodFairnessMetric
+# 
+# http://fairness_ontology.com/ReasoningAndDecisionMaking
+# 
+# http://fairness_ontology.com/RecommendationFairnessConcern
+# 
+# http://fairness_ontology.com/RecommendationSystemMetric
+# 
+# http://fairness_ontology.com/Relabeling
+# 
+# http://fairness_ontology.com/Reranking
+# 
+# http://fairness_ontology.com/ScientificArtifact
+# 
+# http://fairness_ontology.com/ScientificPaper
+# 
+# http://fairness_ontology.com/Scoping
+# 
+# http://fairness_ontology.com/ScoreBasedFairnessMetric
+# 
+# http://fairness_ontology.com/SelectiveParameterUpdating
+# 
+# http://fairness_ontology.com/SentenceEmbeddingFairnessMetric
+# 
+# http://fairness_ontology.com/SeparationFairnessNotion
+# 
+# http://fairness_ontology.com/SingleGranularityMetric
+# 
+# http://fairness_ontology.com/SocialPrinciple
+# 
+# http://fairness_ontology.com/StratifiedSampling
+# 
+# http://fairness_ontology.com/SubjectMetric
+# 
+# http://fairness_ontology.com/SufficiencyFairnessNotion
+# 
+# http://fairness_ontology.com/SyntheticData
+# 
+# http://fairness_ontology.com/TargetedCollections
+# 
+# http://fairness_ontology.com/TechnicalLegalRequirement
+# 
+# http://fairness_ontology.com/Thresholding
+# 
+# http://fairness_ontology.com/TrainingResourcesMitigation
+# 
+# http://fairness_ontology.com/Transformation
+# 
+# http://fairness_ontology.com/TreatmentFocusedMetric
+# 
+# http://fairness_ontology.com/UserFocusedMetric
+# 
+# http://fairness_ontology.com/WordEmbeddingFairnessMetric
+# 
+# https://purl.org/twc/fmo#bias
+# 
+# https://purl.org/twc/fmo#fairness_metric
+# 
+# https://purl.org/twc/fmo#fairness_notion
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Individuals
+# #
+# #################################################################
+# 
+# 
+# http://fairness_ontology.com/AbductiveReasoning
+# 
+# http://fairness_ontology.com/AlgorithmicBias
+# 
+# http://fairness_ontology.com/AnalyticsApproach
+# 
+# http://fairness_ontology.com/BiasedHistoricalExamples
+# 
+# http://fairness_ontology.com/BusinessRequirements
+# 
+# http://fairness_ontology.com/Classification
+# 
+# http://fairness_ontology.com/ConformityAssesmentReport
+# 
+# http://fairness_ontology.com/ConstraintOptimization
+# 
+# http://fairness_ontology.com/ConstraintSolving
+# 
+# http://fairness_ontology.com/Conversation
+# 
+# http://fairness_ontology.com/DataCollection
+# 
+# http://fairness_ontology.com/DataPreparation
+# 
+# http://fairness_ontology.com/DataRequirements
+# 
+# http://fairness_ontology.com/DerogatoryLanguage
+# 
+# http://fairness_ontology.com/Dialogue
+# 
+# http://fairness_ontology.com/DisparateSystemPerformance
+# 
+# http://fairness_ontology.com/EU_AI_Act
+# 
+# http://fairness_ontology.com/Education
+# 
+# http://fairness_ontology.com/EqualityPrincipal
+# 
+# http://fairness_ontology.com/EquityPrinciple
+# 
+# http://fairness_ontology.com/Erasure
+# 
+# http://fairness_ontology.com/ExclusionaryNorm
+# 
+# http://fairness_ontology.com/ExploratoryDataAnalysis
+# 
+# http://fairness_ontology.com/FRIAReport
+# 
+# http://fairness_ontology.com/FeedbackLoopOverfitting
+# 
+# http://fairness_ontology.com/FinanceAndInsurance
+# 
+# http://fairness_ontology.com/Healthcare
+# 
+# http://fairness_ontology.com/HistoricalBias
+# 
+# http://fairness_ontology.com/HumanResources
+# 
+# http://fairness_ontology.com/ICTSecurity
+# 
+# http://fairness_ontology.com/IncompleteHistoricalExamples
+# 
+# http://fairness_ontology.com/InformationRetrival
+# 
+# http://fairness_ontology.com/InstructionsForUse
+# 
+# http://fairness_ontology.com/IntersectionalBias
+# 
+# http://fairness_ontology.com/LawAndJustice
+# 
+# http://fairness_ontology.com/LinguisticBias
+# 
+# http://fairness_ontology.com/Logs
+# 
+# http://fairness_ontology.com/MaskingBias
+# 
+# http://fairness_ontology.com/Misrepresentation
+# 
+# http://fairness_ontology.com/MisrepresentationsInProductMarketing
+# 
+# http://fairness_ontology.com/ModelDeployment
+# 
+# http://fairness_ontology.com/ModelEvaluation
+# 
+# http://fairness_ontology.com/ModelSelection
+# 
+# http://fairness_ontology.com/ModelTuning
+# 
+# http://fairness_ontology.com/OmmittedVariableBias
+# 
+# http://fairness_ontology.com/Planning
+# 
+# http://fairness_ontology.com/PopularItemsOverrecommended
+# 
+# http://fairness_ontology.com/Prediction
+# 
+# http://fairness_ontology.com/ProbabilisticReasoning
+# 
+# http://fairness_ontology.com/ProjectReview
+# 
+# http://fairness_ontology.com/PublicServices
+# 
+# http://fairness_ontology.com/Ranking
+# 
+# http://fairness_ontology.com/Recommendation
+# 
+# http://fairness_ontology.com/RepresentationBias
+# 
+# http://fairness_ontology.com/RetailAndECommerce
+# 
+# http://fairness_ontology.com/SamplingBias
+# 
+# http://fairness_ontology.com/ScoringRegression
+# 
+# http://fairness_ontology.com/Stereotyping
+# 
+# http://fairness_ontology.com/TechnicalDocument
+# 
+# http://fairness_ontology.com/TextGeneration
+# 
+# http://fairness_ontology.com/TransportAndLogistics
+# 
+# http://fairness_ontology.com/UtilitiesEnergy
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Rules
+# #
+# #################################################################
+# 
+# 
+# Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
+
+<http://fairness_ontology.com> a owl:Ontology .
+
+:hasAntonym a owl:AnnotationProperty;
+  rdfs:comment "Relates a concept to its antonym, given as a string or URI."@en;
+  rdfs:label "has antonym"@en .
+
+:isBasedOnSocialPrinciple a owl:AnnotationProperty .
+
+dc:source a owl:AnnotationProperty .
+
+resource:hasSynonym a owl:AnnotationProperty .
+
+<http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> a owl:AnnotationProperty .
+
+skos:definition a owl:AnnotationProperty .
+
+fmo:probabilistic_definition a owl:AnnotationProperty .
+
+fmo:tag a owl:AnnotationProperty .
+
+:arisesIn a owl:ObjectProperty;
+  rdfs:domain :FairnessConcern;
+  rdfs:range :AITypeOfUse;
+  rdfs:label "arises in" .
+
+:conflictsWith a owl:ObjectProperty, owl:SymmetricProperty .
+
+:enforces a owl:ObjectProperty;
+  owl:inverseOf :isEnforcedBy;
+  rdfs:domain :MitigationTechnique;
+  rdfs:range fmo:fairness_metric;
+  rdfs:label "enforces"@en .
+
+:exposesTo a owl:ObjectProperty;
+  rdfs:domain fmo:bias;
+  rdfs:range :FairnessConcern;
+  rdfs:label "exposes to"@en .
+
+:extends a owl:ObjectProperty;
+  rdfs:domain :ScientificArtifact;
+  rdfs:range :ScientificArtifact;
+  rdfs:label "extends";
+  skos:definition "A certain Scientific Artifact may extend another. E.g., a certain Fairness Notion can extend another one" .
+
+:follows a owl:ObjectProperty;
+  owl:inverseOf :isFollowedBy;
+  rdfs:domain :AILifecycleStep;
+  rdfs:range :AILifecycleStep;
+  rdfs:label "follows" .
+
+:guides a owl:ObjectProperty;
+  owl:inverseOf :isGuidedBy;
+  rdfs:domain :SocialPrinciple;
+  rdfs:range fmo:fairness_notion;
+  rdfs:comment "Links a fairness notion to its underpinning social principle such as equity or equality."@en;
+  rdfs:label "guides"@en .
+
+:hasBeenAppliedTo a owl:ObjectProperty;
+  rdfs:domain :ScientificArtifact;
+  rdfs:range :ApplicationDomain;
+  rdfs:label "has been applied to"@en;
+  skos:definition "A certain fairness notion has been applied to certain application domains."@en .
+
+:hasBeenTestedOn a owl:ObjectProperty;
+  rdfs:domain :ScientificArtifact;
+  rdfs:range :Dataset;
+  rdfs:label "has been tested on"@en .
+
+:independenceSeparationConflictsWith a owl:ObjectProperty;
+  rdfs:subPropertyOf :conflictsWith;
+  rdfs:comment "Assume Y is binary, A is not independent of Y, and R is not independent of Y. Then, independence and separation cannot both hold." .
+
+:independenceSufficiencyConflictsWith a owl:ObjectProperty, owl:SymmetricProperty;
+  rdfs:subPropertyOf :conflictsWith;
+  rdfs:comment "Assume that sensitive attribute A and the target variable Y are not independent. Then sufficiency and independence cannot both hold." .
+
+:isAddressedWith a owl:ObjectProperty;
+  rdfs:domain :FairnessConcern;
+  rdfs:range fmo:fairness_notion;
+  rdfs:label "is addressed with"@en .
+
+:isAppliedAt a owl:ObjectProperty;
+  rdfs:domain :MitigationTechnique;
+  rdfs:range :AILifecycleStep;
+  rdfs:label "is applied at" .
+
+:isEnforcedBy a owl:ObjectProperty;
+  rdfs:domain fmo:fairness_metric;
+  rdfs:range :MitigationTechnique;
+  rdfs:label "is enforced by"@en .
+
+:isEquivalentTo a owl:ObjectProperty, owl:SymmetricProperty;
+  rdfs:domain fmo:fairness_notion;
+  rdfs:range fmo:fairness_notion;
+  rdfs:label "is equivalent to"@en;
+  skos:definition "A certain fairness notion can be equal to some other fairness notions."@en .
+
+:isFollowedBy a owl:ObjectProperty;
+  rdfs:domain :AILifecycleStep;
+  rdfs:range :AILifecycleStep;
+  rdfs:label "is followed by" .
+
+:isGuidedBy a owl:ObjectProperty;
+  rdfs:domain fmo:fairness_notion;
+  rdfs:range :SocialPrinciple;
+  rdfs:comment "Links a fairness notion to its underpinning social principle such as equity or equality."@en;
+  rdfs:label "is guided by"@en .
+
+:isMeasuredBy a owl:ObjectProperty;
+  owl:inverseOf :measures;
+  rdfs:domain fmo:fairness_notion;
+  rdfs:range fmo:fairness_metric;
+  rdfs:label "is measured by"@en;
+  skos:definition "A fairness notion is measured by a fairness metric if comparisons made with the given metric are a valid way to determine fairness with this notion."@en .
+
+:isMitigatedBy a owl:ObjectProperty;
+  owl:inverseOf :mitigates;
+  rdfs:domain fmo:bias;
+  rdfs:range fmo:fairness_notion;
+  rdfs:label "is mitigated by"@en;
+  skos:definition "A certain bias in the use-case can be mitigated by enforcing specific fairness notions."@en .
+
+:isOperationalizedBy a owl:ObjectProperty;
+  owl:inverseOf :operationalize;
+  rdfs:domain :LegalRequirement;
+  rdfs:range fmo:fairness_notion;
+  rdfs:label "is operationalized by" .
+
+:isProposedBy a owl:ObjectProperty;
+  rdfs:subPropertyOf :isUsedBy;
+  rdfs:domain :ScientificArtifact;
+  rdfs:range :ScientificPaper;
+  rdfs:label "is proposed by"@en;
+  skos:definition "A certain fairness notion is proposed by a certain scientific paper."@en .
+
+:isQuantifiedBy a owl:ObjectProperty;
+  rdfs:domain :FairnessConcern;
+  rdfs:range fmo:fairness_metric;
+  rdfs:label "is quantified by"@en .
+
+:isRelevantDuring a owl:ObjectProperty;
+  rdfs:domain :LegalRequirement;
+  rdfs:range :AILifecycleStep;
+  rdfs:label "is relevant during" .
+
+:isSuitableFor a owl:ObjectProperty;
+  rdfs:domain fmo:fairness_metric;
+  rdfs:range :AITypeOfUse;
+  rdfs:label "is suitable for" .
+
+:isTriggeredBy a owl:ObjectProperty;
+  owl:inverseOf :triggers ;
+  rdfs:label "is triggered by" .
+
+:isUsedBy a owl:ObjectProperty;
+  rdfs:domain :ScientificArtifact;
+  rdfs:range :ScientificPaper;
+  rdfs:label "is used by"@en;
+  skos:definition "A certain fairness notion is used by some scientific papers."@en .
+
+:itsComplianceIsSupportedWith a owl:ObjectProperty;
+  owl:inverseOf :supportsComplianceWith;
+  rdfs:domain :LegalRequirement;
+  rdfs:range :MitigationTechnique;
+  rdfs:label "its compliance is supported by" .
+
+:measures a owl:ObjectProperty;
+  rdfs:domain fmo:fairness_metric;
+  rdfs:range fmo:fairness_notion;
+  rdfs:label "measures"@en;
+  skos:definition "A fairness metric measures some fairness notion if comparisons made with the given metric are a valid way to determine fairness with this notion."@en .
+
+:mitigatedWith a owl:ObjectProperty;
+  rdfs:domain :FairnessConcern;
+  rdfs:range :MitigationTechnique;
+  rdfs:label "mitigated with"@en .
+
+:mitigates a owl:ObjectProperty;
+  rdfs:domain fmo:fairness_notion;
+  rdfs:range fmo:bias;
+  rdfs:label "mitigates"@en;
+  skos:definition "A fairness notion is required to mitigate a certain bias."@en .
+
+:operationalize a owl:ObjectProperty;
+  rdfs:domain fmo:fairness_notion;
+  rdfs:range :LegalRequirement;
+  rdfs:label "operationalize" .
+
+:refersTo a owl:ObjectProperty;
+  rdfs:domain :ScientificArtifact;
+  rdfs:range :AITask;
+  rdfs:label "refers to"@en;
+  skos:definition "A certain fairness notion refers to (is suitable for) a certain set of AI tasks."@en .
+
+:relatesTo a owl:ObjectProperty;
+  rdfs:domain :Dataset;
+  rdfs:range :ApplicationDomain;
+  rdfs:label "relates to" .
+
+:requires a owl:ObjectProperty;
+  rdfs:domain :FairnessConcern;
+  rdfs:range :EvidenceArtifact .
+
+:separationSufficiencyConflictsWith a owl:ObjectProperty;
+  rdfs:subPropertyOf :conflictsWith;
+  rdfs:comment "Assume that all events in the joint distribution of (A, R, Y) have positive probability, and assume A is not independent of Y. Then, separation and sufficiency cannot both hold. For binary classifier, this means: Assume Y is not independent of A and assume \\hat{Y} is a binary classifier with a nonzero false positive rate. Then, separation and sufficiency cannot both hold." .
+
+:supportsComplianceWith a owl:ObjectProperty;
+  rdfs:domain :MitigationTechnique;
+  rdfs:range :LegalRequirement;
+  rdfs:label "supports compliance with" .
+
+:testedOn a owl:ObjectProperty;
+  rdfs:domain :ScientificPaper;
+  rdfs:range :Dataset;
+  rdfs:label "tested on"@en .
+
+:triggers a owl:ObjectProperty;
+  rdfs:domain :FairnessConcern;
+  rdfs:range :LegalRequirement .
+
+resource:SIO_000068 a owl:ObjectProperty;
+  rdfs:domain :LegalRequirement;
+  rdfs:range :Legislation;
+  rdfs:label "is part of"@en .
+
+:scientificArtifactDescription a owl:DatatypeProperty;
+  rdfs:domain :ScientificArtifact;
+  rdfs:range xsd:string;
+  rdfs:label "scientific artifact description"@en;
+  skos:definition "A latex description of a scientific artifact."@en .
+
+:AILifecycleStep a owl:Class;
+  rdfs:label "AI Lifecycle Step" .
+
+:AITask a owl:Class;
+  rdfs:label "AI Task"@en;
+  skos:definition "The functional task that the AI system is able to perform. Previously was MLTask, AITask and AICapability."@en .
+
+:AITypeOfUse a owl:Class;
+  owl:equivalentClass _:genid1;
+  rdfs:comment "Describes the type of use of (or the type of interaction with) the AI system. It impacts obligations. Previously called AIScenario";
+  rdfs:label "AI Type Of Use" .
+
+_:genid1 a owl:Class;
+  owl:oneOf _:genid4 .
+
+_:genid4 a rdf:List;
+  rdf:first :Conversation;
+  rdf:rest _:genid3 .
+
+_:genid3 a rdf:List;
+  rdf:first :Prediction;
+  rdf:rest _:genid2 .
+
+_:genid2 a rdf:List;
+  rdf:first :Recommendation;
+  rdf:rest rdf:nil .
+
+:Adapters a owl:Class;
+  rdfs:subClassOf :PartialFineTuning;
+  rdfs:label "Adapters" .
+
+:AdversarialLearning a owl:Class;
+  rdfs:subClassOf :FullRetraining;
+  rdfs:label "Adversarial Learning" .
+
+:AmortizedGranularityMetric a owl:Class;
+  rdfs:subClassOf :GranularityMetric;
+  rdfs:label "Amortized Granularity Metric"@en .
+
+:ApplicationDomain a owl:Class;
+  rdfs:label "Application Domain"@en;
+  skos:definition "The specific real-world area or context in which the system is designed to operate. Previously was UseArea. According to AI Watch taxonomy can also me called \"Economic Sector or Use Area\""@en .
+
+:AuditSets a owl:Class;
+  rdfs:subClassOf :DataGeneration;
+  rdfs:label "Audit Sets" .
+
+:BanditsBasedLearning a owl:Class;
+  rdfs:subClassOf :FullRetraining;
+  rdfs:label "Bandits-based Learning" .
+
+:BlackBoxDecisionOnly a owl:Class;
+  rdfs:subClassOf :ModelAccessResourcesMitigation, _:genid5;
+  rdfs:label "Decision Layer Control - Black-box Model (I)" .
+
+_:genid5 a owl:Restriction;
+  owl:allValuesFrom :Post-processing;
+  owl:onProperty :isAppliedAt .
+
+:Blinding a owl:Class;
+  rdfs:subClassOf :FeatureLevelColumnIntervention;
+  rdfs:label "Blinding and Proxy Removal" .
+
+:CalibrationBasedFairnessMetric a owl:Class;
+  rdfs:subClassOf fmo:fairness_metric;
+  rdfs:label "Calibration-based Fairness Metric";
+  skos:definition "A measurement of any fairness notion, partially connected to the confusion matrix principles, these metrics are usually referred with the term  calibration-based, with the very aim of distinguishing their prevalent attention to the predictive values." .
+
+:CalibrationBasedMitigation a owl:Class;
+  rdfs:subClassOf :GreyBoxScores;
+  rdfs:label "Calibration-based Mitigation" .
+
+:CausalFairnessNotion a owl:Class;
+  rdfs:subClassOf :OutcomeFairnessNotion;
+  owl:disjointWith :ObservationalFairnessNotion;
+  resource:hasSynonym "causal fairness"@en;
+  rdfs:label "Causal Fairness Notion"@en;
+  skos:definition "A family of fairness notions focusing on the causal relations between variables."@en .
+
+:ClassifierFairnessMetric a owl:Class;
+  rdfs:subClassOf :GeneratedTextBasedFairnessMetric;
+  rdfs:label "Classifier Fairness Metric"@en;
+  skos:definition "A metric that employs a classifier on generated text to assess the presence of bias or fairness."@en .
+
+:Cleaning a owl:Class;
+  rdfs:subClassOf :InstanceLevelRowIntervention;
+  rdfs:label "Cleaning" .
+
+:ConfusionMatrixBasedFairnessMetric a owl:Class;
+  rdfs:subClassOf fmo:fairness_metric;
+  rdfs:label "Confusion Matrix-based Fairness Metric"@en;
+  skos:definition "A measurement of any fairness notion, focusing on the amount of correct/incorrect classifications inferred by the predictor."@en .
+
+:ConstrainedOptimization a owl:Class;
+  rdfs:subClassOf :FullRetraining;
+  rdfs:label "Constrained Optimization" .
+
+:ConversationFairnessConcern a owl:Class;
+  rdfs:subClassOf :FairnessConcern, _:genid6 .
+
+_:genid6 a owl:Restriction;
+  owl:hasValue :Conversation;
+  owl:onProperty :arisesIn .
+
+:CounterfactualAugmentation a owl:Class;
+  rdfs:subClassOf :InstanceLevelRowIntervention;
+  rdfs:label "Counterfactual Augmentation" .
+
+:DataGeneration a owl:Class;
+  rdfs:subClassOf :DataResourcesMitigation;
+  rdfs:label "Data Acquisition/Generation (D)" .
+
+:DataResourcesMitigation a owl:Class;
+  rdfs:subClassOf :MitigationTechnique, _:genid7;
+  rdfs:label "Data Resources Mitigation"@en .
+
+_:genid7 a owl:Restriction;
+  owl:allValuesFrom :Pre-processing;
+  owl:onProperty :isAppliedAt .
+
+:Dataset a owl:Class;
+  rdfs:label "Dataset"@en;
+  skos:definition "A dataset used in machine learning."@en .
+
+:DecisionTimeConstrainedDecisioning a owl:Class;
+  rdfs:subClassOf :BlackBoxDecisionOnly;
+  rdfs:label "Decision-time Constrained Decisioning" .
+
+:DistanceBasedFairnessMetric a owl:Class;
+  rdfs:subClassOf fmo:fairness_metric;
+  rdfs:label "Distance-based Fairness Metric" .
+
+:DistributionFairnessMetric a owl:Class;
+  rdfs:subClassOf :GeneratedTextBasedFairnessMetric;
+  rdfs:label "Distribution Fairness Metric"@en;
+  skos:definition "A metric that evaluates fairness by comparing the statistical distribution of generated outputs across groups."@en .
+
+:EmbeddingBasedFairnessMetric a owl:Class;
+  rdfs:subClassOf fmo:fairness_metric;
+  rdfs:label "Embedding-based Fairness Metric"@en;
+  skos:definition "A fairness metric that evaluates bias or fairness using representations derived from word or sentence embeddings."@en .
+
+:EvidenceArtifact a owl:Class;
+  rdfs:label "Evidence Artifact";
+  skos:definition "Evidence expected for compliance and auditability. That is, a piece of documentation, data, or analytical output that provides verifiable information about the presence, assessment, or mitigation of a specific socio-technical concern in an AI system. It supports the evaluation of that concern by supplying measurable or auditable evidence (e.g., logs, dataset analyses, reports, or metrics) related to the system’s behavior, data, or operational context." .
+
+:FairnessConcern a owl:Class;
+  rdfs:label "Fairness Concern"@en;
+  skos:definition "A fairness concern refers to a potential or observed issue where a system’s decisions or outcomes may unjustly favor or disadvantage certain individuals or groups. It highlights risks of bias, discrimination, or unequal treatment that require attention and mitigation." .
+
+:FairnessRegularization a owl:Class;
+  rdfs:subClassOf :FullRetraining;
+  rdfs:label "Fairness Regularization" .
+
+:FeatureLevelColumnIntervention a owl:Class;
+  rdfs:subClassOf :DataResourcesMitigation;
+  rdfs:label "Feature-level Column Intervention (A)" .
+
+:FeatureLevelRowReweightingResampling a owl:Class;
+  rdfs:subClassOf :DataResourcesMitigation;
+  rdfs:label "Feature-level Row Reweighting/Resampling (C)" .
+
+:FeatureReview a owl:Class;
+  rdfs:subClassOf :FeatureLevelColumnIntervention;
+  rdfs:label "Feature Review" .
+
+:FullFineTuning a owl:Class;
+  rdfs:subClassOf :ModelAccessResourcesMitigation, :TrainingResourcesMitigation;
+  owl:disjointWith :PartialFineTuning;
+  rdfs:label "Full Fine-tuning - White-box Model (F)" .
+
+:FullParameterDebiasing a owl:Class;
+  rdfs:subClassOf :FullFineTuning;
+  rdfs:label "Full Parameter Debiasing" .
+
+:FullPruning a owl:Class;
+  rdfs:subClassOf :FullFineTuning;
+  rdfs:comment "A mitigation technique that prunes an already trained model by setting to 0 some of its weights. The model is considered AS A WHOLE, by taking into account for pruning all its internal weights.";
+  rdfs:label "Full Pruning and Weight Masking" .
+
+:FullRetraining a owl:Class;
+  rdfs:subClassOf :TrainingResourcesMitigation;
+  rdfs:label "Full Retraining (E)" .
+
+:FullWeightRedistribution a owl:Class;
+  rdfs:subClassOf :FullFineTuning;
+  rdfs:comment "A mitigation technique that redistributes the weights of an already trained model, considering it AS A WHOLE, potentially redistributing all its weights.";
+  rdfs:label "Full Weight Redistribution"@en .
+
+:GeneratedTextBasedFairnessMetric a owl:Class;
+  rdfs:subClassOf fmo:fairness_metric;
+  rdfs:label "Generated Text-based Fairness Metric"@en;
+  skos:definition "A metric that measures fairness by analyzing or scoring generated text outputs."@en .
+
+:Governance a owl:Class;
+  rdfs:subClassOf :AILifecycleStep;
+  rdfs:label "Governance" .
+
+:GovernanceOnly a owl:Class;
+  rdfs:subClassOf :HumanOversightMitigation;
+  rdfs:label "Governance-only Interventions (J)" .
+
+:GranularityMetric a owl:Class;
+  rdfs:subClassOf :RecommendationSystemMetric;
+  rdfs:label "Granularity Metric"@en .
+
+:GreyBoxScores a owl:Class;
+  rdfs:subClassOf :ModelAccessResourcesMitigation, _:genid8;
+  rdfs:label "Scores and Probabilities Access - Grey-box Model (H)" .
+
+_:genid8 a owl:Restriction;
+  owl:allValuesFrom :Post-processing;
+  owl:onProperty :isAppliedAt .
+
+:GroupFairnessNotion a owl:Class;
+  rdfs:subClassOf :OutcomeFairnessNotion;
+  owl:disjointWith :IndividualFairnessNotion;
+  dc:source "https://doi.org/10.1145/3468507.3468511"^^xsd:anyURI;
+  resource:hasSynonym "group fairness"@en;
+  rdfs:label "Group Fairness Notion"@en;
+  skos:definition "A family of fairness notions with the common objective to ensure that groups who differ by their sensitive attributes are treated equally. (Note: Occasionally, \"group fairness\" is used to refer to statistical parity specifically, instead of the broader meaning as defined here)."@en .
+
+:HeadOnly a owl:Class;
+  rdfs:subClassOf :PartialFineTuning;
+  rdfs:label "Head-only" .
+
+:HumanOversightMitigation a owl:Class;
+  rdfs:subClassOf :MitigationTechnique, _:genid9;
+  rdfs:label "Human Oversight Mitigation" .
+
+_:genid9 a owl:Restriction;
+  owl:allValuesFrom :Governance;
+  owl:onProperty :isAppliedAt .
+
+:ImpactFocusedMetric a owl:Class;
+  rdfs:subClassOf :OptimizationObjectMetric;
+  rdfs:label "Impact-focused Metric"@en .
+
+:In-processing a owl:Class;
+  rdfs:subClassOf :AILifecycleStep;
+  rdfs:label "In-processing" .
+
+:IndependenceFairnessNotion a owl:Class;
+  rdfs:subClassOf :GroupFairnessNotion;
+  dc:source "https://doi.org/10.1145/3468507.3468511"^^xsd:anyURI;
+  resource:hasSynonym "independence fairness"@en;
+  rdfs:label "Independence Fairness Notion"@en;
+  skos:definition "The fairness property satisfied when the predicted outcome variable is independent from protected attributes."@en;
+  fmo:probabilistic_definition "Ŷ ⊥ A"@en .
+
+:IndividualFairnessNotion a owl:Class;
+  rdfs:subClassOf :OutcomeFairnessNotion;
+  dc:source "https://doi.org/10.1145/2090236.2090255"^^xsd:anyURI;
+  resource:hasSynonym "individual fairness"@en;
+  rdfs:label "Individual Fairness Notion"@en;
+  skos:definition "A family of fairness notions with the common objective to ensure that similar individuals are treated similarly by a model. Some notions in this group may be a relaxed version of &quot;strict&quot; individual fairness (i.e., they may treat similar indivduals differently under certain conditions)."@en .
+
+:InstanceLevelRowIntervention a owl:Class;
+  rdfs:subClassOf :DataResourcesMitigation;
+  rdfs:label "Feature-level Row Intervention (B)" .
+
+:InstanceWeighting a owl:Class;
+  rdfs:subClassOf :FeatureLevelRowReweightingResampling;
+  rdfs:label "Instance Weighting" .
+
+:ItemFocusedMetric a owl:Class;
+  rdfs:subClassOf :SubjectMetric;
+  rdfs:label "Item-focused Metric"@en .
+
+:LearningAndPerception a owl:Class;
+  rdfs:subClassOf :AITask;
+  rdfs:label "Learning And Perception" .
+
+:LegalRequirement a owl:Class;
+  rdfs:label "Legal Requirement";
+  skos:definition "A law or regulation article that constrains the AI systems activity, specifically to operate fairly, without unjust bias or discrimination against individuals or groups." .
+
+:Legislation a owl:Class;
+  rdfs:label "Legislation" .
+
+:LexiconFairnessMetric a owl:Class;
+  rdfs:subClassOf :GeneratedTextBasedFairnessMetric;
+  rdfs:label "Lexicon Fairness Metric"@en;
+  skos:definition "A metric that uses predefined lexicons to study fairness or bias in generated textual content."@en .
+
+:LoRA a owl:Class;
+  rdfs:subClassOf :PartialFineTuning;
+  rdfs:label "LoRA" .
+
+:ManagementLegalRequirement a owl:Class;
+  rdfs:subClassOf :LegalRequirement;
+  rdfs:label "Management Legal Requirement" .
+
+:MaskedTokenFairnessMetric a owl:Class;
+  rdfs:subClassOf :ProbabilityBasedFairnessMetric;
+  rdfs:label "Masked Token Fairness Metric"@en;
+  skos:definition "A fairness metric relying on the predicted probabilities for masked tokens in language models."@en .
+
+:MitigationTechnique a owl:Class;
+  rdfs:subClassOf :ScientificArtifact;
+  rdfs:label "Mitigation Technique"@en;
+  skos:definition "A method used to identify, reduce, or prevent unfair bias in data, models, or decision-making processes. It aims to improve fairness and reduce discriminatory outcomes across different groups or individuals." .
+
+:ModelAccessResourcesMitigation a owl:Class;
+  rdfs:subClassOf :MitigationTechnique;
+  rdfs:label "Model Access Resources Mitigation"@en .
+
+:ObservationalFairnessNotion a owl:Class;
+  rdfs:subClassOf :OutcomeFairnessNotion;
+  resource:hasSynonym "observational fairness"@en;
+  rdfs:label "Observational Fairness Notion"@en;
+  skos:definition "A family of fairness notions focusing on the joint distribution of observable factors."@en .
+
+:OptimizationObjectMetric a owl:Class;
+  rdfs:subClassOf :RecommendationSystemMetric;
+  rdfs:label "Optimization Object Metric"@en .
+
+:OutcomeFairnessNotion a owl:Class;
+  rdfs:subClassOf fmo:fairness_notion;
+  owl:disjointWith :ProceduralFairnessNotion;
+  resource:hasSynonym "outcome fairness"@en;
+  rdfs:label "Outcome Fairness Notion"@en;
+  skos:definition "Outcome fairness is concerned with the fairness of the results of the decision-making process."@en .
+
+:OutputRewriting a owl:Class;
+  rdfs:subClassOf :BlackBoxDecisionOnly;
+  rdfs:label "Decision/Output Re-writing" .
+
+:ParityBasedFairnessMetric a owl:Class;
+  rdfs:subClassOf fmo:fairness_metric;
+  rdfs:label "Parity-based Fairness Metric"@en;
+  skos:definition "A measurement of any fairness notion, focusing on equalising the probability of a favourable outcome among groups."@en .
+
+:PartialFineTuning a owl:Class;
+  rdfs:subClassOf :ModelAccessResourcesMitigation, :TrainingResourcesMitigation;
+  rdfs:label "Partial Fine-tuning - White-box Model (G)" .
+
+:PartialPruning a owl:Class;
+  rdfs:subClassOf :PartialFineTuning;
+  rdfs:comment "A mitigation technique that prunes a SUBPART OF an already trained model by setting to 0 some of its weights.";
+  rdfs:label "Partial Pruning and Weight Masking" .
+
+:Post-processing a owl:Class;
+  rdfs:subClassOf :AILifecycleStep;
+  rdfs:label "Post-processing" .
+
+:Pre-processing a owl:Class;
+  rdfs:subClassOf :AILifecycleStep;
+  rdfs:label "Pre-processing" .
+
+:ProbabilityBasedFairnessMetric a owl:Class;
+  rdfs:subClassOf fmo:fairness_metric;
+  rdfs:label "Probability-based Fairness Metric"@en;
+  skos:definition "A metric that considers the probability distributions of predicted outcomes to measure fairness."@en .
+
+:ProceduralFairnessNotion a owl:Class;
+  rdfs:subClassOf fmo:fairness_notion;
+  resource:hasSynonym "procedural fairness"@en;
+  rdfs:label "Procedural Fairness Notion"@en;
+  skos:definition "Procedural fairness is connected to the concept of fairness from administrative law, which is concerned with equality of treatment within the process that makes a decision."@en .
+
+:PseudoLogLikelihoodFairnessMetric a owl:Class;
+  rdfs:subClassOf :ProbabilityBasedFairnessMetric;
+  rdfs:label "Pseudo-log Likelihood Fairness Metric"@en;
+  skos:definition "A metric based on pseudo-log likelihoods, often used to evaluate the fairness of generation or prediction probabilities."@en .
+
+:ReasoningAndDecisionMaking a owl:Class;
+  rdfs:subClassOf :AITask;
+  rdfs:label "Reasoning And Decision Making" .
+
+:RecommendationFairnessConcern a owl:Class;
+  rdfs:subClassOf :FairnessConcern, _:genid10 .
+
+_:genid10 a owl:Restriction;
+  owl:hasValue :Recommendation;
+  owl:onProperty :arisesIn .
+
+:RecommendationSystemMetric a owl:Class;
+  rdfs:subClassOf fmo:fairness_metric;
+  rdfs:label "Recommendation System Metric"@en .
+
+:Relabeling a owl:Class;
+  rdfs:subClassOf :InstanceLevelRowIntervention;
+  rdfs:label "Relabeling" .
+
+:Reranking a owl:Class;
+  rdfs:subClassOf :BlackBoxDecisionOnly;
+  rdfs:label "Re-ranking" .
+
+:ScientificArtifact a owl:Class;
+  rdfs:label "Scientific Artifact"@en;
+  skos:definition "A scientific artifact is the outcome with which the the paper contributes, such as a fairness notion, metric, and so on."@en .
+
+:ScientificPaper a owl:Class;
+  rdfs:label "Scientific Paper"@en;
+  skos:definition "A scientific paper published in a journal or during some conference proceesings."@en .
+
+:Scoping a owl:Class;
+  rdfs:subClassOf :AILifecycleStep;
+  rdfs:label "Scoping" .
+
+:ScoreBasedFairnessMetric a owl:Class;
+  rdfs:subClassOf fmo:fairness_metric;
+  rdfs:label "Score-based Fairness Metric"@en;
+  skos:definition "A measurement of any fairness notion, directing attention to the value of the classification score."@en .
+
+:SelectiveParameterUpdating a owl:Class;
+  rdfs:subClassOf :PartialFineTuning;
+  rdfs:comment "A mitigation technique that updates the parameters (e.g., redistributes the weights) of a SUBPART OF an already trained model.";
+  rdfs:label "Selective Parameter Updating" .
+
+:SentenceEmbeddingFairnessMetric a owl:Class;
+  rdfs:subClassOf :EmbeddingBasedFairnessMetric;
+  rdfs:label "Sentence Embedding Fairness Metric"@en;
+  skos:definition "A metric using sentence-level embedding representations as the basis for evaluating model or data fairness."@en .
+
+:SeparationFairnessNotion a owl:Class;
+  rdfs:subClassOf :GroupFairnessNotion;
+  dc:source "https://doi.org/10.1145/3468507.3468511"^^xsd:anyURI;
+  resource:hasSynonym "separation fairness"@en;
+  rdfs:label "Separation Fairness Notion"@en;
+  skos:definition "The fairness property satisfied when the predicted outcome variable is independent of protected attributes, conditionally on the actual outcome variable."@en;
+  fmo:probabilistic_definition "Ŷ ⊥ A | Y"@en .
+
+:SingleGranularityMetric a owl:Class;
+  rdfs:subClassOf :GranularityMetric;
+  rdfs:label "Single Granularity Metric"@en .
+
+:SocialPrinciple a owl:Class;
+  rdfs:label "Social Principle"@en;
+  skos:definition "Ethical and contextual interpretation of fairness, informing notions."@en .
+
+:StratifiedSampling a owl:Class;
+  rdfs:subClassOf :FeatureLevelRowReweightingResampling;
+  rdfs:label "Stratified Sampling" .
+
+:SubjectMetric a owl:Class;
+  rdfs:subClassOf :RecommendationSystemMetric;
+  rdfs:label "Subject Metric"@en .
+
+:SufficiencyFairnessNotion a owl:Class;
+  rdfs:subClassOf :GroupFairnessNotion;
+  dc:source "https://doi.org/10.1145/3468507.3468511"^^xsd:anyURI;
+  resource:hasSynonym "sufficiency fairness"@en;
+  rdfs:label "Sufficiency Fairness Notion"@en;
+  skos:definition "The fairness property satisfied when a target variable is independent of protected attributes, conditionally on the predicted outcome variable."@en;
+  fmo:probabilistic_definition "Y ⊥ A | Ŷ"@en .
+
+:SyntheticData a owl:Class;
+  rdfs:subClassOf :DataGeneration;
+  rdfs:label "Synthetic Data" .
+
+:TargetedCollections a owl:Class;
+  rdfs:subClassOf :DataGeneration;
+  rdfs:label "Targeted Collections" .
+
+:TechnicalLegalRequirement a owl:Class;
+  rdfs:subClassOf :LegalRequirement;
+  rdfs:label "Technical Legal Requirement" .
+
+:Thresholding a owl:Class;
+  rdfs:subClassOf :GreyBoxScores;
+  rdfs:label "Thresholding" .
+
+:TrainingResourcesMitigation a owl:Class;
+  rdfs:subClassOf :MitigationTechnique, _:genid11;
+  rdfs:label "Training Resources Mitigation"@en .
+
+_:genid11 a owl:Restriction;
+  owl:allValuesFrom :In-processing;
+  owl:onProperty :isAppliedAt .
+
+:Transformation a owl:Class;
+  rdfs:subClassOf :InstanceLevelRowIntervention;
+  rdfs:label "Transformation/Representation Learning" .
+
+:TreatmentFocusedMetric a owl:Class;
+  rdfs:subClassOf :OptimizationObjectMetric;
+  rdfs:label "Treatment-focused Metric"@en .
+
+:UserFocusedMetric a owl:Class;
+  rdfs:subClassOf :SubjectMetric;
+  rdfs:label "User-focused Metric"@en .
+
+:WordEmbeddingFairnessMetric a owl:Class;
+  rdfs:subClassOf :EmbeddingBasedFairnessMetric;
+  rdfs:label "Word Embedding Fairness Metric"@en;
+  skos:definition "A metric that leverages word vector representations to assess fairness or bias in language models or datasets."@en .
+
+fmo:bias a owl:Class;
+  rdfs:subClassOf owl:Thing;
+  dc:source "https://www.lexico.com/en/definition/bias"^^xsd:anyURI;
+  rdfs:label "Bias";
+  skos:definition "Predisposition in favor of or against one thing, person, or group compared with another, usually in a way considered to be unfair."@en .
+
+fmo:fairness_metric a owl:Class;
+  rdfs:subClassOf :ScientificArtifact;
+  dc:source "https://doi.org/10.1145/3468507.3468511"^^xsd:anyURI;
+  rdfs:label "Fairness Metric"@en;
+  skos:definition "A measurement of some fairness notion in a machine-learning model or dataset, with regards to some specific cohort(s)."@en .
+
+fmo:fairness_notion a owl:Class;
+  rdfs:subClassOf :ScientificArtifact;
+  dc:source "https://doi.org/10.1145/3468507.3468511"^^xsd:anyURI;
+  resource:hasSynonym "criterion"@en, "fairness"@en;
+  rdfs:label "Fairness Notion"@en;
+  skos:definition """A conceptual or normative principle that specifies what it means for an AI
+system to be fair, i.e., a formal definition of fairness that can be observed as a property of an AI model, in relation to that model's treatment of different cohorts."""@en .
+
+:AbductiveReasoning a owl:NamedIndividual, :ReasoningAndDecisionMaking .
+
+:AlgorithmicBias a owl:NamedIndividual, fmo:bias;
+  dc:source "https://doi.org/10.1145/3457607"^^xsd:anyURI;
+  rdfs:label "Algorithmic Bias"@en;
+  skos:definition "Algorithmic bias is when the bias is not present in the input data and is added purely by the algorithm."@en .
+
+:AnalyticsApproach a owl:NamedIndividual, :Scoping;
+  :isFollowedBy :DataRequirements .
+
+:BiasedHistoricalExamples a owl:NamedIndividual, :RecommendationFairnessConcern .
+
+:BusinessRequirements a owl:NamedIndividual, :Scoping;
+  :isFollowedBy :AnalyticsApproach .
+
+:Classification a owl:NamedIndividual, :LearningAndPerception .
+
+:ConformityAssesmentReport a owl:NamedIndividual, :EvidenceArtifact .
+
+:ConstraintOptimization a owl:NamedIndividual, :ReasoningAndDecisionMaking .
+
+:ConstraintSolving a owl:NamedIndividual, :ReasoningAndDecisionMaking .
+
+:Conversation a owl:NamedIndividual, :AITypeOfUse .
+
+:DataCollection a owl:NamedIndividual, :Pre-processing;
+  :isFollowedBy :ExploratoryDataAnalysis .
+
+:DataPreparation a owl:NamedIndividual, :Pre-processing;
+  :isFollowedBy :ModelSelection .
+
+:DataRequirements a owl:NamedIndividual, :Scoping;
+  :isFollowedBy :DataCollection .
+
+:DerogatoryLanguage a owl:NamedIndividual, :ConversationFairnessConcern;
+  :arisesIn :Conversation .
+
+:Dialogue a owl:NamedIndividual, :ApplicationDomain .
+
+:DisparateSystemPerformance a owl:NamedIndividual, :ConversationFairnessConcern .
+
+:EU_AI_Act a owl:NamedIndividual, :Legislation;
+  dc:source "https://www.euaiact.com/";
+  rdfs:label "EU AI Act" .
+
+:Education a owl:NamedIndividual, :ApplicationDomain .
+
+:EqualityPrincipal a owl:NamedIndividual, :SocialPrinciple;
+  rdfs:label "Equality"@en;
+  skos:definition "Equality is giving everyone the same resources and opportunities."@en .
+
+:EquityPrinciple a owl:NamedIndividual, :SocialPrinciple;
+  rdfs:label "Equity"@en;
+  skos:definition "Equity is providing different resources based on individual needs to ensure everyone has an equal outcome."@en .
+
+:Erasure a owl:NamedIndividual, :ConversationFairnessConcern .
+
+:ExclusionaryNorm a owl:NamedIndividual, :ConversationFairnessConcern .
+
+:ExploratoryDataAnalysis a owl:NamedIndividual, :Pre-processing;
+  :isFollowedBy :DataPreparation .
+
+:FRIAReport a owl:NamedIndividual, :EvidenceArtifact .
+
+:FeedbackLoopOverfitting a owl:NamedIndividual, :RecommendationFairnessConcern .
+
+:FinanceAndInsurance a owl:NamedIndividual, :ApplicationDomain .
+
+:Healthcare a owl:NamedIndividual, :ApplicationDomain .
+
+:HistoricalBias a owl:NamedIndividual, fmo:bias;
+  dc:source "https://doi.org/10.1145/3457607"^^xsd:anyURI;
+  rdfs:label "Historical Bias"@en;
+  skos:definition "Historical bias is caused by already existing bias and socio-technical issues in the world, and can seep into from the data generation process even given a perfect sampling and feature selection."@en .
+
+:HumanResources a owl:NamedIndividual, :ApplicationDomain .
+
+:ICTSecurity a owl:NamedIndividual, :ApplicationDomain .
+
+:IncompleteHistoricalExamples a owl:NamedIndividual, :RecommendationFairnessConcern .
+
+:InformationRetrival a owl:NamedIndividual, :LearningAndPerception .
+
+:InstructionsForUse a owl:NamedIndividual, :EvidenceArtifact .
+
+:IntersectionalBias a owl:NamedIndividual, fmo:bias;
+  dc:source "https://doi.org/10.1145/3468507.3468511"^^xsd:anyURI;
+  rdfs:label "Intersectional Bias"@en;
+  skos:definition "Intersectional bias is a type of bias that occurs due to the combination of multiple sensitive factors."@en .
+
+:LawAndJustice a owl:NamedIndividual, :ApplicationDomain .
+
+:LinguisticBias a owl:NamedIndividual, fmo:bias;
+  rdfs:label "Linguistic Bias"@en;
+  skos:definition "Linguistic bias is embedded in generative AI outputs, the manifestation of harm through demeaning or offensive language that reinforces discrimination."@en .
+
+:Logs a owl:NamedIndividual, :EvidenceArtifact .
+
+:MaskingBias a owl:NamedIndividual, fmo:bias;
+  dc:source "https://doi.org/10.1145/3468507.3468511"^^xsd:anyURI;
+  rdfs:label "Masking Bias"@en;
+  skos:definition "Masking is a form of intentional discrimination that allows decision makers with prejudicial views to mask their intentions, typically by exploiting how fairness notions are defined."@en .
+
+:Misrepresentation a owl:NamedIndividual, :ConversationFairnessConcern .
+
+:MisrepresentationsInProductMarketing a owl:NamedIndividual, :RecommendationFairnessConcern .
+
+:ModelDeployment a owl:NamedIndividual, :Post-processing;
+  :isFollowedBy :ModelTuning;
+  rdfs:label "Model Deployment" .
+
+:ModelEvaluation a owl:NamedIndividual, :In-processing;
+  :isFollowedBy :ModelDeployment;
+  rdfs:label "Model Evaluation" .
+
+:ModelSelection a owl:NamedIndividual, :In-processing;
+  :isFollowedBy :ModelEvaluation;
+  rdfs:label "Model Selection" .
+
+:ModelTuning a owl:NamedIndividual, :Post-processing;
+  :isFollowedBy :ProjectReview;
+  rdfs:label "Model Tuning" .
+
+:OmmittedVariableBias a owl:NamedIndividual, fmo:bias;
+  dc:source "https://doi.org/10.1145/3457607"^^xsd:anyURI;
+  rdfs:label "Omitted Variable Bias"@en;
+  skos:definition "Omitted variable bias occurs when one or more important variables are left out of a model."@en .
+
+:Planning a owl:NamedIndividual, :ReasoningAndDecisionMaking .
+
+:PopularItemsOverrecommended a owl:NamedIndividual, :RecommendationFairnessConcern .
+
+:Prediction a owl:NamedIndividual, :AITypeOfUse .
+
+:ProbabilisticReasoning a owl:NamedIndividual, :ReasoningAndDecisionMaking .
+
+:ProjectReview a owl:NamedIndividual, :Governance;
+  :isFollowedBy :BusinessRequirements .
+
+:PublicServices a owl:NamedIndividual, :ApplicationDomain .
+
+:Ranking a owl:NamedIndividual, :ReasoningAndDecisionMaking .
+
+:Recommendation a owl:NamedIndividual, :AITypeOfUse .
+
+:RepresentationBias a owl:NamedIndividual, fmo:bias;
+  dc:source "https://doi.org/10.1145/3457607"^^xsd:anyURI;
+  rdfs:label "Representation Bias"@en;
+  skos:definition "Representation bias arises from the use of a skewed or otherwise non-representative sample from a population during data collection process."@en .
+
+:RetailAndECommerce a owl:NamedIndividual, :ApplicationDomain .
+
+:SamplingBias a owl:NamedIndividual, fmo:bias;
+  dc:source "https://doi.org/10.1145/3457607"^^xsd:anyURI;
+  rdfs:label "Sampling  Bias"@en;
+  skos:definition "Similarly to representation bias, sampling bias arises due to non-random sampling of subgroups"@en .
+
+:ScoringRegression a owl:NamedIndividual, :LearningAndPerception .
+
+:Stereotyping a owl:NamedIndividual, :ConversationFairnessConcern .
+
+:TechnicalDocument a owl:NamedIndividual, :EvidenceArtifact .
+
+:TextGeneration a owl:NamedIndividual, :LearningAndPerception .
+
+:TransportAndLogistics a owl:NamedIndividual, :ApplicationDomain .
+
+:UtilitiesEnergy a owl:NamedIndividual, :ApplicationDomain .
+
+:a a <http://www.w3.org/2003/11/swrl#Variable> .
+
+:b a <http://www.w3.org/2003/11/swrl#Variable> .
+
+:C a <http://www.w3.org/2003/11/swrl#Variable> .
+
+:T a <http://www.w3.org/2003/11/swrl#Variable> .
+
+:M a <http://www.w3.org/2003/11/swrl#Variable> .
+
+:N a <http://www.w3.org/2003/11/swrl#Variable> .
+
+:SA a <http://www.w3.org/2003/11/swrl#Variable> .
+
+:SP a <http://www.w3.org/2003/11/swrl#Variable> .
+
+:D a <http://www.w3.org/2003/11/swrl#Variable> .
+
+:AD a <http://www.w3.org/2003/11/swrl#Variable> .
+
+_:genid12 a <http://www.w3.org/2003/11/swrl#Imp>;
+  <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> true;
+  rdfs:comment "";
+  rdfs:label "Conflict3";
+  <http://www.w3.org/2003/11/swrl#body> _:genid15;
+  <http://www.w3.org/2003/11/swrl#head> _:genid19 .
+
+_:genid15 a <http://www.w3.org/2003/11/swrl#AtomList>;
+  rdf:first _:genid16;
+  rdf:rest _:genid13 .
+
+_:genid13 a <http://www.w3.org/2003/11/swrl#AtomList>;
+  rdf:first _:genid14;
+  rdf:rest rdf:nil .
+
+_:genid14 a <http://www.w3.org/2003/11/swrl#ClassAtom>;
+  <http://www.w3.org/2003/11/swrl#argument1> :b;
+  <http://www.w3.org/2003/11/swrl#classPredicate> :SeparationFairnessNotion .
+
+_:genid16 a <http://www.w3.org/2003/11/swrl#ClassAtom>;
+  <http://www.w3.org/2003/11/swrl#argument1> :a;
+  <http://www.w3.org/2003/11/swrl#classPredicate> :IndependenceFairnessNotion .
+
+_:genid19 a <http://www.w3.org/2003/11/swrl#AtomList>;
+  rdf:first _:genid20;
+  rdf:rest _:genid17 .
+
+_:genid17 a <http://www.w3.org/2003/11/swrl#AtomList>;
+  rdf:first _:genid18;
+  rdf:rest rdf:nil .
+
+_:genid18 a <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom>;
+  <http://www.w3.org/2003/11/swrl#argument2> :a;
+  <http://www.w3.org/2003/11/swrl#argument1> :b;
+  <http://www.w3.org/2003/11/swrl#propertyPredicate> :independenceSeparationConflictsWith .
+
+_:genid20 a <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom>;
+  <http://www.w3.org/2003/11/swrl#argument2> :b;
+  <http://www.w3.org/2003/11/swrl#argument1> :a;
+  <http://www.w3.org/2003/11/swrl#propertyPredicate> :independenceSeparationConflictsWith .
+
+_:genid21 a <http://www.w3.org/2003/11/swrl#Imp>;
+  <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> true;
+  rdfs:comment "";
+  rdfs:label "Conflict2";
+  <http://www.w3.org/2003/11/swrl#body> _:genid24;
+  <http://www.w3.org/2003/11/swrl#head> _:genid28 .
+
+_:genid24 a <http://www.w3.org/2003/11/swrl#AtomList>;
+  rdf:first _:genid25;
+  rdf:rest _:genid22 .
+
+_:genid22 a <http://www.w3.org/2003/11/swrl#AtomList>;
+  rdf:first _:genid23;
+  rdf:rest rdf:nil .
+
+_:genid23 a <http://www.w3.org/2003/11/swrl#ClassAtom>;
+  <http://www.w3.org/2003/11/swrl#argument1> :b;
+  <http://www.w3.org/2003/11/swrl#classPredicate> :SufficiencyFairnessNotion .
+
+_:genid25 a <http://www.w3.org/2003/11/swrl#ClassAtom>;
+  <http://www.w3.org/2003/11/swrl#argument1> :a;
+  <http://www.w3.org/2003/11/swrl#classPredicate> :IndependenceFairnessNotion .
+
+_:genid28 a <http://www.w3.org/2003/11/swrl#AtomList>;
+  rdf:first _:genid29;
+  rdf:rest _:genid26 .
+
+_:genid26 a <http://www.w3.org/2003/11/swrl#AtomList>;
+  rdf:first _:genid27;
+  rdf:rest rdf:nil .
+
+_:genid27 a <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom>;
+  <http://www.w3.org/2003/11/swrl#argument2> :a;
+  <http://www.w3.org/2003/11/swrl#argument1> :b;
+  <http://www.w3.org/2003/11/swrl#propertyPredicate> :independenceSufficiencyConflictsWith .
+
+_:genid29 a <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom>;
+  <http://www.w3.org/2003/11/swrl#argument2> :b;
+  <http://www.w3.org/2003/11/swrl#argument1> :a;
+  <http://www.w3.org/2003/11/swrl#propertyPredicate> :independenceSufficiencyConflictsWith .
+
+_:genid30 a <http://www.w3.org/2003/11/swrl#Imp>;
+  <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> true;
+  rdfs:comment "";
+  rdfs:label "Conflict1";
+  <http://www.w3.org/2003/11/swrl#body> _:genid33;
+  <http://www.w3.org/2003/11/swrl#head> _:genid37 .
+
+_:genid33 a <http://www.w3.org/2003/11/swrl#AtomList>;
+  rdf:first _:genid34;
+  rdf:rest _:genid31 .
+
+_:genid31 a <http://www.w3.org/2003/11/swrl#AtomList>;
+  rdf:first _:genid32;
+  rdf:rest rdf:nil .
+
+_:genid32 a <http://www.w3.org/2003/11/swrl#ClassAtom>;
+  <http://www.w3.org/2003/11/swrl#argument1> :b;
+  <http://www.w3.org/2003/11/swrl#classPredicate> :OutcomeFairnessNotion .
+
+_:genid34 a <http://www.w3.org/2003/11/swrl#ClassAtom>;
+  <http://www.w3.org/2003/11/swrl#argument1> :a;
+  <http://www.w3.org/2003/11/swrl#classPredicate> :ProceduralFairnessNotion .
+
+_:genid37 a <http://www.w3.org/2003/11/swrl#AtomList>;
+  rdf:first _:genid38;
+  rdf:rest _:genid35 .
+
+_:genid35 a <http://www.w3.org/2003/11/swrl#AtomList>;
+  rdf:first _:genid36;
+  rdf:rest rdf:nil .
+
+_:genid36 a <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom>;
+  <http://www.w3.org/2003/11/swrl#argument2> :a;
+  <http://www.w3.org/2003/11/swrl#argument1> :b;
+  <http://www.w3.org/2003/11/swrl#propertyPredicate> :conflictsWith .
+
+_:genid38 a <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom>;
+  <http://www.w3.org/2003/11/swrl#argument2> :b;
+  <http://www.w3.org/2003/11/swrl#argument1> :a;
+  <http://www.w3.org/2003/11/swrl#propertyPredicate> :conflictsWith .
+
+_:genid39 a <http://www.w3.org/2003/11/swrl#Imp>;
+  <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> true;
+  rdfs:comment "";
+  rdfs:label "Conflict4";
+  <http://www.w3.org/2003/11/swrl#body> _:genid42;
+  <http://www.w3.org/2003/11/swrl#head> _:genid46 .
+
+_:genid42 a <http://www.w3.org/2003/11/swrl#AtomList>;
+  rdf:first _:genid43;
+  rdf:rest _:genid40 .
+
+_:genid40 a <http://www.w3.org/2003/11/swrl#AtomList>;
+  rdf:first _:genid41;
+  rdf:rest rdf:nil .
+
+_:genid41 a <http://www.w3.org/2003/11/swrl#ClassAtom>;
+  <http://www.w3.org/2003/11/swrl#argument1> :b;
+  <http://www.w3.org/2003/11/swrl#classPredicate> :SeparationFairnessNotion .
+
+_:genid43 a <http://www.w3.org/2003/11/swrl#ClassAtom>;
+  <http://www.w3.org/2003/11/swrl#argument1> :a;
+  <http://www.w3.org/2003/11/swrl#classPredicate> :SufficiencyFairnessNotion .
+
+_:genid46 a <http://www.w3.org/2003/11/swrl#AtomList>;
+  rdf:first _:genid47;
+  rdf:rest _:genid44 .
+
+_:genid44 a <http://www.w3.org/2003/11/swrl#AtomList>;
+  rdf:first _:genid45;
+  rdf:rest rdf:nil .
+
+_:genid45 a <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom>;
+  <http://www.w3.org/2003/11/swrl#argument2> :a;
+  <http://www.w3.org/2003/11/swrl#argument1> :b;
+  <http://www.w3.org/2003/11/swrl#propertyPredicate> :separationSufficiencyConflictsWith .
+
+_:genid47 a <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom>;
+  <http://www.w3.org/2003/11/swrl#argument2> :b;
+  <http://www.w3.org/2003/11/swrl#argument1> :a;
+  <http://www.w3.org/2003/11/swrl#propertyPredicate> :separationSufficiencyConflictsWith .
+
+_:genid48 a <http://www.w3.org/2003/11/swrl#Imp>;
+  <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> true;
+  rdfs:comment "";
+  rdfs:label "GuidelineRule";
+  <http://www.w3.org/2003/11/swrl#body> _:genid55;
+  <http://www.w3.org/2003/11/swrl#head> _:genid57 .
+
+_:genid55 a <http://www.w3.org/2003/11/swrl#AtomList>;
+  rdf:first _:genid56;
+  rdf:rest _:genid53 .
+
+_:genid53 a <http://www.w3.org/2003/11/swrl#AtomList>;
+  rdf:first _:genid54;
+  rdf:rest _:genid51 .
+
+_:genid51 a <http://www.w3.org/2003/11/swrl#AtomList>;
+  rdf:first _:genid52;
+  rdf:rest _:genid49 .
+
+_:genid49 a <http://www.w3.org/2003/11/swrl#AtomList>;
+  rdf:first _:genid50;
+  rdf:rest rdf:nil .
+
+_:genid50 a <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom>;
+  <http://www.w3.org/2003/11/swrl#argument2> :N;
+  <http://www.w3.org/2003/11/swrl#argument1> :C;
+  <http://www.w3.org/2003/11/swrl#propertyPredicate> :isAddressedWith .
+
+_:genid52 a <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom>;
+  <http://www.w3.org/2003/11/swrl#argument2> :N;
+  <http://www.w3.org/2003/11/swrl#argument1> :M;
+  <http://www.w3.org/2003/11/swrl#propertyPredicate> :measures .
+
+_:genid54 a <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom>;
+  <http://www.w3.org/2003/11/swrl#argument2> :T;
+  <http://www.w3.org/2003/11/swrl#argument1> :M;
+  <http://www.w3.org/2003/11/swrl#propertyPredicate> :isSuitableFor .
+
+_:genid56 a <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom>;
+  <http://www.w3.org/2003/11/swrl#argument2> :T;
+  <http://www.w3.org/2003/11/swrl#argument1> :C;
+  <http://www.w3.org/2003/11/swrl#propertyPredicate> :arisesIn .
+
+_:genid57 a <http://www.w3.org/2003/11/swrl#AtomList>;
+  rdf:first _:genid58;
+  rdf:rest rdf:nil .
+
+_:genid58 a <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom>;
+  <http://www.w3.org/2003/11/swrl#argument2> :M;
+  <http://www.w3.org/2003/11/swrl#argument1> :C;
+  <http://www.w3.org/2003/11/swrl#propertyPredicate> :isQuantifiedBy .
+
+_:genid59 a <http://www.w3.org/2003/11/swrl#Imp>;
+  <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> true;
+  rdfs:comment "";
+  rdfs:label "hasBeenAppliedToRule";
+  <http://www.w3.org/2003/11/swrl#body> _:genid64;
+  <http://www.w3.org/2003/11/swrl#head> _:genid66 .
+
+_:genid64 a <http://www.w3.org/2003/11/swrl#AtomList>;
+  rdf:first _:genid65;
+  rdf:rest _:genid62 .
+
+_:genid62 a <http://www.w3.org/2003/11/swrl#AtomList>;
+  rdf:first _:genid63;
+  rdf:rest _:genid60 .
+
+_:genid60 a <http://www.w3.org/2003/11/swrl#AtomList>;
+  rdf:first _:genid61;
+  rdf:rest rdf:nil .
+
+_:genid61 a <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom>;
+  <http://www.w3.org/2003/11/swrl#argument2> :AD;
+  <http://www.w3.org/2003/11/swrl#argument1> :D;
+  <http://www.w3.org/2003/11/swrl#propertyPredicate> :relatesTo .
+
+_:genid63 a <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom>;
+  <http://www.w3.org/2003/11/swrl#argument2> :D;
+  <http://www.w3.org/2003/11/swrl#argument1> :SP;
+  <http://www.w3.org/2003/11/swrl#propertyPredicate> :testedOn .
+
+_:genid65 a <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom>;
+  <http://www.w3.org/2003/11/swrl#argument2> :SP;
+  <http://www.w3.org/2003/11/swrl#argument1> :SA;
+  <http://www.w3.org/2003/11/swrl#propertyPredicate> :isProposedBy .
+
+_:genid66 a <http://www.w3.org/2003/11/swrl#AtomList>;
+  rdf:first _:genid67;
+  rdf:rest rdf:nil .
+
+_:genid67 a <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom>;
+  <http://www.w3.org/2003/11/swrl#argument2> :AD;
+  <http://www.w3.org/2003/11/swrl#argument1> :SA;
+  <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasBeenAppliedTo .
+
+_:genid68 a <http://www.w3.org/2003/11/swrl#Imp>;
+  <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> true;
+  rdfs:comment "";
+  rdfs:label "hasBeenTesedOnRule";
+  <http://www.w3.org/2003/11/swrl#body> _:genid71;
+  <http://www.w3.org/2003/11/swrl#head> _:genid73 .
+
+_:genid71 a <http://www.w3.org/2003/11/swrl#AtomList>;
+  rdf:first _:genid72;
+  rdf:rest _:genid69 .
+
+_:genid69 a <http://www.w3.org/2003/11/swrl#AtomList>;
+  rdf:first _:genid70;
+  rdf:rest rdf:nil .
+
+_:genid70 a <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom>;
+  <http://www.w3.org/2003/11/swrl#argument2> :D;
+  <http://www.w3.org/2003/11/swrl#argument1> :SP;
+  <http://www.w3.org/2003/11/swrl#propertyPredicate> :testedOn .
+
+_:genid72 a <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom>;
+  <http://www.w3.org/2003/11/swrl#argument2> :SP;
+  <http://www.w3.org/2003/11/swrl#argument1> :SA;
+  <http://www.w3.org/2003/11/swrl#propertyPredicate> :isProposedBy .
+
+_:genid73 a <http://www.w3.org/2003/11/swrl#AtomList>;
+  rdf:first _:genid74;
+  rdf:rest rdf:nil .
+
+_:genid74 a <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom>;
+  <http://www.w3.org/2003/11/swrl#argument2> :D;
+  <http://www.w3.org/2003/11/swrl#argument1> :SA;
+  <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasBeenTestedOn .
