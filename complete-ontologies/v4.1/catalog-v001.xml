@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <uri id="Imports Wizard Entry" name="http://fairness-ontology.com" uri="file:/Users/daniela/Library/CloudStorage/OneDrive-Raccoltecondivise-AlmaMaterStudiorumUniversitàdiBologna/Huawei-Fairness-Project%20-%20General/Working%20Documents/fairness_ontology/complete-ontologies/v4.1/fairness_ontology-4.1.ttl"/>
+    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base=""/>
+</catalog>

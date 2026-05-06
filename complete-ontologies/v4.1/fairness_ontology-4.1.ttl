@@ -1,17 +1,17 @@
-@prefix : <http://fairness-ontology.com#> .
+@prefix : <http://fairness-ontology.com/core#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix fmo: <https://purl.org/twc/fmo#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix core: <http://fairness-ontology.com/> .
+@prefix core: <http://fairness-ontology.com/core#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix swrl: <http://www.w3.org/2003/11/swrl> .
+@prefix swrl: <http://www.w3.org/2003/11/swrl#> .
 @prefix swrla: <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#> .
 @prefix resource: <http://semanticscience.org/resource/> .
-@base <http://fairness-ontology.com> .
+@base <http://fairness-ontology.com/core#> .
 
 <http://fairness-ontology.com> rdf:type owl:Ontology .
 
@@ -19,13 +19,13 @@
 #    Annotation properties
 #################################################################
 
-###  http://fairness-ontology.com/hasAntonym
+###  http://fairness-ontology.com/core#hasAntonym
 core:hasAntonym rdf:type owl:AnnotationProperty ;
                 rdfs:comment "Relates a concept to its antonym, given as a string or URI."@en ;
                 rdfs:label "has antonym"@en .
 
 
-###  http://fairness-ontology.com/isBasedOnSocialPrinciple
+###  http://fairness-ontology.com/core#isBasedOnSocialPrinciple
 core:isBasedOnSocialPrinciple rdf:type owl:AnnotationProperty .
 
 
@@ -57,19 +57,19 @@ fmo:tag rdf:type owl:AnnotationProperty .
 #    Object Properties
 #################################################################
 
-###  http://fairness-ontology.com/arisesIn
+###  http://fairness-ontology.com/core#arisesIn
 core:arisesIn rdf:type owl:ObjectProperty ;
               rdfs:domain core:FairnessConcern ;
               rdfs:range core:AITypeOfUse ;
               rdfs:label "arises in" .
 
 
-###  http://fairness-ontology.com/conflictsWith
+###  http://fairness-ontology.com/core#conflictsWith
 core:conflictsWith rdf:type owl:ObjectProperty ,
                             owl:SymmetricProperty .
 
 
-###  http://fairness-ontology.com/enforces
+###  http://fairness-ontology.com/core#enforces
 core:enforces rdf:type owl:ObjectProperty ;
               owl:inverseOf core:isEnforcedBy ;
               rdfs:domain core:MitigationTechnique ;
@@ -77,14 +77,14 @@ core:enforces rdf:type owl:ObjectProperty ;
               rdfs:label "enforces"@en .
 
 
-###  http://fairness-ontology.com/exposesTo
+###  http://fairness-ontology.com/core#exposesTo
 core:exposesTo rdf:type owl:ObjectProperty ;
                rdfs:domain fmo:bias ;
                rdfs:range core:FairnessConcern ;
                rdfs:label "exposes to"@en .
 
 
-###  http://fairness-ontology.com/extends
+###  http://fairness-ontology.com/core#extends
 core:extends rdf:type owl:ObjectProperty ;
              rdfs:domain core:ScientificArtifact ;
              rdfs:range core:ScientificArtifact ;
@@ -92,7 +92,7 @@ core:extends rdf:type owl:ObjectProperty ;
              skos:definition "A certain Scientific Artifact may extend another. E.g., a certain Fairness Notion can extend another one" .
 
 
-###  http://fairness-ontology.com/follows
+###  http://fairness-ontology.com/core#follows
 core:follows rdf:type owl:ObjectProperty ;
              owl:inverseOf core:isFollowedBy ;
              rdfs:domain core:AILifecycleStep ;
@@ -100,7 +100,7 @@ core:follows rdf:type owl:ObjectProperty ;
              rdfs:label "follows" .
 
 
-###  http://fairness-ontology.com/guides
+###  http://fairness-ontology.com/core#guides
 core:guides rdf:type owl:ObjectProperty ;
             owl:inverseOf core:isGuidedBy ;
             rdfs:domain core:SocialPrinciple ;
@@ -109,7 +109,7 @@ core:guides rdf:type owl:ObjectProperty ;
             rdfs:label "guides"@en .
 
 
-###  http://fairness-ontology.com/hasBeenAppliedTo
+###  http://fairness-ontology.com/core#hasBeenAppliedTo
 core:hasBeenAppliedTo rdf:type owl:ObjectProperty ;
                       rdfs:domain core:ScientificArtifact ;
                       rdfs:range core:ApplicationDomain ;
@@ -117,48 +117,48 @@ core:hasBeenAppliedTo rdf:type owl:ObjectProperty ;
                       skos:definition "A certain fairness notion has been applied to certain application domains."@en .
 
 
-###  http://fairness-ontology.com/hasBeenTestedOn
+###  http://fairness-ontology.com/core#hasBeenTestedOn
 core:hasBeenTestedOn rdf:type owl:ObjectProperty ;
                      rdfs:domain core:ScientificArtifact ;
-                     rdfs:range core:Dataset ;
+                     rdfs:range <https://www.w3.org/TR/vocab-dcat-3/Dataset> ;
                      rdfs:label "has been tested on"@en .
 
 
-###  http://fairness-ontology.com/independenceSeparationConflictsWith
+###  http://fairness-ontology.com/core#independenceSeparationConflictsWith
 core:independenceSeparationConflictsWith rdf:type owl:ObjectProperty ;
                                          rdfs:subPropertyOf core:conflictsWith ;
                                          rdfs:comment "Assume Y is binary, A is not independent of Y, and R is not independent of Y. Then, independence and separation cannot both hold." .
 
 
-###  http://fairness-ontology.com/independenceSufficiencyConflictsWith
+###  http://fairness-ontology.com/core#independenceSufficiencyConflictsWith
 core:independenceSufficiencyConflictsWith rdf:type owl:ObjectProperty ;
                                           rdfs:subPropertyOf core:conflictsWith ;
                                           rdf:type owl:SymmetricProperty ;
                                           rdfs:comment "Assume that sensitive attribute A and the target variable Y are not independent. Then sufficiency and independence cannot both hold." .
 
 
-###  http://fairness-ontology.com/isAddressedWith
+###  http://fairness-ontology.com/core#isAddressedWith
 core:isAddressedWith rdf:type owl:ObjectProperty ;
                      rdfs:domain core:FairnessConcern ;
                      rdfs:range fmo:fairness_notion ;
                      rdfs:label "is addressed with"@en .
 
 
-###  http://fairness-ontology.com/isAppliedAt
+###  http://fairness-ontology.com/core#isAppliedAt
 core:isAppliedAt rdf:type owl:ObjectProperty ;
                  rdfs:domain core:MitigationTechnique ;
                  rdfs:range core:AILifecycleStep ;
                  rdfs:label "is applied at" .
 
 
-###  http://fairness-ontology.com/isEnforcedBy
+###  http://fairness-ontology.com/core#isEnforcedBy
 core:isEnforcedBy rdf:type owl:ObjectProperty ;
                   rdfs:domain fmo:fairness_metric ;
                   rdfs:range core:MitigationTechnique ;
                   rdfs:label "is enforced by"@en .
 
 
-###  http://fairness-ontology.com/isEquivalentTo
+###  http://fairness-ontology.com/core#isEquivalentTo
 core:isEquivalentTo rdf:type owl:ObjectProperty ,
                              owl:SymmetricProperty ;
                     rdfs:domain fmo:fairness_notion ;
@@ -167,14 +167,14 @@ core:isEquivalentTo rdf:type owl:ObjectProperty ,
                     skos:definition "A certain fairness notion can be equal to some other fairness notions."@en .
 
 
-###  http://fairness-ontology.com/isFollowedBy
+###  http://fairness-ontology.com/core#isFollowedBy
 core:isFollowedBy rdf:type owl:ObjectProperty ;
                   rdfs:domain core:AILifecycleStep ;
                   rdfs:range core:AILifecycleStep ;
                   rdfs:label "is followed by" .
 
 
-###  http://fairness-ontology.com/isGuidedBy
+###  http://fairness-ontology.com/core#isGuidedBy
 core:isGuidedBy rdf:type owl:ObjectProperty ;
                 rdfs:domain fmo:fairness_notion ;
                 rdfs:range core:SocialPrinciple ;
@@ -182,7 +182,7 @@ core:isGuidedBy rdf:type owl:ObjectProperty ;
                 rdfs:label "is guided by"@en .
 
 
-###  http://fairness-ontology.com/isMeasuredBy
+###  http://fairness-ontology.com/core#isMeasuredBy
 core:isMeasuredBy rdf:type owl:ObjectProperty ;
                   owl:inverseOf core:measures ;
                   rdfs:domain fmo:fairness_notion ;
@@ -191,7 +191,7 @@ core:isMeasuredBy rdf:type owl:ObjectProperty ;
                   skos:definition "A fairness notion is measured by a fairness metric if comparisons made with the given metric are a valid way to determine fairness with this notion."@en .
 
 
-###  http://fairness-ontology.com/isMitigatedBy
+###  http://fairness-ontology.com/core#isMitigatedBy
 core:isMitigatedBy rdf:type owl:ObjectProperty ;
                    owl:inverseOf core:mitigates ;
                    rdfs:domain fmo:bias ;
@@ -200,7 +200,7 @@ core:isMitigatedBy rdf:type owl:ObjectProperty ;
                    skos:definition "A certain bias in the use-case can be mitigated by enforcing specific fairness notions."@en .
 
 
-###  http://fairness-ontology.com/isOperationalizedBy
+###  http://fairness-ontology.com/core#isOperationalizedBy
 core:isOperationalizedBy rdf:type owl:ObjectProperty ;
                          owl:inverseOf core:operationalize ;
                          rdfs:domain core:LegalRequirement ;
@@ -208,7 +208,7 @@ core:isOperationalizedBy rdf:type owl:ObjectProperty ;
                          rdfs:label "is operationalized by" .
 
 
-###  http://fairness-ontology.com/isProposedBy
+###  http://fairness-ontology.com/core#isProposedBy
 core:isProposedBy rdf:type owl:ObjectProperty ;
                   rdfs:subPropertyOf core:isUsedBy ;
                   rdfs:domain core:ScientificArtifact ;
@@ -217,34 +217,34 @@ core:isProposedBy rdf:type owl:ObjectProperty ;
                   skos:definition "A certain fairness notion is proposed by a certain scientific paper."@en .
 
 
-###  http://fairness-ontology.com/isQuantifiedBy
+###  http://fairness-ontology.com/core#isQuantifiedBy
 core:isQuantifiedBy rdf:type owl:ObjectProperty ;
                     rdfs:domain core:FairnessConcern ;
                     rdfs:range fmo:fairness_metric ;
                     rdfs:label "is quantified by"@en .
 
 
-###  http://fairness-ontology.com/isRelevantDuring
+###  http://fairness-ontology.com/core#isRelevantDuring
 core:isRelevantDuring rdf:type owl:ObjectProperty ;
                       rdfs:domain core:LegalRequirement ;
                       rdfs:range core:AILifecycleStep ;
                       rdfs:label "is relevant during" .
 
 
-###  http://fairness-ontology.com/isSuitableFor
+###  http://fairness-ontology.com/core#isSuitableFor
 core:isSuitableFor rdf:type owl:ObjectProperty ;
                    rdfs:domain fmo:fairness_metric ;
                    rdfs:range core:AITypeOfUse ;
                    rdfs:label "is suitable for" .
 
 
-###  http://fairness-ontology.com/isTriggeredBy
+###  http://fairness-ontology.com/core#isTriggeredBy
 core:isTriggeredBy rdf:type owl:ObjectProperty ;
                    owl:inverseOf core:triggers ;
                    rdfs:label "is triggered by" .
 
 
-###  http://fairness-ontology.com/isUsedBy
+###  http://fairness-ontology.com/core#isUsedBy
 core:isUsedBy rdf:type owl:ObjectProperty ;
               rdfs:domain core:ScientificArtifact ;
               rdfs:range core:ScientificPaper ;
@@ -252,7 +252,7 @@ core:isUsedBy rdf:type owl:ObjectProperty ;
               skos:definition "A certain fairness notion is used by some scientific papers."@en .
 
 
-###  http://fairness-ontology.com/itsComplianceIsSupportedWith
+###  http://fairness-ontology.com/core#itsComplianceIsSupportedWith
 core:itsComplianceIsSupportedWith rdf:type owl:ObjectProperty ;
                                   owl:inverseOf core:supportsComplianceWith ;
                                   rdfs:domain core:LegalRequirement ;
@@ -260,7 +260,7 @@ core:itsComplianceIsSupportedWith rdf:type owl:ObjectProperty ;
                                   rdfs:label "its compliance is supported by" .
 
 
-###  http://fairness-ontology.com/measures
+###  http://fairness-ontology.com/core#measures
 core:measures rdf:type owl:ObjectProperty ;
               rdfs:domain fmo:fairness_metric ;
               rdfs:range fmo:fairness_notion ;
@@ -268,14 +268,14 @@ core:measures rdf:type owl:ObjectProperty ;
               skos:definition "A fairness metric measures some fairness notion if comparisons made with the given metric are a valid way to determine fairness with this notion."@en .
 
 
-###  http://fairness-ontology.com/mitigatedWith
+###  http://fairness-ontology.com/core#mitigatedWith
 core:mitigatedWith rdf:type owl:ObjectProperty ;
                    rdfs:domain core:FairnessConcern ;
                    rdfs:range core:MitigationTechnique ;
                    rdfs:label "mitigated with"@en .
 
 
-###  http://fairness-ontology.com/mitigates
+###  http://fairness-ontology.com/core#mitigates
 core:mitigates rdf:type owl:ObjectProperty ;
                rdfs:domain fmo:fairness_notion ;
                rdfs:range fmo:bias ;
@@ -283,14 +283,14 @@ core:mitigates rdf:type owl:ObjectProperty ;
                skos:definition "A fairness notion is required to mitigate a certain bias."@en .
 
 
-###  http://fairness-ontology.com/operationalize
+###  http://fairness-ontology.com/core#operationalize
 core:operationalize rdf:type owl:ObjectProperty ;
                     rdfs:domain fmo:fairness_notion ;
                     rdfs:range core:LegalRequirement ;
                     rdfs:label "operationalize" .
 
 
-###  http://fairness-ontology.com/refersTo
+###  http://fairness-ontology.com/core#refersTo
 core:refersTo rdf:type owl:ObjectProperty ;
               rdfs:domain core:ScientificArtifact ;
               rdfs:range core:AITask ;
@@ -298,40 +298,40 @@ core:refersTo rdf:type owl:ObjectProperty ;
               skos:definition "A certain fairness notion refers to (is suitable for) a certain set of AI tasks."@en .
 
 
-###  http://fairness-ontology.com/relatesTo
+###  http://fairness-ontology.com/core#relatesTo
 core:relatesTo rdf:type owl:ObjectProperty ;
-               rdfs:domain core:Dataset ;
+               rdfs:domain <https://www.w3.org/TR/vocab-dcat-3/Dataset> ;
                rdfs:range core:ApplicationDomain ;
                rdfs:label "relates to" .
 
 
-###  http://fairness-ontology.com/requires
+###  http://fairness-ontology.com/core#requires
 core:requires rdf:type owl:ObjectProperty ;
               rdfs:domain core:FairnessConcern ;
               rdfs:range core:EvidenceArtifact .
 
 
-###  http://fairness-ontology.com/separationSufficiencyConflictsWith
+###  http://fairness-ontology.com/core#separationSufficiencyConflictsWith
 core:separationSufficiencyConflictsWith rdf:type owl:ObjectProperty ;
                                         rdfs:subPropertyOf core:conflictsWith ;
                                         rdfs:comment "Assume that all events in the joint distribution of (A, R, Y) have positive probability, and assume A is not independent of Y. Then, separation and sufficiency cannot both hold. For binary classifier, this means: Assume Y is not independent of A and assume \\hat{Y} is a binary classifier with a nonzero false positive rate. Then, separation and sufficiency cannot both hold." .
 
 
-###  http://fairness-ontology.com/supportsComplianceWith
+###  http://fairness-ontology.com/core#supportsComplianceWith
 core:supportsComplianceWith rdf:type owl:ObjectProperty ;
                             rdfs:domain core:MitigationTechnique ;
                             rdfs:range core:LegalRequirement ;
                             rdfs:label "supports compliance with" .
 
 
-###  http://fairness-ontology.com/testedOn
+###  http://fairness-ontology.com/core#testedOn
 core:testedOn rdf:type owl:ObjectProperty ;
               rdfs:domain core:ScientificPaper ;
-              rdfs:range core:Dataset ;
+              rdfs:range <https://www.w3.org/TR/vocab-dcat-3/Dataset> ;
               rdfs:label "tested on"@en .
 
 
-###  http://fairness-ontology.com/triggers
+###  http://fairness-ontology.com/core#triggers
 core:triggers rdf:type owl:ObjectProperty ;
               rdfs:domain core:FairnessConcern ;
               rdfs:range core:LegalRequirement .
@@ -348,7 +348,7 @@ resource:SIO_000068 rdf:type owl:ObjectProperty ;
 #    Data properties
 #################################################################
 
-###  http://fairness-ontology.com/scientificArtifactDescription
+###  http://fairness-ontology.com/core#scientificArtifactDescription
 core:scientificArtifactDescription rdf:type owl:DatatypeProperty ;
                                    rdfs:domain core:ScientificArtifact ;
                                    rdfs:range xsd:string ;
@@ -360,18 +360,18 @@ core:scientificArtifactDescription rdf:type owl:DatatypeProperty ;
 #    Classes
 #################################################################
 
-###  http://fairness-ontology.com/AILifecycleStep
+###  http://fairness-ontology.com/core#AILifecycleStep
 core:AILifecycleStep rdf:type owl:Class ;
                      rdfs:label "AI Lifecycle Step" .
 
 
-###  http://fairness-ontology.com/AITask
+###  http://fairness-ontology.com/core#AITask
 core:AITask rdf:type owl:Class ;
             rdfs:label "AI Task"@en ;
             skos:definition "The functional task that the AI system is able to perform. Previously was MLTask, AITask and AICapability."@en .
 
 
-###  http://fairness-ontology.com/AITypeOfUse
+###  http://fairness-ontology.com/core#AITypeOfUse
 core:AITypeOfUse rdf:type owl:Class ;
                  owl:equivalentClass [ rdf:type owl:Class ;
                                        owl:oneOf ( core:Conversation
@@ -383,43 +383,43 @@ core:AITypeOfUse rdf:type owl:Class ;
                  rdfs:label "AI Type Of Use" .
 
 
-###  http://fairness-ontology.com/Adapters
+###  http://fairness-ontology.com/core#Adapters
 core:Adapters rdf:type owl:Class ;
               rdfs:subClassOf core:PartialFineTuning ;
               rdfs:label "Adapters" .
 
 
-###  http://fairness-ontology.com/AdversarialLearning
+###  http://fairness-ontology.com/core#AdversarialLearning
 core:AdversarialLearning rdf:type owl:Class ;
                          rdfs:subClassOf core:FullRetraining ;
                          rdfs:label "Adversarial Learning" .
 
 
-###  http://fairness-ontology.com/AmortizedGranularityMetric
+###  http://fairness-ontology.com/core#AmortizedGranularityMetric
 core:AmortizedGranularityMetric rdf:type owl:Class ;
                                 rdfs:subClassOf core:GranularityMetric ;
                                 rdfs:label "Amortized Granularity Metric"@en .
 
 
-###  http://fairness-ontology.com/ApplicationDomain
+###  http://fairness-ontology.com/core#ApplicationDomain
 core:ApplicationDomain rdf:type owl:Class ;
                        rdfs:label "Application Domain"@en ;
                        skos:definition "The specific real-world area or context in which the system is designed to operate. Previously was UseArea. According to AI Watch taxonomy can also me called \"Economic Sector or Use Area\""@en .
 
 
-###  http://fairness-ontology.com/AuditSets
+###  http://fairness-ontology.com/core#AuditSets
 core:AuditSets rdf:type owl:Class ;
                rdfs:subClassOf core:DataGeneration ;
                rdfs:label "Audit Sets" .
 
 
-###  http://fairness-ontology.com/BanditsBasedLearning
+###  http://fairness-ontology.com/core#BanditsBasedLearning
 core:BanditsBasedLearning rdf:type owl:Class ;
                           rdfs:subClassOf core:FullRetraining ;
                           rdfs:label "Bandits-based Learning" .
 
 
-###  http://fairness-ontology.com/BlackBoxDecisionOnly
+###  http://fairness-ontology.com/core#BlackBoxDecisionOnly
 core:BlackBoxDecisionOnly rdf:type owl:Class ;
                           rdfs:subClassOf core:ModelAccessResourcesMitigation ,
                                           [ rdf:type owl:Restriction ;
@@ -429,26 +429,26 @@ core:BlackBoxDecisionOnly rdf:type owl:Class ;
                           rdfs:label "Decision Layer Control - Black-box Model (I)" .
 
 
-###  http://fairness-ontology.com/Blinding
+###  http://fairness-ontology.com/core#Blinding
 core:Blinding rdf:type owl:Class ;
               rdfs:subClassOf core:FeatureLevelColumnIntervention ;
               rdfs:label "Blinding and Proxy Removal" .
 
 
-###  http://fairness-ontology.com/CalibrationBasedFairnessMetric
+###  http://fairness-ontology.com/core#CalibrationBasedFairnessMetric
 core:CalibrationBasedFairnessMetric rdf:type owl:Class ;
                                     rdfs:subClassOf fmo:fairness_metric ;
                                     rdfs:label "Calibration-based Fairness Metric" ;
                                     skos:definition "A measurement of any fairness notion, partially connected to the confusion matrix principles, these metrics are usually referred with the term  calibration-based, with the very aim of distinguishing their prevalent attention to the predictive values." .
 
 
-###  http://fairness-ontology.com/CalibrationBasedMitigation
+###  http://fairness-ontology.com/core#CalibrationBasedMitigation
 core:CalibrationBasedMitigation rdf:type owl:Class ;
                                 rdfs:subClassOf core:GreyBoxScores ;
                                 rdfs:label "Calibration-based Mitigation" .
 
 
-###  http://fairness-ontology.com/CausalFairnessNotion
+###  http://fairness-ontology.com/core#CausalFairnessNotion
 core:CausalFairnessNotion rdf:type owl:Class ;
                           rdfs:subClassOf core:OutcomeFairnessNotion ;
                           owl:disjointWith core:ObservationalFairnessNotion ;
@@ -457,33 +457,33 @@ core:CausalFairnessNotion rdf:type owl:Class ;
                           skos:definition "A family of fairness notions focusing on the causal relations between variables."@en .
 
 
-###  http://fairness-ontology.com/ClassifierFairnessMetric
+###  http://fairness-ontology.com/core#ClassifierFairnessMetric
 core:ClassifierFairnessMetric rdf:type owl:Class ;
                               rdfs:subClassOf core:GeneratedTextBasedFairnessMetric ;
                               rdfs:label "Classifier Fairness Metric"@en ;
                               skos:definition "A metric that employs a classifier on generated text to assess the presence of bias or fairness."@en .
 
 
-###  http://fairness-ontology.com/Cleaning
+###  http://fairness-ontology.com/core#Cleaning
 core:Cleaning rdf:type owl:Class ;
               rdfs:subClassOf core:InstanceLevelRowIntervention ;
               rdfs:label "Cleaning" .
 
 
-###  http://fairness-ontology.com/ConfusionMatrixBasedFairnessMetric
+###  http://fairness-ontology.com/core#ConfusionMatrixBasedFairnessMetric
 core:ConfusionMatrixBasedFairnessMetric rdf:type owl:Class ;
                                         rdfs:subClassOf fmo:fairness_metric ;
                                         rdfs:label "Confusion Matrix-based Fairness Metric"@en ;
                                         skos:definition "A measurement of any fairness notion, focusing on the amount of correct/incorrect classifications inferred by the predictor."@en .
 
 
-###  http://fairness-ontology.com/ConstrainedOptimization
+###  http://fairness-ontology.com/core#ConstrainedOptimization
 core:ConstrainedOptimization rdf:type owl:Class ;
                              rdfs:subClassOf core:FullRetraining ;
                              rdfs:label "Constrained Optimization" .
 
 
-###  http://fairness-ontology.com/ConversationFairnessConcern
+###  http://fairness-ontology.com/core#ConversationFairnessConcern
 core:ConversationFairnessConcern rdf:type owl:Class ;
                                  rdfs:subClassOf core:FairnessConcern ,
                                                  [ rdf:type owl:Restriction ;
@@ -492,19 +492,19 @@ core:ConversationFairnessConcern rdf:type owl:Class ;
                                                  ] .
 
 
-###  http://fairness-ontology.com/CounterfactualAugmentation
+###  http://fairness-ontology.com/core#CounterfactualAugmentation
 core:CounterfactualAugmentation rdf:type owl:Class ;
                                 rdfs:subClassOf core:InstanceLevelRowIntervention ;
                                 rdfs:label "Counterfactual Augmentation" .
 
 
-###  http://fairness-ontology.com/DataGeneration
+###  http://fairness-ontology.com/core#DataGeneration
 core:DataGeneration rdf:type owl:Class ;
                     rdfs:subClassOf core:DataResourcesMitigation ;
                     rdfs:label "Data Acquisition/Generation (D)" .
 
 
-###  http://fairness-ontology.com/DataResourcesMitigation
+###  http://fairness-ontology.com/core#DataResourcesMitigation
 core:DataResourcesMitigation rdf:type owl:Class ;
                              rdfs:subClassOf core:MitigationTechnique ,
                                              [ rdf:type owl:Restriction ;
@@ -514,75 +514,69 @@ core:DataResourcesMitigation rdf:type owl:Class ;
                              rdfs:label "Data Resources Mitigation"@en .
 
 
-###  http://fairness-ontology.com/Dataset
-core:Dataset rdf:type owl:Class ;
-             rdfs:label "Dataset"@en ;
-             skos:definition "A dataset used in machine learning."@en .
-
-
-###  http://fairness-ontology.com/DecisionTimeConstrainedDecisioning
+###  http://fairness-ontology.com/core#DecisionTimeConstrainedDecisioning
 core:DecisionTimeConstrainedDecisioning rdf:type owl:Class ;
                                         rdfs:subClassOf core:BlackBoxDecisionOnly ;
                                         rdfs:label "Decision-time Constrained Decisioning" .
 
 
-###  http://fairness-ontology.com/DistanceBasedFairnessMetric
+###  http://fairness-ontology.com/core#DistanceBasedFairnessMetric
 core:DistanceBasedFairnessMetric rdf:type owl:Class ;
                                  rdfs:subClassOf fmo:fairness_metric ;
                                  rdfs:label "Distance-based Fairness Metric" .
 
 
-###  http://fairness-ontology.com/DistributionFairnessMetric
+###  http://fairness-ontology.com/core#DistributionFairnessMetric
 core:DistributionFairnessMetric rdf:type owl:Class ;
                                 rdfs:subClassOf core:GeneratedTextBasedFairnessMetric ;
                                 rdfs:label "Distribution Fairness Metric"@en ;
                                 skos:definition "A metric that evaluates fairness by comparing the statistical distribution of generated outputs across groups."@en .
 
 
-###  http://fairness-ontology.com/EmbeddingBasedFairnessMetric
+###  http://fairness-ontology.com/core#EmbeddingBasedFairnessMetric
 core:EmbeddingBasedFairnessMetric rdf:type owl:Class ;
                                   rdfs:subClassOf fmo:fairness_metric ;
                                   rdfs:label "Embedding-based Fairness Metric"@en ;
                                   skos:definition "A fairness metric that evaluates bias or fairness using representations derived from word or sentence embeddings."@en .
 
 
-###  http://fairness-ontology.com/EvidenceArtifact
+###  http://fairness-ontology.com/core#EvidenceArtifact
 core:EvidenceArtifact rdf:type owl:Class ;
                       rdfs:label "Evidence Artifact" ;
                       skos:definition "Evidence expected for compliance and auditability. That is, a piece of documentation, data, or analytical output that provides verifiable information about the presence, assessment, or mitigation of a specific socio-technical concern in an AI system. It supports the evaluation of that concern by supplying measurable or auditable evidence (e.g., logs, dataset analyses, reports, or metrics) related to the system’s behavior, data, or operational context." .
 
 
-###  http://fairness-ontology.com/FairnessConcern
+###  http://fairness-ontology.com/core#FairnessConcern
 core:FairnessConcern rdf:type owl:Class ;
                      rdfs:label "Fairness Concern"@en ;
                      skos:definition "A fairness concern refers to a potential or observed issue where a system’s decisions or outcomes may unjustly favor or disadvantage certain individuals or groups. It highlights risks of bias, discrimination, or unequal treatment that require attention and mitigation." .
 
 
-###  http://fairness-ontology.com/FairnessRegularization
+###  http://fairness-ontology.com/core#FairnessRegularization
 core:FairnessRegularization rdf:type owl:Class ;
                             rdfs:subClassOf core:FullRetraining ;
                             rdfs:label "Fairness Regularization" .
 
 
-###  http://fairness-ontology.com/FeatureLevelColumnIntervention
+###  http://fairness-ontology.com/core#FeatureLevelColumnIntervention
 core:FeatureLevelColumnIntervention rdf:type owl:Class ;
                                     rdfs:subClassOf core:DataResourcesMitigation ;
                                     rdfs:label "Feature-level Column Intervention (A)" .
 
 
-###  http://fairness-ontology.com/FeatureLevelRowReweightingResampling
+###  http://fairness-ontology.com/core#FeatureLevelRowReweightingResampling
 core:FeatureLevelRowReweightingResampling rdf:type owl:Class ;
                                           rdfs:subClassOf core:DataResourcesMitigation ;
                                           rdfs:label "Feature-level Row Reweighting/Resampling (C)" .
 
 
-###  http://fairness-ontology.com/FeatureReview
+###  http://fairness-ontology.com/core#FeatureReview
 core:FeatureReview rdf:type owl:Class ;
                    rdfs:subClassOf core:FeatureLevelColumnIntervention ;
                    rdfs:label "Feature Review" .
 
 
-###  http://fairness-ontology.com/FullFineTuning
+###  http://fairness-ontology.com/core#FullFineTuning
 core:FullFineTuning rdf:type owl:Class ;
                     rdfs:subClassOf core:ModelAccessResourcesMitigation ,
                                     core:TrainingResourcesMitigation ;
@@ -590,58 +584,58 @@ core:FullFineTuning rdf:type owl:Class ;
                     rdfs:label "Full Fine-tuning - White-box Model (F)" .
 
 
-###  http://fairness-ontology.com/FullParameterDebiasing
+###  http://fairness-ontology.com/core#FullParameterDebiasing
 core:FullParameterDebiasing rdf:type owl:Class ;
                             rdfs:subClassOf core:FullFineTuning ;
                             rdfs:label "Full Parameter Debiasing" .
 
 
-###  http://fairness-ontology.com/FullPruning
+###  http://fairness-ontology.com/core#FullPruning
 core:FullPruning rdf:type owl:Class ;
                  rdfs:subClassOf core:FullFineTuning ;
                  rdfs:comment "A mitigation technique that prunes an already trained model by setting to 0 some of its weights. The model is considered AS A WHOLE, by taking into account for pruning all its internal weights." ;
                  rdfs:label "Full Pruning and Weight Masking" .
 
 
-###  http://fairness-ontology.com/FullRetraining
+###  http://fairness-ontology.com/core#FullRetraining
 core:FullRetraining rdf:type owl:Class ;
                     rdfs:subClassOf core:TrainingResourcesMitigation ;
                     rdfs:label "Full Retraining (E)" .
 
 
-###  http://fairness-ontology.com/FullWeightRedistribution
+###  http://fairness-ontology.com/core#FullWeightRedistribution
 core:FullWeightRedistribution rdf:type owl:Class ;
                               rdfs:subClassOf core:FullFineTuning ;
                               rdfs:comment "A mitigation technique that redistributes the weights of an already trained model, considering it AS A WHOLE, potentially redistributing all its weights." ;
                               rdfs:label "Full Weight Redistribution"@en .
 
 
-###  http://fairness-ontology.com/GeneratedTextBasedFairnessMetric
+###  http://fairness-ontology.com/core#GeneratedTextBasedFairnessMetric
 core:GeneratedTextBasedFairnessMetric rdf:type owl:Class ;
                                       rdfs:subClassOf fmo:fairness_metric ;
                                       rdfs:label "Generated Text-based Fairness Metric"@en ;
                                       skos:definition "A metric that measures fairness by analyzing or scoring generated text outputs."@en .
 
 
-###  http://fairness-ontology.com/Governance
+###  http://fairness-ontology.com/core#Governance
 core:Governance rdf:type owl:Class ;
                 rdfs:subClassOf core:AILifecycleStep ;
                 rdfs:label "Governance" .
 
 
-###  http://fairness-ontology.com/GovernanceOnly
+###  http://fairness-ontology.com/core#GovernanceOnly
 core:GovernanceOnly rdf:type owl:Class ;
                     rdfs:subClassOf core:HumanOversightMitigation ;
                     rdfs:label "Governance-only Interventions (J)" .
 
 
-###  http://fairness-ontology.com/GranularityMetric
+###  http://fairness-ontology.com/core#GranularityMetric
 core:GranularityMetric rdf:type owl:Class ;
                        rdfs:subClassOf core:RecommendationSystemMetric ;
                        rdfs:label "Granularity Metric"@en .
 
 
-###  http://fairness-ontology.com/GreyBoxScores
+###  http://fairness-ontology.com/core#GreyBoxScores
 core:GreyBoxScores rdf:type owl:Class ;
                    rdfs:subClassOf core:ModelAccessResourcesMitigation ,
                                    [ rdf:type owl:Restriction ;
@@ -651,7 +645,7 @@ core:GreyBoxScores rdf:type owl:Class ;
                    rdfs:label "Scores and Probabilities Access - Grey-box Model (H)" .
 
 
-###  http://fairness-ontology.com/GroupFairnessNotion
+###  http://fairness-ontology.com/core#GroupFairnessNotion
 core:GroupFairnessNotion rdf:type owl:Class ;
                          rdfs:subClassOf core:OutcomeFairnessNotion ;
                          owl:disjointWith core:IndividualFairnessNotion ;
@@ -661,13 +655,13 @@ core:GroupFairnessNotion rdf:type owl:Class ;
                          skos:definition "A family of fairness notions with the common objective to ensure that groups who differ by their sensitive attributes are treated equally. (Note: Occasionally, \"group fairness\" is used to refer to statistical parity specifically, instead of the broader meaning as defined here)."@en .
 
 
-###  http://fairness-ontology.com/HeadOnly
+###  http://fairness-ontology.com/core#HeadOnly
 core:HeadOnly rdf:type owl:Class ;
               rdfs:subClassOf core:PartialFineTuning ;
               rdfs:label "Head-only" .
 
 
-###  http://fairness-ontology.com/HumanOversightMitigation
+###  http://fairness-ontology.com/core#HumanOversightMitigation
 core:HumanOversightMitigation rdf:type owl:Class ;
                               rdfs:subClassOf core:MitigationTechnique ,
                                               [ rdf:type owl:Restriction ;
@@ -677,19 +671,19 @@ core:HumanOversightMitigation rdf:type owl:Class ;
                               rdfs:label "Human Oversight Mitigation" .
 
 
-###  http://fairness-ontology.com/ImpactFocusedMetric
+###  http://fairness-ontology.com/core#ImpactFocusedMetric
 core:ImpactFocusedMetric rdf:type owl:Class ;
                          rdfs:subClassOf core:OptimizationObjectMetric ;
                          rdfs:label "Impact-focused Metric"@en .
 
 
-###  http://fairness-ontology.com/In-processing
+###  http://fairness-ontology.com/core#In-processing
 core:In-processing rdf:type owl:Class ;
                    rdfs:subClassOf core:AILifecycleStep ;
                    rdfs:label "In-processing" .
 
 
-###  http://fairness-ontology.com/IndependenceFairnessNotion
+###  http://fairness-ontology.com/core#IndependenceFairnessNotion
 core:IndependenceFairnessNotion rdf:type owl:Class ;
                                 rdfs:subClassOf core:GroupFairnessNotion ;
                                 dc:source "https://doi.org/10.1145/3468507.3468511"^^xsd:anyURI ;
@@ -699,7 +693,7 @@ core:IndependenceFairnessNotion rdf:type owl:Class ;
                                 fmo:probabilistic_definition "Ŷ ⊥ A"@en .
 
 
-###  http://fairness-ontology.com/IndividualFairnessNotion
+###  http://fairness-ontology.com/core#IndividualFairnessNotion
 core:IndividualFairnessNotion rdf:type owl:Class ;
                               rdfs:subClassOf core:OutcomeFairnessNotion ;
                               dc:source "https://doi.org/10.1145/2090236.2090255"^^xsd:anyURI ;
@@ -708,81 +702,81 @@ core:IndividualFairnessNotion rdf:type owl:Class ;
                               skos:definition "A family of fairness notions with the common objective to ensure that similar individuals are treated similarly by a model. Some notions in this group may be a relaxed version of &quot;strict&quot; individual fairness (i.e., they may treat similar indivduals differently under certain conditions)."@en .
 
 
-###  http://fairness-ontology.com/InstanceLevelRowIntervention
+###  http://fairness-ontology.com/core#InstanceLevelRowIntervention
 core:InstanceLevelRowIntervention rdf:type owl:Class ;
                                   rdfs:subClassOf core:DataResourcesMitigation ;
                                   rdfs:label "Feature-level Row Intervention (B)" .
 
 
-###  http://fairness-ontology.com/InstanceWeighting
+###  http://fairness-ontology.com/core#InstanceWeighting
 core:InstanceWeighting rdf:type owl:Class ;
                        rdfs:subClassOf core:FeatureLevelRowReweightingResampling ;
                        rdfs:label "Instance Weighting" .
 
 
-###  http://fairness-ontology.com/ItemFocusedMetric
+###  http://fairness-ontology.com/core#ItemFocusedMetric
 core:ItemFocusedMetric rdf:type owl:Class ;
                        rdfs:subClassOf core:SubjectMetric ;
                        rdfs:label "Item-focused Metric"@en .
 
 
-###  http://fairness-ontology.com/LearningAndPerception
+###  http://fairness-ontology.com/core#LearningAndPerception
 core:LearningAndPerception rdf:type owl:Class ;
                            rdfs:subClassOf core:AITask ;
                            rdfs:label "Learning And Perception" .
 
 
-###  http://fairness-ontology.com/LegalRequirement
+###  http://fairness-ontology.com/core#LegalRequirement
 core:LegalRequirement rdf:type owl:Class ;
                       rdfs:label "Legal Requirement" ;
                       skos:definition "A law or regulation article that constrains the AI systems activity, specifically to operate fairly, without unjust bias or discrimination against individuals or groups." .
 
 
-###  http://fairness-ontology.com/Legislation
+###  http://fairness-ontology.com/core#Legislation
 core:Legislation rdf:type owl:Class ;
                  rdfs:label "Legislation" .
 
 
-###  http://fairness-ontology.com/LexiconFairnessMetric
+###  http://fairness-ontology.com/core#LexiconFairnessMetric
 core:LexiconFairnessMetric rdf:type owl:Class ;
                            rdfs:subClassOf core:GeneratedTextBasedFairnessMetric ;
                            rdfs:label "Lexicon Fairness Metric"@en ;
                            skos:definition "A metric that uses predefined lexicons to study fairness or bias in generated textual content."@en .
 
 
-###  http://fairness-ontology.com/LoRA
+###  http://fairness-ontology.com/core#LoRA
 core:LoRA rdf:type owl:Class ;
           rdfs:subClassOf core:PartialFineTuning ;
           rdfs:label "LoRA" .
 
 
-###  http://fairness-ontology.com/ManagementLegalRequirement
+###  http://fairness-ontology.com/core#ManagementLegalRequirement
 core:ManagementLegalRequirement rdf:type owl:Class ;
                                 rdfs:subClassOf core:LegalRequirement ;
                                 rdfs:label "Management Legal Requirement" .
 
 
-###  http://fairness-ontology.com/MaskedTokenFairnessMetric
+###  http://fairness-ontology.com/core#MaskedTokenFairnessMetric
 core:MaskedTokenFairnessMetric rdf:type owl:Class ;
                                rdfs:subClassOf core:ProbabilityBasedFairnessMetric ;
                                rdfs:label "Masked Token Fairness Metric"@en ;
                                skos:definition "A fairness metric relying on the predicted probabilities for masked tokens in language models."@en .
 
 
-###  http://fairness-ontology.com/MitigationTechnique
+###  http://fairness-ontology.com/core#MitigationTechnique
 core:MitigationTechnique rdf:type owl:Class ;
                          rdfs:subClassOf core:ScientificArtifact ;
                          rdfs:label "Mitigation Technique"@en ;
                          skos:definition "A method used to identify, reduce, or prevent unfair bias in data, models, or decision-making processes. It aims to improve fairness and reduce discriminatory outcomes across different groups or individuals." .
 
 
-###  http://fairness-ontology.com/ModelAccessResourcesMitigation
+###  http://fairness-ontology.com/core#ModelAccessResourcesMitigation
 core:ModelAccessResourcesMitigation rdf:type owl:Class ;
                                     rdfs:subClassOf core:MitigationTechnique ;
                                     rdfs:label "Model Access Resources Mitigation"@en .
 
 
-###  http://fairness-ontology.com/ObservationalFairnessNotion
+###  http://fairness-ontology.com/core#ObservationalFairnessNotion
 core:ObservationalFairnessNotion rdf:type owl:Class ;
                                  rdfs:subClassOf core:OutcomeFairnessNotion ;
                                  resource:hasSynonym "observational fairness"@en ;
@@ -790,13 +784,13 @@ core:ObservationalFairnessNotion rdf:type owl:Class ;
                                  skos:definition "A family of fairness notions focusing on the joint distribution of observable factors."@en .
 
 
-###  http://fairness-ontology.com/OptimizationObjectMetric
+###  http://fairness-ontology.com/core#OptimizationObjectMetric
 core:OptimizationObjectMetric rdf:type owl:Class ;
                               rdfs:subClassOf core:RecommendationSystemMetric ;
                               rdfs:label "Optimization Object Metric"@en .
 
 
-###  http://fairness-ontology.com/OutcomeFairnessNotion
+###  http://fairness-ontology.com/core#OutcomeFairnessNotion
 core:OutcomeFairnessNotion rdf:type owl:Class ;
                            rdfs:subClassOf fmo:fairness_notion ;
                            owl:disjointWith core:ProceduralFairnessNotion ;
@@ -805,53 +799,53 @@ core:OutcomeFairnessNotion rdf:type owl:Class ;
                            skos:definition "Outcome fairness is concerned with the fairness of the results of the decision-making process."@en .
 
 
-###  http://fairness-ontology.com/OutputRewriting
+###  http://fairness-ontology.com/core#OutputRewriting
 core:OutputRewriting rdf:type owl:Class ;
                      rdfs:subClassOf core:BlackBoxDecisionOnly ;
                      rdfs:label "Decision/Output Re-writing" .
 
 
-###  http://fairness-ontology.com/ParityBasedFairnessMetric
+###  http://fairness-ontology.com/core#ParityBasedFairnessMetric
 core:ParityBasedFairnessMetric rdf:type owl:Class ;
                                rdfs:subClassOf fmo:fairness_metric ;
                                rdfs:label "Parity-based Fairness Metric"@en ;
                                skos:definition "A measurement of any fairness notion, focusing on equalising the probability of a favourable outcome among groups."@en .
 
 
-###  http://fairness-ontology.com/PartialFineTuning
+###  http://fairness-ontology.com/core#PartialFineTuning
 core:PartialFineTuning rdf:type owl:Class ;
                        rdfs:subClassOf core:ModelAccessResourcesMitigation ,
                                        core:TrainingResourcesMitigation ;
                        rdfs:label "Partial Fine-tuning - White-box Model (G)" .
 
 
-###  http://fairness-ontology.com/PartialPruning
+###  http://fairness-ontology.com/core#PartialPruning
 core:PartialPruning rdf:type owl:Class ;
                     rdfs:subClassOf core:PartialFineTuning ;
                     rdfs:comment "A mitigation technique that prunes a SUBPART OF an already trained model by setting to 0 some of its weights." ;
                     rdfs:label "Partial Pruning and Weight Masking" .
 
 
-###  http://fairness-ontology.com/Post-processing
+###  http://fairness-ontology.com/core#Post-processing
 core:Post-processing rdf:type owl:Class ;
                      rdfs:subClassOf core:AILifecycleStep ;
                      rdfs:label "Post-processing" .
 
 
-###  http://fairness-ontology.com/Pre-processing
+###  http://fairness-ontology.com/core#Pre-processing
 core:Pre-processing rdf:type owl:Class ;
                     rdfs:subClassOf core:AILifecycleStep ;
                     rdfs:label "Pre-processing" .
 
 
-###  http://fairness-ontology.com/ProbabilityBasedFairnessMetric
+###  http://fairness-ontology.com/core#ProbabilityBasedFairnessMetric
 core:ProbabilityBasedFairnessMetric rdf:type owl:Class ;
                                     rdfs:subClassOf fmo:fairness_metric ;
                                     rdfs:label "Probability-based Fairness Metric"@en ;
                                     skos:definition "A metric that considers the probability distributions of predicted outcomes to measure fairness."@en .
 
 
-###  http://fairness-ontology.com/ProceduralFairnessNotion
+###  http://fairness-ontology.com/core#ProceduralFairnessNotion
 core:ProceduralFairnessNotion rdf:type owl:Class ;
                               rdfs:subClassOf fmo:fairness_notion ;
                               resource:hasSynonym "procedural fairness"@en ;
@@ -859,20 +853,20 @@ core:ProceduralFairnessNotion rdf:type owl:Class ;
                               skos:definition "Procedural fairness is connected to the concept of fairness from administrative law, which is concerned with equality of treatment within the process that makes a decision."@en .
 
 
-###  http://fairness-ontology.com/PseudoLogLikelihoodFairnessMetric
+###  http://fairness-ontology.com/core#PseudoLogLikelihoodFairnessMetric
 core:PseudoLogLikelihoodFairnessMetric rdf:type owl:Class ;
                                        rdfs:subClassOf core:ProbabilityBasedFairnessMetric ;
                                        rdfs:label "Pseudo-log Likelihood Fairness Metric"@en ;
                                        skos:definition "A metric based on pseudo-log likelihoods, often used to evaluate the fairness of generation or prediction probabilities."@en .
 
 
-###  http://fairness-ontology.com/ReasoningAndDecisionMaking
+###  http://fairness-ontology.com/core#ReasoningAndDecisionMaking
 core:ReasoningAndDecisionMaking rdf:type owl:Class ;
                                 rdfs:subClassOf core:AITask ;
                                 rdfs:label "Reasoning And Decision Making" .
 
 
-###  http://fairness-ontology.com/RecommendationFairnessConcern
+###  http://fairness-ontology.com/core#RecommendationFairnessConcern
 core:RecommendationFairnessConcern rdf:type owl:Class ;
                                    rdfs:subClassOf core:FairnessConcern ,
                                                    [ rdf:type owl:Restriction ;
@@ -881,64 +875,64 @@ core:RecommendationFairnessConcern rdf:type owl:Class ;
                                                    ] .
 
 
-###  http://fairness-ontology.com/RecommendationSystemMetric
+###  http://fairness-ontology.com/core#RecommendationSystemMetric
 core:RecommendationSystemMetric rdf:type owl:Class ;
                                 rdfs:subClassOf fmo:fairness_metric ;
                                 rdfs:label "Recommendation System Metric"@en .
 
 
-###  http://fairness-ontology.com/Relabeling
+###  http://fairness-ontology.com/core#Relabeling
 core:Relabeling rdf:type owl:Class ;
                 rdfs:subClassOf core:InstanceLevelRowIntervention ;
                 rdfs:label "Relabeling" .
 
 
-###  http://fairness-ontology.com/Reranking
+###  http://fairness-ontology.com/core#Reranking
 core:Reranking rdf:type owl:Class ;
                rdfs:subClassOf core:BlackBoxDecisionOnly ;
                rdfs:label "Re-ranking" .
 
 
-###  http://fairness-ontology.com/ScientificArtifact
+###  http://fairness-ontology.com/core#ScientificArtifact
 core:ScientificArtifact rdf:type owl:Class ;
                         rdfs:label "Scientific Artifact"@en ;
                         skos:definition "A scientific artifact is the outcome with which the the paper contributes, such as a fairness notion, metric, and so on."@en .
 
 
-###  http://fairness-ontology.com/ScientificPaper
+###  http://fairness-ontology.com/core#ScientificPaper
 core:ScientificPaper rdf:type owl:Class ;
                      rdfs:label "Scientific Paper"@en ;
-                     skos:definition "A scientific paper published in a journal or during some conference proceesings."@en .
+                     skos:definition "A scientific manuscript published in a journal, conference proceedings or made pubblicly available online."@en .
 
 
-###  http://fairness-ontology.com/Scoping
+###  http://fairness-ontology.com/core#Scoping
 core:Scoping rdf:type owl:Class ;
              rdfs:subClassOf core:AILifecycleStep ;
              rdfs:label "Scoping" .
 
 
-###  http://fairness-ontology.com/ScoreBasedFairnessMetric
+###  http://fairness-ontology.com/core#ScoreBasedFairnessMetric
 core:ScoreBasedFairnessMetric rdf:type owl:Class ;
                               rdfs:subClassOf fmo:fairness_metric ;
                               rdfs:label "Score-based Fairness Metric"@en ;
                               skos:definition "A measurement of any fairness notion, directing attention to the value of the classification score."@en .
 
 
-###  http://fairness-ontology.com/SelectiveParameterUpdating
+###  http://fairness-ontology.com/core#SelectiveParameterUpdating
 core:SelectiveParameterUpdating rdf:type owl:Class ;
                                 rdfs:subClassOf core:PartialFineTuning ;
                                 rdfs:comment "A mitigation technique that updates the parameters (e.g., redistributes the weights) of a SUBPART OF an already trained model." ;
                                 rdfs:label "Selective Parameter Updating" .
 
 
-###  http://fairness-ontology.com/SentenceEmbeddingFairnessMetric
+###  http://fairness-ontology.com/core#SentenceEmbeddingFairnessMetric
 core:SentenceEmbeddingFairnessMetric rdf:type owl:Class ;
                                      rdfs:subClassOf core:EmbeddingBasedFairnessMetric ;
                                      rdfs:label "Sentence Embedding Fairness Metric"@en ;
                                      skos:definition "A metric using sentence-level embedding representations as the basis for evaluating model or data fairness."@en .
 
 
-###  http://fairness-ontology.com/SeparationFairnessNotion
+###  http://fairness-ontology.com/core#SeparationFairnessNotion
 core:SeparationFairnessNotion rdf:type owl:Class ;
                               rdfs:subClassOf core:GroupFairnessNotion ;
                               dc:source "https://doi.org/10.1145/3468507.3468511"^^xsd:anyURI ;
@@ -948,31 +942,31 @@ core:SeparationFairnessNotion rdf:type owl:Class ;
                               fmo:probabilistic_definition "Ŷ ⊥ A | Y"@en .
 
 
-###  http://fairness-ontology.com/SingleGranularityMetric
+###  http://fairness-ontology.com/core#SingleGranularityMetric
 core:SingleGranularityMetric rdf:type owl:Class ;
                              rdfs:subClassOf core:GranularityMetric ;
                              rdfs:label "Single Granularity Metric"@en .
 
 
-###  http://fairness-ontology.com/SocialPrinciple
+###  http://fairness-ontology.com/core#SocialPrinciple
 core:SocialPrinciple rdf:type owl:Class ;
                      rdfs:label "Social Principle"@en ;
                      skos:definition "Ethical and contextual interpretation of fairness, informing notions."@en .
 
 
-###  http://fairness-ontology.com/StratifiedSampling
+###  http://fairness-ontology.com/core#StratifiedSampling
 core:StratifiedSampling rdf:type owl:Class ;
                         rdfs:subClassOf core:FeatureLevelRowReweightingResampling ;
                         rdfs:label "Stratified Sampling" .
 
 
-###  http://fairness-ontology.com/SubjectMetric
+###  http://fairness-ontology.com/core#SubjectMetric
 core:SubjectMetric rdf:type owl:Class ;
                    rdfs:subClassOf core:RecommendationSystemMetric ;
                    rdfs:label "Subject Metric"@en .
 
 
-###  http://fairness-ontology.com/SufficiencyFairnessNotion
+###  http://fairness-ontology.com/core#SufficiencyFairnessNotion
 core:SufficiencyFairnessNotion rdf:type owl:Class ;
                                rdfs:subClassOf core:GroupFairnessNotion ;
                                dc:source "https://doi.org/10.1145/3468507.3468511"^^xsd:anyURI ;
@@ -982,31 +976,31 @@ core:SufficiencyFairnessNotion rdf:type owl:Class ;
                                fmo:probabilistic_definition "Y ⊥ A | Ŷ"@en .
 
 
-###  http://fairness-ontology.com/SyntheticData
+###  http://fairness-ontology.com/core#SyntheticData
 core:SyntheticData rdf:type owl:Class ;
                    rdfs:subClassOf core:DataGeneration ;
                    rdfs:label "Synthetic Data" .
 
 
-###  http://fairness-ontology.com/TargetedCollections
+###  http://fairness-ontology.com/core#TargetedCollections
 core:TargetedCollections rdf:type owl:Class ;
                          rdfs:subClassOf core:DataGeneration ;
                          rdfs:label "Targeted Collections" .
 
 
-###  http://fairness-ontology.com/TechnicalLegalRequirement
+###  http://fairness-ontology.com/core#TechnicalLegalRequirement
 core:TechnicalLegalRequirement rdf:type owl:Class ;
                                rdfs:subClassOf core:LegalRequirement ;
                                rdfs:label "Technical Legal Requirement" .
 
 
-###  http://fairness-ontology.com/Thresholding
+###  http://fairness-ontology.com/core#Thresholding
 core:Thresholding rdf:type owl:Class ;
                   rdfs:subClassOf core:GreyBoxScores ;
                   rdfs:label "Thresholding" .
 
 
-###  http://fairness-ontology.com/TrainingResourcesMitigation
+###  http://fairness-ontology.com/core#TrainingResourcesMitigation
 core:TrainingResourcesMitigation rdf:type owl:Class ;
                                  rdfs:subClassOf core:MitigationTechnique ,
                                                  [ rdf:type owl:Restriction ;
@@ -1016,25 +1010,25 @@ core:TrainingResourcesMitigation rdf:type owl:Class ;
                                  rdfs:label "Training Resources Mitigation"@en .
 
 
-###  http://fairness-ontology.com/Transformation
+###  http://fairness-ontology.com/core#Transformation
 core:Transformation rdf:type owl:Class ;
                     rdfs:subClassOf core:InstanceLevelRowIntervention ;
                     rdfs:label "Transformation/Representation Learning" .
 
 
-###  http://fairness-ontology.com/TreatmentFocusedMetric
+###  http://fairness-ontology.com/core#TreatmentFocusedMetric
 core:TreatmentFocusedMetric rdf:type owl:Class ;
                             rdfs:subClassOf core:OptimizationObjectMetric ;
                             rdfs:label "Treatment-focused Metric"@en .
 
 
-###  http://fairness-ontology.com/UserFocusedMetric
+###  http://fairness-ontology.com/core#UserFocusedMetric
 core:UserFocusedMetric rdf:type owl:Class ;
                        rdfs:subClassOf core:SubjectMetric ;
                        rdfs:label "User-focused Metric"@en .
 
 
-###  http://fairness-ontology.com/WordEmbeddingFairnessMetric
+###  http://fairness-ontology.com/core#WordEmbeddingFairnessMetric
 core:WordEmbeddingFairnessMetric rdf:type owl:Class ;
                                  rdfs:subClassOf core:EmbeddingBasedFairnessMetric ;
                                  rdfs:label "Word Embedding Fairness Metric"@en ;
@@ -1068,16 +1062,22 @@ fmo:fairness_notion rdf:type owl:Class ;
 system to be fair, i.e., a formal definition of fairness that can be observed as a property of an AI model, in relation to that model's treatment of different cohorts."""@en .
 
 
+###  https://www.w3.org/TR/vocab-dcat-3/Dataset
+<https://www.w3.org/TR/vocab-dcat-3/Dataset> rdf:type owl:Class ;
+                                             rdfs:label "Dataset"@en ;
+                                             skos:definition "A dataset used in machine learning."@en .
+
+
 #################################################################
 #    Individuals
 #################################################################
 
-###  http://fairness-ontology.com/AbductiveReasoning
+###  http://fairness-ontology.com/core#AbductiveReasoning
 core:AbductiveReasoning rdf:type owl:NamedIndividual ,
                                  core:ReasoningAndDecisionMaking .
 
 
-###  http://fairness-ontology.com/AlgorithmicBias
+###  http://fairness-ontology.com/core#AlgorithmicBias
 core:AlgorithmicBias rdf:type owl:NamedIndividual ,
                               fmo:bias ;
                      dc:source "https://doi.org/10.1145/3457607"^^xsd:anyURI ;
@@ -1085,145 +1085,145 @@ core:AlgorithmicBias rdf:type owl:NamedIndividual ,
                      skos:definition "Algorithmic bias is when the bias is not present in the input data and is added purely by the algorithm."@en .
 
 
-###  http://fairness-ontology.com/AnalyticsApproach
+###  http://fairness-ontology.com/core#AnalyticsApproach
 core:AnalyticsApproach rdf:type owl:NamedIndividual ,
                                 core:Scoping ;
                        core:isFollowedBy core:DataRequirements .
 
 
-###  http://fairness-ontology.com/BiasedHistoricalExamples
+###  http://fairness-ontology.com/core#BiasedHistoricalExamples
 core:BiasedHistoricalExamples rdf:type owl:NamedIndividual ,
                                        core:RecommendationFairnessConcern .
 
 
-###  http://fairness-ontology.com/BusinessRequirements
+###  http://fairness-ontology.com/core#BusinessRequirements
 core:BusinessRequirements rdf:type owl:NamedIndividual ,
                                    core:Scoping ;
                           core:isFollowedBy core:AnalyticsApproach .
 
 
-###  http://fairness-ontology.com/Classification
+###  http://fairness-ontology.com/core#Classification
 core:Classification rdf:type owl:NamedIndividual ,
                              core:LearningAndPerception .
 
 
-###  http://fairness-ontology.com/ConformityAssesmentReport
+###  http://fairness-ontology.com/core#ConformityAssesmentReport
 core:ConformityAssesmentReport rdf:type owl:NamedIndividual ,
                                         core:EvidenceArtifact .
 
 
-###  http://fairness-ontology.com/ConstraintOptimization
+###  http://fairness-ontology.com/core#ConstraintOptimization
 core:ConstraintOptimization rdf:type owl:NamedIndividual ,
                                      core:ReasoningAndDecisionMaking .
 
 
-###  http://fairness-ontology.com/ConstraintSolving
+###  http://fairness-ontology.com/core#ConstraintSolving
 core:ConstraintSolving rdf:type owl:NamedIndividual ,
                                 core:ReasoningAndDecisionMaking .
 
 
-###  http://fairness-ontology.com/Conversation
+###  http://fairness-ontology.com/core#Conversation
 core:Conversation rdf:type owl:NamedIndividual ,
                            core:AITypeOfUse .
 
 
-###  http://fairness-ontology.com/DataCollection
+###  http://fairness-ontology.com/core#DataCollection
 core:DataCollection rdf:type owl:NamedIndividual ,
                              core:Pre-processing ;
                     core:isFollowedBy core:ExploratoryDataAnalysis .
 
 
-###  http://fairness-ontology.com/DataPreparation
+###  http://fairness-ontology.com/core#DataPreparation
 core:DataPreparation rdf:type owl:NamedIndividual ,
                               core:Pre-processing ;
                      core:isFollowedBy core:ModelSelection .
 
 
-###  http://fairness-ontology.com/DataRequirements
+###  http://fairness-ontology.com/core#DataRequirements
 core:DataRequirements rdf:type owl:NamedIndividual ,
                                core:Scoping ;
                       core:isFollowedBy core:DataCollection .
 
 
-###  http://fairness-ontology.com/DerogatoryLanguage
+###  http://fairness-ontology.com/core#DerogatoryLanguage
 core:DerogatoryLanguage rdf:type owl:NamedIndividual ,
                                  core:ConversationFairnessConcern ;
                         core:arisesIn core:Conversation .
 
 
-###  http://fairness-ontology.com/Dialogue
+###  http://fairness-ontology.com/core#Dialogue
 core:Dialogue rdf:type owl:NamedIndividual ,
                        core:ApplicationDomain .
 
 
-###  http://fairness-ontology.com/DisparateSystemPerformance
+###  http://fairness-ontology.com/core#DisparateSystemPerformance
 core:DisparateSystemPerformance rdf:type owl:NamedIndividual ,
                                          core:ConversationFairnessConcern .
 
 
-###  http://fairness-ontology.com/EU_AI_Act
+###  http://fairness-ontology.com/core#EU_AI_Act
 core:EU_AI_Act rdf:type owl:NamedIndividual ,
                         core:Legislation ;
                dc:source "https://www.euaiact.com/" ;
                rdfs:label "EU AI Act" .
 
 
-###  http://fairness-ontology.com/Education
+###  http://fairness-ontology.com/core#Education
 core:Education rdf:type owl:NamedIndividual ,
                         core:ApplicationDomain .
 
 
-###  http://fairness-ontology.com/EqualityPrincipal
+###  http://fairness-ontology.com/core#EqualityPrincipal
 core:EqualityPrincipal rdf:type owl:NamedIndividual ,
                                 core:SocialPrinciple ;
                        rdfs:label "Equality"@en ;
                        skos:definition "Equality is giving everyone the same resources and opportunities."@en .
 
 
-###  http://fairness-ontology.com/EquityPrinciple
+###  http://fairness-ontology.com/core#EquityPrinciple
 core:EquityPrinciple rdf:type owl:NamedIndividual ,
                               core:SocialPrinciple ;
                      rdfs:label "Equity"@en ;
                      skos:definition "Equity is providing different resources based on individual needs to ensure everyone has an equal outcome."@en .
 
 
-###  http://fairness-ontology.com/Erasure
+###  http://fairness-ontology.com/core#Erasure
 core:Erasure rdf:type owl:NamedIndividual ,
                       core:ConversationFairnessConcern .
 
 
-###  http://fairness-ontology.com/ExclusionaryNorm
+###  http://fairness-ontology.com/core#ExclusionaryNorm
 core:ExclusionaryNorm rdf:type owl:NamedIndividual ,
                                core:ConversationFairnessConcern .
 
 
-###  http://fairness-ontology.com/ExploratoryDataAnalysis
+###  http://fairness-ontology.com/core#ExploratoryDataAnalysis
 core:ExploratoryDataAnalysis rdf:type owl:NamedIndividual ,
                                       core:Pre-processing ;
                              core:isFollowedBy core:DataPreparation .
 
 
-###  http://fairness-ontology.com/FRIAReport
+###  http://fairness-ontology.com/core#FRIAReport
 core:FRIAReport rdf:type owl:NamedIndividual ,
                          core:EvidenceArtifact .
 
 
-###  http://fairness-ontology.com/FeedbackLoopOverfitting
+###  http://fairness-ontology.com/core#FeedbackLoopOverfitting
 core:FeedbackLoopOverfitting rdf:type owl:NamedIndividual ,
                                       core:RecommendationFairnessConcern .
 
 
-###  http://fairness-ontology.com/FinanceAndInsurance
+###  http://fairness-ontology.com/core#FinanceAndInsurance
 core:FinanceAndInsurance rdf:type owl:NamedIndividual ,
                                   core:ApplicationDomain .
 
 
-###  http://fairness-ontology.com/Healthcare
+###  http://fairness-ontology.com/core#Healthcare
 core:Healthcare rdf:type owl:NamedIndividual ,
                          core:ApplicationDomain .
 
 
-###  http://fairness-ontology.com/HistoricalBias
+###  http://fairness-ontology.com/core#HistoricalBias
 core:HistoricalBias rdf:type owl:NamedIndividual ,
                              fmo:bias ;
                     dc:source "https://doi.org/10.1145/3457607"^^xsd:anyURI ;
@@ -1231,57 +1231,57 @@ core:HistoricalBias rdf:type owl:NamedIndividual ,
                     skos:definition "Historical bias is caused by already existing bias and socio-technical issues in the world, and can seep into from the data generation process even given a perfect sampling and feature selection."@en .
 
 
-###  http://fairness-ontology.com/HumanResources
+###  http://fairness-ontology.com/core#HumanResources
 core:HumanResources rdf:type owl:NamedIndividual ,
                              core:ApplicationDomain .
 
 
-###  http://fairness-ontology.com/ICTSecurity
+###  http://fairness-ontology.com/core#ICTSecurity
 core:ICTSecurity rdf:type owl:NamedIndividual ,
                           core:ApplicationDomain .
 
 
-###  http://fairness-ontology.com/IncompleteHistoricalExamples
+###  http://fairness-ontology.com/core#IncompleteHistoricalExamples
 core:IncompleteHistoricalExamples rdf:type owl:NamedIndividual ,
                                            core:RecommendationFairnessConcern .
 
 
-###  http://fairness-ontology.com/InformationRetrival
+###  http://fairness-ontology.com/core#InformationRetrival
 core:InformationRetrival rdf:type owl:NamedIndividual ,
                                   core:LearningAndPerception .
 
 
-###  http://fairness-ontology.com/InstructionsForUse
+###  http://fairness-ontology.com/core#InstructionsForUse
 core:InstructionsForUse rdf:type owl:NamedIndividual ,
                                  core:EvidenceArtifact .
 
 
-###  http://fairness-ontology.com/IntersectionalBias
+###  http://fairness-ontology.com/core#IntersectionalBias
 core:IntersectionalBias rdf:type owl:NamedIndividual ,
                                  fmo:bias ;
                         dc:source "https://doi.org/10.1145/3468507.3468511"^^xsd:anyURI ;
                         rdfs:label "Intersectional Bias"@en ;
-                        skos:definition "Intersectional bias is a type of bias that occurs due to the combination of multiple sensitive factors."@en .
+                        skos:definition "Intersectional bias is a type of bias that occurs due to the combination of multiple sensitive factors. So, the AI system may behave fairly for each attribute separately but unfairly for certain subgroups at their intersections."@en .
 
 
-###  http://fairness-ontology.com/LawAndJustice
+###  http://fairness-ontology.com/core#LawAndJustice
 core:LawAndJustice rdf:type owl:NamedIndividual ,
                             core:ApplicationDomain .
 
 
-###  http://fairness-ontology.com/LinguisticBias
+###  http://fairness-ontology.com/core#LinguisticBias
 core:LinguisticBias rdf:type owl:NamedIndividual ,
                              fmo:bias ;
                     rdfs:label "Linguistic Bias"@en ;
                     skos:definition "Linguistic bias is embedded in generative AI outputs, the manifestation of harm through demeaning or offensive language that reinforces discrimination."@en .
 
 
-###  http://fairness-ontology.com/Logs
+###  http://fairness-ontology.com/core#Logs
 core:Logs rdf:type owl:NamedIndividual ,
                    core:EvidenceArtifact .
 
 
-###  http://fairness-ontology.com/MaskingBias
+###  http://fairness-ontology.com/core#MaskingBias
 core:MaskingBias rdf:type owl:NamedIndividual ,
                           fmo:bias ;
                  dc:source "https://doi.org/10.1145/3468507.3468511"^^xsd:anyURI ;
@@ -1289,45 +1289,45 @@ core:MaskingBias rdf:type owl:NamedIndividual ,
                  skos:definition "Masking is a form of intentional discrimination that allows decision makers with prejudicial views to mask their intentions, typically by exploiting how fairness notions are defined."@en .
 
 
-###  http://fairness-ontology.com/Misrepresentation
+###  http://fairness-ontology.com/core#Misrepresentation
 core:Misrepresentation rdf:type owl:NamedIndividual ,
                                 core:ConversationFairnessConcern .
 
 
-###  http://fairness-ontology.com/MisrepresentationsInProductMarketing
+###  http://fairness-ontology.com/core#MisrepresentationsInProductMarketing
 core:MisrepresentationsInProductMarketing rdf:type owl:NamedIndividual ,
                                                    core:RecommendationFairnessConcern .
 
 
-###  http://fairness-ontology.com/ModelDeployment
+###  http://fairness-ontology.com/core#ModelDeployment
 core:ModelDeployment rdf:type owl:NamedIndividual ,
                               core:Post-processing ;
                      core:isFollowedBy core:ModelTuning ;
                      rdfs:label "Model Deployment" .
 
 
-###  http://fairness-ontology.com/ModelEvaluation
+###  http://fairness-ontology.com/core#ModelEvaluation
 core:ModelEvaluation rdf:type owl:NamedIndividual ,
                               core:In-processing ;
                      core:isFollowedBy core:ModelDeployment ;
                      rdfs:label "Model Evaluation" .
 
 
-###  http://fairness-ontology.com/ModelSelection
+###  http://fairness-ontology.com/core#ModelSelection
 core:ModelSelection rdf:type owl:NamedIndividual ,
                              core:In-processing ;
                     core:isFollowedBy core:ModelEvaluation ;
                     rdfs:label "Model Selection" .
 
 
-###  http://fairness-ontology.com/ModelTuning
+###  http://fairness-ontology.com/core#ModelTuning
 core:ModelTuning rdf:type owl:NamedIndividual ,
                           core:Post-processing ;
                  core:isFollowedBy core:ProjectReview ;
                  rdfs:label "Model Tuning" .
 
 
-###  http://fairness-ontology.com/OmmittedVariableBias
+###  http://fairness-ontology.com/core#OmmittedVariableBias
 core:OmmittedVariableBias rdf:type owl:NamedIndividual ,
                                    fmo:bias ;
                           dc:source "https://doi.org/10.1145/3457607"^^xsd:anyURI ;
@@ -1335,48 +1335,48 @@ core:OmmittedVariableBias rdf:type owl:NamedIndividual ,
                           skos:definition "Omitted variable bias occurs when one or more important variables are left out of a model."@en .
 
 
-###  http://fairness-ontology.com/Planning
+###  http://fairness-ontology.com/core#Planning
 core:Planning rdf:type owl:NamedIndividual ,
                        core:ReasoningAndDecisionMaking .
 
 
-###  http://fairness-ontology.com/PopularItemsOverrecommended
+###  http://fairness-ontology.com/core#PopularItemsOverrecommended
 core:PopularItemsOverrecommended rdf:type owl:NamedIndividual ,
                                           core:RecommendationFairnessConcern .
 
 
-###  http://fairness-ontology.com/Prediction
+###  http://fairness-ontology.com/core#Prediction
 core:Prediction rdf:type owl:NamedIndividual ,
                          core:AITypeOfUse .
 
 
-###  http://fairness-ontology.com/ProbabilisticReasoning
+###  http://fairness-ontology.com/core#ProbabilisticReasoning
 core:ProbabilisticReasoning rdf:type owl:NamedIndividual ,
                                      core:ReasoningAndDecisionMaking .
 
 
-###  http://fairness-ontology.com/ProjectReview
+###  http://fairness-ontology.com/core#ProjectReview
 core:ProjectReview rdf:type owl:NamedIndividual ,
                             core:Governance ;
                    core:isFollowedBy core:BusinessRequirements .
 
 
-###  http://fairness-ontology.com/PublicServices
+###  http://fairness-ontology.com/core#PublicServices
 core:PublicServices rdf:type owl:NamedIndividual ,
                              core:ApplicationDomain .
 
 
-###  http://fairness-ontology.com/Ranking
+###  http://fairness-ontology.com/core#Ranking
 core:Ranking rdf:type owl:NamedIndividual ,
                       core:ReasoningAndDecisionMaking .
 
 
-###  http://fairness-ontology.com/Recommendation
+###  http://fairness-ontology.com/core#Recommendation
 core:Recommendation rdf:type owl:NamedIndividual ,
                              core:AITypeOfUse .
 
 
-###  http://fairness-ontology.com/RepresentationBias
+###  http://fairness-ontology.com/core#RepresentationBias
 core:RepresentationBias rdf:type owl:NamedIndividual ,
                                  fmo:bias ;
                         dc:source "https://doi.org/10.1145/3457607"^^xsd:anyURI ;
@@ -1384,12 +1384,12 @@ core:RepresentationBias rdf:type owl:NamedIndividual ,
                         skos:definition "Representation bias arises from the use of a skewed or otherwise non-representative sample from a population during data collection process."@en .
 
 
-###  http://fairness-ontology.com/RetailAndECommerce
+###  http://fairness-ontology.com/core#RetailAndECommerce
 core:RetailAndECommerce rdf:type owl:NamedIndividual ,
                                  core:ApplicationDomain .
 
 
-###  http://fairness-ontology.com/SamplingBias
+###  http://fairness-ontology.com/core#SamplingBias
 core:SamplingBias rdf:type owl:NamedIndividual ,
                            fmo:bias ;
                   dc:source "https://doi.org/10.1145/3457607"^^xsd:anyURI ;
@@ -1397,32 +1397,32 @@ core:SamplingBias rdf:type owl:NamedIndividual ,
                   skos:definition "Similarly to representation bias, sampling bias arises due to non-random sampling of subgroups"@en .
 
 
-###  http://fairness-ontology.com/ScoringRegression
+###  http://fairness-ontology.com/core#ScoringRegression
 core:ScoringRegression rdf:type owl:NamedIndividual ,
                                 core:LearningAndPerception .
 
 
-###  http://fairness-ontology.com/Stereotyping
+###  http://fairness-ontology.com/core#Stereotyping
 core:Stereotyping rdf:type owl:NamedIndividual ,
                            core:ConversationFairnessConcern .
 
 
-###  http://fairness-ontology.com/TechnicalDocument
+###  http://fairness-ontology.com/core#TechnicalDocument
 core:TechnicalDocument rdf:type owl:NamedIndividual ,
                                 core:EvidenceArtifact .
 
 
-###  http://fairness-ontology.com/TextGeneration
+###  http://fairness-ontology.com/core#TextGeneration
 core:TextGeneration rdf:type owl:NamedIndividual ,
                              core:LearningAndPerception .
 
 
-###  http://fairness-ontology.com/TransportAndLogistics
+###  http://fairness-ontology.com/core#TransportAndLogistics
 core:TransportAndLogistics rdf:type owl:NamedIndividual ,
                                     core:ApplicationDomain .
 
 
-###  http://fairness-ontology.com/UtilitiesEnergy
+###  http://fairness-ontology.com/core#UtilitiesEnergy
 core:UtilitiesEnergy rdf:type owl:NamedIndividual ,
                               core:ApplicationDomain .
 
@@ -1431,268 +1431,297 @@ core:UtilitiesEnergy rdf:type owl:NamedIndividual ,
 #    Rules
 #################################################################
 
-core:a rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+core:a rdf:type swrl:Variable .
 
-core:b rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+core:b rdf:type swrl:Variable .
 
-core:C rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+core:C rdf:type swrl:Variable .
 
-core:T rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+core:T rdf:type swrl:Variable .
 
-core:M rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+core:M rdf:type swrl:Variable .
 
-core:N rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+core:N rdf:type swrl:Variable .
 
-core:SA rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+core:SA rdf:type swrl:Variable .
 
-core:SP rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+core:SP rdf:type swrl:Variable .
 
-core:D rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+core:D rdf:type swrl:Variable .
 
-core:AD rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+core:AD rdf:type swrl:Variable .
 
 [ swrla:isRuleEnabled "true"^^xsd:boolean ;
    rdfs:comment "" ;
    rdfs:label "Conflict3" ;
-   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
-   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
-                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
-                                                       <http://www.w3.org/2003/11/swrl#classPredicate> core:IndependenceFairnessNotion ;
-                                                       <http://www.w3.org/2003/11/swrl#argument1> core:a
-                                                     ] ;
-                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
-                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
-                                                                  <http://www.w3.org/2003/11/swrl#classPredicate> core:SeparationFairnessNotion ;
-                                                                  <http://www.w3.org/2003/11/swrl#argument1> core:b
-                                                                ] ;
-                                                      rdf:rest rdf:nil
-                                                    ]
-                                         ] ;
-   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
-                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> core:independenceSeparationConflictsWith ;
-                                                       <http://www.w3.org/2003/11/swrl#argument1> core:a ;
-                                                       <http://www.w3.org/2003/11/swrl#argument2> core:b
-                                                     ] ;
-                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
-                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> core:independenceSeparationConflictsWith ;
-                                                                  <http://www.w3.org/2003/11/swrl#argument1> core:b ;
-                                                                  <http://www.w3.org/2003/11/swrl#argument2> core:a
-                                                                ] ;
-                                                      rdf:rest rdf:nil
-                                                    ]
-                                         ]
+   rdf:type swrl:Imp ;
+   swrl:body [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:ClassAtom ;
+                           swrl:classPredicate core:IndependenceFairnessNotion ;
+                           swrl:argument1 core:a
+                         ] ;
+               rdf:rest [ rdf:type swrl:AtomList ;
+                          rdf:first [ rdf:type swrl:ClassAtom ;
+                                      swrl:classPredicate core:SeparationFairnessNotion ;
+                                      swrl:argument1 core:b
+                                    ] ;
+                          rdf:rest rdf:nil
+                        ]
+             ] ;
+   swrl:head [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                           swrl:propertyPredicate core:independenceSeparationConflictsWith ;
+                           swrl:argument1 core:a ;
+                           swrl:argument2 core:b
+                         ] ;
+               rdf:rest [ rdf:type swrl:AtomList ;
+                          rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                      swrl:propertyPredicate core:independenceSeparationConflictsWith ;
+                                      swrl:argument1 core:b ;
+                                      swrl:argument2 core:a
+                                    ] ;
+                          rdf:rest rdf:nil
+                        ]
+             ]
  ] .
 
 [ swrla:isRuleEnabled "true"^^xsd:boolean ;
    rdfs:comment "" ;
    rdfs:label "Conflict2" ;
-   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
-   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
-                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
-                                                       <http://www.w3.org/2003/11/swrl#classPredicate> core:IndependenceFairnessNotion ;
-                                                       <http://www.w3.org/2003/11/swrl#argument1> core:a
-                                                     ] ;
-                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
-                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
-                                                                  <http://www.w3.org/2003/11/swrl#classPredicate> core:SufficiencyFairnessNotion ;
-                                                                  <http://www.w3.org/2003/11/swrl#argument1> core:b
-                                                                ] ;
-                                                      rdf:rest rdf:nil
-                                                    ]
-                                         ] ;
-   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
-                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> core:independenceSufficiencyConflictsWith ;
-                                                       <http://www.w3.org/2003/11/swrl#argument1> core:a ;
-                                                       <http://www.w3.org/2003/11/swrl#argument2> core:b
-                                                     ] ;
-                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
-                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> core:independenceSufficiencyConflictsWith ;
-                                                                  <http://www.w3.org/2003/11/swrl#argument1> core:b ;
-                                                                  <http://www.w3.org/2003/11/swrl#argument2> core:a
-                                                                ] ;
-                                                      rdf:rest rdf:nil
-                                                    ]
-                                         ]
+   rdf:type swrl:Imp ;
+   swrl:body [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:ClassAtom ;
+                           swrl:classPredicate core:IndependenceFairnessNotion ;
+                           swrl:argument1 core:a
+                         ] ;
+               rdf:rest [ rdf:type swrl:AtomList ;
+                          rdf:first [ rdf:type swrl:ClassAtom ;
+                                      swrl:classPredicate core:SufficiencyFairnessNotion ;
+                                      swrl:argument1 core:b
+                                    ] ;
+                          rdf:rest rdf:nil
+                        ]
+             ] ;
+   swrl:head [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                           swrl:propertyPredicate core:independenceSufficiencyConflictsWith ;
+                           swrl:argument1 core:a ;
+                           swrl:argument2 core:b
+                         ] ;
+               rdf:rest [ rdf:type swrl:AtomList ;
+                          rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                      swrl:propertyPredicate core:independenceSufficiencyConflictsWith ;
+                                      swrl:argument1 core:b ;
+                                      swrl:argument2 core:a
+                                    ] ;
+                          rdf:rest rdf:nil
+                        ]
+             ]
  ] .
 
 [ swrla:isRuleEnabled "true"^^xsd:boolean ;
    rdfs:comment "" ;
    rdfs:label "Conflict1" ;
-   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
-   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
-                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
-                                                       <http://www.w3.org/2003/11/swrl#classPredicate> core:ProceduralFairnessNotion ;
-                                                       <http://www.w3.org/2003/11/swrl#argument1> core:a
-                                                     ] ;
-                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
-                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
-                                                                  <http://www.w3.org/2003/11/swrl#classPredicate> core:OutcomeFairnessNotion ;
-                                                                  <http://www.w3.org/2003/11/swrl#argument1> core:b
-                                                                ] ;
-                                                      rdf:rest rdf:nil
-                                                    ]
-                                         ] ;
-   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
-                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> core:conflictsWith ;
-                                                       <http://www.w3.org/2003/11/swrl#argument1> core:a ;
-                                                       <http://www.w3.org/2003/11/swrl#argument2> core:b
-                                                     ] ;
-                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
-                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> core:conflictsWith ;
-                                                                  <http://www.w3.org/2003/11/swrl#argument1> core:b ;
-                                                                  <http://www.w3.org/2003/11/swrl#argument2> core:a
-                                                                ] ;
-                                                      rdf:rest rdf:nil
-                                                    ]
-                                         ]
+   rdf:type swrl:Imp ;
+   swrl:body [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:ClassAtom ;
+                           swrl:classPredicate core:ProceduralFairnessNotion ;
+                           swrl:argument1 core:a
+                         ] ;
+               rdf:rest [ rdf:type swrl:AtomList ;
+                          rdf:first [ rdf:type swrl:ClassAtom ;
+                                      swrl:classPredicate core:OutcomeFairnessNotion ;
+                                      swrl:argument1 core:b
+                                    ] ;
+                          rdf:rest rdf:nil
+                        ]
+             ] ;
+   swrl:head [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                           swrl:propertyPredicate core:conflictsWith ;
+                           swrl:argument1 core:a ;
+                           swrl:argument2 core:b
+                         ] ;
+               rdf:rest [ rdf:type swrl:AtomList ;
+                          rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                      swrl:propertyPredicate core:conflictsWith ;
+                                      swrl:argument1 core:b ;
+                                      swrl:argument2 core:a
+                                    ] ;
+                          rdf:rest rdf:nil
+                        ]
+             ]
  ] .
 
 [ swrla:isRuleEnabled "true"^^xsd:boolean ;
    rdfs:comment "" ;
    rdfs:label "Conflict4" ;
-   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
-   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
-                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
-                                                       <http://www.w3.org/2003/11/swrl#classPredicate> core:SufficiencyFairnessNotion ;
-                                                       <http://www.w3.org/2003/11/swrl#argument1> core:a
-                                                     ] ;
-                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
-                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
-                                                                  <http://www.w3.org/2003/11/swrl#classPredicate> core:SeparationFairnessNotion ;
-                                                                  <http://www.w3.org/2003/11/swrl#argument1> core:b
-                                                                ] ;
-                                                      rdf:rest rdf:nil
-                                                    ]
-                                         ] ;
-   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
-                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> core:separationSufficiencyConflictsWith ;
-                                                       <http://www.w3.org/2003/11/swrl#argument1> core:a ;
-                                                       <http://www.w3.org/2003/11/swrl#argument2> core:b
-                                                     ] ;
-                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
-                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> core:separationSufficiencyConflictsWith ;
-                                                                  <http://www.w3.org/2003/11/swrl#argument1> core:b ;
-                                                                  <http://www.w3.org/2003/11/swrl#argument2> core:a
-                                                                ] ;
-                                                      rdf:rest rdf:nil
-                                                    ]
-                                         ]
+   rdf:type swrl:Imp ;
+   swrl:body [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:ClassAtom ;
+                           swrl:classPredicate core:SufficiencyFairnessNotion ;
+                           swrl:argument1 core:a
+                         ] ;
+               rdf:rest [ rdf:type swrl:AtomList ;
+                          rdf:first [ rdf:type swrl:ClassAtom ;
+                                      swrl:classPredicate core:SeparationFairnessNotion ;
+                                      swrl:argument1 core:b
+                                    ] ;
+                          rdf:rest rdf:nil
+                        ]
+             ] ;
+   swrl:head [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                           swrl:propertyPredicate core:separationSufficiencyConflictsWith ;
+                           swrl:argument1 core:a ;
+                           swrl:argument2 core:b
+                         ] ;
+               rdf:rest [ rdf:type swrl:AtomList ;
+                          rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                      swrl:propertyPredicate core:separationSufficiencyConflictsWith ;
+                                      swrl:argument1 core:b ;
+                                      swrl:argument2 core:a
+                                    ] ;
+                          rdf:rest rdf:nil
+                        ]
+             ]
  ] .
 
 [ swrla:isRuleEnabled "true"^^xsd:boolean ;
-   rdfs:comment "" ;
-   rdfs:label "GuidelineRule" ;
-   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
-   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
-                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> core:arisesIn ;
-                                                       <http://www.w3.org/2003/11/swrl#argument1> core:C ;
-                                                       <http://www.w3.org/2003/11/swrl#argument2> core:T
-                                                     ] ;
-                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
-                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> core:isSuitableFor ;
-                                                                  <http://www.w3.org/2003/11/swrl#argument1> core:M ;
-                                                                  <http://www.w3.org/2003/11/swrl#argument2> core:T
-                                                                ] ;
-                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
-                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> core:measures ;
-                                                                             <http://www.w3.org/2003/11/swrl#argument1> core:M ;
-                                                                             <http://www.w3.org/2003/11/swrl#argument2> core:N
-                                                                           ] ;
-                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
-                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> core:isAddressedWith ;
-                                                                                        <http://www.w3.org/2003/11/swrl#argument1> core:C ;
-                                                                                        <http://www.w3.org/2003/11/swrl#argument2> core:N
-                                                                                      ] ;
-                                                                            rdf:rest rdf:nil
-                                                                          ]
-                                                               ]
-                                                    ]
-                                         ] ;
-   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
-                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> core:isQuantifiedBy ;
-                                                       <http://www.w3.org/2003/11/swrl#argument1> core:C ;
-                                                       <http://www.w3.org/2003/11/swrl#argument2> core:M
-                                                     ] ;
-                                           rdf:rest rdf:nil
-                                         ]
+   rdfs:comment "Connect the FairnessConcern with the subset of FairnessMetrics that can quantify it (in the given AI Tupe Of Use) because they measure the Notions addressing that Concern" ;
+   rdfs:label "GuidelineRule1" ;
+   rdf:type swrl:Imp ;
+   swrl:body [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                           swrl:propertyPredicate core:arisesIn ;
+                           swrl:argument1 core:C ;
+                           swrl:argument2 core:T
+                         ] ;
+               rdf:rest [ rdf:type swrl:AtomList ;
+                          rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                      swrl:propertyPredicate core:isSuitableFor ;
+                                      swrl:argument1 core:M ;
+                                      swrl:argument2 core:T
+                                    ] ;
+                          rdf:rest [ rdf:type swrl:AtomList ;
+                                     rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                                 swrl:propertyPredicate core:measures ;
+                                                 swrl:argument1 core:M ;
+                                                 swrl:argument2 core:N
+                                               ] ;
+                                     rdf:rest [ rdf:type swrl:AtomList ;
+                                                rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                                            swrl:propertyPredicate core:isAddressedWith ;
+                                                            swrl:argument1 core:C ;
+                                                            swrl:argument2 core:N
+                                                          ] ;
+                                                rdf:rest rdf:nil
+                                              ]
+                                   ]
+                        ]
+             ] ;
+   swrl:head [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                           swrl:propertyPredicate core:isQuantifiedBy ;
+                           swrl:argument1 core:C ;
+                           swrl:argument2 core:M
+                         ] ;
+               rdf:rest rdf:nil
+             ]
+ ] .
+
+[ swrla:isRuleEnabled "true"^^xsd:boolean ;
+   rdfs:comment "Connects the FairnessConcern with the subset of MitigationTechnique that can mitigate it. TO BE TESTED" ;
+   rdfs:label "GuidelineRule2" ;
+   rdf:type swrl:Imp ;
+   swrl:body [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                           swrl:propertyPredicate core:isQuantifiedBy ;
+                           swrl:argument1 core:C ;
+                           swrl:argument2 core:M
+                         ] ;
+               rdf:rest [ rdf:type swrl:AtomList ;
+                          rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                      swrl:propertyPredicate core:enforces ;
+                                      swrl:argument1 core:T ;
+                                      swrl:argument2 core:M
+                                    ] ;
+                          rdf:rest rdf:nil
+                        ]
+             ] ;
+   swrl:head [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                           swrl:propertyPredicate core:mitigatedWith ;
+                           swrl:argument1 core:C ;
+                           swrl:argument2 core:T
+                         ] ;
+               rdf:rest rdf:nil
+             ]
  ] .
 
 [ swrla:isRuleEnabled "true"^^xsd:boolean ;
    rdfs:comment "" ;
    rdfs:label "hasBeenAppliedToRule" ;
-   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
-   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
-                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> core:isProposedBy ;
-                                                       <http://www.w3.org/2003/11/swrl#argument1> core:SA ;
-                                                       <http://www.w3.org/2003/11/swrl#argument2> core:SP
-                                                     ] ;
-                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
-                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> core:testedOn ;
-                                                                  <http://www.w3.org/2003/11/swrl#argument1> core:SP ;
-                                                                  <http://www.w3.org/2003/11/swrl#argument2> core:D
-                                                                ] ;
-                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
-                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> core:relatesTo ;
-                                                                             <http://www.w3.org/2003/11/swrl#argument1> core:D ;
-                                                                             <http://www.w3.org/2003/11/swrl#argument2> core:AD
-                                                                           ] ;
-                                                                 rdf:rest rdf:nil
-                                                               ]
-                                                    ]
-                                         ] ;
-   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
-                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> core:hasBeenAppliedTo ;
-                                                       <http://www.w3.org/2003/11/swrl#argument1> core:SA ;
-                                                       <http://www.w3.org/2003/11/swrl#argument2> core:AD
-                                                     ] ;
-                                           rdf:rest rdf:nil
-                                         ]
+   rdf:type swrl:Imp ;
+   swrl:body [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                           swrl:propertyPredicate core:isProposedBy ;
+                           swrl:argument1 core:SA ;
+                           swrl:argument2 core:SP
+                         ] ;
+               rdf:rest [ rdf:type swrl:AtomList ;
+                          rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                      swrl:propertyPredicate core:testedOn ;
+                                      swrl:argument1 core:SP ;
+                                      swrl:argument2 core:D
+                                    ] ;
+                          rdf:rest [ rdf:type swrl:AtomList ;
+                                     rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                                 swrl:propertyPredicate core:relatesTo ;
+                                                 swrl:argument1 core:D ;
+                                                 swrl:argument2 core:AD
+                                               ] ;
+                                     rdf:rest rdf:nil
+                                   ]
+                        ]
+             ] ;
+   swrl:head [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                           swrl:propertyPredicate core:hasBeenAppliedTo ;
+                           swrl:argument1 core:SA ;
+                           swrl:argument2 core:AD
+                         ] ;
+               rdf:rest rdf:nil
+             ]
  ] .
 
 [ swrla:isRuleEnabled "true"^^xsd:boolean ;
    rdfs:comment "" ;
    rdfs:label "hasBeenTesedOnRule" ;
-   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
-   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
-                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> core:isProposedBy ;
-                                                       <http://www.w3.org/2003/11/swrl#argument1> core:SA ;
-                                                       <http://www.w3.org/2003/11/swrl#argument2> core:SP
-                                                     ] ;
-                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
-                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> core:testedOn ;
-                                                                  <http://www.w3.org/2003/11/swrl#argument1> core:SP ;
-                                                                  <http://www.w3.org/2003/11/swrl#argument2> core:D
-                                                                ] ;
-                                                      rdf:rest rdf:nil
-                                                    ]
-                                         ] ;
-   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
-                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> core:hasBeenTestedOn ;
-                                                       <http://www.w3.org/2003/11/swrl#argument1> core:SA ;
-                                                       <http://www.w3.org/2003/11/swrl#argument2> core:D
-                                                     ] ;
-                                           rdf:rest rdf:nil
-                                         ]
+   rdf:type swrl:Imp ;
+   swrl:body [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                           swrl:propertyPredicate core:isProposedBy ;
+                           swrl:argument1 core:SA ;
+                           swrl:argument2 core:SP
+                         ] ;
+               rdf:rest [ rdf:type swrl:AtomList ;
+                          rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                      swrl:propertyPredicate core:testedOn ;
+                                      swrl:argument1 core:SP ;
+                                      swrl:argument2 core:D
+                                    ] ;
+                          rdf:rest rdf:nil
+                        ]
+             ] ;
+   swrl:head [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                           swrl:propertyPredicate core:hasBeenTestedOn ;
+                           swrl:argument1 core:SA ;
+                           swrl:argument2 core:D
+                         ] ;
+               rdf:rest rdf:nil
+             ]
  ] .
 
 ###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
