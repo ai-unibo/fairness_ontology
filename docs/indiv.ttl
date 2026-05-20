@@ -100,15 +100,15 @@ core:FeedbackLoopOverfitting core:exposesTo core:AlgorithmicBias,
         core:RetrainingDecisionRecordsAndEffectivenessEvidence ;
     core:triggers indiv:Art.10.4,
         indiv:Art.12,
-        indiv:Art.72,
+        indiv:Art.72.1,
+        indiv:Art.72.2,
         indiv:Art.9 .
 
-core:IncompleteHystoricalExamples core:exposesTo core:AlgorithmicBias,
+core:IncompleteHistoricalExamples core:exposesTo core:AlgorithmicBias,
         core:HistoricalBias,
         core:RepresentationBias,
         core:SamplingBias ;
-    core:isAddressedWith core:,
-        core:EqualOpportunity,
+    core:isAddressedWith core:EqualOpportunity,
         core:OverallAccuracyEquality,
         core:StatisticalParity ;
     core:requires core:DocumentationOnJustificationOfEnrichmentStrategiesAndResidualRisk ;

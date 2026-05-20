@@ -360,7 +360,7 @@ core:MisrepresentationsInProductMarketing a owl:NamedIndividual,
     skos:definition "Misrepresentations in product marketing--such as the choice of a particular human model, aesthetic style, or contextual presentation in product imagery--may induce marketing-driven biases that negatively affect the fairness of the overall system. These design choices can inadvertently skew user behaviour—forinstance, by appealing more strongly to some demographic groups than others—thereby embedding marketing-driven biases into the observed interaction signals."@en ;
     core:arisesIn core:Recommendation .
 
-core:OmmittedVariableBias a owl:NamedIndividual,
+core:OmittedVariableBias a owl:NamedIndividual,
         fmo:bias ;
     rdfs:label "Omitted Variable Bias"@en ;
     dc:source "https://doi.org/10.1145/3457607"^^xsd:anyURI ;
