@@ -183,8 +183,8 @@ core:ScientificPaper rdf:type owl:Class .
 #    Individuals
 #################################################################
 
-###  https://purl.org/fairops/core#UtilityEnergies
-core:UtilityEnergies rdf:type owl:NamedIndividual .
+###  https://purl.org/fairops/core#UtilitiesEnergy
+core:UtilitiesEnergy rdf:type owl:NamedIndividual .
 
 
 ###  https://purl.org/fairops/papers#ACS
@@ -246,7 +246,7 @@ papers:Amazon rdf:type owl:NamedIndividual ,
 
 
 ###  https://purl.org/fairops/papers#Apnea
-papers:Apnea rdf:type owl:NamedIndividual ;
+papers:Apnea rdf:type owl:NamedIndividual, dcat:Dataset ;
              core:relatesTo core:Healthcare ;
              dc:source "" ;
              rdfs:comment "" .
@@ -442,7 +442,7 @@ papers:CtripFlight rdf:type owl:NamedIndividual ,
 ###  https://purl.org/fairops/papers#DarkReactions
 papers:DarkReactions rdf:type owl:NamedIndividual ,
                               dcat:Dataset ;
-                     core:relatesTo core:UtilityEnergies ;
+                     core:relatesTo core:UtilitiesEnergy ;
                      dc:source "" ;
                      rdfs:comment "a set of 3, 955 historical hydrothermal synthesis experiments aiming to produce inorganic–organic hybrid materials. In total, 273 attributes indicate aggregates of atomic and ionic properties of the inorganic components and semi-empirical properties of the organic components. The classification variable indicates whether the reaction produced an ionic crystal." .
 
