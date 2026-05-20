@@ -1,11 +1,11 @@
-@prefix : <http://fairness-ontology.com/core#> .
+@prefix : <https://purl.org/fairops/core#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix fmo: <https://purl.org/twc/fmo#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix core: <http://fairness-ontology.com/core#> .
+@prefix core: <https://purl.org/fairops/core#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix swrl: <http://www.w3.org/2003/11/swrl#> .
@@ -13,21 +13,21 @@
 @prefix resource: <http://semanticscience.org/resource/> .
 @prefix dct: <http://purl.org/dc/terms/> .
 
-@base <http://fairness-ontology.com/core#> .
+@base <https://purl.org/fairops/core#> .
 
-<http://fairness-ontology.com> rdf:type owl:Ontology .
+<https://purl.org/fairops/core> rdf:type owl:Ontology .
 
 #################################################################
 #    Annotation properties
 #################################################################
 
-###  http://fairness-ontology.com/core#hasAntonym
+###  https://purl.org/fairops/core#hasAntonym
 core:hasAntonym rdf:type owl:AnnotationProperty ;
                 rdfs:comment "Relates a concept to its antonym, given as a string or URI."@en ;
                 rdfs:label "has antonym"@en .
 
 
-###  http://fairness-ontology.com/core#isBasedOnSocialPrinciple
+###  https://purl.org/fairops/core#isBasedOnSocialPrinciple
 core:isBasedOnSocialPrinciple rdf:type owl:AnnotationProperty .
 
 
@@ -59,19 +59,19 @@ fmo:tag rdf:type owl:AnnotationProperty .
 #    Object Properties
 #################################################################
 
-###  http://fairness-ontology.com/core#arisesIn
+###  https://purl.org/fairops/core#arisesIn
 core:arisesIn rdf:type owl:ObjectProperty ;
               rdfs:domain core:FairnessConcern ;
               rdfs:range core:AITypeOfUse ;
               rdfs:label "arises in" .
 
 
-###  http://fairness-ontology.com/core#conflictsWith
+###  https://purl.org/fairops/core#conflictsWith
 core:conflictsWith rdf:type owl:ObjectProperty ,
                             owl:SymmetricProperty .
 
 
-###  http://fairness-ontology.com/core#enforces
+###  https://purl.org/fairops/core#enforces
 core:enforces rdf:type owl:ObjectProperty ;
               owl:inverseOf core:isEnforcedBy ;
               rdfs:domain core:MitigationTechnique ;
@@ -79,14 +79,14 @@ core:enforces rdf:type owl:ObjectProperty ;
               rdfs:label "enforces"@en .
 
 
-###  http://fairness-ontology.com/core#exposesTo
+###  https://purl.org/fairops/core#exposesTo
 core:exposesTo rdf:type owl:ObjectProperty ;
                rdfs:domain fmo:bias ;
                rdfs:range core:FairnessConcern ;
                rdfs:label "exposes to"@en .
 
 
-###  http://fairness-ontology.com/core#extends
+###  https://purl.org/fairops/core#extends
 core:extends rdf:type owl:ObjectProperty ;
              rdfs:domain core:ScientificArtifact ;
              rdfs:range core:ScientificArtifact ;
@@ -94,7 +94,7 @@ core:extends rdf:type owl:ObjectProperty ;
              skos:definition "A certain Scientific Artifact may extend another. E.g., a certain Fairness Notion can extend another one" .
 
 
-###  http://fairness-ontology.com/core#follows
+###  https://purl.org/fairops/core#follows
 core:follows rdf:type owl:ObjectProperty ;
              owl:inverseOf core:isFollowedBy ;
              rdfs:domain core:AILifecycleStep ;
@@ -102,7 +102,7 @@ core:follows rdf:type owl:ObjectProperty ;
              rdfs:label "follows" .
 
 
-###  http://fairness-ontology.com/core#guides
+###  https://purl.org/fairops/core#guides
 core:guides rdf:type owl:ObjectProperty ;
             owl:inverseOf core:isGuidedBy ;
             rdfs:domain core:SocialPrinciple ;
@@ -111,7 +111,7 @@ core:guides rdf:type owl:ObjectProperty ;
             rdfs:label "guides"@en .
 
 
-###  http://fairness-ontology.com/core#hasBeenAppliedTo
+###  https://purl.org/fairops/core#hasBeenAppliedTo
 core:hasBeenAppliedTo rdf:type owl:ObjectProperty ;
                       rdfs:domain core:ScientificArtifact ;
                       rdfs:range core:ApplicationDomain ;
@@ -119,48 +119,48 @@ core:hasBeenAppliedTo rdf:type owl:ObjectProperty ;
                       skos:definition "A certain fairness notion has been applied to certain application domains."@en .
 
 
-###  http://fairness-ontology.com/core#hasBeenTestedOn
+###  https://purl.org/fairops/core#hasBeenTestedOn
 core:hasBeenTestedOn rdf:type owl:ObjectProperty ;
                      rdfs:domain core:ScientificArtifact ;
                      rdfs:range <https://www.w3.org/TR/vocab-dcat-3/Dataset> ;
                      rdfs:label "has been tested on"@en .
 
 
-###  http://fairness-ontology.com/core#independenceSeparationConflictsWith
+###  https://purl.org/fairops/core#independenceSeparationConflictsWith
 core:independenceSeparationConflictsWith rdf:type owl:ObjectProperty ;
                                          rdfs:subPropertyOf core:conflictsWith ;
                                          rdfs:comment "Assume Y is binary, A is not independent of Y, and R is not independent of Y. Then, independence and separation cannot both hold." .
 
 
-###  http://fairness-ontology.com/core#independenceSufficiencyConflictsWith
+###  https://purl.org/fairops/core#independenceSufficiencyConflictsWith
 core:independenceSufficiencyConflictsWith rdf:type owl:ObjectProperty ;
                                           rdfs:subPropertyOf core:conflictsWith ;
                                           rdf:type owl:SymmetricProperty ;
                                           rdfs:comment "Assume that sensitive attribute A and the target variable Y are not independent. Then sufficiency and independence cannot both hold." .
 
 
-###  http://fairness-ontology.com/core#isAddressedWith
+###  https://purl.org/fairops/core#isAddressedWith
 core:isAddressedWith rdf:type owl:ObjectProperty ;
                      rdfs:domain core:FairnessConcern ;
                      rdfs:range fmo:fairness_notion ;
                      rdfs:label "is addressed with"@en .
 
 
-###  http://fairness-ontology.com/core#isAppliedAt
+###  https://purl.org/fairops/core#isAppliedAt
 core:isAppliedAt rdf:type owl:ObjectProperty ;
                  rdfs:domain core:MitigationTechnique ;
                  rdfs:range core:AILifecycleStep ;
                  rdfs:label "is applied at" .
 
 
-###  http://fairness-ontology.com/core#isEnforcedBy
+###  https://purl.org/fairops/core#isEnforcedBy
 core:isEnforcedBy rdf:type owl:ObjectProperty ;
                   rdfs:domain fmo:fairness_metric ;
                   rdfs:range core:MitigationTechnique ;
                   rdfs:label "is enforced by"@en .
 
 
-###  http://fairness-ontology.com/core#isEquivalentTo
+###  https://purl.org/fairops/core#isEquivalentTo
 core:isEquivalentTo rdf:type owl:ObjectProperty ,
                              owl:SymmetricProperty ;
                     rdfs:domain fmo:fairness_notion ;
@@ -169,14 +169,14 @@ core:isEquivalentTo rdf:type owl:ObjectProperty ,
                     skos:definition "A certain fairness notion can be equal to some other fairness notions."@en .
 
 
-###  http://fairness-ontology.com/core#isFollowedBy
+###  https://purl.org/fairops/core#isFollowedBy
 core:isFollowedBy rdf:type owl:ObjectProperty ;
                   rdfs:domain core:AILifecycleStep ;
                   rdfs:range core:AILifecycleStep ;
                   rdfs:label "is followed by" .
 
 
-###  http://fairness-ontology.com/core#isGuidedBy
+###  https://purl.org/fairops/core#isGuidedBy
 core:isGuidedBy rdf:type owl:ObjectProperty ;
                 rdfs:domain fmo:fairness_notion ;
                 rdfs:range core:SocialPrinciple ;
@@ -184,7 +184,7 @@ core:isGuidedBy rdf:type owl:ObjectProperty ;
                 rdfs:label "is guided by"@en .
 
 
-###  http://fairness-ontology.com/core#isMeasuredBy
+###  https://purl.org/fairops/core#isMeasuredBy
 core:isMeasuredBy rdf:type owl:ObjectProperty ;
                   owl:inverseOf core:measures ;
                   rdfs:domain fmo:fairness_notion ;
@@ -193,7 +193,7 @@ core:isMeasuredBy rdf:type owl:ObjectProperty ;
                   skos:definition "A fairness notion is measured by a fairness metric if comparisons made with the given metric are a valid way to determine fairness with this notion."@en .
 
 
-###  http://fairness-ontology.com/core#isMitigatedBy
+###  https://purl.org/fairops/core#isMitigatedBy
 core:isMitigatedBy rdf:type owl:ObjectProperty ;
                    owl:inverseOf core:mitigates ;
                    rdfs:domain fmo:bias ;
@@ -202,7 +202,7 @@ core:isMitigatedBy rdf:type owl:ObjectProperty ;
                    skos:definition "A certain bias in the use-case can be mitigated by enforcing specific fairness notions."@en .
 
 
-###  http://fairness-ontology.com/core#isOperationalizedBy
+###  https://purl.org/fairops/core#isOperationalizedBy
 core:isOperationalizedBy rdf:type owl:ObjectProperty ;
                          owl:inverseOf core:operationalize ;
                          rdfs:domain core:LegalRequirement ;
@@ -210,7 +210,7 @@ core:isOperationalizedBy rdf:type owl:ObjectProperty ;
                          rdfs:label "is operationalized by" .
 
 
-###  http://fairness-ontology.com/core#isProposedBy
+###  https://purl.org/fairops/core#isProposedBy
 core:isProposedBy rdf:type owl:ObjectProperty ;
                   rdfs:subPropertyOf core:isUsedBy ;
                   rdfs:domain core:ScientificArtifact ;
@@ -219,34 +219,34 @@ core:isProposedBy rdf:type owl:ObjectProperty ;
                   skos:definition "A certain fairness notion is proposed by a certain scientific paper."@en .
 
 
-###  http://fairness-ontology.com/core#isQuantifiedBy
+###  https://purl.org/fairops/core#isQuantifiedBy
 core:isQuantifiedBy rdf:type owl:ObjectProperty ;
                     rdfs:domain core:FairnessConcern ;
                     rdfs:range fmo:fairness_metric ;
                     rdfs:label "is quantified by"@en .
 
 
-###  http://fairness-ontology.com/core#isRelevantDuring
+###  https://purl.org/fairops/core#isRelevantDuring
 core:isRelevantDuring rdf:type owl:ObjectProperty ;
                       rdfs:domain core:LegalRequirement ;
                       rdfs:range core:AILifecycleStep ;
                       rdfs:label "is relevant during" .
 
 
-###  http://fairness-ontology.com/core#isSuitableFor
+###  https://purl.org/fairops/core#isSuitableFor
 core:isSuitableFor rdf:type owl:ObjectProperty ;
                    rdfs:domain fmo:fairness_metric ;
                    rdfs:range core:AITypeOfUse ;
                    rdfs:label "is suitable for" .
 
 
-###  http://fairness-ontology.com/core#isTriggeredBy
+###  https://purl.org/fairops/core#isTriggeredBy
 core:isTriggeredBy rdf:type owl:ObjectProperty ;
                    owl:inverseOf core:triggers ;
                    rdfs:label "is triggered by" .
 
 
-###  http://fairness-ontology.com/core#isUsedBy
+###  https://purl.org/fairops/core#isUsedBy
 core:isUsedBy rdf:type owl:ObjectProperty ;
               rdfs:domain core:ScientificArtifact ;
               rdfs:range core:ScientificPaper ;
@@ -254,7 +254,7 @@ core:isUsedBy rdf:type owl:ObjectProperty ;
               skos:definition "A certain fairness notion is used by some scientific papers."@en .
 
 
-###  http://fairness-ontology.com/core#itsComplianceIsSupportedWith
+###  https://purl.org/fairops/core#itsComplianceIsSupportedWith
 core:itsComplianceIsSupportedWith rdf:type owl:ObjectProperty ;
                                   owl:inverseOf core:supportsComplianceWith ;
                                   rdfs:domain core:LegalRequirement ;
@@ -262,7 +262,7 @@ core:itsComplianceIsSupportedWith rdf:type owl:ObjectProperty ;
                                   rdfs:label "its compliance is supported by" .
 
 
-###  http://fairness-ontology.com/core#measures
+###  https://purl.org/fairops/core#measures
 core:measures rdf:type owl:ObjectProperty ;
               rdfs:domain fmo:fairness_metric ;
               rdfs:range fmo:fairness_notion ;
@@ -270,14 +270,14 @@ core:measures rdf:type owl:ObjectProperty ;
               skos:definition "A fairness metric measures some fairness notion if comparisons made with the given metric are a valid way to determine fairness with this notion."@en .
 
 
-###  http://fairness-ontology.com/core#mitigatedWith
+###  https://purl.org/fairops/core#mitigatedWith
 core:mitigatedWith rdf:type owl:ObjectProperty ;
                    rdfs:domain core:FairnessConcern ;
                    rdfs:range core:MitigationTechnique ;
                    rdfs:label "mitigated with"@en .
 
 
-###  http://fairness-ontology.com/core#mitigates
+###  https://purl.org/fairops/core#mitigates
 core:mitigates rdf:type owl:ObjectProperty ;
                rdfs:domain fmo:fairness_notion ;
                rdfs:range fmo:bias ;
@@ -285,14 +285,14 @@ core:mitigates rdf:type owl:ObjectProperty ;
                skos:definition "A fairness notion is required to mitigate a certain bias."@en .
 
 
-###  http://fairness-ontology.com/core#operationalize
+###  https://purl.org/fairops/core#operationalize
 core:operationalize rdf:type owl:ObjectProperty ;
                     rdfs:domain fmo:fairness_notion ;
                     rdfs:range core:LegalRequirement ;
                     rdfs:label "operationalize" .
 
 
-###  http://fairness-ontology.com/core#refersTo
+###  https://purl.org/fairops/core#refersTo
 core:refersTo rdf:type owl:ObjectProperty ;
               rdfs:domain core:ScientificArtifact ;
               rdfs:range core:AITask ;
@@ -300,40 +300,40 @@ core:refersTo rdf:type owl:ObjectProperty ;
               skos:definition "A certain fairness notion refers to (is suitable for) a certain set of AI tasks."@en .
 
 
-###  http://fairness-ontology.com/core#relatesTo
+###  https://purl.org/fairops/core#relatesTo
 core:relatesTo rdf:type owl:ObjectProperty ;
                rdfs:domain <https://www.w3.org/TR/vocab-dcat-3/Dataset> ;
                rdfs:range core:ApplicationDomain ;
                rdfs:label "relates to" .
 
 
-###  http://fairness-ontology.com/core#requires
+###  https://purl.org/fairops/core#requires
 core:requires rdf:type owl:ObjectProperty ;
               rdfs:domain core:FairnessConcern ;
               rdfs:range core:EvidenceArtifact .
 
 
-###  http://fairness-ontology.com/core#separationSufficiencyConflictsWith
+###  https://purl.org/fairops/core#separationSufficiencyConflictsWith
 core:separationSufficiencyConflictsWith rdf:type owl:ObjectProperty ;
                                         rdfs:subPropertyOf core:conflictsWith ;
                                         rdfs:comment "Assume that all events in the joint distribution of (A, R, Y) have positive probability, and assume A is not independent of Y. Then, separation and sufficiency cannot both hold. For binary classifier, this means: Assume Y is not independent of A and assume \\hat{Y} is a binary classifier with a nonzero false positive rate. Then, separation and sufficiency cannot both hold." .
 
 
-###  http://fairness-ontology.com/core#supportsComplianceWith
+###  https://purl.org/fairops/core#supportsComplianceWith
 core:supportsComplianceWith rdf:type owl:ObjectProperty ;
                             rdfs:domain core:MitigationTechnique ;
                             rdfs:range core:LegalRequirement ;
                             rdfs:label "supports compliance with" .
 
 
-###  http://fairness-ontology.com/core#testedOn
+###  https://purl.org/fairops/core#testedOn
 core:testedOn rdf:type owl:ObjectProperty ;
               rdfs:domain core:ScientificPaper ;
               rdfs:range <https://www.w3.org/TR/vocab-dcat-3/Dataset> ;
               rdfs:label "tested on"@en .
 
 
-###  http://fairness-ontology.com/core#triggers
+###  https://purl.org/fairops/core#triggers
 core:triggers rdf:type owl:ObjectProperty ;
               rdfs:domain core:FairnessConcern ;
               rdfs:range core:LegalRequirement .
@@ -350,7 +350,7 @@ resource:SIO_000068 rdf:type owl:ObjectProperty ;
 #    Data properties
 #################################################################
 
-###  http://fairness-ontology.com/core#scientificArtifactDescription
+###  https://purl.org/fairops/core#scientificArtifactDescription
 core:scientificArtifactDescription rdf:type owl:DatatypeProperty ;
                                    rdfs:domain core:ScientificArtifact ;
                                    rdfs:range xsd:string ;
@@ -362,18 +362,18 @@ core:scientificArtifactDescription rdf:type owl:DatatypeProperty ;
 #    Classes
 #################################################################
 
-###  http://fairness-ontology.com/core#AILifecycleStep
+###  https://purl.org/fairops/core#AILifecycleStep
 core:AILifecycleStep rdf:type owl:Class ;
                      rdfs:label "AI Lifecycle Step" .
 
 
-###  http://fairness-ontology.com/core#AITask
+###  https://purl.org/fairops/core#AITask
 core:AITask rdf:type owl:Class ;
             rdfs:label "AI Task"@en ;
             skos:definition "The functional task that the AI system is able to perform. Previously was MLTask, AITask and AICapability."@en .
 
 
-###  http://fairness-ontology.com/core#AITypeOfUse
+###  https://purl.org/fairops/core#AITypeOfUse
 core:AITypeOfUse rdf:type owl:Class ;
                  owl:equivalentClass [ rdf:type owl:Class ;
                                        owl:oneOf ( core:Conversation
@@ -385,43 +385,43 @@ core:AITypeOfUse rdf:type owl:Class ;
                  rdfs:label "AI Type Of Use" .
 
 
-###  http://fairness-ontology.com/core#Adapters
+###  https://purl.org/fairops/core#Adapters
 core:Adapters rdf:type owl:Class ;
               rdfs:subClassOf core:PartialFineTuning ;
               rdfs:label "Adapters" .
 
 
-###  http://fairness-ontology.com/core#AdversarialLearning
+###  https://purl.org/fairops/core#AdversarialLearning
 core:AdversarialLearning rdf:type owl:Class ;
                          rdfs:subClassOf core:FullRetraining ;
                          rdfs:label "Adversarial Learning" .
 
 
-###  http://fairness-ontology.com/core#AmortizedGranularityMetric
+###  https://purl.org/fairops/core#AmortizedGranularityMetric
 core:AmortizedGranularityMetric rdf:type owl:Class ;
                                 rdfs:subClassOf core:GranularityMetric ;
                                 rdfs:label "Amortized Granularity Metric"@en .
 
 
-###  http://fairness-ontology.com/core#ApplicationDomain
+###  https://purl.org/fairops/core#ApplicationDomain
 core:ApplicationDomain rdf:type owl:Class ;
                        rdfs:label "Application Domain"@en ;
                        skos:definition "The specific real-world area or context in which the system is designed to operate. Previously was UseArea. According to AI Watch taxonomy can also me called \"Economic Sector or Use Area\""@en .
 
 
-###  http://fairness-ontology.com/core#AuditSets
+###  https://purl.org/fairops/core#AuditSets
 core:AuditSets rdf:type owl:Class ;
                rdfs:subClassOf core:DataGeneration ;
                rdfs:label "Audit Sets" .
 
 
-###  http://fairness-ontology.com/core#BanditsBasedLearning
+###  https://purl.org/fairops/core#BanditsBasedLearning
 core:BanditsBasedLearning rdf:type owl:Class ;
                           rdfs:subClassOf core:FullRetraining ;
                           rdfs:label "Bandits-based Learning" .
 
 
-###  http://fairness-ontology.com/core#BlackBoxDecisionOnly
+###  https://purl.org/fairops/core#BlackBoxDecisionOnly
 core:BlackBoxDecisionOnly rdf:type owl:Class ;
                           rdfs:subClassOf core:ModelAccessResourcesMitigation ,
                                           [ rdf:type owl:Restriction ;
@@ -431,26 +431,26 @@ core:BlackBoxDecisionOnly rdf:type owl:Class ;
                           rdfs:label "Decision Layer Control - Black-box Model (I)" .
 
 
-###  http://fairness-ontology.com/core#Blinding
+###  https://purl.org/fairops/core#Blinding
 core:Blinding rdf:type owl:Class ;
               rdfs:subClassOf core:FeatureLevelColumnIntervention ;
               rdfs:label "Blinding and Proxy Removal" .
 
 
-###  http://fairness-ontology.com/core#CalibrationBasedFairnessMetric
+###  https://purl.org/fairops/core#CalibrationBasedFairnessMetric
 core:CalibrationBasedFairnessMetric rdf:type owl:Class ;
                                     rdfs:subClassOf fmo:fairness_metric ;
                                     rdfs:label "Calibration-based Fairness Metric" ;
                                     skos:definition "A measurement of any fairness notion, partially connected to the confusion matrix principles, these metrics are usually referred with the term  calibration-based, with the very aim of distinguishing their prevalent attention to the predictive values." .
 
 
-###  http://fairness-ontology.com/core#CalibrationBasedMitigation
+###  https://purl.org/fairops/core#CalibrationBasedMitigation
 core:CalibrationBasedMitigation rdf:type owl:Class ;
                                 rdfs:subClassOf core:GreyBoxScores ;
                                 rdfs:label "Calibration-based Mitigation" .
 
 
-###  http://fairness-ontology.com/core#CausalFairnessNotion
+###  https://purl.org/fairops/core#CausalFairnessNotion
 core:CausalFairnessNotion rdf:type owl:Class ;
                           rdfs:subClassOf core:OutcomeFairnessNotion ;
                           owl:disjointWith core:ObservationalFairnessNotion ;
@@ -459,33 +459,33 @@ core:CausalFairnessNotion rdf:type owl:Class ;
                           skos:definition "A family of fairness notions focusing on the causal relations between variables."@en .
 
 
-###  http://fairness-ontology.com/core#ClassifierFairnessMetric
+###  https://purl.org/fairops/core#ClassifierFairnessMetric
 core:ClassifierFairnessMetric rdf:type owl:Class ;
                               rdfs:subClassOf core:GeneratedTextBasedFairnessMetric ;
                               rdfs:label "Classifier Fairness Metric"@en ;
                               skos:definition "A metric that employs a classifier on generated text to assess the presence of bias or fairness."@en .
 
 
-###  http://fairness-ontology.com/core#Cleaning
+###  https://purl.org/fairops/core#Cleaning
 core:Cleaning rdf:type owl:Class ;
               rdfs:subClassOf core:InstanceLevelRowIntervention ;
               rdfs:label "Cleaning" .
 
 
-###  http://fairness-ontology.com/core#ConfusionMatrixBasedFairnessMetric
+###  https://purl.org/fairops/core#ConfusionMatrixBasedFairnessMetric
 core:ConfusionMatrixBasedFairnessMetric rdf:type owl:Class ;
                                         rdfs:subClassOf fmo:fairness_metric ;
                                         rdfs:label "Confusion Matrix-based Fairness Metric"@en ;
                                         skos:definition "A measurement of any fairness notion, focusing on the amount of correct/incorrect classifications inferred by the predictor."@en .
 
 
-###  http://fairness-ontology.com/core#ConstrainedOptimization
+###  https://purl.org/fairops/core#ConstrainedOptimization
 core:ConstrainedOptimization rdf:type owl:Class ;
                              rdfs:subClassOf core:FullRetraining ;
                              rdfs:label "Constrained Optimization" .
 
 
-###  http://fairness-ontology.com/core#ConversationFairnessConcern
+###  https://purl.org/fairops/core#ConversationFairnessConcern
 core:ConversationFairnessConcern rdf:type owl:Class ;
                                  rdfs:subClassOf core:FairnessConcern ,
                                                  [ rdf:type owl:Restriction ;
@@ -494,19 +494,19 @@ core:ConversationFairnessConcern rdf:type owl:Class ;
                                                  ] .
 
 
-###  http://fairness-ontology.com/core#CounterfactualAugmentation
+###  https://purl.org/fairops/core#CounterfactualAugmentation
 core:CounterfactualAugmentation rdf:type owl:Class ;
                                 rdfs:subClassOf core:InstanceLevelRowIntervention ;
                                 rdfs:label "Counterfactual Augmentation" .
 
 
-###  http://fairness-ontology.com/core#DataGeneration
+###  https://purl.org/fairops/core#DataGeneration
 core:DataGeneration rdf:type owl:Class ;
                     rdfs:subClassOf core:DataResourcesMitigation ;
                     rdfs:label "Data Acquisition/Generation (D)" .
 
 
-###  http://fairness-ontology.com/core#DataResourcesMitigation
+###  https://purl.org/fairops/core#DataResourcesMitigation
 core:DataResourcesMitigation rdf:type owl:Class ;
                              rdfs:subClassOf core:MitigationTechnique ,
                                              [ rdf:type owl:Restriction ;
@@ -516,69 +516,69 @@ core:DataResourcesMitigation rdf:type owl:Class ;
                              rdfs:label "Data Resources Mitigation"@en .
 
 
-###  http://fairness-ontology.com/core#DecisionTimeConstrainedDecisioning
+###  https://purl.org/fairops/core#DecisionTimeConstrainedDecisioning
 core:DecisionTimeConstrainedDecisioning rdf:type owl:Class ;
                                         rdfs:subClassOf core:BlackBoxDecisionOnly ;
                                         rdfs:label "Decision-time Constrained Decisioning" .
 
 
-###  http://fairness-ontology.com/core#DistanceBasedFairnessMetric
+###  https://purl.org/fairops/core#DistanceBasedFairnessMetric
 core:DistanceBasedFairnessMetric rdf:type owl:Class ;
                                  rdfs:subClassOf fmo:fairness_metric ;
                                  rdfs:label "Distance-based Fairness Metric" .
 
 
-###  http://fairness-ontology.com/core#DistributionFairnessMetric
+###  https://purl.org/fairops/core#DistributionFairnessMetric
 core:DistributionFairnessMetric rdf:type owl:Class ;
                                 rdfs:subClassOf core:GeneratedTextBasedFairnessMetric ;
                                 rdfs:label "Distribution Fairness Metric"@en ;
                                 skos:definition "A metric that evaluates fairness by comparing the statistical distribution of generated outputs across groups."@en .
 
 
-###  http://fairness-ontology.com/core#EmbeddingBasedFairnessMetric
+###  https://purl.org/fairops/core#EmbeddingBasedFairnessMetric
 core:EmbeddingBasedFairnessMetric rdf:type owl:Class ;
                                   rdfs:subClassOf fmo:fairness_metric ;
                                   rdfs:label "Embedding-based Fairness Metric"@en ;
                                   skos:definition "A fairness metric that evaluates bias or fairness using representations derived from word or sentence embeddings."@en .
 
 
-###  http://fairness-ontology.com/core#EvidenceArtifact
+###  https://purl.org/fairops/core#EvidenceArtifact
 core:EvidenceArtifact rdf:type owl:Class ;
                       rdfs:label "Evidence Artifact" ;
                       skos:definition "Evidence expected for compliance and auditability. That is, a piece of documentation, data, or analytical output that provides verifiable information about the presence, assessment, or mitigation of a specific socio-technical concern in an AI system. It supports the evaluation of that concern by supplying measurable or auditable evidence (e.g., logs, dataset analyses, reports, or metrics) related to the system’s behavior, data, or operational context." .
 
 
-###  http://fairness-ontology.com/core#FairnessConcern
+###  https://purl.org/fairops/core#FairnessConcern
 core:FairnessConcern rdf:type owl:Class ;
                      rdfs:label "Fairness Concern"@en ;
                      skos:definition "A fairness concern refers to a potential or observed issue where a system’s decisions or outcomes may unjustly favor or disadvantage certain individuals or groups. It highlights risks of bias, discrimination, or unequal treatment that require attention and mitigation." .
 
 
-###  http://fairness-ontology.com/core#FairnessRegularization
+###  https://purl.org/fairops/core#FairnessRegularization
 core:FairnessRegularization rdf:type owl:Class ;
                             rdfs:subClassOf core:FullRetraining ;
                             rdfs:label "Fairness Regularization" .
 
 
-###  http://fairness-ontology.com/core#FeatureLevelColumnIntervention
+###  https://purl.org/fairops/core#FeatureLevelColumnIntervention
 core:FeatureLevelColumnIntervention rdf:type owl:Class ;
                                     rdfs:subClassOf core:DataResourcesMitigation ;
                                     rdfs:label "Feature-level Column Intervention (A)" .
 
 
-###  http://fairness-ontology.com/core#FeatureLevelRowReweightingResampling
+###  https://purl.org/fairops/core#FeatureLevelRowReweightingResampling
 core:FeatureLevelRowReweightingResampling rdf:type owl:Class ;
                                           rdfs:subClassOf core:DataResourcesMitigation ;
                                           rdfs:label "Feature-level Row Reweighting/Resampling (C)" .
 
 
-###  http://fairness-ontology.com/core#FeatureReview
+###  https://purl.org/fairops/core#FeatureReview
 core:FeatureReview rdf:type owl:Class ;
                    rdfs:subClassOf core:FeatureLevelColumnIntervention ;
                    rdfs:label "Feature Review" .
 
 
-###  http://fairness-ontology.com/core#FullFineTuning
+###  https://purl.org/fairops/core#FullFineTuning
 core:FullFineTuning rdf:type owl:Class ;
                     rdfs:subClassOf core:ModelAccessResourcesMitigation ,
                                     core:TrainingResourcesMitigation ;
@@ -586,58 +586,58 @@ core:FullFineTuning rdf:type owl:Class ;
                     rdfs:label "Full Fine-tuning - White-box Model (F)" .
 
 
-###  http://fairness-ontology.com/core#FullParameterDebiasing
+###  https://purl.org/fairops/core#FullParameterDebiasing
 core:FullParameterDebiasing rdf:type owl:Class ;
                             rdfs:subClassOf core:FullFineTuning ;
                             rdfs:label "Full Parameter Debiasing" .
 
 
-###  http://fairness-ontology.com/core#FullPruning
+###  https://purl.org/fairops/core#FullPruning
 core:FullPruning rdf:type owl:Class ;
                  rdfs:subClassOf core:FullFineTuning ;
                  rdfs:comment "A mitigation technique that prunes an already trained model by setting to 0 some of its weights. The model is considered AS A WHOLE, by taking into account for pruning all its internal weights." ;
                  rdfs:label "Full Pruning and Weight Masking" .
 
 
-###  http://fairness-ontology.com/core#FullRetraining
+###  https://purl.org/fairops/core#FullRetraining
 core:FullRetraining rdf:type owl:Class ;
                     rdfs:subClassOf core:TrainingResourcesMitigation ;
                     rdfs:label "Full Retraining (E)" .
 
 
-###  http://fairness-ontology.com/core#FullWeightRedistribution
+###  https://purl.org/fairops/core#FullWeightRedistribution
 core:FullWeightRedistribution rdf:type owl:Class ;
                               rdfs:subClassOf core:FullFineTuning ;
                               rdfs:comment "A mitigation technique that redistributes the weights of an already trained model, considering it AS A WHOLE, potentially redistributing all its weights." ;
                               rdfs:label "Full Weight Redistribution"@en .
 
 
-###  http://fairness-ontology.com/core#GeneratedTextBasedFairnessMetric
+###  https://purl.org/fairops/core#GeneratedTextBasedFairnessMetric
 core:GeneratedTextBasedFairnessMetric rdf:type owl:Class ;
                                       rdfs:subClassOf fmo:fairness_metric ;
                                       rdfs:label "Generated Text-based Fairness Metric"@en ;
                                       skos:definition "A metric that measures fairness by analyzing or scoring generated text outputs."@en .
 
 
-###  http://fairness-ontology.com/core#Governance
+###  https://purl.org/fairops/core#Governance
 core:Governance rdf:type owl:Class ;
                 rdfs:subClassOf core:AILifecycleStep ;
                 rdfs:label "Governance" .
 
 
-###  http://fairness-ontology.com/core#GovernanceOnly
+###  https://purl.org/fairops/core#GovernanceOnly
 core:GovernanceOnly rdf:type owl:Class ;
                     rdfs:subClassOf core:HumanOversightMitigation ;
                     rdfs:label "Governance-only Interventions (J)" .
 
 
-###  http://fairness-ontology.com/core#GranularityMetric
+###  https://purl.org/fairops/core#GranularityMetric
 core:GranularityMetric rdf:type owl:Class ;
                        rdfs:subClassOf core:RecommendationSystemMetric ;
                        rdfs:label "Granularity Metric"@en .
 
 
-###  http://fairness-ontology.com/core#GreyBoxScores
+###  https://purl.org/fairops/core#GreyBoxScores
 core:GreyBoxScores rdf:type owl:Class ;
                    rdfs:subClassOf core:ModelAccessResourcesMitigation ,
                                    [ rdf:type owl:Restriction ;
@@ -647,7 +647,7 @@ core:GreyBoxScores rdf:type owl:Class ;
                    rdfs:label "Scores and Probabilities Access - Grey-box Model (H)" .
 
 
-###  http://fairness-ontology.com/core#GroupFairnessNotion
+###  https://purl.org/fairops/core#GroupFairnessNotion
 core:GroupFairnessNotion rdf:type owl:Class ;
                          rdfs:subClassOf core:OutcomeFairnessNotion ;
                          owl:disjointWith core:IndividualFairnessNotion ;
@@ -657,13 +657,13 @@ core:GroupFairnessNotion rdf:type owl:Class ;
                          skos:definition "A family of fairness notions with the common objective to ensure that groups who differ by their sensitive attributes are treated equally. (Note: Occasionally, \"group fairness\" is used to refer to statistical parity specifically, instead of the broader meaning as defined here)."@en .
 
 
-###  http://fairness-ontology.com/core#HeadOnly
+###  https://purl.org/fairops/core#HeadOnly
 core:HeadOnly rdf:type owl:Class ;
               rdfs:subClassOf core:PartialFineTuning ;
               rdfs:label "Head-only" .
 
 
-###  http://fairness-ontology.com/core#HumanOversightMitigation
+###  https://purl.org/fairops/core#HumanOversightMitigation
 core:HumanOversightMitigation rdf:type owl:Class ;
                               rdfs:subClassOf core:MitigationTechnique ,
                                               [ rdf:type owl:Restriction ;
@@ -673,19 +673,19 @@ core:HumanOversightMitigation rdf:type owl:Class ;
                               rdfs:label "Human Oversight Mitigation" .
 
 
-###  http://fairness-ontology.com/core#ImpactFocusedMetric
+###  https://purl.org/fairops/core#ImpactFocusedMetric
 core:ImpactFocusedMetric rdf:type owl:Class ;
                          rdfs:subClassOf core:OptimizationObjectMetric ;
                          rdfs:label "Impact-focused Metric"@en .
 
 
-###  http://fairness-ontology.com/core#In-processing
+###  https://purl.org/fairops/core#In-processing
 core:In-processing rdf:type owl:Class ;
                    rdfs:subClassOf core:AILifecycleStep ;
                    rdfs:label "In-processing" .
 
 
-###  http://fairness-ontology.com/core#IndependenceFairnessNotion
+###  https://purl.org/fairops/core#IndependenceFairnessNotion
 core:IndependenceFairnessNotion rdf:type owl:Class ;
                                 rdfs:subClassOf core:GroupFairnessNotion ;
                                 dc:source "https://doi.org/10.1145/3468507.3468511"^^xsd:anyURI ;
@@ -695,7 +695,7 @@ core:IndependenceFairnessNotion rdf:type owl:Class ;
                                 fmo:probabilistic_definition "Ŷ ⊥ A"@en .
 
 
-###  http://fairness-ontology.com/core#IndividualFairnessNotion
+###  https://purl.org/fairops/core#IndividualFairnessNotion
 core:IndividualFairnessNotion rdf:type owl:Class ;
                               rdfs:subClassOf core:OutcomeFairnessNotion ;
                               dc:source "https://doi.org/10.1145/2090236.2090255"^^xsd:anyURI ;
@@ -704,81 +704,81 @@ core:IndividualFairnessNotion rdf:type owl:Class ;
                               skos:definition "A family of fairness notions with the common objective to ensure that similar individuals are treated similarly by a model. Some notions in this group may be a relaxed version of &quot;strict&quot; individual fairness (i.e., they may treat similar indivduals differently under certain conditions)."@en .
 
 
-###  http://fairness-ontology.com/core#InstanceLevelRowIntervention
+###  https://purl.org/fairops/core#InstanceLevelRowIntervention
 core:InstanceLevelRowIntervention rdf:type owl:Class ;
                                   rdfs:subClassOf core:DataResourcesMitigation ;
                                   rdfs:label "Feature-level Row Intervention (B)" .
 
 
-###  http://fairness-ontology.com/core#InstanceWeighting
+###  https://purl.org/fairops/core#InstanceWeighting
 core:InstanceWeighting rdf:type owl:Class ;
                        rdfs:subClassOf core:FeatureLevelRowReweightingResampling ;
                        rdfs:label "Instance Weighting" .
 
 
-###  http://fairness-ontology.com/core#ItemFocusedMetric
+###  https://purl.org/fairops/core#ItemFocusedMetric
 core:ItemFocusedMetric rdf:type owl:Class ;
                        rdfs:subClassOf core:SubjectMetric ;
                        rdfs:label "Item-focused Metric"@en .
 
 
-###  http://fairness-ontology.com/core#LearningAndPerception
+###  https://purl.org/fairops/core#LearningAndPerception
 core:LearningAndPerception rdf:type owl:Class ;
                            rdfs:subClassOf core:AITask ;
                            rdfs:label "Learning And Perception" .
 
 
-###  http://fairness-ontology.com/core#LegalRequirement
+###  https://purl.org/fairops/core#LegalRequirement
 core:LegalRequirement rdf:type owl:Class ;
                       rdfs:label "Legal Requirement" ;
                       skos:definition "A law or regulation article that constrains the AI systems activity, specifically to operate fairly, without unjust bias or discrimination against individuals or groups." .
 
 
-###  http://fairness-ontology.com/core#Legislation
+###  https://purl.org/fairops/core#Legislation
 core:Legislation rdf:type owl:Class ;
                  rdfs:label "Legislation" .
 
 
-###  http://fairness-ontology.com/core#LexiconFairnessMetric
+###  https://purl.org/fairops/core#LexiconFairnessMetric
 core:LexiconFairnessMetric rdf:type owl:Class ;
                            rdfs:subClassOf core:GeneratedTextBasedFairnessMetric ;
                            rdfs:label "Lexicon Fairness Metric"@en ;
                            skos:definition "A metric that uses predefined lexicons to study fairness or bias in generated textual content."@en .
 
 
-###  http://fairness-ontology.com/core#LoRA
+###  https://purl.org/fairops/core#LoRA
 core:LoRA rdf:type owl:Class ;
           rdfs:subClassOf core:PartialFineTuning ;
           rdfs:label "LoRA" .
 
 
-###  http://fairness-ontology.com/core#ManagementLegalRequirement
+###  https://purl.org/fairops/core#ManagementLegalRequirement
 core:ManagementLegalRequirement rdf:type owl:Class ;
                                 rdfs:subClassOf core:LegalRequirement ;
                                 rdfs:label "Management Legal Requirement" .
 
 
-###  http://fairness-ontology.com/core#MaskedTokenFairnessMetric
+###  https://purl.org/fairops/core#MaskedTokenFairnessMetric
 core:MaskedTokenFairnessMetric rdf:type owl:Class ;
                                rdfs:subClassOf core:ProbabilityBasedFairnessMetric ;
                                rdfs:label "Masked Token Fairness Metric"@en ;
                                skos:definition "A fairness metric relying on the predicted probabilities for masked tokens in language models."@en .
 
 
-###  http://fairness-ontology.com/core#MitigationTechnique
+###  https://purl.org/fairops/core#MitigationTechnique
 core:MitigationTechnique rdf:type owl:Class ;
                          rdfs:subClassOf core:ScientificArtifact ;
                          rdfs:label "Mitigation Technique"@en ;
                          skos:definition "A method used to identify, reduce, or prevent unfair bias in data, models, or decision-making processes. It aims to improve fairness and reduce discriminatory outcomes across different groups or individuals." .
 
 
-###  http://fairness-ontology.com/core#ModelAccessResourcesMitigation
+###  https://purl.org/fairops/core#ModelAccessResourcesMitigation
 core:ModelAccessResourcesMitigation rdf:type owl:Class ;
                                     rdfs:subClassOf core:MitigationTechnique ;
                                     rdfs:label "Model Access Resources Mitigation"@en .
 
 
-###  http://fairness-ontology.com/core#ObservationalFairnessNotion
+###  https://purl.org/fairops/core#ObservationalFairnessNotion
 core:ObservationalFairnessNotion rdf:type owl:Class ;
                                  rdfs:subClassOf core:OutcomeFairnessNotion ;
                                  resource:hasSynonym "observational fairness"@en ;
@@ -786,13 +786,13 @@ core:ObservationalFairnessNotion rdf:type owl:Class ;
                                  skos:definition "A family of fairness notions focusing on the joint distribution of observable factors."@en .
 
 
-###  http://fairness-ontology.com/core#OptimizationObjectMetric
+###  https://purl.org/fairops/core#OptimizationObjectMetric
 core:OptimizationObjectMetric rdf:type owl:Class ;
                               rdfs:subClassOf core:RecommendationSystemMetric ;
                               rdfs:label "Optimization Object Metric"@en .
 
 
-###  http://fairness-ontology.com/core#OutcomeFairnessNotion
+###  https://purl.org/fairops/core#OutcomeFairnessNotion
 core:OutcomeFairnessNotion rdf:type owl:Class ;
                            rdfs:subClassOf fmo:fairness_notion ;
                            owl:disjointWith core:ProceduralFairnessNotion ;
@@ -801,53 +801,53 @@ core:OutcomeFairnessNotion rdf:type owl:Class ;
                            skos:definition "Outcome fairness is concerned with the fairness of the results of the decision-making process."@en .
 
 
-###  http://fairness-ontology.com/core#OutputRewriting
+###  https://purl.org/fairops/core#OutputRewriting
 core:OutputRewriting rdf:type owl:Class ;
                      rdfs:subClassOf core:BlackBoxDecisionOnly ;
                      rdfs:label "Decision/Output Re-writing" .
 
 
-###  http://fairness-ontology.com/core#ParityBasedFairnessMetric
+###  https://purl.org/fairops/core#ParityBasedFairnessMetric
 core:ParityBasedFairnessMetric rdf:type owl:Class ;
                                rdfs:subClassOf fmo:fairness_metric ;
                                rdfs:label "Parity-based Fairness Metric"@en ;
                                skos:definition "A measurement of any fairness notion, focusing on equalising the probability of a favourable outcome among groups."@en .
 
 
-###  http://fairness-ontology.com/core#PartialFineTuning
+###  https://purl.org/fairops/core#PartialFineTuning
 core:PartialFineTuning rdf:type owl:Class ;
                        rdfs:subClassOf core:ModelAccessResourcesMitigation ,
                                        core:TrainingResourcesMitigation ;
                        rdfs:label "Partial Fine-tuning - White-box Model (G)" .
 
 
-###  http://fairness-ontology.com/core#PartialPruning
+###  https://purl.org/fairops/core#PartialPruning
 core:PartialPruning rdf:type owl:Class ;
                     rdfs:subClassOf core:PartialFineTuning ;
                     rdfs:comment "A mitigation technique that prunes a SUBPART OF an already trained model by setting to 0 some of its weights." ;
                     rdfs:label "Partial Pruning and Weight Masking" .
 
 
-###  http://fairness-ontology.com/core#Post-processing
+###  https://purl.org/fairops/core#Post-processing
 core:Post-processing rdf:type owl:Class ;
                      rdfs:subClassOf core:AILifecycleStep ;
                      rdfs:label "Post-processing" .
 
 
-###  http://fairness-ontology.com/core#Pre-processing
+###  https://purl.org/fairops/core#Pre-processing
 core:Pre-processing rdf:type owl:Class ;
                     rdfs:subClassOf core:AILifecycleStep ;
                     rdfs:label "Pre-processing" .
 
 
-###  http://fairness-ontology.com/core#ProbabilityBasedFairnessMetric
+###  https://purl.org/fairops/core#ProbabilityBasedFairnessMetric
 core:ProbabilityBasedFairnessMetric rdf:type owl:Class ;
                                     rdfs:subClassOf fmo:fairness_metric ;
                                     rdfs:label "Probability-based Fairness Metric"@en ;
                                     skos:definition "A metric that considers the probability distributions of predicted outcomes to measure fairness."@en .
 
 
-###  http://fairness-ontology.com/core#ProceduralFairnessNotion
+###  https://purl.org/fairops/core#ProceduralFairnessNotion
 core:ProceduralFairnessNotion rdf:type owl:Class ;
                               rdfs:subClassOf fmo:fairness_notion ;
                               resource:hasSynonym "procedural fairness"@en ;
@@ -855,20 +855,20 @@ core:ProceduralFairnessNotion rdf:type owl:Class ;
                               skos:definition "Procedural fairness is connected to the concept of fairness from administrative law, which is concerned with equality of treatment within the process that makes a decision."@en .
 
 
-###  http://fairness-ontology.com/core#PseudoLogLikelihoodFairnessMetric
+###  https://purl.org/fairops/core#PseudoLogLikelihoodFairnessMetric
 core:PseudoLogLikelihoodFairnessMetric rdf:type owl:Class ;
                                        rdfs:subClassOf core:ProbabilityBasedFairnessMetric ;
                                        rdfs:label "Pseudo-log Likelihood Fairness Metric"@en ;
                                        skos:definition "A metric based on pseudo-log likelihoods, often used to evaluate the fairness of generation or prediction probabilities."@en .
 
 
-###  http://fairness-ontology.com/core#ReasoningAndDecisionMaking
+###  https://purl.org/fairops/core#ReasoningAndDecisionMaking
 core:ReasoningAndDecisionMaking rdf:type owl:Class ;
                                 rdfs:subClassOf core:AITask ;
                                 rdfs:label "Reasoning And Decision Making" .
 
 
-###  http://fairness-ontology.com/core#RecommendationFairnessConcern
+###  https://purl.org/fairops/core#RecommendationFairnessConcern
 core:RecommendationFairnessConcern rdf:type owl:Class ;
                                    rdfs:subClassOf core:FairnessConcern ,
                                                    [ rdf:type owl:Restriction ;
@@ -877,64 +877,64 @@ core:RecommendationFairnessConcern rdf:type owl:Class ;
                                                    ] .
 
 
-###  http://fairness-ontology.com/core#RecommendationSystemMetric
+###  https://purl.org/fairops/core#RecommendationSystemMetric
 core:RecommendationSystemMetric rdf:type owl:Class ;
                                 rdfs:subClassOf fmo:fairness_metric ;
                                 rdfs:label "Recommendation System Metric"@en .
 
 
-###  http://fairness-ontology.com/core#Relabeling
+###  https://purl.org/fairops/core#Relabeling
 core:Relabeling rdf:type owl:Class ;
                 rdfs:subClassOf core:InstanceLevelRowIntervention ;
                 rdfs:label "Relabeling" .
 
 
-###  http://fairness-ontology.com/core#Reranking
+###  https://purl.org/fairops/core#Reranking
 core:Reranking rdf:type owl:Class ;
                rdfs:subClassOf core:BlackBoxDecisionOnly ;
                rdfs:label "Re-ranking" .
 
 
-###  http://fairness-ontology.com/core#ScientificArtifact
+###  https://purl.org/fairops/core#ScientificArtifact
 core:ScientificArtifact rdf:type owl:Class ;
                         rdfs:label "Scientific Artifact"@en ;
                         skos:definition "A scientific artifact is the outcome with which the the paper contributes, such as a fairness notion, metric, and so on."@en .
 
 
-###  http://fairness-ontology.com/core#ScientificPaper
+###  https://purl.org/fairops/core#ScientificPaper
 core:ScientificPaper rdf:type owl:Class ;
                      rdfs:label "Scientific Paper"@en ;
                      skos:definition "A scientific manuscript published in a journal, conference proceedings or made pubblicly available online."@en .
 
 
-###  http://fairness-ontology.com/core#Scoping
+###  https://purl.org/fairops/core#Scoping
 core:Scoping rdf:type owl:Class ;
              rdfs:subClassOf core:AILifecycleStep ;
              rdfs:label "Scoping" .
 
 
-###  http://fairness-ontology.com/core#ScoreBasedFairnessMetric
+###  https://purl.org/fairops/core#ScoreBasedFairnessMetric
 core:ScoreBasedFairnessMetric rdf:type owl:Class ;
                               rdfs:subClassOf fmo:fairness_metric ;
                               rdfs:label "Score-based Fairness Metric"@en ;
                               skos:definition "A measurement of any fairness notion, directing attention to the value of the classification score."@en .
 
 
-###  http://fairness-ontology.com/core#SelectiveParameterUpdating
+###  https://purl.org/fairops/core#SelectiveParameterUpdating
 core:SelectiveParameterUpdating rdf:type owl:Class ;
                                 rdfs:subClassOf core:PartialFineTuning ;
                                 rdfs:comment "A mitigation technique that updates the parameters (e.g., redistributes the weights) of a SUBPART OF an already trained model." ;
                                 rdfs:label "Selective Parameter Updating" .
 
 
-###  http://fairness-ontology.com/core#SentenceEmbeddingFairnessMetric
+###  https://purl.org/fairops/core#SentenceEmbeddingFairnessMetric
 core:SentenceEmbeddingFairnessMetric rdf:type owl:Class ;
                                      rdfs:subClassOf core:EmbeddingBasedFairnessMetric ;
                                      rdfs:label "Sentence Embedding Fairness Metric"@en ;
                                      skos:definition "A metric using sentence-level embedding representations as the basis for evaluating model or data fairness."@en .
 
 
-###  http://fairness-ontology.com/core#SeparationFairnessNotion
+###  https://purl.org/fairops/core#SeparationFairnessNotion
 core:SeparationFairnessNotion rdf:type owl:Class ;
                               rdfs:subClassOf core:GroupFairnessNotion ;
                               dc:source "https://doi.org/10.1145/3468507.3468511"^^xsd:anyURI ;
@@ -944,31 +944,31 @@ core:SeparationFairnessNotion rdf:type owl:Class ;
                               fmo:probabilistic_definition "Ŷ ⊥ A | Y"@en .
 
 
-###  http://fairness-ontology.com/core#SingleGranularityMetric
+###  https://purl.org/fairops/core#SingleGranularityMetric
 core:SingleGranularityMetric rdf:type owl:Class ;
                              rdfs:subClassOf core:GranularityMetric ;
                              rdfs:label "Single Granularity Metric"@en .
 
 
-###  http://fairness-ontology.com/core#SocialPrinciple
+###  https://purl.org/fairops/core#SocialPrinciple
 core:SocialPrinciple rdf:type owl:Class ;
                      rdfs:label "Social Principle"@en ;
                      skos:definition "Ethical and contextual interpretation of fairness, informing notions."@en .
 
 
-###  http://fairness-ontology.com/core#StratifiedSampling
+###  https://purl.org/fairops/core#StratifiedSampling
 core:StratifiedSampling rdf:type owl:Class ;
                         rdfs:subClassOf core:FeatureLevelRowReweightingResampling ;
                         rdfs:label "Stratified Sampling" .
 
 
-###  http://fairness-ontology.com/core#SubjectMetric
+###  https://purl.org/fairops/core#SubjectMetric
 core:SubjectMetric rdf:type owl:Class ;
                    rdfs:subClassOf core:RecommendationSystemMetric ;
                    rdfs:label "Subject Metric"@en .
 
 
-###  http://fairness-ontology.com/core#SufficiencyFairnessNotion
+###  https://purl.org/fairops/core#SufficiencyFairnessNotion
 core:SufficiencyFairnessNotion rdf:type owl:Class ;
                                rdfs:subClassOf core:GroupFairnessNotion ;
                                dc:source "https://doi.org/10.1145/3468507.3468511"^^xsd:anyURI ;
@@ -978,31 +978,31 @@ core:SufficiencyFairnessNotion rdf:type owl:Class ;
                                fmo:probabilistic_definition "Y ⊥ A | Ŷ"@en .
 
 
-###  http://fairness-ontology.com/core#SyntheticData
+###  https://purl.org/fairops/core#SyntheticData
 core:SyntheticData rdf:type owl:Class ;
                    rdfs:subClassOf core:DataGeneration ;
                    rdfs:label "Synthetic Data" .
 
 
-###  http://fairness-ontology.com/core#TargetedCollections
+###  https://purl.org/fairops/core#TargetedCollections
 core:TargetedCollections rdf:type owl:Class ;
                          rdfs:subClassOf core:DataGeneration ;
                          rdfs:label "Targeted Collections" .
 
 
-###  http://fairness-ontology.com/core#TechnicalLegalRequirement
+###  https://purl.org/fairops/core#TechnicalLegalRequirement
 core:TechnicalLegalRequirement rdf:type owl:Class ;
                                rdfs:subClassOf core:LegalRequirement ;
                                rdfs:label "Technical Legal Requirement" .
 
 
-###  http://fairness-ontology.com/core#Thresholding
+###  https://purl.org/fairops/core#Thresholding
 core:Thresholding rdf:type owl:Class ;
                   rdfs:subClassOf core:GreyBoxScores ;
                   rdfs:label "Thresholding" .
 
 
-###  http://fairness-ontology.com/core#TrainingResourcesMitigation
+###  https://purl.org/fairops/core#TrainingResourcesMitigation
 core:TrainingResourcesMitigation rdf:type owl:Class ;
                                  rdfs:subClassOf core:MitigationTechnique ,
                                                  [ rdf:type owl:Restriction ;
@@ -1012,25 +1012,25 @@ core:TrainingResourcesMitigation rdf:type owl:Class ;
                                  rdfs:label "Training Resources Mitigation"@en .
 
 
-###  http://fairness-ontology.com/core#Transformation
+###  https://purl.org/fairops/core#Transformation
 core:Transformation rdf:type owl:Class ;
                     rdfs:subClassOf core:InstanceLevelRowIntervention ;
                     rdfs:label "Transformation/Representation Learning" .
 
 
-###  http://fairness-ontology.com/core#TreatmentFocusedMetric
+###  https://purl.org/fairops/core#TreatmentFocusedMetric
 core:TreatmentFocusedMetric rdf:type owl:Class ;
                             rdfs:subClassOf core:OptimizationObjectMetric ;
                             rdfs:label "Treatment-focused Metric"@en .
 
 
-###  http://fairness-ontology.com/core#UserFocusedMetric
+###  https://purl.org/fairops/core#UserFocusedMetric
 core:UserFocusedMetric rdf:type owl:Class ;
                        rdfs:subClassOf core:SubjectMetric ;
                        rdfs:label "User-focused Metric"@en .
 
 
-###  http://fairness-ontology.com/core#WordEmbeddingFairnessMetric
+###  https://purl.org/fairops/core#WordEmbeddingFairnessMetric
 core:WordEmbeddingFairnessMetric rdf:type owl:Class ;
                                  rdfs:subClassOf core:EmbeddingBasedFairnessMetric ;
                                  rdfs:label "Word Embedding Fairness Metric"@en ;
@@ -1074,12 +1074,12 @@ system to be fair, i.e., a formal definition of fairness that can be observed as
 #    Individuals
 #################################################################
 
-###  http://fairness-ontology.com/core#AbductiveReasoning
+###  https://purl.org/fairops/core#AbductiveReasoning
 core:AbductiveReasoning rdf:type owl:NamedIndividual ,
                                  core:ReasoningAndDecisionMaking .
 
 
-###  http://fairness-ontology.com/core#AlgorithmicBias
+###  https://purl.org/fairops/core#AlgorithmicBias
 core:AlgorithmicBias rdf:type owl:NamedIndividual ,
                               fmo:bias ;
                      dc:source "https://doi.org/10.1145/3457607"^^xsd:anyURI ;
@@ -1087,145 +1087,145 @@ core:AlgorithmicBias rdf:type owl:NamedIndividual ,
                      skos:definition "Algorithmic bias is when the bias is not present in the input data and is added purely by the algorithm."@en .
 
 
-###  http://fairness-ontology.com/core#AnalyticsApproach
+###  https://purl.org/fairops/core#AnalyticsApproach
 core:AnalyticsApproach rdf:type owl:NamedIndividual ,
                                 core:Scoping ;
                        core:isFollowedBy core:DataRequirements .
 
 
-###  http://fairness-ontology.com/core#BiasedHistoricalExamples
+###  https://purl.org/fairops/core#BiasedHistoricalExamples
 core:BiasedHistoricalExamples rdf:type owl:NamedIndividual ,
                                        core:RecommendationFairnessConcern .
 
 
-###  http://fairness-ontology.com/core#BusinessRequirements
+###  https://purl.org/fairops/core#BusinessRequirements
 core:BusinessRequirements rdf:type owl:NamedIndividual ,
                                    core:Scoping ;
                           core:isFollowedBy core:AnalyticsApproach .
 
 
-###  http://fairness-ontology.com/core#Classification
+###  https://purl.org/fairops/core#Classification
 core:Classification rdf:type owl:NamedIndividual ,
                              core:LearningAndPerception .
 
 
-###  http://fairness-ontology.com/core#ConformityAssesmentReport
+###  https://purl.org/fairops/core#ConformityAssesmentReport
 core:ConformityAssesmentReport rdf:type owl:NamedIndividual ,
                                         core:EvidenceArtifact .
 
 
-###  http://fairness-ontology.com/core#ConstraintOptimization
+###  https://purl.org/fairops/core#ConstraintOptimization
 core:ConstraintOptimization rdf:type owl:NamedIndividual ,
                                      core:ReasoningAndDecisionMaking .
 
 
-###  http://fairness-ontology.com/core#ConstraintSolving
+###  https://purl.org/fairops/core#ConstraintSolving
 core:ConstraintSolving rdf:type owl:NamedIndividual ,
                                 core:ReasoningAndDecisionMaking .
 
 
-###  http://fairness-ontology.com/core#Conversation
+###  https://purl.org/fairops/core#Conversation
 core:Conversation rdf:type owl:NamedIndividual ,
                            core:AITypeOfUse .
 
 
-###  http://fairness-ontology.com/core#DataCollection
+###  https://purl.org/fairops/core#DataCollection
 core:DataCollection rdf:type owl:NamedIndividual ,
                              core:Pre-processing ;
                     core:isFollowedBy core:ExploratoryDataAnalysis .
 
 
-###  http://fairness-ontology.com/core#DataPreparation
+###  https://purl.org/fairops/core#DataPreparation
 core:DataPreparation rdf:type owl:NamedIndividual ,
                               core:Pre-processing ;
                      core:isFollowedBy core:ModelSelection .
 
 
-###  http://fairness-ontology.com/core#DataRequirements
+###  https://purl.org/fairops/core#DataRequirements
 core:DataRequirements rdf:type owl:NamedIndividual ,
                                core:Scoping ;
                       core:isFollowedBy core:DataCollection .
 
 
-###  http://fairness-ontology.com/core#DerogatoryLanguage
+###  https://purl.org/fairops/core#DerogatoryLanguage
 core:DerogatoryLanguage rdf:type owl:NamedIndividual ,
                                  core:ConversationFairnessConcern ;
                         core:arisesIn core:Conversation .
 
 
-###  http://fairness-ontology.com/core#Dialogue
+###  https://purl.org/fairops/core#Dialogue
 core:Dialogue rdf:type owl:NamedIndividual ,
                        core:ApplicationDomain .
 
 
-###  http://fairness-ontology.com/core#DisparateSystemPerformance
+###  https://purl.org/fairops/core#DisparateSystemPerformance
 core:DisparateSystemPerformance rdf:type owl:NamedIndividual ,
                                          core:ConversationFairnessConcern .
 
 
-###  http://fairness-ontology.com/core#EU_AI_Act
+###  https://purl.org/fairops/core#EU_AI_Act
 core:EU_AI_Act rdf:type owl:NamedIndividual ,
                         core:Legislation ;
                dc:source "https://www.euaiact.com/" ;
                rdfs:label "EU AI Act" .
 
 
-###  http://fairness-ontology.com/core#Education
+###  https://purl.org/fairops/core#Education
 core:Education rdf:type owl:NamedIndividual ,
                         core:ApplicationDomain .
 
 
-###  http://fairness-ontology.com/core#EqualityPrincipal
+###  https://purl.org/fairops/core#EqualityPrincipal
 core:EqualityPrincipal rdf:type owl:NamedIndividual ,
                                 core:SocialPrinciple ;
                        rdfs:label "Equality"@en ;
                        skos:definition "Equality is giving everyone the same resources and opportunities."@en .
 
 
-###  http://fairness-ontology.com/core#EquityPrinciple
+###  https://purl.org/fairops/core#EquityPrinciple
 core:EquityPrinciple rdf:type owl:NamedIndividual ,
                               core:SocialPrinciple ;
                      rdfs:label "Equity"@en ;
                      skos:definition "Equity is providing different resources based on individual needs to ensure everyone has an equal outcome."@en .
 
 
-###  http://fairness-ontology.com/core#Erasure
+###  https://purl.org/fairops/core#Erasure
 core:Erasure rdf:type owl:NamedIndividual ,
                       core:ConversationFairnessConcern .
 
 
-###  http://fairness-ontology.com/core#ExclusionaryNorm
+###  https://purl.org/fairops/core#ExclusionaryNorm
 core:ExclusionaryNorm rdf:type owl:NamedIndividual ,
                                core:ConversationFairnessConcern .
 
 
-###  http://fairness-ontology.com/core#ExploratoryDataAnalysis
+###  https://purl.org/fairops/core#ExploratoryDataAnalysis
 core:ExploratoryDataAnalysis rdf:type owl:NamedIndividual ,
                                       core:Pre-processing ;
                              core:isFollowedBy core:DataPreparation .
 
 
-###  http://fairness-ontology.com/core#FRIAReport
+###  https://purl.org/fairops/core#FRIAReport
 core:FRIAReport rdf:type owl:NamedIndividual ,
                          core:EvidenceArtifact .
 
 
-###  http://fairness-ontology.com/core#FeedbackLoopOverfitting
+###  https://purl.org/fairops/core#FeedbackLoopOverfitting
 core:FeedbackLoopOverfitting rdf:type owl:NamedIndividual ,
                                       core:RecommendationFairnessConcern .
 
 
-###  http://fairness-ontology.com/core#FinanceAndInsurance
+###  https://purl.org/fairops/core#FinanceAndInsurance
 core:FinanceAndInsurance rdf:type owl:NamedIndividual ,
                                   core:ApplicationDomain .
 
 
-###  http://fairness-ontology.com/core#Healthcare
+###  https://purl.org/fairops/core#Healthcare
 core:Healthcare rdf:type owl:NamedIndividual ,
                          core:ApplicationDomain .
 
 
-###  http://fairness-ontology.com/core#HistoricalBias
+###  https://purl.org/fairops/core#HistoricalBias
 core:HistoricalBias rdf:type owl:NamedIndividual ,
                              fmo:bias ;
                     dc:source "https://doi.org/10.1145/3457607"^^xsd:anyURI ;
@@ -1233,32 +1233,32 @@ core:HistoricalBias rdf:type owl:NamedIndividual ,
                     skos:definition "Historical bias is caused by already existing bias and socio-technical issues in the world, and can seep into from the data generation process even given a perfect sampling and feature selection."@en .
 
 
-###  http://fairness-ontology.com/core#HumanResources
+###  https://purl.org/fairops/core#HumanResources
 core:HumanResources rdf:type owl:NamedIndividual ,
                              core:ApplicationDomain .
 
 
-###  http://fairness-ontology.com/core#ICTSecurity
+###  https://purl.org/fairops/core#ICTSecurity
 core:ICTSecurity rdf:type owl:NamedIndividual ,
                           core:ApplicationDomain .
 
 
-###  http://fairness-ontology.com/core#IncompleteHistoricalExamples
+###  https://purl.org/fairops/core#IncompleteHistoricalExamples
 core:IncompleteHistoricalExamples rdf:type owl:NamedIndividual ,
                                            core:RecommendationFairnessConcern .
 
 
-###  http://fairness-ontology.com/core#InformationRetrival
+###  https://purl.org/fairops/core#InformationRetrival
 core:InformationRetrival rdf:type owl:NamedIndividual ,
                                   core:LearningAndPerception .
 
 
-###  http://fairness-ontology.com/core#InstructionsForUse
+###  https://purl.org/fairops/core#InstructionsForUse
 core:InstructionsForUse rdf:type owl:NamedIndividual ,
                                  core:EvidenceArtifact .
 
 
-###  http://fairness-ontology.com/core#IntersectionalBias
+###  https://purl.org/fairops/core#IntersectionalBias
 core:IntersectionalBias rdf:type owl:NamedIndividual ,
                                  fmo:bias ;
                         dc:source "https://doi.org/10.1145/3468507.3468511"^^xsd:anyURI ;
@@ -1266,24 +1266,24 @@ core:IntersectionalBias rdf:type owl:NamedIndividual ,
                         skos:definition "Intersectional bias is a type of bias that occurs due to the combination of multiple sensitive factors. So, the AI system may behave fairly for each attribute separately but unfairly for certain subgroups at their intersections."@en .
 
 
-###  http://fairness-ontology.com/core#LawAndJustice
+###  https://purl.org/fairops/core#LawAndJustice
 core:LawAndJustice rdf:type owl:NamedIndividual ,
                             core:ApplicationDomain .
 
 
-###  http://fairness-ontology.com/core#LinguisticBias
+###  https://purl.org/fairops/core#LinguisticBias
 core:LinguisticBias rdf:type owl:NamedIndividual ,
                              fmo:bias ;
                     rdfs:label "Linguistic Bias"@en ;
                     skos:definition "Linguistic bias is embedded in generative AI outputs, the manifestation of harm through demeaning or offensive language that reinforces discrimination."@en .
 
 
-###  http://fairness-ontology.com/core#Logs
+###  https://purl.org/fairops/core#Logs
 core:Logs rdf:type owl:NamedIndividual ,
                    core:EvidenceArtifact .
 
 
-###  http://fairness-ontology.com/core#MaskingBias
+###  https://purl.org/fairops/core#MaskingBias
 core:MaskingBias rdf:type owl:NamedIndividual ,
                           fmo:bias ;
                  dc:source "https://doi.org/10.1145/3468507.3468511"^^xsd:anyURI ;
@@ -1291,45 +1291,45 @@ core:MaskingBias rdf:type owl:NamedIndividual ,
                  skos:definition "Masking is a form of intentional discrimination that allows decision makers with prejudicial views to mask their intentions, typically by exploiting how fairness notions are defined."@en .
 
 
-###  http://fairness-ontology.com/core#Misrepresentation
+###  https://purl.org/fairops/core#Misrepresentation
 core:Misrepresentation rdf:type owl:NamedIndividual ,
                                 core:ConversationFairnessConcern .
 
 
-###  http://fairness-ontology.com/core#MisrepresentationsInProductMarketing
+###  https://purl.org/fairops/core#MisrepresentationsInProductMarketing
 core:MisrepresentationsInProductMarketing rdf:type owl:NamedIndividual ,
                                                    core:RecommendationFairnessConcern .
 
 
-###  http://fairness-ontology.com/core#ModelDeployment
+###  https://purl.org/fairops/core#ModelDeployment
 core:ModelDeployment rdf:type owl:NamedIndividual ,
                               core:Post-processing ;
                      core:isFollowedBy core:ModelTuning ;
                      rdfs:label "Model Deployment" .
 
 
-###  http://fairness-ontology.com/core#ModelEvaluation
+###  https://purl.org/fairops/core#ModelEvaluation
 core:ModelEvaluation rdf:type owl:NamedIndividual ,
                               core:In-processing ;
                      core:isFollowedBy core:ModelDeployment ;
                      rdfs:label "Model Evaluation" .
 
 
-###  http://fairness-ontology.com/core#ModelSelection
+###  https://purl.org/fairops/core#ModelSelection
 core:ModelSelection rdf:type owl:NamedIndividual ,
                              core:In-processing ;
                     core:isFollowedBy core:ModelEvaluation ;
                     rdfs:label "Model Selection" .
 
 
-###  http://fairness-ontology.com/core#ModelTuning
+###  https://purl.org/fairops/core#ModelTuning
 core:ModelTuning rdf:type owl:NamedIndividual ,
                           core:Post-processing ;
                  core:isFollowedBy core:ProjectReview ;
                  rdfs:label "Model Tuning" .
 
 
-###  http://fairness-ontology.com/core#OmmittedVariableBias
+###  https://purl.org/fairops/core#OmmittedVariableBias
 core:OmmittedVariableBias rdf:type owl:NamedIndividual ,
                                    fmo:bias ;
                           dc:source "https://doi.org/10.1145/3457607"^^xsd:anyURI ;
@@ -1337,48 +1337,48 @@ core:OmmittedVariableBias rdf:type owl:NamedIndividual ,
                           skos:definition "Omitted variable bias occurs when one or more important variables are left out of a model."@en .
 
 
-###  http://fairness-ontology.com/core#Planning
+###  https://purl.org/fairops/core#Planning
 core:Planning rdf:type owl:NamedIndividual ,
                        core:ReasoningAndDecisionMaking .
 
 
-###  http://fairness-ontology.com/core#PopularItemsOverrecommended
+###  https://purl.org/fairops/core#PopularItemsOverrecommended
 core:PopularItemsOverrecommended rdf:type owl:NamedIndividual ,
                                           core:RecommendationFairnessConcern .
 
 
-###  http://fairness-ontology.com/core#Prediction
+###  https://purl.org/fairops/core#Prediction
 core:Prediction rdf:type owl:NamedIndividual ,
                          core:AITypeOfUse .
 
 
-###  http://fairness-ontology.com/core#ProbabilisticReasoning
+###  https://purl.org/fairops/core#ProbabilisticReasoning
 core:ProbabilisticReasoning rdf:type owl:NamedIndividual ,
                                      core:ReasoningAndDecisionMaking .
 
 
-###  http://fairness-ontology.com/core#ProjectReview
+###  https://purl.org/fairops/core#ProjectReview
 core:ProjectReview rdf:type owl:NamedIndividual ,
                             core:Governance ;
                    core:isFollowedBy core:BusinessRequirements .
 
 
-###  http://fairness-ontology.com/core#PublicServices
+###  https://purl.org/fairops/core#PublicServices
 core:PublicServices rdf:type owl:NamedIndividual ,
                              core:ApplicationDomain .
 
 
-###  http://fairness-ontology.com/core#Ranking
+###  https://purl.org/fairops/core#Ranking
 core:Ranking rdf:type owl:NamedIndividual ,
                       core:ReasoningAndDecisionMaking .
 
 
-###  http://fairness-ontology.com/core#Recommendation
+###  https://purl.org/fairops/core#Recommendation
 core:Recommendation rdf:type owl:NamedIndividual ,
                              core:AITypeOfUse .
 
 
-###  http://fairness-ontology.com/core#RepresentationBias
+###  https://purl.org/fairops/core#RepresentationBias
 core:RepresentationBias rdf:type owl:NamedIndividual ,
                                  fmo:bias ;
                         dc:source "https://doi.org/10.1145/3457607"^^xsd:anyURI ;
@@ -1386,12 +1386,12 @@ core:RepresentationBias rdf:type owl:NamedIndividual ,
                         skos:definition "Representation bias arises from the use of a skewed or otherwise non-representative sample from a population during data collection process."@en .
 
 
-###  http://fairness-ontology.com/core#RetailAndECommerce
+###  https://purl.org/fairops/core#RetailAndECommerce
 core:RetailAndECommerce rdf:type owl:NamedIndividual ,
                                  core:ApplicationDomain .
 
 
-###  http://fairness-ontology.com/core#SamplingBias
+###  https://purl.org/fairops/core#SamplingBias
 core:SamplingBias rdf:type owl:NamedIndividual ,
                            fmo:bias ;
                   dc:source "https://doi.org/10.1145/3457607"^^xsd:anyURI ;
@@ -1399,32 +1399,32 @@ core:SamplingBias rdf:type owl:NamedIndividual ,
                   skos:definition "Similarly to representation bias, sampling bias arises due to non-random sampling of subgroups"@en .
 
 
-###  http://fairness-ontology.com/core#ScoringRegression
+###  https://purl.org/fairops/core#ScoringRegression
 core:ScoringRegression rdf:type owl:NamedIndividual ,
                                 core:LearningAndPerception .
 
 
-###  http://fairness-ontology.com/core#Stereotyping
+###  https://purl.org/fairops/core#Stereotyping
 core:Stereotyping rdf:type owl:NamedIndividual ,
                            core:ConversationFairnessConcern .
 
 
-###  http://fairness-ontology.com/core#TechnicalDocument
+###  https://purl.org/fairops/core#TechnicalDocument
 core:TechnicalDocument rdf:type owl:NamedIndividual ,
                                 core:EvidenceArtifact .
 
 
-###  http://fairness-ontology.com/core#TextGeneration
+###  https://purl.org/fairops/core#TextGeneration
 core:TextGeneration rdf:type owl:NamedIndividual ,
                              core:LearningAndPerception .
 
 
-###  http://fairness-ontology.com/core#TransportAndLogistics
+###  https://purl.org/fairops/core#TransportAndLogistics
 core:TransportAndLogistics rdf:type owl:NamedIndividual ,
                                     core:ApplicationDomain .
 
 
-###  http://fairness-ontology.com/core#UtilitiesEnergy
+###  https://purl.org/fairops/core#UtilitiesEnergy
 core:UtilitiesEnergy rdf:type owl:NamedIndividual ,
                               core:ApplicationDomain .
 

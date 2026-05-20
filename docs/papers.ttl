@@ -1,14 +1,14 @@
 @prefix bibtex: <http://www.edutella.org/bibtex#> .
-@prefix core: <http://fairness-ontology.com/core#> .
+@prefix core: <https://purl.org/fairops/core#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix papers: <http://fairness-ontology.com/papers#> .
+@prefix papers: <https://purl.org/fairops/papers#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix vcard: <http://www.w3.org/2001/vcard-rdf/3.0#> .
 
-<http://fairness-ontology.com/papers> a owl:Ontology ;
-    owl:imports <http://fairness-ontology.com> .
+<https://purl.org/fairops/papers> a owl:Ontology ;
+    owl:imports <https://purl.org/fairops/core> .
 
 papers:1950_ASHBY a bibtex:Article,
         owl:NamedIndividual ;
@@ -3859,7 +3859,7 @@ papers:2018_ZHANGf a bibtex:InProceedings,
 papers:2018_ZHAO a bibtex:InProceedings,
         owl:NamedIndividual ;
     core:testedOn papers:WinoBias,
-        <http://fairness-ontology.com/papers#WinoBias+> ;
+        <https://purl.org/fairops/papers#WinoBias+> ;
     dc:creator papers:2018_ZHAO_Ordonez_Vicente,
         papers:2018_ZHAO_Wang_Tianlu,
         papers:2018_ZHAO_Yatskar_Mark,
@@ -37635,7 +37635,7 @@ papers:WinoBias a core:Dataset ;
     dc:source "" ;
     rdfs:comment "" .
 
-<http://fairness-ontology.com/papers#WinoBias+> a core:Dataset ;
+<https://purl.org/fairops/papers#WinoBias+> a core:Dataset ;
     core:relatesTo core:Dialogue ;
     dc:source "" ;
     rdfs:comment "" .
