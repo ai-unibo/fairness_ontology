@@ -5,14 +5,29 @@
 @prefix papers: <https://purl.org/fairops/papers#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-core:BiasPerpetuation core:requires core:DatasetRepresentativenessReport,
+core:BiasPerpetuation core:exposesTo core:HistoricalBias,
+        core:IntersectionalBias,
+        core:MaskingBias,
+        core:OmittedVariableBias,
+        core:RepresentationBias,
+        core:SamplingBias ;
+    core:isAddressedWith core:EqualOpportunity,
+        core:StatisticalParity ;
+    core:requires core:DatasetRepresentativenessReport,
         core:ParityErrorGapDashboard,
         core:PrePostMitigationComparisonReport ;
     core:triggers indiv:Art.10.3,
         indiv:Art.11,
         indiv:Art.9 .
 
-core:DerogatoryLanguage core:requires core:DocumentationOfSafeguardsAndEffectiveness,
+core:DerogatoryLanguage core:exposesTo core:HistoricalBias,
+        core:LinguisticBias,
+        core:MaskingBias,
+        core:RepresentationBias,
+        core:SamplingBias ;
+    core:isAddressedWith core:EqualOpportunity,
+        core:StatisticalParity ;
+    core:requires core:DocumentationOfSafeguardsAndEffectiveness,
         core:LogsOfInterventions,
         core:LongitudinalKPIsTrendsOverTime,
         core:SafetyFairnessEvaluationSuite ;
@@ -23,7 +38,14 @@ core:DerogatoryLanguage core:requires core:DocumentationOfSafeguardsAndEffective
         indiv:Art.72,
         indiv:Art.9 .
 
-core:DisparateSystemPerformance core:requires core:DatasetRepresentativenessReport,
+core:DisparateSystemPerformance core:exposesTo core:AlgorithmicBias,
+        core:HistoricalBias,
+        core:LinguisticBias,
+        core:MaskingBias,
+        core:RepresentationBias,
+        core:SamplingBias ;
+    core:isAddressedWith core:OverallAccuracyEquality ;
+    core:requires core:DatasetRepresentativenessReport,
         core:GroupWisePerformanceAndCalibrationDashboards,
         core:RemediationRecordsAndPostFixVerification ;
     core:triggers indiv:Art.10.3,
@@ -33,7 +55,11 @@ core:DisparateSystemPerformance core:requires core:DatasetRepresentativenessRepo
         indiv:Art.72,
         indiv:Art.9 .
 
-core:Erasure core:requires core:DatasetRepresentativenessReport,
+core:Erasure core:exposesTo core:MaskingBias,
+        core:RepresentationBias ;
+    core:isAddressedWith core:EqualOpportunity,
+        core:EqualizedOdds ;
+    core:requires core:DatasetRepresentativenessReport,
         core:EvaluationReportsOnOmissionCoverageGaps,
         core:GovernanceRecordsForDatasetUpdates ;
     core:triggers indiv:Art.10.3,
@@ -41,7 +67,11 @@ core:Erasure core:requires core:DatasetRepresentativenessReport,
         indiv:Art.14,
         indiv:Art.9 .
 
-core:ExclusionaryNorms core:requires core:LogsOfInterventions,
+core:ExclusionaryNorms core:exposesTo core:LinguisticBias,
+        core:MaskingBias,
+        core:RepresentationBias ;
+    core:isAddressedWith core:StatisticalParity ;
+    core:requires core:LogsOfInterventions,
         core:LongitudinalKPIsTrendsOverTime,
         core:PatternBasedEvaluationResults,
         core:RecordOfPolicyChanges,
@@ -53,7 +83,16 @@ core:ExclusionaryNorms core:requires core:LogsOfInterventions,
         indiv:Art.72,
         indiv:Art.9 .
 
-core:FeedbackLoopOverfitting core:requires core:DriftContextShiftLogs,
+core:FeedbackLoopOverfitting core:exposesTo core:AlgoritmicBias,
+        core:HistoricalBias,
+        core:IntersectionalBias,
+        core:MaskingBias,
+        core:OmittedVariableBias,
+        core:RepresentationBias,
+        core:SamplingBias ;
+    core:isAddressedWith core:Calibration,
+        core:StatisticalParity ;
+    core:requires core:DriftContextShiftLogs,
         core:LongitudinalParityErrorDivergenceTrendsReport,
         core:RetrainingDecisionRecordsAndEffectivenessEvidence ;
     core:triggers indiv:Art.10.4,
@@ -61,12 +100,29 @@ core:FeedbackLoopOverfitting core:requires core:DriftContextShiftLogs,
         indiv:Art.72,
         indiv:Art.9 .
 
-core:IncompleteHystoricalExamples core:requires core:DocumentationOnJustificationOfEnrichmentStrategiesAndResidualRisk ;
+core:IncompleteHystoricalExamples core:exposesTo core:AlgoritmicBias,
+        core:HistoricalBias,
+        core:RepresentationBias,
+        core:SamplingBias ;
+    core:isAddressedWith core: ;
+    core:requires core:DocumentationOnJustificationOfEnrichmentStrategiesAndResidualRisk ;
     core:triggers indiv:Art.10.3,
         indiv:Art.10.4,
         indiv:Art.9 .
 
-core:Misrepresentation core:requires core:LogsOfInterventions,
+core:Misrepresentation core:exposesTo core:AlgoritmicBias,
+        core:HistoricalBias,
+        core:IntersectionalBias,
+        core:LinguisticBias,
+        core:MaskingBias,
+        core:OmittedVariableBias,
+        core:RepresentationBias,
+        core:SamplingBias ;
+    core:isAddressedWith core:Calibration,
+        core:EqualOpportunity,
+        core:EqualizedOdds,
+        core:StatisticalParity ;
+    core:requires core:LogsOfInterventions,
         core:RemediationRecordsAndPostFixVerification,
         core:SegmentLevelCalibrationPerformanceEvidence,
         core:StructuredEvaluationOnGroupConditionedFactualityConsistency,
@@ -79,21 +135,44 @@ core:Misrepresentation core:requires core:LogsOfInterventions,
         indiv:Art.72,
         indiv:Art.9 .
 
-core:MisrepresentationsInProductMarketing core:requires core:LogsOfInterventions,
+core:MisrepresentationsInProductMarketing core:exposesTo core:AlgoritmicBias,
+        core:HistoricalBias,
+        core:MaskingBias,
+        core:RepresentationBias,
+        core:SamplingBias ;
+    core:isAddressedWith core:Calibration ;
+    core:requires core:LogsOfInterventions,
         core:ParityErrorGapDashboard,
         core:SegmentLevelCalibrationPerformanceEvidence ;
     core:triggers indiv:Art.13,
         indiv:Art.14,
         indiv:Art.9 .
 
-core:PopularItemsOverrecommended core:requires core:ExposureDistributionReports,
+core:PopularItemsOverrecommended core:exposesTo core:AlgoritmicBias,
+        core:HistoricalBias,
+        core:MaskingBias,
+        core:RepresentationBias,
+        core:SamplingBias ;
+    core:isAddressedWith core:EqualityOfAttentionEquityOfAmortizedAttention,
+        core:EquityOfAttention,
+        core:OverallAccuracyEquality,
+        core:StatisticalParity ;
+    core:requires core:ExposureDistributionReports,
         core:HumanOversightRulesThresholdsForIntervention,
         core:ParityErrorGapDashboard ;
     core:triggers indiv:Art.12,
         indiv:Art.14,
         indiv:Art.9 .
 
-core:Stereotyping core:requires core:BenchmarkAndCounterfactualEvaluationReports,
+core:Stereotyping core:exposesTo core:AlgoritmicBias,
+        core:HistoricalBias,
+        core:LinguisticBias,
+        core:MaskingBias,
+        core:RepresentationBias,
+        core:SamplingBias ;
+    core:isAddressedWith core:EqualOpportunity,
+        core:StatisticalParity ;
+    core:requires core:BenchmarkAndCounterfactualEvaluationReports,
         core:GovernanceRecordsForDatasetUpdates,
         core:LongitudinalKPIsTrendsOverTime,
         core:PrePostMitigationComparisonReport ;
@@ -104,7 +183,13 @@ core:Stereotyping core:requires core:BenchmarkAndCounterfactualEvaluationReports
         indiv:Art.72,
         indiv:Art.9 .
 
-core:Toxicity core:requires core:DocumentationOfSafeguardsAndEffectiveness,
+core:Toxicity core:exposesTo core:HistoricalBias,
+        core:LinguisticBias,
+        core:MaskingBias,
+        core:RepresentationBias,
+        core:SamplingBias ;
+    core:isAddressedWith core:StatisticalParity ;
+    core:requires core:DocumentationOfSafeguardsAndEffectiveness,
         core:GlobalKPIEvaluationReport,
         core:GroupWisePerformanceAndCalibrationDashboards,
         core:LongitudinalKPIsTrendsOverTime,
@@ -124,6 +209,7 @@ indiv:AbsoluteUnfairness a owl:NamedIndividual,
         core:AmortizedGranularityMetric,
         core:UserFocusedMetric ;
     core:isProposedBy papers:2017_YAO ;
+    core:isSuitableFor core:Recommendation ;
     core:isUsedBy papers:2018_FARNADI,
         papers:2021_ISLAM ;
     core:measures indiv:EqualOpportunity ;
@@ -134,6 +220,7 @@ indiv:AllUnmaskedLikelihood a owl:NamedIndividual,
     core:extends indiv:ContextAssociationTest,
         indiv:CrowSPairsScore ;
     core:isProposedBy papers:2022_KANEKO ;
+    core:isSuitableFor core:Conversation ;
     core:refersTo core:TextGeneration ;
     core:scientificArtifactDescription "Extends the CrowS-Pair Score and CAT to consider multiple correct candidate predictions. While pseudo-loglikelihood and CAT consider a single correct answer for a masked test example, AUL provides an unmasked sentence to the model and predicts all tokens in the sentence. The unmasked input provides the model with all information to predict a token, which can improve the prediction accuracy of the model, and avoids selection bias in the choice of which words to mask." .
 
@@ -764,6 +851,8 @@ indiv:BalancedConditionedConsistency a owl:NamedIndividual,
         core:DistanceBasedFairnessMetric ;
     core:extends indiv:ConsistencyScore ;
     core:isProposedBy papers:2025_WALLER ;
+    core:isSuitableFor core:Prediction,
+        core:Recommendation ;
     core:measures indiv:FairnessThroughAwareness ;
     core:refersTo core:Classification .
 
@@ -778,6 +867,8 @@ indiv:BayesianFairness a owl:NamedIndividual,
     core:extends indiv:BalanceForNegativeClass,
         indiv:BalanceForPositiveClass ;
     core:isProposedBy papers:2019_DIMITRAKAKIS ;
+    core:isSuitableFor core:Conversation,
+        core:Prediction ;
     core:refersTo core:Classification,
         core:TextGeneration .
 
@@ -789,22 +880,26 @@ indiv:BottomNAverage a owl:NamedIndividual,
         core:TreatmentFocusedMetric,
         core:UserFocusedMetric ;
     core:isProposedBy papers:2021_ZHU ;
+    core:isSuitableFor core:Recommendation ;
     core:refersTo core:ScoringRegression .
 
 indiv:CEAT a owl:NamedIndividual,
         core:SentenceEmbeddingFairnessMetric ;
     core:isProposedBy papers:2021_GUO ;
+    core:isSuitableFor core:Conversation ;
     core:refersTo core:TextGeneration .
 
 indiv:CategoricalBiasScore a owl:NamedIndividual,
         core:MaskedTokenFairnessMetric ;
     core:extends indiv:LogProbabilityBiasScore ;
     core:isProposedBy papers:2021_AHN ;
+    core:isSuitableFor core:Conversation ;
     core:refersTo core:TextGeneration .
 
 indiv:CoOccurrenceBiasScore a owl:NamedIndividual,
         core:DistributionFairnessMetric ;
     core:isProposedBy papers:2019_BORDIA ;
+    core:isSuitableFor core:Conversation ;
     core:refersTo core:TextGeneration .
 
 indiv:ConditionalEqualOpportunity a owl:NamedIndividual,
@@ -814,12 +909,15 @@ indiv:ConditionalEqualOpportunity a owl:NamedIndividual,
     core:extends indiv:EqualOpportunity,
         indiv:StatisticalParity ;
     core:isProposedBy papers:2019_BEUTEL ;
+    core:isSuitableFor core:Conversation,
+        core:Prediction ;
     core:refersTo core:Classification,
         core:TextGeneration .
 
 indiv:CounterfactualSentimentBias a owl:NamedIndividual,
         core:ClassifierFairnessMetric ;
     core:isProposedBy papers:2020_HUANG ;
+    core:isSuitableFor core:Conversation ;
     core:refersTo core:TextGeneration .
 
 indiv:DemographicDisparity a owl:NamedIndividual,
@@ -832,6 +930,7 @@ indiv:DemographicDisparity a owl:NamedIndividual,
     rdfs:comment "This is actually a Min-Max Difference casted into a setting where the utility function is the average exposure for multiple item groups" ;
     core:isEquivalentTo indiv:MinMaxDifference ;
     core:isProposedBy papers:2021_GUPTA ;
+    core:isSuitableFor core:Recommendation ;
     core:isUsedBy papers:2023_WANG ;
     core:measures indiv:DisparateImpact ;
     core:refersTo core:ScoringRegression .
@@ -839,11 +938,13 @@ indiv:DemographicDisparity a owl:NamedIndividual,
 indiv:DemographicRepresentation a owl:NamedIndividual,
         core:DistributionFairnessMetric ;
     core:isProposedBy papers:2023_LIANG ;
+    core:isSuitableFor core:Conversation ;
     core:refersTo core:TextGeneration .
 
 indiv:DisCo a owl:NamedIndividual,
         core:MaskedTokenFairnessMetric ;
     core:isProposedBy papers:2021_WEBSTER ;
+    core:isSuitableFor core:Conversation ;
     core:refersTo core:TextGeneration .
 
 indiv:DisadvantagedTextCollection a owl:NamedIndividual,
@@ -862,6 +963,7 @@ indiv:DistilInterserctionalFairness a owl:NamedIndividual,
 indiv:EmpiricalToxicityProbability a owl:NamedIndividual,
         core:ClassifierFairnessMetric ;
     core:isProposedBy papers:2020_GEHMAN ;
+    core:isSuitableFor core:Conversation ;
     core:refersTo core:TextGeneration .
 
 indiv:Entropy a owl:NamedIndividual,
@@ -872,6 +974,7 @@ indiv:Entropy a owl:NamedIndividual,
         core:TreatmentFocusedMetric,
         core:UserFocusedMetric ;
     core:isProposedBy papers:2020_MANSOURY ;
+    core:isSuitableFor core:Recommendation ;
     core:isUsedBy papers:2020_MANSOURY,
         papers:2020_PATRO,
         papers:2022_MANSOURY ;
@@ -881,6 +984,8 @@ indiv:EqualizingDisincentives a owl:NamedIndividual,
         core:ObservationalFairnessNotion,
         core:SeparationFairnessNotion ;
     core:isProposedBy papers:2020_JUNG ;
+    core:isSuitableFor core:Conversation,
+        core:Prediction ;
     core:refersTo core:Classification,
         core:TextGeneration .
 
@@ -891,6 +996,7 @@ indiv:EquityOfAmortizedAttention a owl:NamedIndividual,
     core:isMeasuredBy indiv:KLDivergence,
         indiv:L1Norm ;
     core:isProposedBy papers:2018_BIEGA ;
+    core:isSuitableFor core:Recommendation ;
     core:refersTo core:ScoringRegression ;
     core:scientificArtifactDescription """A sequence of rankings $\\rho_1, \\dots, \\rho_m$ offers equity of amortized attention if each subject receives cumulative attention proportional to her cumulative relevance, i.e.:
 
@@ -903,6 +1009,7 @@ indiv:EquityOfAmortizedAttention a owl:NamedIndividual,
 indiv:ExpectedMaximumToxicity a owl:NamedIndividual,
         core:ClassifierFairnessMetric ;
     core:isProposedBy papers:2020_GEHMAN ;
+    core:isSuitableFor core:Conversation ;
     core:refersTo core:TextGeneration .
 
 indiv:FStatisticOfANOVA a owl:NamedIndividual,
@@ -914,6 +1021,7 @@ indiv:FStatisticOfANOVA a owl:NamedIndividual,
         core:UserFocusedMetric ;
     rdfs:comment "F-statistic of ANOVA is employed as a a fairness evaluation metric to evaluate a global parity of prediction errors across different consumer-product market segments, where lower F indicates better rating prediction fairness." ;
     core:isProposedBy papers:2020_WAN ;
+    core:isSuitableFor core:Recommendation ;
     core:measures indiv:Calibration ;
     core:refersTo core:ScoringRegression .
 
@@ -939,16 +1047,19 @@ indiv:FractionOfSatisfiedProducer a owl:NamedIndividual,
         core:SingleGranularityMetric,
         core:TreatmentFocusedMetric ;
     core:isProposedBy papers:2020_PATRO ;
+    core:isSuitableFor core:Recommendation ;
     core:refersTo core:ScoringRegression .
 
 indiv:FullGenBias a owl:NamedIndividual,
         core:ClassifierFairnessMetric ;
     core:isProposedBy papers:2022_SMITH ;
+    core:isSuitableFor core:Conversation ;
     core:refersTo core:TextGeneration .
 
 indiv:GenderPolarity a owl:NamedIndividual,
         core:LexiconFairnessMetric ;
     core:isProposedBy papers:2021_DHAMALA ;
+    core:isSuitableFor core:Conversation ;
     core:refersTo core:TextGeneration .
 
 indiv:GeneralizedCrossEntropy a owl:NamedIndividual,
@@ -959,6 +1070,7 @@ indiv:GeneralizedCrossEntropy a owl:NamedIndividual,
         core:TreatmentFocusedMetric,
         core:UserFocusedMetric ;
     core:isProposedBy papers:2019_DELDJOO ;
+    core:isSuitableFor core:Recommendation ;
     core:isUsedBy papers:2022_LI ;
     core:refersTo core:ScoringRegression .
 
@@ -970,6 +1082,7 @@ indiv:GiniCoefficient a owl:NamedIndividual,
         core:TreatmentFocusedMetric,
         core:UserFocusedMetric ;
     core:isProposedBy papers:2018_LEONHARDT ;
+    core:isSuitableFor core:Recommendation ;
     core:isUsedBy papers:2020_FU,
         papers:2020_MANSOURY,
         papers:2021_GE,
@@ -985,6 +1098,7 @@ indiv:GroupUnfairness a owl:NamedIndividual,
         core:UserFocusedMetric ;
     core:extends indiv:Variance ;
     core:isProposedBy papers:2019_RASTEGARPANAH ;
+    core:isSuitableFor core:Recommendation ;
     core:measures indiv:FairRecommendationForCustomer,
         indiv:QualityWeightedFairness,
         indiv:UniformFairness ;
@@ -1004,6 +1118,7 @@ Again, to improve group fairness, we seek to minimize $R_{\\text{grp}}$.""" .
 indiv:HONEST a owl:NamedIndividual,
         core:LexiconFairnessMetric ;
     core:isProposedBy papers:2021_NOZZA ;
+    core:isSuitableFor core:Conversation ;
     core:refersTo core:TextGeneration .
 
 indiv:IndividualUnfairness a owl:NamedIndividual,
@@ -1015,6 +1130,7 @@ indiv:IndividualUnfairness a owl:NamedIndividual,
         core:UserFocusedMetric ;
     core:extends indiv:Variance ;
     core:isProposedBy papers:2019_RASTEGARPANAH ;
+    core:isSuitableFor core:Recommendation ;
     core:measures indiv:FairRecommendationForCustomer,
         indiv:QualityWeightedFairness,
         indiv:UniformFairness ;
@@ -1041,6 +1157,7 @@ indiv:JSDivergence a owl:NamedIndividual,
     rdfs:comment "JS is sometimes prefered to KL-divergence because it is symmetric (i.e., if you swap the distributions, you will get the same number)" ;
     core:extends indiv:KLDivergence ;
     core:isProposedBy papers:2017_MODANI ;
+    core:isSuitableFor core:Recommendation ;
     core:measures indiv:Calibration ;
     core:refersTo core:ScoringRegression .
 
@@ -1055,6 +1172,7 @@ indiv:KSStatistic a owl:NamedIndividual,
     core:extends indiv:AbsoluteDifference ;
     core:isProposedBy papers:2018_KAMISHIMA,
         papers:2018_ZHU ;
+    core:isSuitableFor core:Recommendation ;
     core:isUsedBy papers:2018_KAMISHIMA,
         papers:2018_ZHU ;
     core:measures indiv:StatisticalParity ;
@@ -1063,6 +1181,7 @@ indiv:KSStatistic a owl:NamedIndividual,
 indiv:LanguageModelBias a owl:NamedIndividual,
         core:PseudoLogLikelihoodFairnessMetric ;
     core:isProposedBy papers:2021_BARIKERI ;
+    core:isSuitableFor core:Conversation ;
     core:refersTo core:TextGeneration .
 
 indiv:LeastMisery a owl:NamedIndividual,
@@ -1073,6 +1192,7 @@ indiv:LeastMisery a owl:NamedIndividual,
         core:TreatmentFocusedMetric,
         core:UserFocusedMetric ;
     core:isProposedBy papers:2017_LIN ;
+    core:isSuitableFor core:Recommendation ;
     core:isUsedBy papers:2019_SACHARIDIS,
         papers:2020_KAYA ;
     core:refersTo core:ScoringRegression .
@@ -1095,6 +1215,7 @@ indiv:MEnvyFreeness a owl:NamedIndividual,
         core:TreatmentFocusedMetric,
         core:UserFocusedMetric ;
     core:isProposedBy papers:2017_SERBOS ;
+    core:isSuitableFor core:Recommendation ;
     core:refersTo core:ScoringRegression .
 
 indiv:MeanAverageEnvy a owl:NamedIndividual,
@@ -1103,6 +1224,7 @@ indiv:MeanAverageEnvy a owl:NamedIndividual,
         core:TreatmentFocusedMetric,
         core:UserFocusedMetric ;
     core:isProposedBy papers:2020_PATRO ;
+    core:isSuitableFor core:Recommendation ;
     core:refersTo core:ScoringRegression .
 
 indiv:MinSkewAndMaxSkew a owl:NamedIndividual,
@@ -1114,6 +1236,7 @@ indiv:MinSkewAndMaxSkew a owl:NamedIndividual,
         core:UserFocusedMetric ;
     rdfs:comment "The  equal opportunity notion requires that the fraction of qualified candidates (items) that are included in the top ranked results does not depend  on the protected attribute. This can be met by selecting  the desired distribution p_q to be the distribution of the qualified candidates (items) over the protected attribute, while p_\\tau is the actual distribution. As for statistical parity, for  example, in the case of gender, it would require  that the top results always reflect the gender distribution over all  candidates, irrespective of the specific search or recommendation  task. Statistical parity can be met by selecting the desired distribution p_q to be the distribution of all candidates over the protected attribute. 2023_WANG classifies this as a \"calibration\" metric because it compares the actual distribution of the results with p_f desired distribution, which is function o the merit. However, this \"calibration\" term is not connected to the calbration-based metrics as intended by [2024_CATON] because it does not focus on PPVs. Furthermore, \"some measures of calibrated fairness and consistent fairness are interconvertible. Theoretically, for a calibrated fairness measurement, if we set pf to a uniform distribution, then it can become a measurement for consistent fairness. Similarly, for a consistent fairness measurement that contains f (v ), we can set f (v ) to p(v)/p_f(v) , then it become a calibrated fairness measurement.\" [2023_WANG]" ;
     core:isProposedBy papers:2019_GEYIK ;
+    core:isSuitableFor core:Recommendation ;
     core:measures indiv:EqualOpportunity,
         indiv:StatisticalParity ;
     core:refersTo core:ScoringRegression .
@@ -1126,6 +1249,7 @@ indiv:NDKL a owl:NamedIndividual,
     rdfs:comment "While having the benefit of providing a single measure of bias over all attribute values and a holistic  view over the whole ranked list, the NDKL measure has the following disadvantages. (1) It cannot differentiate between bias of equal  extent, but in opposite directions. For example, given an equal desired proportion of males and females (i.e., p_{q,r,male} = p_{q,r,female} =  0.5), NDKL would be the same irrespective of whether males or  females are being under-represented in the top ranked results by  the same extent. Thus, the measure does not convey which attribute value is being unfairly treated (Skew measure is more suitable for  this). (2) It is not as easy to interpret as the skew measure." ;
     core:extends indiv:KLDivergence ;
     core:isProposedBy papers:2019_GEYIK ;
+    core:isSuitableFor core:Recommendation ;
     core:isUsedBy papers:2019_GEYIK ;
     core:measures indiv:Calibration ;
     core:refersTo core:ScoringRegression .
@@ -1192,6 +1316,7 @@ indiv:OpportunityFairness a owl:NamedIndividual,
     core:extends indiv:JainIndex ;
     core:isEquivalentTo indiv:JainIndex ;
     core:isProposedBy papers:2020_ZHU ;
+    core:isSuitableFor core:Recommendation ;
     core:measures indiv:StatisticalParity ;
     core:refersTo core:ScoringRegression ;
     core:scientificArtifactDescription """Opportunity fairness is a metric to measure the fairness of recommendation opportunity, which can be expressed by Jain’s fairness index~\\cite{20}:
@@ -1212,6 +1337,7 @@ indiv:OverallDisparity a owl:NamedIndividual,
         core:TreatmentFocusedMetric,
         core:UserFocusedMetric ;
     core:isProposedBy papers:2020_MORIK ;
+    core:isSuitableFor core:Recommendation ;
     core:isUsedBy papers:2021_YANG ;
     core:refersTo core:ScoringRegression .
 
@@ -1221,12 +1347,14 @@ indiv:PairwiseRankingAccuracyGap a owl:NamedIndividual,
         core:SingleGranularityMetric ;
     core:isProposedBy papers:2019_BEUTEL,
         papers:2021_WANG ;
+    core:isSuitableFor core:Recommendation ;
     core:measures indiv:EqualOpportunity ;
     core:refersTo core:ScoringRegression .
 
 indiv:PsycholinguisticNorms a owl:NamedIndividual,
         core:LexiconFairnessMetric ;
     core:isProposedBy papers:2021_DHAMALA ;
+    core:isSuitableFor core:Conversation ;
     core:refersTo core:TextGeneration .
 
 indiv:RecIndependence a owl:NamedIndividual,
@@ -1241,11 +1369,13 @@ indiv:RedistributeProb a owl:NamedIndividual,
 indiv:RegardScore a owl:NamedIndividual,
         core:ClassifierFairnessMetric ;
     core:isProposedBy papers:2019_SHENG ;
+    core:isSuitableFor core:Conversation ;
     core:refersTo core:TextGeneration .
 
 indiv:SEAT a owl:NamedIndividual,
         core:SentenceEmbeddingFairnessMetric ;
     core:isProposedBy papers:2019_MAY ;
+    core:isSuitableFor core:Conversation ;
     core:isUsedBy papers:2019_TAN,
         papers:2021_NADEEM ;
     core:refersTo core:TextGeneration .
@@ -1253,6 +1383,7 @@ indiv:SEAT a owl:NamedIndividual,
 indiv:ScoreBias a owl:NamedIndividual,
         core:ClassifierFairnessMetric ;
     core:isProposedBy papers:2020_LU ;
+    core:isSuitableFor core:Conversation ;
     core:measures indiv:StatisticalParity ;
     core:refersTo core:TextGeneration ;
     core:scientificArtifactDescription """Given a set of matched pairs $D$ (or a class of sets $\\mathcal{D}$) and a scoring function $s$,
@@ -1270,21 +1401,25 @@ B_s(\\mathcal{D}) \\;\\stackrel{\\mathrm{def}}{=}\\;
 indiv:ScoreParity a owl:NamedIndividual,
         core:ClassifierFairnessMetric ;
     core:isProposedBy papers:2023_SICILIA ;
+    core:isSuitableFor core:Conversation ;
     core:refersTo core:TextGeneration .
 
 indiv:SentenceBiasScore a owl:NamedIndividual,
         core:SentenceEmbeddingFairnessMetric ;
     core:isProposedBy papers:2023_DOLCI ;
+    core:isSuitableFor core:Conversation ;
     core:refersTo core:TextGeneration .
 
 indiv:SocialGroupSubstitution a owl:NamedIndividual,
         core:DistributionFairnessMetric ;
     core:isProposedBy papers:2024_GALLEGOS ;
+    core:isSuitableFor core:Conversation ;
     core:refersTo core:TextGeneration .
 
 indiv:StereotypicalAssociations a owl:NamedIndividual,
         core:DistributionFairnessMetric ;
     core:isProposedBy papers:2023_LIANG ;
+    core:isSuitableFor core:Conversation ;
     core:refersTo core:TextGeneration .
 
 indiv:TensorBasedRecommendation a owl:NamedIndividual,
@@ -1295,18 +1430,22 @@ indiv:TheilIndex a owl:NamedIndividual,
         core:ScoreBasedFairnessMetric ;
     core:extends indiv:GeneralizedEntropyIndex ;
     core:isProposedBy papers:2018_SPEICHER ;
+    core:isSuitableFor core:Conversation,
+        core:Prediction ;
     core:isUsedBy papers:2024_GONZALEZ_SENDINO ;
     core:refersTo core:Classification .
 
 indiv:ToxicityFraction a owl:NamedIndividual,
         core:ClassifierFairnessMetric ;
     core:isProposedBy papers:2023_LIANG ;
+    core:isSuitableFor core:Conversation ;
     core:refersTo core:TextGeneration .
 
 indiv:ValueUnfairness a owl:NamedIndividual,
         core:AmortizedGranularityMetric,
         core:UserFocusedMetric ;
     core:isProposedBy papers:2017_YAO ;
+    core:isSuitableFor core:Recommendation ;
     core:isUsedBy papers:2018_FARNADI ;
     core:measures indiv:EqualOpportunity ;
     core:refersTo core:ScoringRegression .
@@ -1314,6 +1453,7 @@ indiv:ValueUnfairness a owl:NamedIndividual,
 indiv:WEAT a owl:NamedIndividual,
         core:WordEmbeddingFairnessMetric ;
     core:isProposedBy papers:2017_CALISKAN ;
+    core:isSuitableFor core:Conversation ;
     core:isUsedBy papers:2019_MAY,
         papers:2019_TAN,
         papers:2021_GUO,
@@ -1326,6 +1466,9 @@ indiv:WellCalibration a owl:NamedIndividual,
     core:extends indiv:TestFairness ;
     core:isProposedBy papers:2016_KLEINBERG,
         papers:2024_CATON ;
+    core:isSuitableFor core:Conversation,
+        core:Prediction,
+        core:Recommendation ;
     core:refersTo core:Classification,
         core:TextGeneration .
 
@@ -1334,6 +1477,7 @@ indiv:rKL a owl:NamedIndividual,
         core:SingleGranularityMetric,
         core:TreatmentFocusedMetric ;
     core:isProposedBy papers:2017_YANG ;
+    core:isSuitableFor core:Recommendation ;
     core:measures indiv:StatisticalParity ;
     core:refersTo core:ScoringRegression .
 
@@ -1343,6 +1487,7 @@ indiv:rND a owl:NamedIndividual,
         core:TreatmentFocusedMetric ;
     rdfs:comment "(*)Normalized Discounted Cumulative Gain is a ranking metric used to evaluate recommendation systems by measuring the quality of the ranked list of recommended items. It assesses a system's ability to place the most relevant items at the top of the list, with higher scores indicating a better ranking. NDCG is calculated by dividing the Discounted Cumulative Gain (DCG) of the actual recommendation list by the DCG of an ideal list, resulting in a score between 0 and 1." ;
     core:isProposedBy papers:2017_YANG ;
+    core:isSuitableFor core:Recommendation ;
     core:measures indiv:StatisticalParity ;
     core:refersTo core:ScoringRegression .
 
@@ -1351,6 +1496,7 @@ indiv:rRD a owl:NamedIndividual,
         core:SingleGranularityMetric,
         core:TreatmentFocusedMetric ;
     core:isProposedBy papers:2017_YANG ;
+    core:isSuitableFor core:Recommendation ;
     core:measures indiv:StatisticalParity ;
     core:refersTo core:ScoringRegression .
 
@@ -1368,6 +1514,8 @@ indiv:BalanceForNegativeClass a owl:NamedIndividual,
     rdfs:comment "Can be viewed as a  generalization of the notion that both groups should have equal false positive rates.  [2016_KLEINBERG] ==>generalizes Predictive equality" ;
     core:extends indiv:PredictiveEquality ;
     core:isProposedBy papers:2016_KLEINBERG ;
+    core:isSuitableFor core:Conversation,
+        core:Prediction ;
     core:isUsedBy papers:2019_DIMITRAKAKIS ;
     core:refersTo core:Classification,
         core:TextGeneration .
@@ -1378,6 +1526,8 @@ indiv:BalanceForPositiveClass a owl:NamedIndividual,
     rdfs:comment "Can be viewed as a  generalization of the notion that both groups should have equal false negative rates.  [2016_KLEINBERG] ==>generalizes Equal Opportunity" ;
     core:extends indiv:EqualOpportunity ;
     core:isProposedBy papers:2016_KLEINBERG ;
+    core:isSuitableFor core:Conversation,
+        core:Prediction ;
     core:isUsedBy papers:2019_DIMITRAKAKIS ;
     core:refersTo core:Classification,
         core:TextGeneration .
@@ -1397,17 +1547,21 @@ indiv:ConditionalUseAccuracyEquality a owl:NamedIndividual,
     core:extends indiv:PredictiveParity,
         indiv:TestFairness ;
     core:isProposedBy papers:2021_BERK ;
+    core:isSuitableFor core:Conversation,
+        core:Prediction ;
     core:refersTo core:Classification,
         core:TextGeneration .
 
 indiv:ContextAssociationTest a owl:NamedIndividual,
         core:PseudoLogLikelihoodFairnessMetric ;
     core:isProposedBy papers:2021_NADEEM ;
+    core:isSuitableFor core:Conversation ;
     core:refersTo core:TextGeneration .
 
 indiv:CrowSPairsScore a owl:NamedIndividual,
         core:PseudoLogLikelihoodFairnessMetric ;
     core:isProposedBy papers:2020_NANGIA ;
+    core:isSuitableFor core:Conversation ;
     core:refersTo core:TextGeneration .
 
 indiv:EqualityOfAttention a owl:NamedIndividual,
@@ -1420,6 +1574,8 @@ indiv:EqualityOfAttention a owl:NamedIndividual,
 indiv:FairScore a owl:NamedIndividual,
         core:ScoreBasedFairnessMetric ;
     core:isProposedBy papers:2022_QIAN ;
+    core:isSuitableFor core:Conversation,
+        core:Prediction ;
     core:isUsedBy papers:2025_RUSSO ;
     core:measures indiv:CounterfactualFairness ;
     core:refersTo core:TextGeneration ;
@@ -1438,6 +1594,9 @@ indiv:FairnessThroughUnawareness a owl:NamedIndividual,
         core:ProceduralFairnessNotion ;
     rdfs:comment "not actually a measure, might increase bias instead of mitigating it. Virtually applicable to any domain. Used as low-performance benchmark by several studies" ;
     core:isProposedBy papers:2016_GRGIC_HLACA ;
+    core:isSuitableFor core:Conversation,
+        core:Prediction,
+        core:Recommendation ;
     core:refersTo core:Classification,
         core:TextGeneration ;
     core:scientificArtifactDescription "An algorithm is fair as long as any protected attributes A are not explicitly used in the decision-making process. Hence, remove the sensitive features from the training dataset" .
@@ -1447,6 +1606,8 @@ indiv:FalseDiscoveryParity a owl:NamedIndividual,
         core:SufficiencyFairnessNotion ;
     core:isMeasuredBy indiv:FalseDiscoveryRate ;
     core:isProposedBy papers:2019_CELIS ;
+    core:isSuitableFor core:Conversation,
+        core:Prediction ;
     core:isUsedBy papers:2019_CELISa ;
     core:refersTo core:Classification ;
     core:scientificArtifactDescription """it focuses on equality of False Positive Rates (FPR) across privileged and unprivileged groups. I.e., for each group you compute of all the predicted positive, how many were actually negative (predicted bad). The rates should be equal across different groups. Such notion is useful in cases when false prediction results in additional costs, for example, when classifying whether a person has a medical condition or not. It is mathematically defined as: $P(Y = 0, \\hat{Y} = 1, A = a) = P(Y = 0, \\hat{Y} = 1, A = b),
@@ -1455,6 +1616,8 @@ indiv:FalseDiscoveryParity a owl:NamedIndividual,
 indiv:FalseDiscoveryRate a owl:NamedIndividual,
         core:ConfusionMatrixBasedFairnessMetric ;
     core:isProposedBy papers:2019_CELIS ;
+    core:isSuitableFor core:Conversation,
+        core:Prediction ;
     core:isUsedBy papers:2019_CELISa ;
     core:measures indiv:FalseDiscoveryParity ;
     core:refersTo core:Classification .
@@ -1462,6 +1625,8 @@ indiv:FalseDiscoveryRate a owl:NamedIndividual,
 indiv:GeneralizedEntropyIndex a owl:NamedIndividual,
         core:ScoreBasedFairnessMetric ;
     core:isProposedBy papers:2018_SPEICHER ;
+    core:isSuitableFor core:Conversation,
+        core:Prediction ;
     core:isUsedBy papers:2018_BELLAMY ;
     core:refersTo core:Classification .
 
@@ -1469,6 +1634,8 @@ indiv:IndividualConsistencyScore a owl:NamedIndividual,
         core:DistanceBasedFairnessMetric ;
     core:extends indiv:ConsistencyScore ;
     core:isProposedBy papers:2025_WALLER ;
+    core:isSuitableFor core:Prediction,
+        core:Recommendation ;
     core:measures indiv:FairnessThroughAwareness ;
     core:refersTo core:Classification ;
     core:scientificArtifactDescription """It is an extension of the consistency score, which does not provide an overall (average) evaluation of the individual fairness performance of the predictor, but is able to asses how fair the model is for any individual in the dataset. Given a binary classifier $f$ for a dataset $E$ and an individual $x \\in E$, 
@@ -1488,12 +1655,15 @@ indiv:InferenceSubnetworks a owl:NamedIndividual,
 indiv:LogProbabilityBiasScore a owl:NamedIndividual,
         core:MaskedTokenFairnessMetric ;
     core:isProposedBy papers:2019_KURITA ;
+    core:isSuitableFor core:Conversation ;
     core:refersTo core:TextGeneration .
 
 indiv:LowIndividualConsistencyCount a owl:NamedIndividual,
         core:DistanceBasedFairnessMetric ;
     core:extends indiv:ConsistencyScore ;
     core:isProposedBy papers:2025_WALLER ;
+    core:isSuitableFor core:Prediction,
+        core:Recommendation ;
     core:measures indiv:FairnessThroughAwareness ;
     core:refersTo core:Classification .
 
@@ -1506,6 +1676,7 @@ indiv:MinMaxDifference a owl:NamedIndividual,
         core:UserFocusedMetric ;
     rdfs:comment "satisfies: \"population size independent\". It does not satisfy: \"continuity\", \"scale independence\", \"boundedness\"" ;
     core:isProposedBy papers:2023_WANG ;
+    core:isSuitableFor core:Recommendation ;
     core:measures indiv:StatisticalParity ;
     core:refersTo core:ScoringRegression .
 
@@ -1518,6 +1689,7 @@ indiv:MinMaxRatio a owl:NamedIndividual,
         core:UserFocusedMetric ;
     rdfs:comment "min-max ratio is NOT affected by the unit of measure and satisfies boundedness (provides a measure that is bounded between 0 and 1.  [1984_JAIN]" ;
     core:isProposedBy papers:1984_JAIN ;
+    core:isSuitableFor core:Recommendation ;
     core:isUsedBy papers:2017_LIN,
         papers:2020_KAYA ;
     core:refersTo core:ScoringRegression .
@@ -1533,6 +1705,7 @@ indiv:NonParityUnfairness a owl:NamedIndividual,
     core:isEquivalentTo indiv:AbsoluteDifference ;
     core:isProposedBy papers:2017_YAO,
         papers:2018_FARNADI ;
+    core:isSuitableFor core:Recommendation ;
     core:isUsedBy papers:2017_YAO,
         papers:2018_FARNADI ;
     core:measures indiv:EqualOpportunity,
@@ -1543,6 +1716,7 @@ indiv:OverestimationUnfairness a owl:NamedIndividual,
         core:AmortizedGranularityMetric,
         core:UserFocusedMetric ;
     core:isProposedBy papers:2017_YAO ;
+    core:isSuitableFor core:Recommendation ;
     core:isUsedBy papers:2018_FARNADI ;
     core:measures indiv:EqualOpportunity ;
     core:refersTo core:ScoringRegression .
@@ -1555,12 +1729,15 @@ indiv:PredictiveParity a owl:NamedIndividual,
     core:isProposedBy papers:2016_DIETERICH,
         papers:2017_CHOULDECHOVA,
         papers:2017_KUSNER ;
+    core:isSuitableFor core:Conversation,
+        core:Prediction ;
     core:isUsedBy papers:2020_MANSOURY ;
     core:refersTo core:Classification,
         core:TextGeneration .
 
 indiv:PrejudiceIndex a owl:NamedIndividual ;
     core:isProposedBy papers:2012_KAMISHIMA ;
+    core:isSuitableFor core:Prediction ;
     core:measures indiv:CounterfactualFairness ;
     core:refersTo core:Classification ;
     core:scientificArtifactDescription """An index to quantify the degree of indirect prejudice is defined as the mutual information between $Y$ (target random variable to be predicted) and $S$ (sensitive variable), considering the empirical (sample) distributions over a given dataset $\\mathcal{D}$:
@@ -1572,6 +1749,8 @@ indiv:ProportionalConsistencyScore a owl:NamedIndividual,
         core:DistanceBasedFairnessMetric ;
     core:extends indiv:ConsistencyScore ;
     core:isProposedBy papers:2025_WALLER ;
+    core:isSuitableFor core:Prediction,
+        core:Recommendation ;
     core:measures indiv:FairnessThroughAwareness ;
     core:refersTo core:Classification .
 
@@ -1588,6 +1767,8 @@ indiv:RelativeLInfiniteMetric a owl:NamedIndividual,
     rdfs:comment "It is the second poposed metric connected to the notion of Fairness through awareness" ;
     core:extends indiv:FairnessThroughAwareness ;
     core:isProposedBy papers:2012_DWORK ;
+    core:isSuitableFor core:Prediction,
+        core:Recommendation ;
     core:isUsedBy papers:2018_YONA,
         papers:2019_LAHOTI,
         papers:2020_YUROCHKIN,
@@ -1600,6 +1781,8 @@ indiv:SimilarityRobustnessOfIndividualConsistency a owl:NamedIndividual,
         core:DistanceBasedFairnessMetric ;
     core:extends indiv:ConsistencyScore ;
     core:isProposedBy papers:2025_WALLER ;
+    core:isSuitableFor core:Prediction,
+        core:Recommendation ;
     core:measures indiv:FairnessThroughAwareness ;
     core:refersTo core:Classification ;
     core:scientificArtifactDescription """SRIC quantifies the proportion of individuals for which the individual
@@ -1633,6 +1816,8 @@ indiv:TotalFairness a owl:NamedIndividual,
         indiv:StatisticalParity,
         indiv:TreatmentEquality ;
     core:isProposedBy papers:2021_BERK ;
+    core:isSuitableFor core:Conversation,
+        core:Prediction ;
     core:refersTo core:Classification,
         core:TextGeneration .
 
@@ -1641,6 +1826,8 @@ indiv:TotalVariationNorm a owl:NamedIndividual,
     rdfs:comment "It is the first poposed metric connected to the notion of Fairness through awareness" ;
     core:extends indiv:FairnessThroughAwareness ;
     core:isProposedBy papers:2012_DWORK ;
+    core:isSuitableFor core:Prediction,
+        core:Recommendation ;
     core:isUsedBy papers:2018_YONA,
         papers:2019_LAHOTI,
         papers:2020_YUROCHKIN,
@@ -1653,6 +1840,7 @@ indiv:UnderestimationUnfairness a owl:NamedIndividual,
         core:AmortizedGranularityMetric,
         core:UserFocusedMetric ;
     core:isProposedBy papers:2017_YAO ;
+    core:isSuitableFor core:Recommendation ;
     core:isUsedBy papers:2018_FARNADI ;
     core:measures indiv:EqualOpportunity ;
     core:refersTo core:ScoringRegression .
@@ -1670,6 +1858,7 @@ indiv:AbsoluteDifference a owl:NamedIndividual,
         papers:2021_LI,
         papers:2021_WANG,
         papers:2023_WANG ;
+    core:isSuitableFor core:Recommendation ;
     core:isUsedBy papers:2018_ZHU,
         papers:2020_FU,
         papers:2021_LI,
@@ -1725,6 +1914,9 @@ indiv:DisparateImpact a owl:NamedIndividual,
         core:ParityBasedFairnessMetric ;
     core:extends indiv:StatisticalParity ;
     core:isProposedBy papers:2015_FELDMAN ;
+    core:isSuitableFor core:Conversation,
+        core:Prediction,
+        core:Recommendation ;
     core:isUsedBy papers:2015_FELDMAN,
         papers:2017_CHOULDECHOVA,
         papers:2023_GIULIANI ;
@@ -1744,6 +1936,7 @@ indiv:EquityOfAttention a owl:NamedIndividual,
     core:isMeasuredBy indiv:KLDivergence,
         indiv:L1Norm ;
     core:isProposedBy papers:2018_BIEGA ;
+    core:isSuitableFor core:Recommendation ;
     core:refersTo core:ScoringRegression ;
     core:scientificArtifactDescription """A ranking offers equity of attention if each subject receives attention proportional to its relevance:
 \\begin{equation}
@@ -1761,6 +1954,7 @@ indiv:JainIndex a owl:NamedIndividual,
     core:extends indiv:MinMaxRatio,
         indiv:Variance ;
     core:isProposedBy papers:1984_JAIN ;
+    core:isSuitableFor core:Recommendation ;
     core:isUsedBy papers:2017_LIN,
         papers:2020_ZHU ;
     core:measures indiv:StatisticalParity ;
@@ -1777,6 +1971,8 @@ indiv:TreatmentEquality a owl:NamedIndividual,
     core:extends indiv:EqualizedOdds,
         indiv:OverallAccuracyEquality ;
     core:isProposedBy papers:2021_BERK ;
+    core:isSuitableFor core:Conversation,
+        core:Prediction ;
     core:refersTo core:Classification,
         core:TextGeneration .
 
@@ -1784,6 +1980,8 @@ indiv:TruePositiveRateDifference a owl:NamedIndividual,
         core:ConfusionMatrixBasedFairnessMetric ;
     core:isEquivalentTo indiv:EqualOpportunity ;
     core:isProposedBy papers:2019_DE_ARTEAGA ;
+    core:isSuitableFor core:Conversation,
+        core:Prediction ;
     core:isUsedBy papers:2019_BELLAMY,
         papers:2019_PROST,
         papers:2021_JIN,
@@ -1821,6 +2019,8 @@ indiv:ConditionalProcedureAccuracyEquality a owl:NamedIndividual,
     core:isEquivalentTo indiv:EqualizedOdds ;
     core:isMeasuredBy indiv:OutcomeUnfairness ;
     core:isProposedBy papers:2021_BERK ;
+    core:isSuitableFor core:Conversation,
+        core:Prediction ;
     core:refersTo core:Classification,
         core:TextGeneration .
 
@@ -1829,6 +2029,7 @@ indiv:FairRecommendationForCustomer a owl:NamedIndividual,
         core:ObservationalFairnessNotion ;
     core:isMeasuredBy indiv:Variance ;
     core:isProposedBy papers:2021_WU ;
+    core:isSuitableFor core:Recommendation ;
     core:refersTo core:ScoringRegression ;
     core:scientificArtifactDescription "The  recommendation is fair for customers if each customer receives recommendation results with the same Normalized Discounted Cumulative Gain (NDCG) value,i.e., $NDCG(u_1) = NDCG(u_2), \\forall u_1, u_2 \\in U$. NDCG is a ranking metric used to evaluate recommendation systems by measuring the quality of the ranked list of recommended items. It assesses a system's ability to place the most relevant items at the top of the list, with higher scores indicating a better ranking. NDCG is calculated by dividing the Discounted Cumulative Gain (DCG) of the actual recommendation list by the DCG of an ideal list, resulting in a score between 0 and 1." .
 
@@ -1840,6 +2041,7 @@ indiv:L1Norm a owl:NamedIndividual,
         core:TreatmentFocusedMetric,
         core:UserFocusedMetric ;
     core:isProposedBy papers:2018_BIEGA ;
+    core:isSuitableFor core:Recommendation ;
     core:isUsedBy papers:2019_BORGES,
         papers:2021_KLRNAP ;
     core:refersTo core:ScoringRegression .
@@ -1854,6 +2056,8 @@ indiv:OutcomeUnfairness a owl:NamedIndividual,
     core:extends indiv:EqualOpportunity,
         indiv:FalseNegativeErrorRateBalance ;
     core:isProposedBy papers:2016_GRGIC_HLACA ;
+    core:isSuitableFor core:Conversation,
+        core:Prediction ;
     core:measures indiv:ConditionalProcedureAccuracyEquality,
         indiv:EqualizedOdds,
         indiv:ErrorRateBalance ;
@@ -1866,6 +2070,8 @@ indiv:OverallAccuracyEquality a owl:NamedIndividual,
     rdfs:comment "Extends equal opportunity because also considers the TNR (besides TPR)" ;
     core:extends indiv:EqualOpportunity ;
     core:isProposedBy papers:2021_BERK ;
+    core:isSuitableFor core:Conversation,
+        core:Prediction ;
     core:refersTo core:Classification,
         core:TextGeneration .
 
@@ -1882,6 +2088,7 @@ indiv:UniformFairness a owl:NamedIndividual,
         core:ObservationalFairnessNotion ;
     core:isMeasuredBy indiv:Variance ;
     core:isProposedBy papers:2021_WU ;
+    core:isSuitableFor core:Recommendation ;
     core:refersTo core:ScoringRegression ;
     core:scientificArtifactDescription """A recommendation result has  the property of uniform fair exposure for providers if each provider receives exposure ($e_p$) proportional to the number of items it offers ($I_p$), i.e., $\\frac{e_{p_1}}{\\lvert I_{p_1} \\rvert} = \\frac{e_{p_2}}{\\lvert I_{p_2} \\rvert},
 \\quad \\forall\\, p_1, p_2 \\in P $, where P is the set of providers. Note that providers can be seen as groups of items. Hence, this is a group fairness notion.""" .
@@ -1913,6 +2120,8 @@ indiv:MatchingConditionalFrequencies a owl:NamedIndividual,
     core:isEquivalentTo indiv:Calibration,
         indiv:TestFairness ;
     core:isProposedBy papers:2018_VERMA ;
+    core:isSuitableFor core:Conversation,
+        core:Prediction ;
     core:refersTo core:Classification,
         core:TextGeneration .
 
@@ -1923,6 +2132,7 @@ indiv:QualityWeightedFairness a owl:NamedIndividual,
     core:isEquivalentTo indiv:EquityOfAttention ;
     core:isMeasuredBy indiv:Variance ;
     core:isProposedBy papers:2021_WU ;
+    core:isSuitableFor core:Recommendation ;
     core:isUsedBy papers:2018_BIEGA ;
     core:refersTo core:ScoringRegression ;
     core:scientificArtifactDescription """A recommendation result is quality weighted fair exposure for providers if each provider in P receives exposure ($e_p$) proportional to the sum of quality scores (i.e., ratings) of items it offers ($I_p$) in the recommendation lists of all customers, i.e., $\\frac{e_{p_1}}{\\sum_{i \\in I_{p_1}} \\sum_{u \\in U} v_{u,i}}= \\frac{e_{p_2}}{ \\sum_{i \\in I_{p_2}} \\sum_{u \\in U} v_{u,i}},
@@ -1976,6 +2186,7 @@ indiv:KLDivergence a owl:NamedIndividual,
         core:TreatmentFocusedMetric,
         core:UserFocusedMetric ;
     core:isProposedBy papers:1951_KULLBACK ;
+    core:isSuitableFor core:Recommendation ;
     core:isUsedBy papers:2018_STECK,
         papers:2020_WAN,
         papers:2022_LI ;
@@ -1991,6 +2202,8 @@ indiv:ConsistencyScore a owl:NamedIndividual,
     rdfs:comment "The aggregation potentially masks high levels of disparity for particular individuals. Very similar to Fairness through awareness, but does not require domain knowledge to define 𝑑." ;
     core:isEquivalentTo indiv:FairnessThroughAwareness ;
     core:isProposedBy papers:2013_ZEMEL ;
+    core:isSuitableFor core:Prediction,
+        core:Recommendation ;
     core:isUsedBy papers:2025_WALLER ;
     core:measures indiv:FairnessThroughAwareness ;
     core:refersTo core:Classification ;
@@ -2007,6 +2220,7 @@ indiv:Variance a owl:NamedIndividual,
         core:UserFocusedMetric ;
     rdfs:comment "Variance is \"population size independent\" (applicable to any number of users) and satisfies \"continuity\" (any slight change in allocation shows up in the index), but affected by the unit of measure. Example: if an algorithm gives 1,3,5 dollars respectively to three users, variance is 4. If it gives 100,300,500 pennies each, variance is 40,000 (10000 worse than before) [1984_JAIN]. Coefficent of variation (i.e., variance/mean) would not be affected by the change of unit of measure. Furthermore, variance (and Coefficent of variation) does not satisfy boundedness (the index should be bounded between 0 and 1 for comparrison and interpretability)" ;
     core:isProposedBy papers:2017_LIN ;
+    core:isSuitableFor core:Recommendation ;
     core:isUsedBy papers:2018_KAMISHIMA,
         papers:2019_RASTEGARPANAH,
         papers:2021_WU ;
@@ -2160,6 +2374,8 @@ indiv:ErrorRateBalance a owl:NamedIndividual,
     core:isEquivalentTo indiv:ConditionalProcedureAccuracyEquality ;
     core:isMeasuredBy indiv:OutcomeUnfairness ;
     core:isProposedBy papers:2017_CHOULDECHOVA ;
+    core:isSuitableFor core:Conversation,
+        core:Prediction ;
     core:refersTo core:Classification,
         core:TextGeneration .
 
@@ -2168,6 +2384,8 @@ indiv:FalsePositiveErrorRateBalance a owl:NamedIndividual,
         core:SeparationFairnessNotion ;
     core:isEquivalentTo indiv:PredictiveEquality ;
     core:isProposedBy papers:2017_CHOULDECHOVA ;
+    core:isSuitableFor core:Conversation,
+        core:Prediction ;
     core:refersTo core:Classification,
         core:TextGeneration .
 
@@ -2178,6 +2396,8 @@ indiv:FalseNegativeErrorRateBalance a owl:NamedIndividual,
     core:isEquivalentTo indiv:EqualOpportunity ;
     core:isMeasuredBy indiv:TruePositiveRateDifference ;
     core:isProposedBy papers:2017_CHOULDECHOVA ;
+    core:isSuitableFor core:Conversation,
+        core:Prediction ;
     core:refersTo core:Classification,
         core:TextGeneration .
 
@@ -2207,6 +2427,8 @@ indiv:PredictiveEquality a owl:NamedIndividual,
     rdfs:comment "a predictor that satisfy both predictive equality and equal opportunity, also satisfy equalized odds." ;
     core:isEquivalentTo indiv:FalsePositiveErrorRateBalance ;
     core:isProposedBy papers:2016_HARDT ;
+    core:isSuitableFor core:Conversation,
+        core:Prediction ;
     core:refersTo core:Classification,
         core:TextGeneration .
 
@@ -2225,6 +2447,9 @@ indiv:ConditionalStatisticalParity a owl:NamedIndividual,
     core:extends indiv:FairnessThroughUnawareness,
         indiv:StatisticalParity ;
     core:isProposedBy papers:2017_CORBETT_DAVIES ;
+    core:isSuitableFor core:Conversation,
+        core:Prediction,
+        core:Recommendation ;
     core:refersTo core:Classification,
         core:TextGeneration .
 
@@ -2276,6 +2501,8 @@ indiv:FairnessThroughAwareness a owl:NamedIndividual,
         indiv:SimilarityRobustnessOfIndividualConsistency,
         indiv:TotalVariationNorm ;
     core:isProposedBy papers:2012_DWORK ;
+    core:isSuitableFor core:Prediction,
+        core:Recommendation ;
     core:isUsedBy papers:2018_YONA,
         papers:2019_LAHOTI,
         papers:2020_YUROCHKIN,
@@ -2308,6 +2535,8 @@ indiv:EqualizedOdds a owl:NamedIndividual,
     core:isEquivalentTo indiv:ConditionalProcedureAccuracyEquality ;
     core:isMeasuredBy indiv:OutcomeUnfairness ;
     core:isProposedBy papers:2021_BERK ;
+    core:isSuitableFor core:Conversation,
+        core:Prediction ;
     core:refersTo core:Classification,
         core:TextGeneration .
 
@@ -2316,6 +2545,8 @@ indiv:CounterfactualFairness a owl:NamedIndividual,
         core:IndividualFairnessNotion ;
     core:isMeasuredBy indiv:FairScore ;
     core:isProposedBy papers:2017_KUSNER ;
+    core:isSuitableFor core:Conversation,
+        core:Prediction ;
     core:refersTo core:Classification,
         core:TextGeneration .
 
@@ -2327,6 +2558,8 @@ indiv:TestFairness a owl:NamedIndividual,
     core:isEquivalentTo indiv:Calibration,
         indiv:MatchingConditionalFrequencies ;
     core:isProposedBy papers:2018_VERMA ;
+    core:isSuitableFor core:Conversation,
+        core:Prediction ;
     core:refersTo core:Classification,
         core:TextGeneration .
 
@@ -2339,6 +2572,8 @@ indiv:Calibration a owl:NamedIndividual,
         indiv:TestFairness ;
     core:isProposedBy papers:2017_CHOULDECHOVA,
         papers:2018_VERMA ;
+    core:isSuitableFor core:Conversation,
+        core:Prediction ;
     core:refersTo core:Classification,
         core:TextGeneration .
 
@@ -2349,6 +2584,8 @@ indiv:EqualOpportunity a owl:NamedIndividual,
     core:isEquivalentTo indiv:FalseNegativeErrorRateBalance ;
     core:isMeasuredBy indiv:TruePositiveRateDifference ;
     core:isProposedBy papers:2016_HARDT ;
+    core:isSuitableFor core:Conversation,
+        core:Prediction ;
     core:refersTo core:Classification,
         core:TextGeneration .
 
@@ -2359,6 +2596,9 @@ indiv:StatisticalParity a owl:NamedIndividual,
     core:isMeasuredBy indiv:DisparateImpact ;
     core:isProposedBy papers:2012_KAMISHIMA,
         papers:2013_ZEMEL ;
+    core:isSuitableFor core:Conversation,
+        core:Prediction,
+        core:Recommendation ;
     core:isUsedBy papers:2015_FELDMAN,
         papers:2017_CORBETT_DAVIES ;
     core:refersTo core:Classification,

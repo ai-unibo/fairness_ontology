@@ -749,7 +749,7 @@ core:isGuidedBy a owl:ObjectProperty ;
 
 core:isSuitableFor a owl:ObjectProperty ;
     rdfs:label "is suitable for" ;
-    rdfs:domain fmo:fairness_metric ;
+    rdfs:domain core:ScientificArtifact ;
     rdfs:range core:AITypeOfUse .
 
 core:isUsedBy a owl:ObjectProperty ;
@@ -1079,15 +1079,15 @@ core:MitigationTechnique a owl:Class ;
 core:AILifecycleStep a owl:Class ;
     rdfs:label "AI Lifecycle Step" .
 
-core:ScientificArtifact a owl:Class ;
-    rdfs:label "Scientific Artifact"@en ;
-    skos:definition "A scientific artifact is the outcome with which the the paper contributes, such as a fairness notion, metric, and so on."@en .
-
 fmo:bias a owl:Class ;
     rdfs:label "Bias" ;
     dc:source "https://www.lexico.com/en/definition/bias"^^xsd:anyURI ;
     rdfs:subClassOf owl:Thing ;
     skos:definition "Predisposition in favor of or against one thing, person, or group compared with another, usually in a way considered to be unfair."@en .
+
+core:ScientificArtifact a owl:Class ;
+    rdfs:label "Scientific Artifact"@en ;
+    skos:definition "A scientific artifact is the outcome with which the the paper contributes, such as a fairness notion, metric, and so on."@en .
 
 core:a a swrl:Variable .
 
