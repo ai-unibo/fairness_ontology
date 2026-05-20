@@ -13,3 +13,5 @@ The ontology code is divided into three Turtle files:
 - `indiv.ttl` contains the knowledge graph of the currently mapped individuals.
 
 As an example, `Statistical Parity` is an individual of the class `Fairness Notion`. The taxonomy of fairness notions is described in the `fairops.ttl`, while the description of `Statistical Parity` is in `indiv.ttl`. The references to the literature contributions proposing and utilizing `Statistical Parity` and instead detailed in `papers.ttl`.
+
+The `utilities` folder contains various python code and jupyter notebooks for the automated management of the ontology. In particular, `xing_fairness_experiment.py` validate the operational governance workflow enabled by `FairOps` by instantiating the ontology reasoning process on a publicly available dataset of a job recommendation platform: [XING recommendation dataset](https://github.com/MilkaLichtblau/xing_dataset/). 
