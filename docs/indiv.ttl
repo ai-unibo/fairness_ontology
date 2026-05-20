@@ -35,7 +35,6 @@ core:DerogatoryLanguage core:exposesTo core:HistoricalBias,
         indiv:Art.12,
         indiv:Art.14,
         indiv:Art.53,
-        indiv:Art.72,
         indiv:Art.72.1,
         indiv:Art.72.2,
         indiv:Art.9 .
@@ -54,7 +53,6 @@ core:DisparateSystemPerformance core:exposesTo core:AlgorithmicBias,
         indiv:Art.10.4,
         indiv:Art.11,
         indiv:Art.12,
-        indiv:Art.72,
         indiv:Art.72.1,
         indiv:Art.72.2,
         indiv:Art.9 .
@@ -71,8 +69,7 @@ core:Erasure core:exposesTo core:MaskingBias,
         indiv:Art.14,
         indiv:Art.9 .
 
-core:ExclusionaryNorms a owl:NamedIndividual ;
-    core:exposesTo core:LinguisticBias,
+core:ExclusionaryNorms core:exposesTo core:LinguisticBias,
         core:MaskingBias,
         core:RepresentationBias ;
     core:isAddressedWith core:StatisticalParity ;
@@ -85,13 +82,11 @@ core:ExclusionaryNorms a owl:NamedIndividual ;
         indiv:Art.12,
         indiv:Art.14,
         indiv:Art.53,
-        indiv:Art.72,
         indiv:Art.72.1,
         indiv:Art.72.2,
         indiv:Art.9 .
 
 core:FeedbackLoopOverfitting core:exposesTo core:AlgorithmicBias,
-        core:AlgoritmicBias,
         core:HistoricalBias,
         core:IntersectionalBias,
         core:MaskingBias,
@@ -108,9 +103,7 @@ core:FeedbackLoopOverfitting core:exposesTo core:AlgorithmicBias,
         indiv:Art.72,
         indiv:Art.9 .
 
-core:IncompleteHystoricalExamples a owl:NamedIndividual ;
-    core:exposesTo core:AlgorithmicBias,
-        core:AlgoritmicBias,
+core:IncompleteHystoricalExamples core:exposesTo core:AlgorithmicBias,
         core:HistoricalBias,
         core:RepresentationBias,
         core:SamplingBias ;
@@ -124,7 +117,6 @@ core:IncompleteHystoricalExamples a owl:NamedIndividual ;
         indiv:Art.9 .
 
 core:Misrepresentation core:exposesTo core:AlgorithmicBias,
-        core:AlgoritmicBias,
         core:HistoricalBias,
         core:IntersectionalBias,
         core:LinguisticBias,
@@ -146,13 +138,11 @@ core:Misrepresentation core:exposesTo core:AlgorithmicBias,
         indiv:Art.13,
         indiv:Art.14,
         indiv:Art.53,
-        indiv:Art.72,
         indiv:Art.72.1,
         indiv:Art.72.2,
         indiv:Art.9 .
 
 core:MisrepresentationsInProductMarketing core:exposesTo core:AlgorithmicBias,
-        core:AlgoritmicBias,
         core:HistoricalBias,
         core:MaskingBias,
         core:RepresentationBias,
@@ -166,13 +156,11 @@ core:MisrepresentationsInProductMarketing core:exposesTo core:AlgorithmicBias,
         indiv:Art.9 .
 
 core:PopularItemsOverrecommended core:exposesTo core:AlgorithmicBias,
-        core:AlgoritmicBias,
         core:HistoricalBias,
         core:MaskingBias,
         core:RepresentationBias,
         core:SamplingBias ;
     core:isAddressedWith core:EqualityOfAttention,
-        core:EqualityOfAttentionEquityOfAmortizedAttention,
         core:EquityOfAmortizedAttention,
         core:EquityOfAttention,
         core:OverallAccuracyEquality,
@@ -185,7 +173,6 @@ core:PopularItemsOverrecommended core:exposesTo core:AlgorithmicBias,
         indiv:Art.9 .
 
 core:Stereotyping core:exposesTo core:AlgorithmicBias,
-        core:AlgoritmicBias,
         core:HistoricalBias,
         core:LinguisticBias,
         core:MaskingBias,
@@ -201,7 +188,6 @@ core:Stereotyping core:exposesTo core:AlgorithmicBias,
         indiv:Art.12,
         indiv:Art.14,
         indiv:Art.53,
-        indiv:Art.72,
         indiv:Art.72.1,
         indiv:Art.72.2,
         indiv:Art.9 .
@@ -221,7 +207,6 @@ core:Toxicity core:exposesTo core:HistoricalBias,
         indiv:Art.12,
         indiv:Art.14,
         indiv:Art.53,
-        indiv:Art.72,
         indiv:Art.72.1,
         indiv:Art.72.2,
         indiv:Art.9 .
@@ -1491,12 +1476,6 @@ indiv:rRD a owl:NamedIndividual,
     core:measures indiv:StatisticalParity ;
     core:refersTo core:ScoringRegression .
 
-papers:Apnea a <https://www.w3.org/TR/vocab-dcat-3/Dataset> .
-
-core:EqualityOfAttentionEquityOfAmortizedAttention a owl:NamedIndividual .
-
-core:EquityOfAttention a owl:NamedIndividual .
-
 indiv:ADELE a owl:NamedIndividual,
         core:Adapters ;
     core:scientificArtifactDescription "Introduce debiasing adapter modules, called ADELE, to mitigate gender bias. The technique is based on modular adapter frameworks (2019_HOULSBY) that add new, randomly initialized layers between the original layers for parameter-efficient fine-tuning; only the injected layers are updated during fine-tuning, while the pre-trained ones remain frozen." .
@@ -1842,10 +1821,6 @@ indiv:UnderestimationUnfairness a owl:NamedIndividual,
     core:measures indiv:EqualOpportunity ;
     core:refersTo core:ScoringRegression .
 
-core: a owl:NamedIndividual .
-
-core:EqualizedOdds a owl:NamedIndividual .
-
 indiv:AbsoluteDifference a owl:NamedIndividual,
         core:AmortizedGranularityMetric,
         core:ImpactFocusedMetric,
@@ -1994,12 +1969,6 @@ indiv:TruePositiveRateDifference a owl:NamedIndividual,
     core:refersTo core:Classification,
         core:TextGeneration .
 
-core:Calibration a owl:NamedIndividual .
-
-core:OmittedVariableBias a owl:NamedIndividual .
-
-core:OverallAccuracyEquality a owl:NamedIndividual .
-
 indiv:Art.10.4 a owl:NamedIndividual,
         core:TechnicalLegalRequirement ;
     ns1:SIO_000068 core:EU_AI_Act ;
@@ -2052,18 +2021,6 @@ indiv:L1Norm a owl:NamedIndividual,
     core:isUsedBy papers:2019_BORGES,
         papers:2021_KLRNAP ;
     core:refersTo core:ScoringRegression .
-
-indiv:MatchingConditionalFrequencies a owl:NamedIndividual,
-        core:ObservationalFairnessNotion,
-        core:SufficiencyFairnessNotion ;
-    owl:sameAs indiv:TestFairness ;
-    core:isEquivalentTo indiv:Calibration,
-        indiv:TestFairness ;
-    core:isProposedBy papers:2018_VERMA ;
-    core:isSuitableFor core:Conversation,
-        core:Prediction ;
-    core:refersTo core:Classification,
-        core:TextGeneration .
 
 indiv:NamesIntervention a owl:NamedIndividual,
         core:CounterfactualAugmentation ;
@@ -2130,6 +2087,19 @@ indiv:Art.10.3 a owl:NamedIndividual,
         indiv:LogLikeDocumentRemoval,
         indiv:ReSamplingProtectedGroup,
         indiv:ReplaceStereotypes .
+
+indiv:MatchingConditionalFrequencies a owl:NamedIndividual,
+        core:ObservationalFairnessNotion,
+        core:SufficiencyFairnessNotion ;
+    owl:sameAs indiv:Calibration,
+        indiv:TestFairness ;
+    core:isEquivalentTo indiv:Calibration,
+        indiv:TestFairness ;
+    core:isProposedBy papers:2018_VERMA ;
+    core:isSuitableFor core:Conversation,
+        core:Prediction ;
+    core:refersTo core:Classification,
+        core:TextGeneration .
 
 indiv:QualityWeightedFairness a owl:NamedIndividual,
         core:IndependenceFairnessNotion,
@@ -2203,10 +2173,6 @@ indiv:ReplaceStereotypes a owl:NamedIndividual,
         core:OutputRewriting ;
     core:scientificArtifactDescription "Use SHAP (2017_Lundberg) to identify stereotypical words towards queer people, providing reasoning for why the original word was harmful. They then re-prompt the language model to replace those words, using style transfer to preserve the semantic meaning of the original sentence." .
 
-core:AlgoritmicBias a owl:NamedIndividual .
-
-core:EqualOpportunity a owl:NamedIndividual .
-
 indiv:Art.72.1 a owl:NamedIndividual,
         core:ManagementLegalRequirement ;
     ns1:SIO_000068 core:EU_AI_Act ;
@@ -2272,8 +2238,6 @@ indiv:Variance a owl:NamedIndividual,
         indiv:QualityWeightedFairness,
         indiv:UniformFairness ;
     core:refersTo core:ScoringRegression .
-
-indiv:Art.72 a owl:NamedIndividual .
 
 indiv:Art.11 a owl:NamedIndividual,
         core:ManagementLegalRequirement ;
@@ -2376,8 +2340,6 @@ indiv:Art.14 a owl:NamedIndividual,
         indiv:RegularizationOnANOVA,
         indiv:RegularizationOnValueFairness,
         indiv:UserItemReRanking .
-
-core:StatisticalParity a owl:NamedIndividual .
 
 indiv:Art.9 a owl:NamedIndividual,
         core:ManagementLegalRequirement ;
@@ -2521,7 +2483,8 @@ indiv:UserItemReRanking a owl:NamedIndividual,
         core:Reranking ;
     core:scientificArtifactDescription "Re-ranking  for both user fairness and item fairness" .
 
-indiv:IndividualFairness a owl:NamedIndividual .
+indiv:IndividualFairness a owl:NamedIndividual ;
+    owl:sameAs indiv:FairnessThroughAwareness .
 
 indiv:AugmentedAntidoteData a owl:NamedIndividual,
         core:CounterfactualAugmentation ;
@@ -2600,6 +2563,8 @@ indiv:CounterfactualFairness a owl:NamedIndividual,
 indiv:TestFairness a owl:NamedIndividual,
         core:ObservationalFairnessNotion,
         core:SufficiencyFairnessNotion ;
+    owl:sameAs indiv:Calibration,
+        indiv:MatchingConditionalFrequencies ;
     core:isEquivalentTo indiv:Calibration,
         indiv:MatchingConditionalFrequencies ;
     core:isProposedBy papers:2018_VERMA ;
