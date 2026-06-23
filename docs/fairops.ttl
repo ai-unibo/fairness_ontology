@@ -11,7 +11,7 @@
 @prefix swrl: <http://www.w3.org/2003/11/swrl#> .
 @prefix swrla: <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#> .
 @prefix resource: <http://semanticscience.org/resource/> .
-@base <https://purl.org/fairops/core> .
+@base <https://purl.org/fairops/core#> .
 
 <https://purl.org/fairops/core> rdf:type owl:Ontology .
 
@@ -1825,7 +1825,7 @@ core:AD rdf:type swrl:Variable .
  ] .
 
 [ swrla:isRuleEnabled "true"^^xsd:boolean ;
-   rdfs:comment "Connects the FairnessConcern with the subset of MitigationTechnique that can mitigate it. TO BE TESTED" ;
+   rdfs:comment "Connects the FairnessConcern with the subset of MitigationTechnique that can mitigate it." ;
    rdfs:label "GuidelineRule2" ;
    rdf:type swrl:Imp ;
    swrl:body [ rdf:type swrl:AtomList ;
