@@ -11,7 +11,7 @@
 @prefix swrl: <http://www.w3.org/2003/11/swrl#> .
 @prefix swrla: <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#> .
 @prefix resource: <http://semanticscience.org/resource/> .
-@base <https://purl.org/fairops/core#> .
+@base <https://purl.org/fairops/core> .
 
 <https://purl.org/fairops/core> rdf:type owl:Ontology .
 
@@ -1243,7 +1243,7 @@ core:EvaluationReportsOnOmissionCoverageGaps rdf:type owl:NamedIndividual ,
 
 
 ###  https://purl.org/fairops/core#ExclusionaryNorm
-core:ExclusionaryNorm rdf:type owl:NamedIndividual ,
+core:ExclusionaryNorms rdf:type owl:NamedIndividual ,
                                core:ConversationFairnessConcern ;
                       core:arisesIn core:Conversation .
 
