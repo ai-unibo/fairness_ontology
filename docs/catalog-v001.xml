@@ -1,13 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<catalog prefer="public"
-         xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
-
-  <uri id="core"
-       name="https://purl.org/fairops/core"
-       uri="fairops.ttl"/>
-
-  <uri id="papers"
-       name="https://purl.org/fairops/papers"
-       uri="papers.ttl"/>
-
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <uri id="Imports Wizard Entry" name="https://nobias-project.eu/nobias/" uri="file:/Users/daniela/Library/CloudStorage/OneDrive-AlmaMaterStudiorumUniversitàdiBologna/Documents/RICERCA/FAIRNESS/RELATED%20ONTOLOGIES/Doc-BIAS-main/docbias-schema.ttl"/>
+    <uri id="Imports Wizard Entry" name="https://nobias-project.eu/nobias/" uri="https://raw.githubusercontent.com/tibonto/Doc-BIAS/refs/heads/main/docbias-schema.ttl"/>
+    <uri id="core" name="https://purl.org/fairops/core" uri="fairops.ttl"/>
+    <uri id="papers" name="https://purl.org/fairops/papers" uri="papers.ttl"/>
 </catalog>

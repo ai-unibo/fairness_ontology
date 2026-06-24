@@ -10,10 +10,12 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix swrl: <http://www.w3.org/2003/11/swrl#> .
 @prefix swrla: <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#> .
+@prefix docbias: <https://nobias-project.eu/nobias/> .
 @prefix resource: <http://semanticscience.org/resource/> .
 @base <https://purl.org/fairops/core#> .
 
 <https://purl.org/fairops/core> rdf:type owl:Ontology ;
+                                 owl:imports docbias: ;
                                  dc:creator "Daniela Loreti" ,
                                             "Roberta Calegari" ;
                                  dc:description "FairOps is an ontology for operational fairness governance in AI systems" ;
@@ -109,7 +111,7 @@ core:enforces rdf:type owl:ObjectProperty ;
 
 ###  https://purl.org/fairops/core#exposesTo
 core:exposesTo rdf:type owl:ObjectProperty ;
-               rdfs:domain fmo:bias ;
+               rdfs:domain docbias:Bias ;
                rdfs:range core:FairnessConcern ;
                rdfs:label "exposes to"@en .
 
@@ -174,6 +176,12 @@ core:independenceSufficiencyConflictsWith rdf:type owl:ObjectProperty ;
                                           rdfs:comment "Assume that sensitive attribute A and the target variable Y are not independent. Then sufficiency and independence cannot both hold." .
 
 
+###  https://purl.org/fairops/core#involves
+core:involves rdf:type owl:ObjectProperty ;
+              rdfs:domain core:FairnessConcern ;
+              rdfs:range docbias:Harm .
+
+
 ###  https://purl.org/fairops/core#isAddressedWith
 core:isAddressedWith rdf:type owl:ObjectProperty ;
                      rdfs:domain core:FairnessConcern ;
@@ -231,7 +239,7 @@ core:isMeasuredBy rdf:type owl:ObjectProperty ;
 ###  https://purl.org/fairops/core#isMitigatedBy
 core:isMitigatedBy rdf:type owl:ObjectProperty ;
                    owl:inverseOf core:mitigates ;
-                   rdfs:domain fmo:bias ;
+                   rdfs:domain docbias:Bias ;
                    rdfs:range fmo:fairness_notion ;
                    rdfs:label "is mitigated by"@en ;
                    skos:definition "A certain bias in the use-case can be mitigated by enforcing specific fairness notions."@en .
@@ -315,7 +323,7 @@ core:mitigatedWith rdf:type owl:ObjectProperty ;
 ###  https://purl.org/fairops/core#mitigates
 core:mitigates rdf:type owl:ObjectProperty ;
                rdfs:domain fmo:fairness_notion ;
-               rdfs:range fmo:bias ;
+               rdfs:range docbias:Bias ;
                rdfs:label "mitigates"@en ;
                skos:definition "A fairness notion is required to mitigate a certain bias."@en .
 
@@ -1065,14 +1073,6 @@ core:WordEmbeddingFairnessMetric rdf:type owl:Class ;
                                  skos:definition "A metric that leverages word vector representations to assess fairness or bias in language models or datasets."@en .
 
 
-###  https://purl.org/twc/fmo#bias
-fmo:bias rdf:type owl:Class ;
-         rdfs:subClassOf owl:Thing ;
-         dc:source "https://www.lexico.com/en/definition/bias"^^xsd:anyURI ;
-         rdfs:label "Bias" ;
-         skos:definition "Predisposition in favor of or against one thing, person, or group compared with another, usually in a way considered to be unfair."@en .
-
-
 ###  https://purl.org/twc/fmo#fairness_metric
 fmo:fairness_metric rdf:type owl:Class ;
                     rdfs:subClassOf core:ScientificArtifact ;
@@ -1109,7 +1109,7 @@ core:AbductiveReasoning rdf:type owl:NamedIndividual ,
 
 ###  https://purl.org/fairops/core#AlgorithmicBias
 core:AlgorithmicBias rdf:type owl:NamedIndividual ,
-                              fmo:bias ;
+                              docbias:Bias ;
                      dc:source "https://doi.org/10.1145/3457607"^^xsd:anyURI ;
                      rdfs:label "Algorithmic Bias"@en ;
                      skos:definition "Algorithmic bias is when the bias is not present in the input data and is added purely by the algorithm."@en .
@@ -1326,7 +1326,7 @@ core:Healthcare rdf:type owl:NamedIndividual ,
 
 ###  https://purl.org/fairops/core#HistoricalBias
 core:HistoricalBias rdf:type owl:NamedIndividual ,
-                             fmo:bias ;
+                             docbias:Bias ;
                     dc:source "https://doi.org/10.1145/3457607"^^xsd:anyURI ;
                     rdfs:label "Historical Bias"@en ;
                     skos:definition "Historical bias is caused by already existing bias and socio-technical issues in the world, and can seep into from the data generation process even given a perfect sampling and feature selection."@en .
@@ -1367,7 +1367,7 @@ core:InstructionsForUse rdf:type owl:NamedIndividual ,
 
 ###  https://purl.org/fairops/core#IntersectionalBias
 core:IntersectionalBias rdf:type owl:NamedIndividual ,
-                                 fmo:bias ;
+                                 docbias:Bias ;
                         dc:source "https://doi.org/10.1145/3468507.3468511"^^xsd:anyURI ;
                         rdfs:label "Intersectional Bias"@en ;
                         skos:definition "Intersectional bias is a type of bias that occurs due to the combination of multiple sensitive factors. So, the AI system may behave fairly for each attribute separately but unfairly for certain subgroups at their intersections."@en .
@@ -1380,7 +1380,7 @@ core:LawAndJustice rdf:type owl:NamedIndividual ,
 
 ###  https://purl.org/fairops/core#LinguisticBias
 core:LinguisticBias rdf:type owl:NamedIndividual ,
-                             fmo:bias ;
+                             docbias:Bias ;
                     rdfs:label "Linguistic Bias"@en ;
                     skos:definition "Linguistic bias is embedded in generative AI outputs, the manifestation of harm through demeaning or offensive language that reinforces discrimination."@en .
 
@@ -1411,7 +1411,7 @@ core:LongitudinalParityErrorDivergenceTrendsReport rdf:type owl:NamedIndividual 
 
 ###  https://purl.org/fairops/core#MaskingBias
 core:MaskingBias rdf:type owl:NamedIndividual ,
-                          fmo:bias ;
+                          docbias:Bias ;
                  dc:source "https://doi.org/10.1145/3468507.3468511"^^xsd:anyURI ;
                  rdfs:label "Masking Bias"@en ;
                  skos:definition "Masking is a form of intentional discrimination that allows decision makers with prejudicial views to mask their intentions, typically by exploiting how fairness notions are defined."@en .
@@ -1461,7 +1461,7 @@ core:ModelTuning rdf:type owl:NamedIndividual ,
 
 ###  https://purl.org/fairops/core#OmittedVariableBias
 core:OmittedVariableBias rdf:type owl:NamedIndividual ,
-                                  fmo:bias ;
+                                  docbias:Bias ;
                          dc:source "https://doi.org/10.1145/3457607"^^xsd:anyURI ;
                          rdfs:label "Omitted Variable Bias"@en ;
                          skos:definition "Omitted variable bias occurs when one or more important variables are left out of a model."@en .
@@ -1542,7 +1542,7 @@ core:RemediationRecordsAndPostFixVerification rdf:type owl:NamedIndividual ,
 
 ###  https://purl.org/fairops/core#RepresentationBias
 core:RepresentationBias rdf:type owl:NamedIndividual ,
-                                 fmo:bias ;
+                                 docbias:Bias ;
                         dc:source "https://doi.org/10.1145/3457607"^^xsd:anyURI ;
                         rdfs:label "Representation Bias"@en ;
                         skos:definition "Representation bias arises from the use of a skewed or otherwise non-representative sample from a population during data collection process."@en .
@@ -1567,7 +1567,7 @@ core:SafetyFairnessEvaluationSuite rdf:type owl:NamedIndividual ,
 
 ###  https://purl.org/fairops/core#SamplingBias
 core:SamplingBias rdf:type owl:NamedIndividual ,
-                           fmo:bias ;
+                           docbias:Bias ;
                   dc:source "https://doi.org/10.1145/3457607"^^xsd:anyURI ;
                   rdfs:label "Sampling  Bias"@en ;
                   skos:definition "Similarly to representation bias, sampling bias arises due to non-random sampling of subgroups"@en .
