@@ -11,16 +11,39 @@
 @prefix swrl: <http://www.w3.org/2003/11/swrl#> .
 @prefix swrla: <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#> .
 @prefix resource: <http://semanticscience.org/resource/> .
-@base <https://purl.org/fairops/core> .
+@base <https://purl.org/fairops/core#> .
 
-<https://purl.org/fairops/core> rdf:type owl:Ontology .
+<https://purl.org/fairops/core> rdf:type owl:Ontology ;
+                                 dc:creator "Daniela Loreti" ,
+                                            "Roberta Calegari" ;
+                                 dc:description "FairOps is an ontology for operational fairness governance in AI systems" ;
+                                 dc:title "FairOps" ;
+                                 <http://purl.org/dc/terms/license> "GNU General Public License v3.0" ,
+                                                                    "http://creativecommons.org/licenses/by/4.0/" ;
+                                 owl:versionInfo 4.2 .
 
 #################################################################
 #    Annotation properties
 #################################################################
 
+###  http://purl.org/dc/elements/1.1/creator
+dc:creator rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/description
+dc:description rdf:type owl:AnnotationProperty .
+
+
 ###  http://purl.org/dc/elements/1.1/source
 dc:source rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/title
+dc:title rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/license
+<http://purl.org/dc/terms/license> rdf:type owl:AnnotationProperty .
 
 
 ###  http://semanticscience.org/resource/hasSynonym
@@ -1242,10 +1265,11 @@ core:EvaluationReportsOnOmissionCoverageGaps rdf:type owl:NamedIndividual ,
                                              skos:definition "assessments that identify and document areas where an AI system or dataset fails to adequately represent certain groups, topics, or scenarios. These reports measure how well the system includes all relevant populations or information, highlighting missing data, underrepresented groups, or overlooked content. They help quantify potential bias or unfairness and guide interventions to improve coverage, ensuring the system’s outputs are more complete, representative, and equitable."@en .
 
 
-###  https://purl.org/fairops/core#ExclusionaryNorm
+###  https://purl.org/fairops/core#ExclusionaryNorms
 core:ExclusionaryNorms rdf:type owl:NamedIndividual ,
-                               core:ConversationFairnessConcern ;
-                      core:arisesIn core:Conversation .
+                                core:ConversationFairnessConcern ;
+                       core:arisesIn core:Conversation ;
+                       skos:definition "An implicit exclusion or devaluation of an already disadvantaged social group, reinforcing the standards, assumptions, and worldviews of the dominant social group, while implicitly sidelining or devaluing those who do not fit within those boundaries"@en .
 
 
 ###  https://purl.org/fairops/core#ExploratoryDataAnalysis
@@ -1327,8 +1351,8 @@ core:ICTSecurity rdf:type owl:NamedIndividual ,
 ###  https://purl.org/fairops/core#IncompleteHistoricalExamples
 core:IncompleteHistoricalExamples rdf:type owl:NamedIndividual ,
                                            core:RecommendationFairnessConcern ;
-                                  skos:definition "A fairness concern in which the historical data available to an AI system provides an incomplete representation of users, items, interactions, or outcomes, causing certain groups or scenarios to be underrepresented and potentially resulting in unfair or less accurate system behavior."@en ;
-                                  core:arisesIn core:Recommendation .
+                                  core:arisesIn core:Recommendation ;
+                                  skos:definition "A fairness concern in which the historical data available to an AI system provides an incomplete representation of users, items, interactions, or outcomes, causing certain groups or scenarios to be underrepresented and potentially resulting in unfair or less accurate system behavior."@en .
 
 
 ###  https://purl.org/fairops/core#InformationRetrival
@@ -1615,9 +1639,6 @@ core:UtilitiesEnergy rdf:type owl:NamedIndividual ,
 #################################################################
 #    Annotations
 #################################################################
-
-core:ExclusionaryNorms skos:definition "An implicit exclusion or devaluation of an already disadvantaged social group, reinforcing the standards, assumptions, and worldviews of the dominant social group, while implicitly sidelining or devaluing those who do not fit within those boundaries"@en .
-
 
 core:IncompleteHystoricalExamples skos:definition "When the historical data on which the recommender system has been trained systematically lacks information that is valuable to provide good recommendations for certain items or users."@en .
 
