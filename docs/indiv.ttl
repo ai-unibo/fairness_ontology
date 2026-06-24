@@ -25,8 +25,8 @@ core:BiasPerpetuation core:exposesTo core:HistoricalBias ,
                                      core:OmittedVariableBias ,
                                      core:RepresentationBias ,
                                      core:SamplingBias ;
-                      core:isAddressedWith core:EqualOpportunity ,
-                                           core:StatisticalParity ;
+                      core:isAddressedWith indiv:EqualOpportunity ,
+                                           indiv:StatisticalParity ;
                       core:requires core:DatasetRepresentativenessReport ,
                                     core:ParityErrorGapDashboard ,
                                     core:PrePostMitigationComparisonReport ;
@@ -35,9 +35,6 @@ core:BiasPerpetuation core:exposesTo core:HistoricalBias ,
                                     indiv:Art.9 .
 
 
-###  https://purl.org/fairops/core#Calibration
-core:Calibration rdf:type owl:NamedIndividual .
-
 
 ###  https://purl.org/fairops/core#DerogatoryLanguage
 core:DerogatoryLanguage core:exposesTo core:HistoricalBias ,
@@ -45,8 +42,8 @@ core:DerogatoryLanguage core:exposesTo core:HistoricalBias ,
                                        core:MaskingBias ,
                                        core:RepresentationBias ,
                                        core:SamplingBias ;
-                        core:isAddressedWith core:EqualOpportunity ,
-                                             core:StatisticalParity ;
+                        core:isAddressedWith indiv:EqualOpportunity ,
+                                             indiv:StatisticalParity ;
                         core:requires core:DocumentationOfSafeguardsAndEffectiveness ,
                                       core:LogsOfInterventions ,
                                       core:LongitudinalKPIsTrendsOverTime ,
@@ -67,7 +64,7 @@ core:DisparateSystemPerformance core:exposesTo core:AlgorithmicBias ,
                                                core:MaskingBias ,
                                                core:RepresentationBias ,
                                                core:SamplingBias ;
-                                core:isAddressedWith core:OverallAccuracyEquality ;
+                                core:isAddressedWith indiv:OverallAccuracyEquality ;
                                 core:requires core:DatasetRepresentativenessReport ,
                                               core:GroupWisePerformanceAndCalibrationDashboards ,
                                               core:RemediationRecordsAndPostFixVerification ;
@@ -80,31 +77,12 @@ core:DisparateSystemPerformance core:exposesTo core:AlgorithmicBias ,
                                               indiv:Art.9 .
 
 
-###  https://purl.org/fairops/core#EqualOpportunity
-core:EqualOpportunity rdf:type owl:NamedIndividual .
-
-
-###  https://purl.org/fairops/core#EqualityOfAttention
-core:EqualityOfAttention rdf:type owl:NamedIndividual .
-
-
-###  https://purl.org/fairops/core#EqualizedOdds
-core:EqualizedOdds rdf:type owl:NamedIndividual .
-
-
-###  https://purl.org/fairops/core#EquityOfAmortizedAttention
-core:EquityOfAmortizedAttention rdf:type owl:NamedIndividual .
-
-
-###  https://purl.org/fairops/core#EquityOfAttention
-core:EquityOfAttention rdf:type owl:NamedIndividual .
-
 
 ###  https://purl.org/fairops/core#Erasure
 core:Erasure core:exposesTo core:MaskingBias ,
                             core:RepresentationBias ;
-             core:isAddressedWith core:EqualOpportunity ,
-                                  core:EqualizedOdds ;
+             core:isAddressedWith indiv:EqualOpportunity ,
+                                  indiv:EqualizedOdds ;
              core:requires core:DatasetRepresentativenessReport ,
                            core:EvaluationReportsOnOmissionCoverageGaps ,
                            core:GovernanceRecordsForDatasetUpdates ;
@@ -119,7 +97,7 @@ core:ExclusionaryNorms rdf:type owl:NamedIndividual ;
                        core:exposesTo core:LinguisticBias ,
                                       core:MaskingBias ,
                                       core:RepresentationBias ;
-                       core:isAddressedWith core:StatisticalParity ;
+                       core:isAddressedWith indiv:StatisticalParity ;
                        core:requires core:LogsOfInterventions ,
                                      core:LongitudinalKPIsTrendsOverTime ,
                                      core:PatternBasedEvaluationResults ,
@@ -142,8 +120,8 @@ core:FeedbackLoopOverfitting core:exposesTo core:AlgorithmicBias ,
                                             core:OmittedVariableBias ,
                                             core:RepresentationBias ,
                                             core:SamplingBias ;
-                             core:isAddressedWith core:Calibration ,
-                                                  core:StatisticalParity ;
+                             core:isAddressedWith indiv:Calibration ,
+                                                  indiv:StatisticalParity ;
                              core:requires core:DriftContextShiftLogs ,
                                            core:LongitudinalParityErrorDivergenceTrendsReport ,
                                            core:RetrainingDecisionRecordsAndEffectivenessEvidence ;
@@ -165,9 +143,9 @@ core:IncompleteHistoricalExamples core:exposesTo core:AlgorithmicBias ,
                                                  core:HistoricalBias ,
                                                  core:RepresentationBias ,
                                                  core:SamplingBias ;
-                                  core:isAddressedWith core:EqualOpportunity ,
-                                                       core:OverallAccuracyEquality ,
-                                                       core:StatisticalParity ;
+                                  core:isAddressedWith indiv:EqualOpportunity ,
+                                                       indiv:OverallAccuracyEquality ,
+                                                       indiv:StatisticalParity ;
                                   core:requires core:DocumentationOnJustificationOfEnrichmentStrategiesAndResidualRisk ;
                                   core:triggers indiv:Art.10.3 ,
                                                 indiv:Art.10.4 ,
@@ -183,10 +161,10 @@ core:Misrepresentation core:exposesTo core:AlgorithmicBias ,
                                       core:OmittedVariableBias ,
                                       core:RepresentationBias ,
                                       core:SamplingBias ;
-                       core:isAddressedWith core:Calibration ,
-                                            core:EqualOpportunity ,
-                                            core:EqualizedOdds ,
-                                            core:StatisticalParity ;
+                       core:isAddressedWith indiv:Calibration ,
+                                            indiv:EqualOpportunity ,
+                                            indiv:EqualizedOdds ,
+                                            indiv:StatisticalParity ;
                        core:requires core:LogsOfInterventions ,
                                      core:RemediationRecordsAndPostFixVerification ,
                                      core:SegmentLevelCalibrationPerformanceEvidence ,
@@ -208,7 +186,7 @@ core:MisrepresentationsInProductMarketing core:exposesTo core:AlgorithmicBias ,
                                                          core:MaskingBias ,
                                                          core:RepresentationBias ,
                                                          core:SamplingBias ;
-                                          core:isAddressedWith core:Calibration ;
+                                          core:isAddressedWith indiv:Calibration ;
                                           core:requires core:LogsOfInterventions ,
                                                         core:ParityErrorGapDashboard ,
                                                         core:SegmentLevelCalibrationPerformanceEvidence ;
@@ -217,32 +195,23 @@ core:MisrepresentationsInProductMarketing core:exposesTo core:AlgorithmicBias ,
                                                         indiv:Art.9 .
 
 
-###  https://purl.org/fairops/core#OverallAccuracyEquality
-core:OverallAccuracyEquality rdf:type owl:NamedIndividual .
-
-
 ###  https://purl.org/fairops/core#PopularItemsOverrecommended
 core:PopularItemsOverrecommended core:exposesTo core:AlgorithmicBias ,
                                                 core:HistoricalBias ,
                                                 core:MaskingBias ,
                                                 core:RepresentationBias ,
                                                 core:SamplingBias ;
-                                 core:isAddressedWith core:EqualityOfAttention ,
-                                                      core:EquityOfAmortizedAttention ,
-                                                      core:EquityOfAttention ,
-                                                      core:OverallAccuracyEquality ,
-                                                      core:StatisticalParity ;
+                                 core:isAddressedWith indiv:EqualityOfAttention ,
+                                                      indiv:EquityOfAmortizedAttention ,
+                                                      indiv:EquityOfAttention ,
+                                                      indiv:OverallAccuracyEquality ,
+                                                      indiv:StatisticalParity ;
                                  core:requires core:ExposureDistributionReports ,
                                                core:HumanOversightRulesThresholdsForIntervention ,
                                                core:ParityErrorGapDashboard ;
                                  core:triggers indiv:Art.12 ,
                                                indiv:Art.14 ,
                                                indiv:Art.9 .
-
-
-###  https://purl.org/fairops/core#StatisticalParity
-core:StatisticalParity rdf:type owl:NamedIndividual .
-
 
 ###  https://purl.org/fairops/core#Stereotyping
 core:Stereotyping core:exposesTo core:AlgorithmicBias ,
@@ -251,8 +220,8 @@ core:Stereotyping core:exposesTo core:AlgorithmicBias ,
                                  core:MaskingBias ,
                                  core:RepresentationBias ,
                                  core:SamplingBias ;
-                  core:isAddressedWith core:EqualOpportunity ,
-                                       core:StatisticalParity ;
+                  core:isAddressedWith indiv:EqualOpportunity ,
+                                       indiv:StatisticalParity ;
                   core:requires core:BenchmarkAndCounterfactualEvaluationReports ,
                                 core:GovernanceRecordsForDatasetUpdates ,
                                 core:LongitudinalKPIsTrendsOverTime ,
@@ -272,7 +241,7 @@ core:Toxicity core:exposesTo core:HistoricalBias ,
                              core:MaskingBias ,
                              core:RepresentationBias ,
                              core:SamplingBias ;
-              core:isAddressedWith core:StatisticalParity ;
+              core:isAddressedWith indiv:StatisticalParity ;
               core:requires core:DocumentationOfSafeguardsAndEffectiveness ,
                             core:GlobalKPIEvaluationReport ,
                             core:GroupWisePerformanceAndCalibrationDashboards ,
@@ -1424,10 +1393,6 @@ indiv:Calibration rdf:type owl:NamedIndividual ,
                                 core:TextGeneration .
 
 
-###  https://purl.org/fairops/indiv#MatchingConditionalFrequencies
-
-###  https://purl.org/fairops/indiv#TestFairness
-
 ###  https://purl.org/fairops/indiv#CategoricalBiasScore
 indiv:CategoricalBiasScore rdf:type owl:NamedIndividual ,
                                     core:MaskedTokenFairnessMetric ;
@@ -2100,9 +2065,6 @@ c_{\\sigma,k}(x)
 \\sum_{y \\in {nbr}_{\\sigma}(x,k)} f(y) \\right| .
 \\]""" .
 
-
-###  https://purl.org/fairops/indiv#IndividualFairness
-indiv:IndividualFairness rdf:type owl:NamedIndividual .
 
 
 ###  https://purl.org/fairops/indiv#IndividualUnfairness

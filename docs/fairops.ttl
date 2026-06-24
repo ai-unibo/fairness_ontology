@@ -1327,6 +1327,7 @@ core:ICTSecurity rdf:type owl:NamedIndividual ,
 ###  https://purl.org/fairops/core#IncompleteHistoricalExamples
 core:IncompleteHistoricalExamples rdf:type owl:NamedIndividual ,
                                            core:RecommendationFairnessConcern ;
+                                  skos:definition "A fairness concern in which the historical data available to an AI system provides an incomplete representation of users, items, interactions, or outcomes, causing certain groups or scenarios to be underrepresented and potentially resulting in unfair or less accurate system behavior."@en ;
                                   core:arisesIn core:Recommendation .
 
 
