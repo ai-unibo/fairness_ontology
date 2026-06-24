@@ -46,7 +46,7 @@ PREFIX core: <https://purl.org/fairops/core#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 SELECT ?notion ?def
 WHERE {
-    ?fc core:isAddressedWith ?notion .
+    core:PopularItemsOverrecommended core:isAddressedWith ?notion .
     ?notion skos:definition ?def.
 }
 ```
@@ -58,12 +58,20 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX core: <https://purl.org/fairops/core#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX indiv: <https://purl.org/fairops/indiv#>
 SELECT ?conflNotion ?def
 WHERE {
     indiv:StatisticalParity core:conflictsWith ?conflNotion .
     ?conflNotion skos:definition ?def.
 }
 ```
+This query is based on the `core:conflictsWith` relation which is defined as a result of SWRL rules like the following:
+```
+core:IndependenceFairnessNotion(?a) 
+    ∧ core:SufficiencyFairnessNotion(?b) 
+-> core:independenceSufficiencyConflictsWith(?a, ?b)
+```
+ As a consequence, in order to extract the notions conflicing with the specified one, a reasoner (e.g., HermiT reasoner in Protege) must be employed and the Drools engine must be called to materialize inferred axioms prior executing the SPARQL query. 
 
 #### (Q5) Which fairness metrics are appropriate to a specific concern in the given AI context?
 ```
@@ -75,7 +83,7 @@ PREFIX core: <https://purl.org/fairops/core#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 SELECT ?metric ?def
 WHERE {
-    ?fc core:isQuantifiedBy ?metric .
+    core:PopularItemsOverrecommended core:isQuantifiedBy ?metric .
     ?metric skos:definition ?def.
 }
 ```
@@ -99,7 +107,7 @@ PREFIX core: <https://purl.org/fairops/core#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 SELECT ?mitTech ?def
 WHERE {
-    ?fc core:mitigatedWith ?mitTech .
+    core:PopularItemsOverrecommended core:mitigatedWith ?mitTech .
     ?mitTech skos:definition ?def;
         rdf:type ?type .
     ?type rdfs:subClassOf* ?rootMitTech .
@@ -132,9 +140,7 @@ PREFIX core: <https://purl.org/fairops/core#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 SELECT ?evidenceArtifact ?def
 WHERE {
-    ?fc core:requires ?evidenceArtifact .
-    ?fc rdf:type ?type .
-    ?type rdfs:subClassOf* core:FairnessConcern .
+    core:PopularItemsOverrecommended core:requires ?evidenceArtifact .
     ?evidenceArtifact skos:definition ?def.
 }
 ```

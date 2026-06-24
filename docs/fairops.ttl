@@ -15,7 +15,6 @@
 @base <https://purl.org/fairops/core#> .
 
 <https://purl.org/fairops/core> rdf:type owl:Ontology ;
-                                 owl:imports docbias: ;
                                  dc:creator "Daniela Loreti" ,
                                             "Roberta Calegari" ;
                                  dc:description "FairOps is an ontology for operational fairness governance in AI systems" ;
@@ -166,6 +165,7 @@ core:hasBeenTestedOn rdf:type owl:ObjectProperty ;
 ###  https://purl.org/fairops/core#independenceSeparationConflictsWith
 core:independenceSeparationConflictsWith rdf:type owl:ObjectProperty ;
                                          rdfs:subPropertyOf core:conflictsWith ;
+                                         rdf:type owl:SymmetricProperty ;
                                          rdfs:comment "Assume Y is binary, A is not independent of Y, and R is not independent of Y. Then, independence and separation cannot both hold." .
 
 
@@ -359,6 +359,7 @@ core:requires rdf:type owl:ObjectProperty ;
 ###  https://purl.org/fairops/core#separationSufficiencyConflictsWith
 core:separationSufficiencyConflictsWith rdf:type owl:ObjectProperty ;
                                         rdfs:subPropertyOf core:conflictsWith ;
+                                        rdf:type owl:SymmetricProperty ;
                                         rdfs:comment "Assume that all events in the joint distribution of (A, R, Y) have positive probability, and assume A is not independent of Y. Then, separation and sufficiency cannot both hold. For binary classifier, this means: Assume Y is not independent of A and assume \\hat{Y} is a binary classifier with a nonzero false positive rate. Then, separation and sufficiency cannot both hold." .
 
 
@@ -397,6 +398,14 @@ core:scientificArtifactDescription rdf:type owl:DatatypeProperty ;
 #################################################################
 #    Classes
 #################################################################
+
+###  https://nobias-project.eu/nobias/Bias
+docbias:Bias rdf:type owl:Class .
+
+
+###  https://nobias-project.eu/nobias/Harm
+docbias:Harm rdf:type owl:Class .
+
 
 ###  https://purl.org/fairops/core#AILifecycleStep
 core:AILifecycleStep rdf:type owl:Class ;
