@@ -10,17 +10,18 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix swrl: <http://www.w3.org/2003/11/swrl#> .
 @prefix swrla: <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix docbias: <https://nobias-project.eu/nobias/> .
 @prefix resource: <http://semanticscience.org/resource/> .
-@base <https://purl.org/fairops/core#> .
+@base <https://purl.org/fairops/core> .
 
 <https://purl.org/fairops/core> rdf:type owl:Ontology ;
                                  dc:creator "Daniela Loreti" ,
                                             "Roberta Calegari" ;
                                  dc:description "FairOps is an ontology for operational fairness governance in AI systems" ;
                                  dc:title "FairOps" ;
-                                 <http://purl.org/dc/terms/license> "GNU General Public License v3.0" ,
-                                                                    "http://creativecommons.org/licenses/by/4.0/" ;
+                                 dcterms:license "GNU General Public License v3.0" ,
+                                                 "http://creativecommons.org/licenses/by/4.0/" ;
                                  owl:versionInfo 4.2 .
 
 #################################################################
@@ -44,7 +45,7 @@ dc:title rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/terms/license
-<http://purl.org/dc/terms/license> rdf:type owl:AnnotationProperty .
+dcterms:license rdf:type owl:AnnotationProperty .
 
 
 ###  http://semanticscience.org/resource/hasSynonym
@@ -473,7 +474,7 @@ core:BlackBoxDecisionOnly rdf:type owl:Class ;
                                             owl:onProperty core:isAppliedAt ;
                                             owl:allValuesFrom core:Post-processing
                                           ] ;
-                          rdfs:label "Decision Layer Control - Black-box Model (I)" .
+                          rdfs:label "Decision Layer Control - Black-box Model (I)"@en .
 
 
 ###  https://purl.org/fairops/core#Blinding
@@ -548,7 +549,7 @@ core:CounterfactualAugmentation rdf:type owl:Class ;
 ###  https://purl.org/fairops/core#DataGeneration
 core:DataGeneration rdf:type owl:Class ;
                     rdfs:subClassOf core:DataResourcesMitigation ;
-                    rdfs:label "Data Acquisition/Generation (D)" .
+                    rdfs:label "Data Acquisition/Generation (D)"@en .
 
 
 ###  https://purl.org/fairops/core#DataResourcesMitigation
@@ -608,13 +609,13 @@ core:FairnessRegularization rdf:type owl:Class ;
 ###  https://purl.org/fairops/core#FeatureLevelColumnIntervention
 core:FeatureLevelColumnIntervention rdf:type owl:Class ;
                                     rdfs:subClassOf core:DataResourcesMitigation ;
-                                    rdfs:label "Feature-level Column Intervention (A)" .
+                                    rdfs:label "Feature-level Column Intervention (A)"@en .
 
 
 ###  https://purl.org/fairops/core#FeatureLevelRowReweightingResampling
 core:FeatureLevelRowReweightingResampling rdf:type owl:Class ;
                                           rdfs:subClassOf core:DataResourcesMitigation ;
-                                          rdfs:label "Feature-level Row Reweighting/Resampling (C)" .
+                                          rdfs:label "Feature-level Row Reweighting/Resampling (C)"@en .
 
 
 ###  https://purl.org/fairops/core#FeatureReview
@@ -628,7 +629,7 @@ core:FullFineTuning rdf:type owl:Class ;
                     rdfs:subClassOf core:ModelAccessResourcesMitigation ,
                                     core:TrainingResourcesMitigation ;
                     owl:disjointWith core:PartialFineTuning ;
-                    rdfs:label "Full Fine-tuning - White-box Model (F)" .
+                    rdfs:label "Full Fine-tuning - White-box Model (F)"@en .
 
 
 ###  https://purl.org/fairops/core#FullParameterDebiasing
@@ -647,7 +648,7 @@ core:FullPruning rdf:type owl:Class ;
 ###  https://purl.org/fairops/core#FullRetraining
 core:FullRetraining rdf:type owl:Class ;
                     rdfs:subClassOf core:TrainingResourcesMitigation ;
-                    rdfs:label "Full Retraining (E)" .
+                    rdfs:label "Full Retraining (E)"@en .
 
 
 ###  https://purl.org/fairops/core#FullWeightRedistribution
@@ -673,7 +674,7 @@ core:Governance rdf:type owl:Class ;
 ###  https://purl.org/fairops/core#GovernanceOnly
 core:GovernanceOnly rdf:type owl:Class ;
                     rdfs:subClassOf core:HumanOversightMitigation ;
-                    rdfs:label "Governance-only Interventions (J)" .
+                    rdfs:label "Governance-only Interventions (J)"@en .
 
 
 ###  https://purl.org/fairops/core#GranularityMetric
@@ -689,7 +690,7 @@ core:GreyBoxScores rdf:type owl:Class ;
                                      owl:onProperty core:isAppliedAt ;
                                      owl:allValuesFrom core:Post-processing
                                    ] ;
-                   rdfs:label "Scores and Probabilities Access - Grey-box Model (H)" .
+                   rdfs:label "Scores and Probabilities Access - Grey-box Model (H)"@en .
 
 
 ###  https://purl.org/fairops/core#GroupFairnessNotion
@@ -752,7 +753,7 @@ core:IndividualFairnessNotion rdf:type owl:Class ;
 ###  https://purl.org/fairops/core#InstanceLevelRowIntervention
 core:InstanceLevelRowIntervention rdf:type owl:Class ;
                                   rdfs:subClassOf core:DataResourcesMitigation ;
-                                  rdfs:label "Feature-level Row Intervention (B)" .
+                                  rdfs:label "Feature-level Row Intervention (B)"@en .
 
 
 ###  https://purl.org/fairops/core#InstanceWeighting
@@ -863,7 +864,7 @@ core:ParityBasedFairnessMetric rdf:type owl:Class ;
 core:PartialFineTuning rdf:type owl:Class ;
                        rdfs:subClassOf core:ModelAccessResourcesMitigation ,
                                        core:TrainingResourcesMitigation ;
-                       rdfs:label "Partial Fine-tuning - White-box Model (G)" .
+                       rdfs:label "Partial Fine-tuning - White-box Model (G)"@en .
 
 
 ###  https://purl.org/fairops/core#PartialPruning
@@ -1361,7 +1362,8 @@ core:ICTSecurity rdf:type owl:NamedIndividual ,
 core:IncompleteHistoricalExamples rdf:type owl:NamedIndividual ,
                                            core:RecommendationFairnessConcern ;
                                   core:arisesIn core:Recommendation ;
-                                  skos:definition "A fairness concern in which the historical data available to an AI system provides an incomplete representation of users, items, interactions, or outcomes, causing certain groups or scenarios to be underrepresented and potentially resulting in unfair or less accurate system behavior."@en .
+                                  skos:definition "A fairness concern in which the historical data available to an AI system provides an incomplete representation of users, items, interactions, or outcomes, causing certain groups or scenarios to be underrepresented and potentially resulting in unfair or less accurate system behavior."@en ,
+                                                  "When the historical data on which the recommender system has been trained systematically lacks information that is valuable to provide good recommendations for certain items or users."@en .
 
 
 ###  https://purl.org/fairops/core#InformationRetrival
