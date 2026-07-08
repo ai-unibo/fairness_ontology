@@ -13,7 +13,7 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix docbias: <https://nobias-project.eu/nobias/> .
 @prefix resource: <http://semanticscience.org/resource/> .
-@base <https://purl.org/fairops/core> .
+@base <https://purl.org/fairops/core#> .
 
 <https://purl.org/fairops/core> rdf:type owl:Ontology ;
                                  dc:creator "Daniela Loreti" ,
@@ -1362,8 +1362,7 @@ core:ICTSecurity rdf:type owl:NamedIndividual ,
 core:IncompleteHistoricalExamples rdf:type owl:NamedIndividual ,
                                            core:RecommendationFairnessConcern ;
                                   core:arisesIn core:Recommendation ;
-                                  skos:definition "A fairness concern in which the historical data available to an AI system provides an incomplete representation of users, items, interactions, or outcomes, causing certain groups or scenarios to be underrepresented and potentially resulting in unfair or less accurate system behavior."@en ,
-                                                  "When the historical data on which the recommender system has been trained systematically lacks information that is valuable to provide good recommendations for certain items or users."@en .
+                                  skos:definition "A fairness concern in which the historical data available to an AI system provides an incomplete representation of users, items, interactions, or outcomes, causing certain groups or scenarios to be underrepresented and potentially resulting in unfair or less accurate system behavior. Occurs when the historical data on which the recommender system has been trained systematically lacks information that is valuable to provide good recommendations for certain items or users."@en .
 
 
 ###  https://purl.org/fairops/core#InformationRetrival
