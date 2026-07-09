@@ -10,6 +10,7 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX core: <https://purl.org/fairops/core#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX indiv: <https://purl.org/fairops/indiv#>
 ```
 
 We start by considering the inputs. The user is requested to select `Application Domain`, `AI Type of Use` and `AI Task` of her AI system. Hence, the first thing we need is a query to extract the possible values of these fields. The user will select the best ones to describe its application.
@@ -160,3 +161,38 @@ WHERE {
 }
 ```
 
+In normal conditions, this query does not retrive anything because the `isQuantifiedBy` relation is the result of a SWRL rule that needs to be run with proper tools (e.g., Protegé's SWRLTab, Owlready, etc.) in order to generate the relations between encoded individuals.
+
+The rational bewind this is the following: from the `AI Type Of Use`, we extract the `FairnessConcern`s, from the concers we get the `FairnessNotion`s. Now there is a moltitude of `FairnessMetrics` that can be connected to a given notion, but not all of them are useful in the considered `AI Type Of Use`. For example, a metric for `Statistical Parity` is `Disparate Impact`, which is useful in a class `Prediction` the setting, but not particularly useful by itself if our `AI Type Of Use` is `Recommendation`. Hence, the ontology contains the following SWRL rule:
+
+```
+core:arisesIn(?concern, ?typeOfUse) ^ core:isSuitableFor(?metric, ?typeOfUse) ^ core:measures(?metric, ?notion) ^ core:isAddressedWith(?concern, ?notion) -> core:isQuantifiedBy(?concern, ?metric)
+```
+
+After the execution of this rule, the previous query retrives relevant `FairnessMetrics` individuals for the given scenario.
+
+However, **if we are just interested in ALL the metrics that can measure the extracted notions**, it is possible to retrive such set with the following query:
+
+```SQL
+SELECT DISTINCT ?fm
+WHERE {
+    ?fm core:measures indiv:StatisticalParity .
+}
+```
+**NB:** this query retrives a superset of the previous one based on `isQuantifiedBy` because the relation `measures` does not take into account the `AI Type Of Use`
+
+### Retriving relevant mitigation techniques
+
+Mitigation techniques are again related to the notions/concerns and type of uses by a SWRL rule as follows:
+```
+core:isQuantifiedBy(?concern, ?metric) ^ core:enforces(?mitTech, ?metric) -> core:mitigatedWith(?concern, ?mitTech)
+```
+So, *after* running the previous SWRL rule, the following query retrives relevant mitigation techniques:
+
+```SQL
+SELECT DISTINCT ?mitTech
+WHERE {
+    core:BiasPerpetuation core:mitigatedWith ?mitTech .
+}
+```
+**NB:** at the moment the ontology lacks many `enforces` relations between individuals of the classes `Mitigation Technique` and `FairnessMetric`. As a consequence, it is possible that the SWRL rule does not create the `mitigatedWith` relations one would imagine, and consequently, the previous SPARQL query retrives nothing. Relations between individuals will be defined soon.
