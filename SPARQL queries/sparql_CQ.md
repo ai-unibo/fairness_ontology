@@ -62,7 +62,7 @@ PREFIX indiv: <https://purl.org/fairops/indiv#>
 SELECT ?conflNotion ?def
 WHERE {
     indiv:StatisticalParity core:conflictsWith ?conflNotion .
-    ?conflNotion skos:definition ?def.
+    ?notion core:scientificArtifactDescription ?def.
 }
 ```
 This query is based on the `core:conflictsWith` relation which is defined as a result of SWRL rules like the following:
