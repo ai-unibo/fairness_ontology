@@ -101,9 +101,10 @@ WHERE {
 
 Once `FairnessConcern`s have been extracted, we can get all `FairnessNotion`s connect to each concern in this way (let's consider the concern called `BiasPerpetuation`):
 ```SQL
-SELECT ?notion 
+SELECT ?notion ?def
 WHERE {
     core:BiasPerpetuation core:isAddressedWith ?notion .
+    ?notion core:scientificArtifactDescription ?def.
 }
 ```
 

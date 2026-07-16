@@ -2250,7 +2250,9 @@ indiv:OverallAccuracyEquality a owl:NamedIndividual,
     core:isSuitableFor core:Conversation,
         core:Prediction ;
     core:refersTo core:Classification,
-        core:TextGeneration .
+        core:TextGeneration ;
+    core:scientificArtifactDescription """The accuracy of the classification must be the same for both groups:
+$Accuracy(a) =Accuracy(b)$, i.e., $(TPa+TNa)/(P+N) = (TPb+TNb)/(P+N)$""" .
 
 indiv:Variance a owl:NamedIndividual,
         core:AmortizedGranularityMetric,
@@ -2550,5 +2552,7 @@ indiv:StatisticalParity a owl:NamedIndividual,
     core:isUsedBy papers:2015_FELDMAN,
         papers:2017_CORBETT_DAVIES ;
     core:refersTo core:Classification,
-        core:TextGeneration .
+        core:TextGeneration ;
+    core:scientificArtifactDescription """Each group must have the same probability of being classified with the positive outcome. I.e., the fraction of predicted positive of group a should be equal to that of group b.
+$Pr(\\hat{Y} = 1|A= a) = Pr(\\hat{Y} = 1| A=b)$""" .
 

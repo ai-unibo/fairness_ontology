@@ -47,7 +47,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 SELECT ?notion ?def
 WHERE {
     core:PopularItemsOverrecommended core:isAddressedWith ?notion .
-    ?notion skos:definition ?def.
+    ?notion core:scientificArtifactDescription ?def.
 }
 ```
 #### (Q4) Which fairness notions conflict with a selected one?
