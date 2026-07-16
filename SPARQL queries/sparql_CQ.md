@@ -28,7 +28,7 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX core: <https://purl.org/fairops/core#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-SELECT  ?fc ?def
+SELECT  DISTINCT ?fc ?def
 WHERE {
     ?fc rdf:type ?type .
     ?type rdfs:subClassOf* core:FairnessConcern .
@@ -60,10 +60,9 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX core: <https://purl.org/fairops/core#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX indiv: <https://purl.org/fairops/indiv#>
-SELECT ?conflNotion ?def
+SELECT ?conflNotion 
 WHERE {
     indiv:StatisticalParity core:conflictsWith ?conflNotion .
-    ?notion core:scientificArtifactDescription ?def.
 }
 ```
 This query is based on the `core:conflictsWith` relation which is defined as a result of SWRL rules like the following:
@@ -82,10 +81,9 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX core: <https://purl.org/fairops/core#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-SELECT ?metric ?def
+SELECT ?metric 
 WHERE {
     core:PopularItemsOverrecommended core:isQuantifiedBy ?metric .
-    ?metric skos:definition ?def.
 }
 ```
 In this query, the semantic of the relation `isQuantifiedBy` is enriched by a guideline encoded in a SWRL rule specified as follows:
@@ -109,8 +107,8 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 SELECT ?mitTech ?def
 WHERE {
     core:PopularItemsOverrecommended core:mitigatedWith ?mitTech .
-    ?mitTech skos:definition ?def;
-        rdf:type ?type .
+    ?mitTech core:scientificArtifactDescription ?def ;
+            rdf:type ?type .
     ?type rdfs:subClassOf* ?rootMitTech .
 
     FILTER(
