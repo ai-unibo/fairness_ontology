@@ -12,9 +12,10 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX core: <https://purl.org/fairops/core#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-SELECT ?legalRequirement
+SELECT ?legalRequirement ?com
 WHERE {
     core:HumanResources core:triggers ?legalRequirement .
+    ?legalRequirement rdfs:comment ?com
 }
 ```
 
